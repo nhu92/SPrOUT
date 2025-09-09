@@ -1,0 +1,37 @@
+# General project settings
+proj_name: my_project
+threads: 4
+
+# Input files and directories
+read1: reads_1.fastq
+read2: reads_2.fastq
+mega353: angiosperms353_v2_interim_targetfile.fasta
+gene_list: gene_list.txt
+
+# Output directories
+output_hyb: 01_hyb_output
+output_exon: 02_exon_extracted
+ref_alignment: ref
+output_dir: 03_phylo_results
+
+# Exon assembly/extraction
+overlap: 0.8
+
+# Exon tree building
+min_exon_size: 80
+tree_method: fasttree         # or "iqtree"
+iqtree_mode: fixed            # options: fixed, fixed+gamma, mfp
+
+# Distance matrix calculation
+threshold: 1.96
+use_flag: false               # true or false
+use_threshold: true           # true or false (should not both be true with use_flag)
+input_dir: 03_phylo_results
+output_dir: 04_all_trees
+
+# Prediction/summary
+input_file: 04_all_trees/my_project.cumulative_dist.csv
+output_file: 04_all_trees/my_project.summary_scores.csv
+taxonomic_level: g            # o = Order, f = Family, g = Genus, s = Species
+zscore_threshold: 2.0
+taxonomy_output_file: 04_all_trees/selected_taxa.txt
