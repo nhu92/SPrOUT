@@ -1,22 +1,25 @@
-# General project settings
+# Global configuration settings
 proj_name: test_project
-threads: 4
+threads: 64
 
-# Input files and directories
+# 01_exon_assembly_and_extraction configuration
 read1: reads_1.fastq
 read2: reads_2.fastq
 mega353: angiosperms353_v2_interim_targetfile.fasta
 gene_list: gene_list.txt
-
-# Output directories
-reference_alignment: ref
+overlap: 0.8
 output_hyb: 01_hyb_output
 output_exon: 02_exon_extracted
+
+# 02_phylo_results configuration
+input_exon: 02_exon_extracted
+ref_alignment: ref
+gene_list: gene_list.txt
 output_phylo: 03_phylo_results
 output_tree: 04_all_trees
 
 # Exon assembly/extraction
-overlap: 0.8
+
 
 # Exon tree building
 min_exon_size: 80

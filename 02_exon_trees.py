@@ -18,7 +18,7 @@ Arguments:
 - -r, --ref_alignment: Directory of reference alignments
 - -g, --gene_list: Path to gene list file
 - -p, --proj_name: Project name identifier
-- -o, --output_dir: Directory for output trees
+- -o, --output_phylo: Directory for output trees
 - -m, --min_exon_size: Minimum exon length to include in analysis
 - --tree_method: Phylogenetic tree construction method (fasttree or iqtree)
 - --iqtree_mode: IQ-TREE mode (fixed, fixed+gamma, or mfp)
@@ -26,7 +26,7 @@ Arguments:
 Usage:
 python 02_exon_trees.py -c config.yaml -t 8 -e 02_exon_extracted -r ref -g gene_list.txt -p my_project -o 03_phylo_results -m 80 --tree_method fasttree --iqtree_mode fixed
 or
-python 02_exon_trees.py --threads 8 --input_exon 02_exon_extracted --ref_alignment ref --gene_list gene_list.txt --proj_name my_project --output_dir 03_phylo_results --min_exon_size 80 --tree_method fasttree --iqtree_mode fixed
+python 02_exon_trees.py --threads 8 --input_exon 02_exon_extracted --ref_alignment ref --gene_list gene_list.txt --proj_name my_project --output_phylo 03_phylo_results --min_exon_size 80 --tree_method fasttree --iqtree_mode fixed
 """
 import os
 import glob
@@ -43,7 +43,7 @@ def all_sequences_meet_minimum_length(fasta_path, min_length=80):
     return True
 
 def process_gene_exon_alignment(
-    gene_name, threads, input_dir, ref_dir, output_dir, log_file, min_size,
+    gene_name, threads, input_dir, ref_dir, output_phylo, log_file, min_size,
     tree_method="fasttree", iqtree_mode="fixed"
 ):
     """
@@ -54,7 +54,7 @@ def process_gene_exon_alignment(
         threads: Number of threads to use for parallel processing.
         input_dir: Directory containing exon FASTA files.
         ref_dir: Directory containing reference alignments.
-        output_dir: Directory to save output trees.
+        output_phylo: Directory to save output trees.
         log_file: Log file to record status messages.
         min_size: Minimum length of exon sequences to include.
         tree_method: Phylogenetic tree construction method ('fasttree' or 'iqtree').
@@ -81,18 +81,18 @@ def process_gene_exon_alignment(
             continue
         # Alignment with MAFFT
         ref_alignment = os.path.join(ref_dir, f"{gene_name}.fasta")
-        aligned_out = os.path.join(output_dir, f"{gene_name}_exon_{i}_aligned.fasta")
+        aligned_out = os.path.join(output_phylo, f"{gene_name}_exon_{i}_aligned.fasta")
         mafft_cmd = (
             f"mafft --preservecase --maxiterate 1000 --localpair --adjustdirection "
             f"--thread {threads} --addfragments {exon_path} {ref_alignment} > {aligned_out}"
         )
         run_command(mafft_cmd, f"MAFFT alignment for {gene_name} exon {i}", log_file)
         # Trim alignment with trimAl
-        trimmed_out = os.path.join(output_dir, f"{gene_name}_exon_{i}_trimmed.fasta")
+        trimmed_out = os.path.join(output_phylo, f"{gene_name}_exon_{i}_trimmed.fasta")
         trimal_cmd = f"trimal -in {aligned_out} -out {trimmed_out} -gt 0.5"
         run_command(trimal_cmd, f"Trim alignment for {gene_name} exon {i}", log_file)
         # Build tree with selected method
-        tree_out = os.path.join(output_dir, f"{gene_name}_exon_{i}.tre")
+        tree_out = os.path.join(output_phylo, f"{gene_name}_exon_{i}.tre")
         if tree_method == "fasttree":
             fasttree_cmd = f"fasttree -gtr -gamma -nt {trimmed_out} > {tree_out}"
             run_command(fasttree_cmd, f"Tree construction for {gene_name} exon {i} (FastTree)", log_file)
@@ -123,7 +123,7 @@ if __name__ == "__main__":
     parser.add_argument("-r", "--ref_alignment", help="Directory of reference alignments", default="ref")
     parser.add_argument("-g", "--gene_list", help="Path to gene list file", default="gene_list.txt")
     parser.add_argument("-p", "--proj_name", help="Project name identifier")
-    parser.add_argument("-o", "--output_dir", help="Directory for output trees", default="03_phylo_results")
+    parser.add_argument("-o", "--output_phylo", help="Directory for output trees", default="03_phylo_results")
     parser.add_argument("-m", "--min_exon_size", type=int, help="Minimum exon length to include", default=80)
     parser.add_argument("--tree_method", choices=["fasttree", "iqtree"], default="fasttree",
                         help="Phylogeny method: fasttree or iqtree (default: fasttree)")
@@ -141,7 +141,7 @@ if __name__ == "__main__":
     input_exon_dir = args.input_exon if args.input_exon != parser.get_default('input_exon') else config.get('input_exon', "02_exon_extracted")
     ref_dir = args.ref_alignment if args.ref_alignment != parser.get_default('ref_alignment') else config.get('ref_alignment', "ref")
     gene_list_path = args.gene_list if args.gene_list != parser.get_default('gene_list') else config.get('gene_list', "gene_list.txt")
-    output_dir = args.output_dir if args.output_dir != parser.get_default('output_dir') else config.get('output_dir', "03_phylo_results")
+    output_phylo = args.output_phylo if args.output_phylo != parser.get_default('output_phylo') else config.get('output_phylo', "03_phylo_results")
     min_size = args.min_exon_size if args.min_exon_size != parser.get_default('min_exon_size') else config.get('min_exon_size', 80)
     tree_method = args.tree_method if args.tree_method else config.get('tree_method', 'fasttree')
     iqtree_mode = args.iqtree_mode if args.iqtree_mode else config.get('iqtree_mode', 'fixed')
@@ -164,13 +164,13 @@ if __name__ == "__main__":
     log_status(log_file, f"  Reference Alignment Directory: {ref_dir}")
     log_status(log_file, f"  Gene List: {gene_list_path}")
     log_status(log_file, f"  Project Name: {proj_name}")
-    log_status(log_file, f"  Output Directory: {output_dir}")
+    log_status(log_file, f"  Output Directory: {output_phylo}")
     log_status(log_file, f"  Minimum Exon Size: {min_size}")
     log_status(log_file, f"  Tree Method: {tree_method}")
     if tree_method == "iqtree":
         log_status(log_file, f"  IQ-TREE Mode: {iqtree_mode}")
-    os.makedirs(output_dir, exist_ok=True)
-    log_status(log_file, f"Created directory {output_dir}")
+    os.makedirs(output_phylo, exist_ok=True)
+    log_status(log_file, f"Created directory {output_phylo}")
     # Read gene list and execute alignments/trees in parallel
     with open(gene_list_path, 'r') as f:
         genes = [line.strip() for line in f if line.strip()]
@@ -178,7 +178,7 @@ if __name__ == "__main__":
         futures = [
             executor.submit(
                 process_gene_exon_alignment,
-                gene, threads, input_exon_dir, ref_dir, output_dir, log_file, min_size,
+                gene, threads, input_exon_dir, ref_dir, output_phylo, log_file, min_size,
                 tree_method, iqtree_mode
             )
             for gene in genes
