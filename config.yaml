@@ -21,10 +21,9 @@ tree_method: fasttree         # "fasttree"or "iqtree"
 iqtree_mode: fixed            # if choose iqtree, options: fixed, fixed+gamma, mfp
 
 # 03_cumulative_distance configuration
-threshold: 1.96
 input_phylo: 03_phylo_results
 output_tree: 04_all_trees
-
+threshold: 1.96
 use_flag: false               # true or false
 use_threshold: true           # true or false (should not both be true with use_flag)
 

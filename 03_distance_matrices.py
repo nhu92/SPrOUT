@@ -15,12 +15,12 @@ Arguments:
 - `--use_flag`: Use flag method for filtering (min=0, others=999).
 - `--use_threshold`: Enable threshold-based filtering (default: off).
 - `--input_phylo`: Directory containing input .tre files (default: "03_phylo_results").
-- `--output_dir`: Directory for output matrices (default: "04_all_trees").
+- `--output_tree`: Directory for output matrices (default: "04_all_trees").
 
 Usage:
-python 03_distance_matrices.py -c config.yaml -t 4 -p my_project -g gene_list.txt --threshold 1.96 --use_flag --input_phylo 03_phylo_results --output_dir 04_all_trees
+python 03_distance_matrices.py -c config.yaml -t 4 -p my_project -g gene_list.txt --threshold 1.96 --use_flag --input_phylo 03_phylo_results --output_tree 04_all_trees
 or
-python 03_distance_matrices.py --config config.yaml --threads 4 --proj_name my_project --gene_list gene_list.txt --threshold 1.96 --use_flag --input_phylo 03_phylo_results --output_dir 04_all_trees
+python 03_distance_matrices.py --config config.yaml --threads 4 --proj_name my_project --gene_list gene_list.txt --threshold 1.96 --use_flag --input_phylo 03_phylo_results --output_tree 04_all_trees
 """
 import os
 import glob
@@ -159,7 +159,7 @@ if __name__ == "__main__":
     parser.add_argument("--use_flag", action="store_true", help="Use flag method (min=0, others=999) for filtering")
     parser.add_argument("--use_threshold", action="store_true", help="Enable threshold-based filtering (default: off)")
     parser.add_argument("--input_phylo", help="Directory with input .tre files", default="03_phylo_results")
-    parser.add_argument("--output_dir", help="Directory for output matrices", default="04_all_trees")
+    parser.add_argument("--output_tree", help="Directory for output matrices", default="04_all_trees")
     args = parser.parse_args()
 
     # Load config if provided
@@ -173,7 +173,7 @@ if __name__ == "__main__":
     use_flag = args.use_flag or bool(config.get('use_flag', False))
     use_threshold = args.use_threshold or bool(config.get('use_threshold', False))
     input_phylo = args.input_phylo if args.input_phylo != parser.get_default('input_phylo') else config.get('input_phylo', "03_phylo_results")
-    output_dir = args.output_dir if args.output_dir != parser.get_default('output_dir') else config.get('output_dir', "04_all_trees")
+    output_tree = args.output_tree if args.output_tree != parser.get_default('output_tree') else config.get('output_phylo', "04_all_trees")
 
     # Conflict check: use_flag and use_threshold cannot both be True
     if use_flag and use_threshold:
@@ -196,19 +196,19 @@ if __name__ == "__main__":
     log_status(log_file, f"  Threshold: {threshold} (enabled: {use_threshold})")
     log_status(log_file, f"  Use Flag: {use_flag}")
     log_status(log_file, f"  Input Directory: {input_phylo}")
-    log_status(log_file, f"  Output Directory: {output_dir}")
-    os.makedirs(output_dir, exist_ok=True)
-    log_status(log_file, f"Created directory {output_dir}")
+    log_status(log_file, f"  Output Directory: {output_phylo}")
+    os.makedirs(output_phylo, exist_ok=True)
+    log_status(log_file, f"Created directory {output_tree}")
     # Load gene names and process each gene's trees in parallel
     with open(gene_list_path, 'r') as f:
         gene_names = [line.strip() for line in f if line.strip()]
     with ThreadPoolExecutor(max_workers=threads) as executor:
-        futures = [executor.submit(process_gene, gene, input_phylo, output_dir, log_file) for gene in gene_names]
+        futures = [executor.submit(process_gene, gene, input_phylo, output_tree, log_file) for gene in gene_names]
         for future in futures:
             future.result()  # raise exceptions if any
     # Combine all matrices and output summary
-    summary_df = process_matrices(output_dir, proj_name, threshold, use_flag, use_threshold)
-    summary_csv = os.path.join(output_dir, f"{proj_name}.summary_dist.csv")
+    summary_df = process_matrices(output_tree, proj_name, threshold, use_flag, use_threshold)
+    summary_csv = os.path.join(output_tree, f"{proj_name}.summary_dist.csv")
     summary_df.to_csv(summary_csv, index=False)
     log_status(log_file, f"Processed matrices saved to {summary_csv}")
     # Generate cumulative distance summary across all genes
