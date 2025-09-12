@@ -1,4 +1,4 @@
-# SPrOUT: Species PRediction frOm mixed DNA Using Target sequencing
+# SPrOUT: Species Prediction Of Unknown Taxa
 
 SPrOUT is a pipeline designed for identifying plant species from mixed DNA samples using the Angiosperms353 target sequencing kit and the HybPiper workflow.
 
