@@ -3,7 +3,6 @@
 Utility functions for pipeline management and configuration handling.
 This module provides functions to log status messages, run shell commands,
 validate project names, and load configuration files in various formats.
-It supports YAML, JSON, and TOML formats for configuration files.
 It is designed to be used in a pipeline context where these utilities can help
 manage the execution of steps and maintain a clear log of operations.
 """
