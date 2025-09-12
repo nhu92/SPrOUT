@@ -9,11 +9,10 @@ mega353: angiosperms353_v2_interim_targetfile.fasta
 gene_list: gene_list.txt
 
 # Output directories
+reference_alignment: ref
 output_hyb: 01_hyb_output
 output_exon: 02_exon_extracted
-ref_alignment: ref
 output_phylo: 03_phylo_results
-input_phylo: 03_phylo_results
 output_tree: 04_all_trees
 
 # Exon assembly/extraction
