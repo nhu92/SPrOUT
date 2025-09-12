@@ -166,37 +166,6 @@ The pipeline generates various outputs at each stage:
 3. Distance matrices
 4. Species prediction reports
 
-## Best Practices
-
-- Run on high-performance computing clusters when possible
-- Ensure adequate quality control of input sequences
-- Use appropriate taxonomic reference databases
-- Validate results with multiple samples
-- Follow recommended parameters for each module
-
-## Troubleshooting
-
-Common issues and solutions:
-- Check input sequence quality
-- Verify reference database format
-- Ensure adequate computational resources
-- Validate intermediate outputs
-- Check log files for errors
-
-## References
-
-- Angiosperms353 Kit Documentation
-- HybPiper Documentation
-- Related scientific publications
-
 ## Contributing
 
 We welcome contributions to improve SPrOUT. Please submit issues and pull requests through GitHub.
-
-## License
-
-[Include your license information here]
-
-## Contact
-
-[Include contact information here]
