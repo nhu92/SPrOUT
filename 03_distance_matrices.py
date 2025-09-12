@@ -149,6 +149,80 @@ def process_matrices(matrix_dir, project, threshold, use_flag, use_threshold):
     result = total_df[['Unnamed: 0', 'total_value']].rename(columns={'Unnamed: 0': 'row_name'})
     return result
 
+def genetic_distance_matrix(tree_file, node_output_file, output_file):
+    """
+    Given a Newick tree file, compute the genetic distance matrix and save to output_file.
+    Also, record sister taxa for any collapsed nodes in node_output_file.
+    Reroot the tree using known outgroups if present; otherwise, use midpoint rooting.
+
+    Parameters:
+    - tree_file: Path to the input Newick tree file.
+    - node_output_file: Path to output file for recording sister taxa of collapsed nodes.
+    - output_file: Path to output CSV file for the genetic distance matrix.
+    Returns:
+    None
+    """
+    tree = Phylo.read(tree_file, 'newick')
+    reroot_taxa = ["Amborella", "Nymphaea", "Austrobaileya"]
+    for taxa in reroot_taxa:
+        for clade in tree.find_clades():
+            if clade.name and taxa in clade.name:
+                tree.root_with_outgroup(clade)
+                break
+        else:
+            continue
+        break
+    else:
+        tree.root_at_midpoint()
+    node_records = []
+    for tip in tree.get_terminals():
+        if tip.name and "NODE" in tip.name:
+            recorded_taxa = find_clade_and_move(tree, tip.name)
+            if recorded_taxa:
+                node_records.append(f'{tip.name}: {"; ".join(recorded_taxa)}')
+    with open(node_output_file, 'w') as file:
+        for record in node_records:
+            file.write(f'{record}\n')
+    clades, distance_matrix = calculate_genetic_distance(tree)
+    df = pd.DataFrame(distance_matrix)
+    df.columns = clades
+    df.index = clades
+    df.to_csv(output_file)
+
+def group_and_sum(input_file, output_file):
+    """
+    Group the input CSV by 'row_name', summing 'total_value' for each unique taxon.
+    Save the aggregated results to output_file.
+    Parameters:
+    - input_file: Path to the input CSV file with 'row_name' and 'total_value' columns.
+    - output_file: Path to the output CSV file for aggregated results.
+    Returns:
+    None
+    """
+    data = pd.read_csv(input_file)
+    filtered_data = data[~data['row_name'].str.contains("NODE")]
+    grouped_sum = filtered_data.groupby('row_name')['total_value'].sum().reset_index()
+    grouped_sum.to_csv(output_file, index=False)
+
+def process_gene(gene_name_shorter, tree_dir, log_file):
+    try:
+        tree_list_file = f"./{gene_name_shorter}.loop.treelist.txt"
+        run_command(f'ls "{tree_dir}/{gene_name_shorter}"*"tre" > {tree_list_file}', f"List trees for {gene_name_shorter}", log_file)
+        with open(tree_list_file, 'r') as tree_files:
+            for i, filename in enumerate(tree_files, start=1):
+                filename = filename.strip()
+                node_output_file = f"{tree_dir}/{gene_name_shorter}.{i}.list.txt"
+                output_file = f"{tree_dir}/{gene_name_shorter}.{i}.matrix"
+                genetic_distance_matrix(filename, node_output_file, output_file)
+                log_status(log_file, f"Generated matrix for {gene_name_shorter} tree {i}")
+                copy_cmd = f'cp "{output_file}" "{tree_dir}/{gene_name_shorter}.{i}.cleaned.csv"'
+                run_command(copy_cmd, f"Copy matrix to cleaned CSV for {gene_name_shorter} tree {i}", log_file)
+        os.remove(tree_list_file)
+        log_status(log_file, "Removed temporary file loop.treelist.txt")
+    except Exception as e:
+        log_status(log_file, f"Failed processing {gene_name_shorter}: {e}")
+        print(f"Failed processing {gene_name_shorter}: {e}")
+
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Compute distance matrices from exon trees and aggregate them.")
     parser.add_argument("-c", "--config", help="Path to config file (YAML/JSON/TOML)")
@@ -196,8 +270,8 @@ if __name__ == "__main__":
     log_status(log_file, f"  Threshold: {threshold} (enabled: {use_threshold})")
     log_status(log_file, f"  Use Flag: {use_flag}")
     log_status(log_file, f"  Input Directory: {input_phylo}")
-    log_status(log_file, f"  Output Directory: {output_phylo}")
-    os.makedirs(output_phylo, exist_ok=True)
+    log_status(log_file, f"  Output Directory: {output_tree}")
+    os.makedirs(output_tree, exist_ok=True)
     log_status(log_file, f"Created directory {output_tree}")
     # Load gene names and process each gene's trees in parallel
     with open(gene_list_path, 'r') as f:
