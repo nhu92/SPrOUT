@@ -29,7 +29,7 @@ Before running the pipeline, ensure that you have the following:
 
 - **Data**:
   - Paired-end reads from mixed plant DNA samples.
-  - Reference database of Angiosperms353 sequences.
+  - Reference database of Angiosperms353 sequences. (Actually, these can be any target sequencing data but requires similar  well curated gene alignments as references)
   > Reference sequences name should follow Order_Family_Genus_Species format for prediction. For example: >Rosales_Rosaceae_Rose_rosa
 
 ## Installation
@@ -44,7 +44,7 @@ Before running the pipeline, ensure that you have the following:
 
 Run this [Preparing commands](https://github.com/nhu92/SPrOUT/blob/main/test_run.sh) to clone the package and download the sample input files.
 
-To run the entire pipeline, execute the script [here](https://github.com/nhu92/SPrOUT/blob/main/sample_command.sh) (Using SLURM job submission system as an example). These steps require running on a node/job submission systems, preferring high performance computer clusters. You need to modify the job names and replace the placeholder "RENAME" with your sample names. Then, submit the script with:
+To run the entire pipeline, execute the script [here](https://github.com/nhu92/SPrOUT/blob/main/sample_command.sh) (Using SLURM job submission system as an example). These steps require running on a node/job submission systems, preferring high performance computer clusters. You need to modify the input arguments if you aim to test your own sample. After then, submit the script with:
 ```bash
 sbatch sample_command.sh
 ```
