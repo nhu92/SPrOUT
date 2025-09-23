@@ -204,21 +204,32 @@ def group_and_sum(input_file, output_file):
     grouped_sum = filtered_data.groupby('row_name')['total_value'].sum().reset_index()
     grouped_sum.to_csv(output_file, index=False)
 
-def process_gene(gene_name_shorter, tree_dir, log_file):
+def process_gene(gene_name_shorter, input_dir, output_dir, log_file):
+    """Generate per-tree matrices for one gene."""
     try:
-        tree_list_file = f"./{gene_name_shorter}.loop.treelist.txt"
-        run_command(f'ls "{tree_dir}/{gene_name_shorter}"*"tre" > {tree_list_file}', f"List trees for {gene_name_shorter}", log_file)
-        with open(tree_list_file, 'r') as tree_files:
-            for i, filename in enumerate(tree_files, start=1):
-                filename = filename.strip()
-                node_output_file = f"{tree_dir}/{gene_name_shorter}.{i}.list.txt"
-                output_file = f"{tree_dir}/{gene_name_shorter}.{i}.matrix"
-                genetic_distance_matrix(filename, node_output_file, output_file)
-                log_status(log_file, f"Generated matrix for {gene_name_shorter} tree {i}")
-                copy_cmd = f'cp "{output_file}" "{tree_dir}/{gene_name_shorter}.{i}.cleaned.csv"'
-                run_command(copy_cmd, f"Copy matrix to cleaned CSV for {gene_name_shorter} tree {i}", log_file)
-        os.remove(tree_list_file)
-        log_status(log_file, "Removed temporary file loop.treelist.txt")
+        # list all .tre files for this gene inside input_dir
+        pattern = os.path.join(input_dir, f"{gene_name_shorter}*tre")
+        tree_files = sorted(glob.glob(pattern))
+        if not tree_files:
+            log_status(log_file, f"[WARN] No trees found for {gene_name_shorter} in {input_dir}")
+            return
+
+        for i, filename in enumerate(tree_files, start=1):
+            base = f"{gene_name_shorter}.{i}"
+            node_output_file = os.path.join(output_dir, f"{base}.list.txt")
+            matrix_file      = os.path.join(output_dir, f"{base}.matrix")
+            cleaned_csv      = os.path.join(output_dir, f"{base}.cleaned.csv")
+
+            genetic_distance_matrix(filename, node_output_file, matrix_file)
+            log_status(log_file, f"Generated matrix for {gene_name_shorter} tree {i}")
+
+            # The genetic_distance_matrix writes a square CSV; copy/rename to *.cleaned.csv
+            # (keep a separate 'cleaned' name because downstream code searches for it)
+            import shutil
+            shutil.copy2(matrix_file, cleaned_csv)
+            log_status(log_file, f"Copied matrix to cleaned CSV for {gene_name_shorter} tree {i}")
+
+        log_status(log_file, f"Finished {gene_name_shorter}")
     except Exception as e:
         log_status(log_file, f"Failed processing {gene_name_shorter}: {e}")
         print(f"Failed processing {gene_name_shorter}: {e}")
@@ -247,7 +258,8 @@ if __name__ == "__main__":
     use_flag = args.use_flag or bool(config.get('use_flag', False))
     use_threshold = args.use_threshold or bool(config.get('use_threshold', False))
     input_phylo = args.input_phylo if args.input_phylo != parser.get_default('input_phylo') else config.get('input_phylo', "03_phylo_results")
-    output_tree = args.output_tree if args.output_tree != parser.get_default('output_tree') else config.get('output_phylo', "04_all_trees")
+    output_tree = args.output_tree if args.output_tree != parser.get_default('output_tree') else config.get('output_tree', "04_all_trees")
+
 
     # Conflict check: use_flag and use_threshold cannot both be True
     if use_flag and use_threshold:
