@@ -36,7 +36,7 @@ Before running the pipeline, ensure that you have the following:
 
 ```bash
   mkdir SPrOut
-  git clone https://github.com/nhu92/SPrOut.git
+  git clone https://github.com/nhu92/SPrOUT.git
   cd SPrOut
 ```
 
