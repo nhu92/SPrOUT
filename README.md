@@ -20,10 +20,10 @@ Before running the pipeline, ensure that you have the following:
   conda config --add channels defaults
   conda config --add channels bioconda
   conda config --add channels conda-forge
-  conda create -n sprout hybpiper
+  conda create -n sprout hybpiper -y
   conda activate sprout
   # Install dependencies
-  conda install seqkit fasttree fastp trimal
+  conda install -y seqkit fasttree fastp trimal
   pip install numpy pandas scipy scikit-learn biopython
 ```
 
