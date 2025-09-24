@@ -11,7 +11,7 @@
 # Please adjust the submitting argument according to your institute partition
 
 # Step 1: Sequence Assembly
-python 01_exons_assembly.py -t 64 -r1 SPrOut_test/01x02x03.R1.fastq -r2 SPrOut_test/01x02x03.R2.fastq \
+python 01_exons_assembly.py -t 64 -r1 01x02x03.R1.fastq -r2 01x02x03.R2.fastq \
 	-p 01x02x03 -g sample_data/gene.list.txt -m sample_data/50targetfiles.fasta \
 	--output_hyb 01x02x03_hyb \
 	--output_exon 01x02x03_exon
@@ -50,6 +50,7 @@ python 03_distance_matrices.py -t 64 -p 01x02x03 --threshold 1 \
 
 # Step 4: Prediction and Identification into Order
 python 04_prediction.py -i 01x02x03.cumulative_dist.csv -o 01x02x03.predictions_fam.csv -tl f -z 0 -to 01x02x03.family_candidates.txt
+
 
 
 
