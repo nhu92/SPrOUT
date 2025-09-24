@@ -35,9 +35,9 @@ Before running the pipeline, ensure that you have the following:
 ## Installation
 
 ```bash
-  mkdir SPrOut
-  git clone https://github.com/nhu92/SPrOut.git
-  cd SPrOut
+  mkdir SPrOUT
+  git clone https://github.com/nhu92/SPrOUT.git
+  cd SPrOUT
 ```
 
 ### Quick Example Run

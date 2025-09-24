@@ -1,8 +1,8 @@
 echo "# The pipeline is recommended to run under job submission systems."
 echo "# Step 0: Pipeline Clone"
-mkdir SPrOut_test
-git clone https://github.com/nhu92/SPrOut.git
-cd SPrOut_test
+mkdir SPrOUT
+git clone https://github.com/nhu92/SPrOUT.git
+cd SPrOUT
 
 # If you have your own sample to test, please ignore the following steps.
 echo "## Testing Mixes Generation"
@@ -23,3 +23,4 @@ seqkit sample -n 10000000 -s 100 ERR7621767_2.fastq.gz > 03_2.fastq
 cat 01_1.fastq 02_1.fastq 03_1.fastq > 01x02x03.R1.fastq 
 cat 01_2.fastq 02_2.fastq 03_2.fastq > 01x02x03.R2.fastq 
 # ----
+
