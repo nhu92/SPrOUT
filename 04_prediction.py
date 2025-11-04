@@ -18,6 +18,8 @@ Usage:
     or
     python 04_prediction.py --config config.yaml
 """
+import os
+import json
 import argparse
 import pandas as pd
 from scipy.stats import zscore
@@ -89,3 +91,30 @@ if __name__ == '__main__':
         for name in significant_taxa:
             fout.write(name + "\n")
     print(f"Selected taxonomy names (z_score > {z_threshold}) have been written to {taxonomy_output}")
+    inferred_project = config.get('proj_name') if isinstance(config, dict) else None
+    if not inferred_project:
+        base_name = os.path.basename(input_file)
+        inferred_project = base_name.split('.')[0] if base_name else "project"
+    stage_manifest = {
+        "stage": 4,
+        "project": inferred_project,
+        "parameters": {
+            "input_file": os.path.abspath(input_file),
+            "output_file": os.path.abspath(output_file),
+            "taxonomy_output_file": os.path.abspath(taxonomy_output),
+            "taxonomic_level": taxonomic_level,
+            "zscore_threshold": z_threshold,
+        },
+        "artifacts": {
+            "taxonomy_summary": os.path.abspath(output_file),
+            "selected_taxa": os.path.abspath(taxonomy_output),
+        },
+        "source_inputs": {
+            "cumulative_matrix": os.path.abspath(input_file),
+        },
+        "downstream_inputs": {},
+    }
+    manifest_path = f"{inferred_project}_stage4_manifest.json"
+    with open(manifest_path, "w") as manifest_file:
+        json.dump(stage_manifest, manifest_file, indent=2)
+    print(f"Stage 4 manifest saved to {manifest_path}")
