@@ -21,7 +21,8 @@ Usage:
 import argparse
 import pandas as pd
 from scipy.stats import zscore
-from pipeline_utils import load_config
+from pathlib import Path
+from pipeline_utils import load_config, package_outputs
 
 def process_column(column, level):
     """
@@ -57,6 +58,11 @@ if __name__ == '__main__':
     parser.add_argument('-tl', '--taxonomic_level', choices=['o', 'f', 'g', 's'], help='Taxonomic level (o, f, g, s)')
     parser.add_argument('-z', '--zscore_threshold', type=float, help='Z-score threshold for significance')
     parser.add_argument('-to', '--taxonomy_output_file', help='Output file for selected taxonomy names')
+    parser.add_argument('-p', '--project_name', help='Project identifier used for packaging metadata.')
+    parser.add_argument('--bundle-output', help='Destination directory or archive for the results bundle.')
+    parser.add_argument('--bundle-format', choices=['directory', 'zip'], help='Bundle format: directory structure or zip archive.')
+    parser.add_argument('--skip-bundle', action='store_true', help='Skip packaging outputs into a bundle.')
+    parser.add_argument('--bundle-overwrite', action='store_true', help='Overwrite the bundle destination if it already exists.')
     args = parser.parse_args()
 
     # Load config if given
@@ -69,6 +75,12 @@ if __name__ == '__main__':
     taxonomic_level = args.taxonomic_level or config.get('taxonomic_level')
     z_threshold = args.zscore_threshold if args.zscore_threshold is not None else config.get('zscore_threshold')
     taxonomy_output = args.taxonomy_output_file or config.get('taxonomy_output_file')
+    project_name = args.project_name or config.get('project_name')
+    bundle_format = args.bundle_format or config.get('bundle_format', 'directory')
+    bundle_output = args.bundle_output or config.get('bundle_output')
+    skip_bundle = args.skip_bundle or config.get('skip_bundle', False)
+    bundle_overwrite = args.bundle_overwrite or config.get('bundle_overwrite', False)
+
     if not input_file or not output_file or not taxonomic_level or z_threshold is None or not taxonomy_output:
         parser.error("Parameters missing: input_file, output_file, taxonomic_level, zscore_threshold, taxonomy_output_file are required.")
     z_threshold = float(z_threshold)
@@ -89,3 +101,31 @@ if __name__ == '__main__':
         for name in significant_taxa:
             fout.write(name + "\n")
     print(f"Selected taxonomy names (z_score > {z_threshold}) have been written to {taxonomy_output}")
+
+    if not skip_bundle:
+        inferred_project = project_name or Path(input_file).name.split('.')[0]
+        if not bundle_output:
+            suffix = 'bundle'
+            base_name = inferred_project or Path(output_file).stem
+            bundle_output = f"{base_name}_{suffix}"
+            if bundle_format == 'zip' and not bundle_output.endswith('.zip'):
+                bundle_output = f"{bundle_output}.zip"
+        items = [
+            (f"reports/{Path(output_file).name}", output_file),
+            (f"reports/{Path(taxonomy_output).name}", taxonomy_output),
+            (f"inputs/{Path(input_file).name}", input_file),
+        ]
+        metadata = {
+            'project_name': inferred_project,
+            'taxonomic_level': taxonomic_level,
+            'zscore_threshold': z_threshold,
+            'source_script': Path(__file__).name,
+        }
+        bundle_path = package_outputs(
+            items,
+            bundle_output,
+            bundle_format=bundle_format,
+            metadata=metadata,
+            overwrite=bundle_overwrite,
+        )
+        print(f"Results bundle created at {bundle_path}")

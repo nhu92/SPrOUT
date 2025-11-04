@@ -54,3 +54,37 @@ sbatch sample_command.sh
 ```
 
 Detailed instructions please refer to [Wiki page](https://github.com/nhu92/SPrOUT/wiki)
+
+## Stage 4 Output Bundle Contract
+
+Starting with this release, Stage 4 automatically packages the prediction artefacts into a portable bundle that downstream tooling (including the upcoming GUI) can consume without re-discovering file locations.
+
+### CLI options
+
+`04_prediction.py` accepts additional arguments to control the bundle:
+
+- `-p` / `--project_name` – Optional project identifier recorded in the manifest.
+- `--bundle-format` – Either `directory` (default) or `zip`.
+- `--bundle-output` – Custom destination for the generated bundle.
+- `--skip-bundle` – Disable bundling if you only need the raw CSV/TXT outputs.
+- `--bundle-overwrite` – Replace an existing bundle at the target path.
+
+### Bundle layout
+
+By default, a run that processes project `01x02x03` produces `01x02x03_bundle/` with the following layout (the same hierarchy is zipped when `--bundle-format zip` is chosen):
+
+```
+01x02x03_bundle/
+├── manifest.json
+├── inputs/
+│   └── 01x02x03.cumulative_dist.csv
+└── reports/
+    ├── 01x02x03.predictions.csv
+    └── 01x02x03.order_candidates.txt
+```
+
+- `manifest.json` contains metadata (project name, taxonomic level, z-score threshold, script version) and SHA-256 checksums for every payload file.
+- `inputs/` stores the cumulative distance matrix consumed by Stage 4.
+- `reports/` stores the summarized predictions and the taxonomy candidate list.
+
+This contract is shared with the Wiki so automated services can rely on the structure when ingesting completed Stage 4 runs.

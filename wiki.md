@@ -146,6 +146,31 @@ python 04_prediction.py -i <input_ACS_file> -o <output_file> -tl <taxonomic_leve
 - `-tl` or `--taxonomic_level`: Taxonomic level to process (choices: `o` for Order, `f` for Family, `g` for Genus, `s` for Species).
 - `-z` or `--zscore_threshold`: Z-score threshold to select taxonomy names.
 - `-to` or `--taxonomy_output_file`: Path to the output file for selected taxonomy names.
+- `-p` or `--project_name`: Optional identifier captured in the bundle manifest.
+- `--bundle-format`: Choose `directory` (default) or `zip` to control the packaging style.
+- `--bundle-output`: Override the default bundle destination path.
+- `--skip-bundle`: Skip bundle creation.
+- `--bundle-overwrite`: Replace an existing bundle at the destination.
+
+#### Stage 4 Bundle Layout
+
+When bundling is enabled (default behaviour), Stage 4 gathers the inputs and generated reports into a deterministic structure that downstream automation can ingest. For project `01x02x03` the default output is:
+
+```
+01x02x03_bundle/
+├── manifest.json
+├── inputs/
+│   └── 01x02x03.cumulative_dist.csv
+└── reports/
+    ├── 01x02x03.predictions.csv
+    └── 01x02x03.order_candidates.txt
+```
+
+- `manifest.json` – contains metadata (project name, thresholds, script name) and SHA-256 checksums for each bundled file.
+- `inputs/` – the cumulative distance matrix used by Stage 4.
+- `reports/` – the prediction summary CSV and taxonomy candidate list.
+
+Use `--bundle-format zip` to emit the same hierarchy as a compressed archive or `--bundle-output` to write the bundle to a different location.
 
 ## Data Requirements
 
