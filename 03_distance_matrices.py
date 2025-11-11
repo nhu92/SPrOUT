@@ -325,14 +325,22 @@ def group_and_sum(input_file, output_file):
     grouped_sum.to_csv(output_file, index=False)
 
 def process_gene(gene_name_shorter, input_dir, output_dir, log_file):
-    """Generate per-tree matrices for one gene."""
+    """Generate per-tree matrices for one gene and return created files."""
+    artifacts = {
+        "gene": gene_name_shorter,
+        "tree_files": [],
+        "node_lists": [],
+        "raw_matrices": [],
+        "cleaned_matrices": [],
+        "errors": None,
+    }
     try:
         # list all .tre files for this gene inside input_dir
         pattern = os.path.join(input_dir, f"{gene_name_shorter}*tre")
         tree_files = sorted(glob.glob(pattern))
         if not tree_files:
             log_status(log_file, f"[WARN] No trees found for {gene_name_shorter} in {input_dir}")
-            return
+            return artifacts
 
         for i, filename in enumerate(tree_files, start=1):
             base = f"{gene_name_shorter}.{i}"
@@ -342,17 +350,23 @@ def process_gene(gene_name_shorter, input_dir, output_dir, log_file):
 
             genetic_distance_matrix(filename, node_output_file, matrix_file)
             log_status(log_file, f"Generated matrix for {gene_name_shorter} tree {i}")
+            artifacts["tree_files"].append(os.path.abspath(filename))
+            artifacts["node_lists"].append(os.path.abspath(node_output_file))
+            artifacts["raw_matrices"].append(os.path.abspath(matrix_file))
 
             # The genetic_distance_matrix writes a square CSV; copy/rename to *.cleaned.csv
             # (keep a separate 'cleaned' name because downstream code searches for it)
             import shutil
             shutil.copy2(matrix_file, cleaned_csv)
             log_status(log_file, f"Copied matrix to cleaned CSV for {gene_name_shorter} tree {i}")
+            artifacts["cleaned_matrices"].append(os.path.abspath(cleaned_csv))
 
         log_status(log_file, f"Finished {gene_name_shorter}")
     except Exception as e:
         log_status(log_file, f"Failed processing {gene_name_shorter}: {e}")
         print(f"Failed processing {gene_name_shorter}: {e}")
+        artifacts["errors"] = str(e)
+    return artifacts
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Compute distance matrices from exon trees and aggregate them.")
@@ -418,12 +432,15 @@ if __name__ == "__main__":
     # Load gene names and process each gene's trees in parallel
     with open(gene_list_path, 'r') as f:
         gene_names = [line.strip() for line in f if line.strip()]
+    gene_results = []
     with ThreadPoolExecutor(max_workers=threads) as executor:
         futures = [executor.submit(process_gene, gene, input_phylo, output_tree, log_file) for gene in gene_names]
         for future in futures:
-            future.result()  # raise exceptions if any
+            result = future.result()
+            if result:
+                gene_results.append(result)
     # Combine all matrices and output summary
-    summary_df = process_matrices(output_tree, proj_name, threshold, use_flag, use_threshold, aggregate_by)
+    summary_df = process_matrices(output_tree, proj_name, threshold, use_flag, use_threshold)
     summary_csv = os.path.join(output_tree, f"{proj_name}.summary_dist.csv")
     summary_df.to_csv(summary_csv, index=False)
     log_status(log_file, f"Processed matrices saved to {summary_csv}")
@@ -431,5 +448,38 @@ if __name__ == "__main__":
     cumulative_csv = f"{proj_name}.cumulative_dist.csv"
     group_and_sum(summary_csv, cumulative_csv)
     log_status(log_file, f"Generated cumulative distance file: {cumulative_csv}")
+    manifest_artifacts = {
+        "tree_files": sorted({path for res in gene_results for path in res.get("tree_files", [])}),
+        "node_lists": sorted({path for res in gene_results for path in res.get("node_lists", [])}),
+        "raw_matrices": sorted({path for res in gene_results for path in res.get("raw_matrices", [])}),
+        "cleaned_matrices": sorted({path for res in gene_results for path in res.get("cleaned_matrices", [])}),
+        "summary_matrix": os.path.abspath(summary_csv),
+        "cumulative_matrix": os.path.abspath(cumulative_csv),
+    }
+    stage_manifest = {
+        "stage": 3,
+        "project": proj_name,
+        "log_file": os.path.abspath(log_file),
+        "parameters": {
+            "threads": threads,
+            "gene_list": os.path.abspath(gene_list_path),
+            "threshold": threshold,
+            "use_flag": use_flag,
+            "use_threshold": use_threshold,
+            "input_phylo_dir": os.path.abspath(input_phylo),
+            "output_tree_dir": os.path.abspath(output_tree),
+        },
+        "artifacts": manifest_artifacts,
+        "downstream_inputs": {
+            "stage4": {
+                "cumulative_matrix": manifest_artifacts["cumulative_matrix"],
+                "summary_matrix": manifest_artifacts["summary_matrix"],
+            }
+        },
+    }
+    manifest_path = f"{proj_name}_stage3_manifest.json"
+    with open(manifest_path, "w") as manifest_file:
+        json.dump(stage_manifest, manifest_file, indent=2)
+    log_status(log_file, f"Stage 3 manifest saved to {manifest_path}")
     log_status(log_file, "Pipeline completed successfully.")
     print(f"Pipeline completed. Check {log_file} for details.")

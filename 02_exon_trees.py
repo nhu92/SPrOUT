@@ -30,6 +30,7 @@ python 02_exon_trees.py --threads 8 --input_exon 02_exon_extracted --ref_alignme
 """
 import os
 import glob
+import json
 import argparse
 from Bio import SeqIO
 from concurrent.futures import ThreadPoolExecutor
@@ -62,22 +63,32 @@ def process_gene_exon_alignment(
  
         """
     # Find all exon FASTA files for this gene
+    gene_outputs = {
+        "gene": gene_name,
+        "aligned_fastas": [],
+        "trimmed_fastas": [],
+        "tree_files": [],
+        "skipped_exons": [],
+        "errors": None,
+    }
     try:
         pattern = os.path.join(input_dir, f"*{gene_name}*.fasta")
         exon_files = glob.glob(pattern)
     except Exception as e:
         log_status(log_file, f"List exons for {gene_name}: FAILURE")
         print(f"Error listing exons for {gene_name}: {e}")
-        return
+        gene_outputs["errors"] = str(e)
+        return gene_outputs
     log_status(log_file, f"List exons for {gene_name}: SUCCESS")
     if not exon_files:
         log_status(log_file, f"No exon files found for {gene_name}, skipping.")
-        return
+        return gene_outputs
     exon_files.sort()
     for i, exon_path in enumerate(exon_files, start=1):
         # Enforce minimum exon length
         if not all_sequences_meet_minimum_length(exon_path, min_size):
             log_status(log_file, f"Skipping {os.path.basename(exon_path)} (sequences < {min_size} bp)")
+            gene_outputs["skipped_exons"].append(os.path.abspath(exon_path))
             continue
         # Alignment with MAFFT
         ref_alignment = os.path.join(ref_dir, f"{gene_name}.fasta")
@@ -87,15 +98,18 @@ def process_gene_exon_alignment(
             f"--thread {threads} --addfragments {exon_path} {ref_alignment} > {aligned_out}"
         )
         run_command(mafft_cmd, f"MAFFT alignment for {gene_name} exon {i}", log_file)
+        gene_outputs["aligned_fastas"].append(os.path.abspath(aligned_out))
         # Trim alignment with trimAl
         trimmed_out = os.path.join(output_phylo, f"{gene_name}_exon_{i}_trimmed.fasta")
         trimal_cmd = f"trimal -in {aligned_out} -out {trimmed_out} -gt 0.5"
         run_command(trimal_cmd, f"Trim alignment for {gene_name} exon {i}", log_file)
+        gene_outputs["trimmed_fastas"].append(os.path.abspath(trimmed_out))
         # Build tree with selected method
         tree_out = os.path.join(output_phylo, f"{gene_name}_exon_{i}.tre")
         if tree_method == "fasttree":
             fasttree_cmd = f"fasttree -gtr -gamma -nt {trimmed_out} > {tree_out}"
             run_command(fasttree_cmd, f"Tree construction for {gene_name} exon {i} (FastTree)", log_file)
+            gene_outputs["tree_files"].append(os.path.abspath(tree_out))
         elif tree_method == "iqtree":
             if iqtree_mode == "mfp":
                 iqtree_cmd = (
@@ -112,8 +126,10 @@ def process_gene_exon_alignment(
             iqtree_treefile = tree_out.replace('.tre', '.treefile')
             if os.path.exists(iqtree_treefile):
                 os.replace(iqtree_treefile, tree_out)
+            gene_outputs["tree_files"].append(os.path.abspath(tree_out))
         else:
             log_status(log_file, f"Unknown tree method: {tree_method}")
+    return gene_outputs
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Align exons and build exon trees for each gene.")
@@ -174,6 +190,7 @@ if __name__ == "__main__":
     # Read gene list and execute alignments/trees in parallel
     with open(gene_list_path, 'r') as f:
         genes = [line.strip() for line in f if line.strip()]
+    gene_results = []
     with ThreadPoolExecutor(max_workers=threads) as executor:
         futures = [
             executor.submit(
@@ -184,6 +201,40 @@ if __name__ == "__main__":
             for gene in genes
         ]
         for future in futures:
-            future.result()
+            result = future.result()
+            if result:
+                gene_results.append(result)
+    manifest_artifacts = {
+        "aligned_fastas": sorted({path for res in gene_results for path in res.get("aligned_fastas", [])}),
+        "trimmed_fastas": sorted({path for res in gene_results for path in res.get("trimmed_fastas", [])}),
+        "tree_files": sorted({path for res in gene_results for path in res.get("tree_files", [])}),
+        "skipped_exons": sorted({path for res in gene_results for path in res.get("skipped_exons", [])}),
+    }
+    stage_manifest = {
+        "stage": 2,
+        "project": proj_name,
+        "log_file": os.path.abspath(log_file),
+        "parameters": {
+            "threads": threads,
+            "input_exon_dir": os.path.abspath(input_exon_dir),
+            "reference_alignment_dir": os.path.abspath(ref_dir),
+            "gene_list": os.path.abspath(gene_list_path),
+            "output_phylo_dir": os.path.abspath(output_phylo),
+            "min_exon_size": min_size,
+            "tree_method": tree_method,
+            "iqtree_mode": iqtree_mode,
+        },
+        "artifacts": manifest_artifacts,
+        "downstream_inputs": {
+            "stage3": {
+                "tree_directory": os.path.abspath(output_phylo),
+                "tree_files": manifest_artifacts["tree_files"],
+            }
+        },
+    }
+    manifest_path = f"{proj_name}_stage2_manifest.json"
+    with open(manifest_path, "w") as manifest_file:
+        json.dump(stage_manifest, manifest_file, indent=2)
+    log_status(log_file, f"Stage 2 manifest saved to {manifest_path}")
     log_status(log_file, "Pipeline completed successfully.")
     print(f"Pipeline completed. Check {log_file} for details.")
