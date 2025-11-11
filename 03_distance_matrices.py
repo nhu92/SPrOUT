@@ -24,6 +24,7 @@ python 03_distance_matrices.py --config config.yaml --threads 4 --proj_name my_p
 """
 import os
 import glob
+import json
 import argparse
 from concurrent.futures import ThreadPoolExecutor
 from Bio import Phylo
@@ -123,12 +124,75 @@ def clean_up_matrix(df, project, threshold, taxa_file=None, use_flag=False, use_
     df.iloc[:, 0] = df.iloc[:, 0].str.replace(r'\d+', '', regex=True).str.rstrip('_')
     return df
 
-def process_matrices(matrix_dir, project, threshold, use_flag, use_threshold):
+def _sum_reindexed_matrices(matrices):
+    """Return the element-wise sum of similarity matrices, aligning indexes/columns."""
+    if not matrices:
+        return pd.DataFrame()
+
+    all_index = sorted({idx for df in matrices for idx in df.index})
+    all_columns = sorted({col for df in matrices for col in df.columns})
+    combined = pd.DataFrame(0.0, index=all_index, columns=all_columns)
+    for df in matrices:
+        reindexed = df.reindex(index=all_index, columns=all_columns, fill_value=0.0)
+        combined += reindexed
+    return combined
+
+
+def _aggregate_manifest_entries(entries, aggregate_by, matrix_dir):
+    """Aggregate manifest entries according to the requested level."""
+    if aggregate_by == "tree":
+        return entries
+
+    aggregated = []
+    key_field = "gene" if aggregate_by == "gene" else "exon"
+    for key, group in sorted(((k, v) for k, v in _group_entries(entries, key_field).items()), key=lambda item: item[0]):
+        matrices = [entry.pop("_dataframe") for entry in group]
+        combined_df = _sum_reindexed_matrices(matrices)
+        if combined_df.empty:
+            total = 0.0
+        else:
+            total = float(combined_df.to_numpy().sum())
+
+        if aggregate_by == "gene":
+            gene = key
+            exon = "all"
+            identifier = f"{gene}.all"
+            filename = f"{gene}.aggregated.similarity.json"
+        else:
+            gene = "all"
+            exon = key
+            identifier = f"exon_{key}"
+            filename = f"{identifier}.aggregated.similarity.json"
+
+        combined_df.to_json(os.path.join(matrix_dir, filename), orient='split')
+        aggregated.append({
+            "id": identifier,
+            "gene": gene,
+            "exon": exon,
+            "matrix": filename,
+            "total": total,
+            "member_count": len(group),
+            "_dataframe": combined_df,
+        })
+    return aggregated
+
+
+def _group_entries(entries, field):
+    groups = {}
+    for entry in entries:
+        key = entry[field]
+        groups.setdefault(key, []).append(entry)
+    return groups
+
+
+def process_matrices(matrix_dir, project, threshold, use_flag, use_threshold, aggregate_by="tree"):
     """
     Combine all per-gene distance matrices in `matrix_dir` into one summary DataFrame.
-    Converts distances to similarities and computes a total sum per taxon.
+    Converts distances to similarities, persists per-tree similarity matrices, and
+    generates a manifest with normalized weights for downstream visualization.
     """
     all_dfs = []
+    manifest_entries = []
     for filename in os.listdir(matrix_dir):
         if filename.endswith('cleaned.csv'):
             file_path = os.path.join(matrix_dir, filename)
@@ -138,15 +202,71 @@ def process_matrices(matrix_dir, project, threshold, use_flag, use_threshold):
             taxa_file = os.path.join(matrix_dir, f"{prefix}list.txt")
             df = clean_up_matrix(df, project, threshold, taxa_file if os.path.exists(taxa_file) else None, use_flag, use_threshold)
             df = distance_to_similarity(df)
+            row_name_col = df.columns[0]
+            df = df.rename(columns={row_name_col: 'row_name'})
+            similarity_df = df.set_index('row_name')
+
+            base = prefix.rstrip('.')
+            if '.' in base:
+                gene_name, exon_id = base.split('.', 1)
+            else:
+                gene_name, exon_id = base, '1'
+            similarity_filename = f"{base}.similarity.json"
+            similarity_path = os.path.join(matrix_dir, similarity_filename)
+            similarity_df.to_json(similarity_path, orient='split')
+
+            tree_total = float(similarity_df.to_numpy().sum())
+            manifest_entries.append({
+                "id": f"{gene_name}.{exon_id}",
+                "gene": gene_name,
+                "exon": exon_id,
+                "matrix": similarity_filename,
+                "total": tree_total,
+                "member_count": 1,
+                "_dataframe": similarity_df,
+            })
             all_dfs.append(df)
+
+    if manifest_entries:
+        aggregated_entries = _aggregate_manifest_entries(manifest_entries, aggregate_by, matrix_dir)
+        if aggregate_by == "tree":
+            aggregated_entries = manifest_entries
+        grand_total = sum(entry["total"] for entry in aggregated_entries)
+        for entry in aggregated_entries:
+            entry["weight"] = entry["total"] / grand_total if grand_total else 0.0
+            entry.pop("_dataframe", None)
+        manifest_entries_sorted = sorted(aggregated_entries, key=lambda item: item.get("id", ""))
+        manifest_data = {
+            "project": project,
+            "aggregate_by": aggregate_by,
+            "entries": [{
+                **{k: v for k, v in entry.items() if k != "_dataframe"},
+                "total": float(entry["total"]),
+                "weight": float(entry["weight"]),
+            } for entry in manifest_entries_sorted],
+        }
+    else:
+        manifest_data = {
+            "project": project,
+            "aggregate_by": aggregate_by,
+            "entries": [],
+        }
+
+    manifest_path = os.path.join(matrix_dir, f"{project}.manifest.json")
+    with open(manifest_path, 'w') as manifest_file:
+        json.dump(manifest_data, manifest_file, indent=2)
+
+    if not all_dfs:
+        return pd.DataFrame(columns=['row_name', 'total_value'])
+
     # Concatenate all gene similarity data
     total_df = pd.concat(all_dfs, ignore_index=True)
     total_df.fillna(0, inplace=True)
     # Sum similarity scores across all genes for each taxon
-    value_cols = [col for col in total_df.columns if col != 'Unnamed: 0']
+    value_cols = [col for col in total_df.columns if col != 'row_name']
     total_df['total_value'] = total_df[value_cols].sum(axis=1)
     # Return a DataFrame with taxon (row_name) and its aggregated total value
-    result = total_df[['Unnamed: 0', 'total_value']].rename(columns={'Unnamed: 0': 'row_name'})
+    result = total_df[['row_name', 'total_value']]
     return result
 
 def genetic_distance_matrix(tree_file, node_output_file, output_file):
@@ -205,14 +325,22 @@ def group_and_sum(input_file, output_file):
     grouped_sum.to_csv(output_file, index=False)
 
 def process_gene(gene_name_shorter, input_dir, output_dir, log_file):
-    """Generate per-tree matrices for one gene."""
+    """Generate per-tree matrices for one gene and return created files."""
+    artifacts = {
+        "gene": gene_name_shorter,
+        "tree_files": [],
+        "node_lists": [],
+        "raw_matrices": [],
+        "cleaned_matrices": [],
+        "errors": None,
+    }
     try:
         # list all .tre files for this gene inside input_dir
         pattern = os.path.join(input_dir, f"{gene_name_shorter}*tre")
         tree_files = sorted(glob.glob(pattern))
         if not tree_files:
             log_status(log_file, f"[WARN] No trees found for {gene_name_shorter} in {input_dir}")
-            return
+            return artifacts
 
         for i, filename in enumerate(tree_files, start=1):
             base = f"{gene_name_shorter}.{i}"
@@ -222,17 +350,23 @@ def process_gene(gene_name_shorter, input_dir, output_dir, log_file):
 
             genetic_distance_matrix(filename, node_output_file, matrix_file)
             log_status(log_file, f"Generated matrix for {gene_name_shorter} tree {i}")
+            artifacts["tree_files"].append(os.path.abspath(filename))
+            artifacts["node_lists"].append(os.path.abspath(node_output_file))
+            artifacts["raw_matrices"].append(os.path.abspath(matrix_file))
 
             # The genetic_distance_matrix writes a square CSV; copy/rename to *.cleaned.csv
             # (keep a separate 'cleaned' name because downstream code searches for it)
             import shutil
             shutil.copy2(matrix_file, cleaned_csv)
             log_status(log_file, f"Copied matrix to cleaned CSV for {gene_name_shorter} tree {i}")
+            artifacts["cleaned_matrices"].append(os.path.abspath(cleaned_csv))
 
         log_status(log_file, f"Finished {gene_name_shorter}")
     except Exception as e:
         log_status(log_file, f"Failed processing {gene_name_shorter}: {e}")
         print(f"Failed processing {gene_name_shorter}: {e}")
+        artifacts["errors"] = str(e)
+    return artifacts
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Compute distance matrices from exon trees and aggregate them.")
@@ -245,6 +379,12 @@ if __name__ == "__main__":
     parser.add_argument("--use_threshold", action="store_true", help="Enable threshold-based filtering (default: off)")
     parser.add_argument("--input_phylo", help="Directory with input .tre files", default="03_phylo_results")
     parser.add_argument("--output_tree", help="Directory for output matrices", default="04_all_trees")
+    parser.add_argument(
+        "--aggregate_by",
+        choices=["tree", "gene", "exon"],
+        default="tree",
+        help="Aggregation level for GUI data manifest (default: tree)",
+    )
     args = parser.parse_args()
 
     # Load config if provided
@@ -259,7 +399,10 @@ if __name__ == "__main__":
     use_threshold = args.use_threshold or bool(config.get('use_threshold', False))
     input_phylo = args.input_phylo if args.input_phylo != parser.get_default('input_phylo') else config.get('input_phylo', "03_phylo_results")
     output_tree = args.output_tree if args.output_tree != parser.get_default('output_tree') else config.get('output_tree', "04_all_trees")
+    aggregate_by = args.aggregate_by if args.aggregate_by != parser.get_default('aggregate_by') else config.get('aggregate_by', "tree")
 
+    if aggregate_by not in {"tree", "gene", "exon"}:
+        parser.error("--aggregate_by must be one of: tree, gene, exon")
 
     # Conflict check: use_flag and use_threshold cannot both be True
     if use_flag and use_threshold:
@@ -283,15 +426,19 @@ if __name__ == "__main__":
     log_status(log_file, f"  Use Flag: {use_flag}")
     log_status(log_file, f"  Input Directory: {input_phylo}")
     log_status(log_file, f"  Output Directory: {output_tree}")
+    log_status(log_file, f"  Aggregate Level: {aggregate_by}")
     os.makedirs(output_tree, exist_ok=True)
     log_status(log_file, f"Created directory {output_tree}")
     # Load gene names and process each gene's trees in parallel
     with open(gene_list_path, 'r') as f:
         gene_names = [line.strip() for line in f if line.strip()]
+    gene_results = []
     with ThreadPoolExecutor(max_workers=threads) as executor:
         futures = [executor.submit(process_gene, gene, input_phylo, output_tree, log_file) for gene in gene_names]
         for future in futures:
-            future.result()  # raise exceptions if any
+            result = future.result()
+            if result:
+                gene_results.append(result)
     # Combine all matrices and output summary
     summary_df = process_matrices(output_tree, proj_name, threshold, use_flag, use_threshold)
     summary_csv = os.path.join(output_tree, f"{proj_name}.summary_dist.csv")
@@ -301,5 +448,38 @@ if __name__ == "__main__":
     cumulative_csv = f"{proj_name}.cumulative_dist.csv"
     group_and_sum(summary_csv, cumulative_csv)
     log_status(log_file, f"Generated cumulative distance file: {cumulative_csv}")
+    manifest_artifacts = {
+        "tree_files": sorted({path for res in gene_results for path in res.get("tree_files", [])}),
+        "node_lists": sorted({path for res in gene_results for path in res.get("node_lists", [])}),
+        "raw_matrices": sorted({path for res in gene_results for path in res.get("raw_matrices", [])}),
+        "cleaned_matrices": sorted({path for res in gene_results for path in res.get("cleaned_matrices", [])}),
+        "summary_matrix": os.path.abspath(summary_csv),
+        "cumulative_matrix": os.path.abspath(cumulative_csv),
+    }
+    stage_manifest = {
+        "stage": 3,
+        "project": proj_name,
+        "log_file": os.path.abspath(log_file),
+        "parameters": {
+            "threads": threads,
+            "gene_list": os.path.abspath(gene_list_path),
+            "threshold": threshold,
+            "use_flag": use_flag,
+            "use_threshold": use_threshold,
+            "input_phylo_dir": os.path.abspath(input_phylo),
+            "output_tree_dir": os.path.abspath(output_tree),
+        },
+        "artifacts": manifest_artifacts,
+        "downstream_inputs": {
+            "stage4": {
+                "cumulative_matrix": manifest_artifacts["cumulative_matrix"],
+                "summary_matrix": manifest_artifacts["summary_matrix"],
+            }
+        },
+    }
+    manifest_path = f"{proj_name}_stage3_manifest.json"
+    with open(manifest_path, "w") as manifest_file:
+        json.dump(stage_manifest, manifest_file, indent=2)
+    log_status(log_file, f"Stage 3 manifest saved to {manifest_path}")
     log_status(log_file, "Pipeline completed successfully.")
     print(f"Pipeline completed. Check {log_file} for details.")
