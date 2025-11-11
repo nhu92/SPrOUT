@@ -23,6 +23,8 @@ import pandas as pd
 from scipy.stats import zscore
 from pathlib import Path
 from pipeline_utils import load_config, package_outputs
+import os
+import json
 
 def process_column(column, level):
     """
@@ -101,31 +103,30 @@ if __name__ == '__main__':
         for name in significant_taxa:
             fout.write(name + "\n")
     print(f"Selected taxonomy names (z_score > {z_threshold}) have been written to {taxonomy_output}")
-
-    if not skip_bundle:
-        inferred_project = project_name or Path(input_file).name.split('.')[0]
-        if not bundle_output:
-            suffix = 'bundle'
-            base_name = inferred_project or Path(output_file).stem
-            bundle_output = f"{base_name}_{suffix}"
-            if bundle_format == 'zip' and not bundle_output.endswith('.zip'):
-                bundle_output = f"{bundle_output}.zip"
-        items = [
-            (f"reports/{Path(output_file).name}", output_file),
-            (f"reports/{Path(taxonomy_output).name}", taxonomy_output),
-            (f"inputs/{Path(input_file).name}", input_file),
-        ]
-        metadata = {
-            'project_name': inferred_project,
-            'taxonomic_level': taxonomic_level,
-            'zscore_threshold': z_threshold,
-            'source_script': Path(__file__).name,
-        }
-        bundle_path = package_outputs(
-            items,
-            bundle_output,
-            bundle_format=bundle_format,
-            metadata=metadata,
-            overwrite=bundle_overwrite,
-        )
-        print(f"Results bundle created at {bundle_path}")
+    inferred_project = config.get('proj_name') if isinstance(config, dict) else None
+    if not inferred_project:
+        base_name = os.path.basename(input_file)
+        inferred_project = base_name.split('.')[0] if base_name else "project"
+    stage_manifest = {
+        "stage": 4,
+        "project": inferred_project,
+        "parameters": {
+            "input_file": os.path.abspath(input_file),
+            "output_file": os.path.abspath(output_file),
+            "taxonomy_output_file": os.path.abspath(taxonomy_output),
+            "taxonomic_level": taxonomic_level,
+            "zscore_threshold": z_threshold,
+        },
+        "artifacts": {
+            "taxonomy_summary": os.path.abspath(output_file),
+            "selected_taxa": os.path.abspath(taxonomy_output),
+        },
+        "source_inputs": {
+            "cumulative_matrix": os.path.abspath(input_file),
+        },
+        "downstream_inputs": {},
+    }
+    manifest_path = f"{inferred_project}_stage4_manifest.json"
+    with open(manifest_path, "w") as manifest_file:
+        json.dump(stage_manifest, manifest_file, indent=2)
+    print(f"Stage 4 manifest saved to {manifest_path}")
