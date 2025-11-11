@@ -93,38 +93,35 @@ def coerce_numeric(value):
     return None
 
 def extract_contigs(row, fasta_sequences, output_dir):
-    """
-    Extract contig sequences for each exon in the DataFrame row and append to exon-specific FASTA files.
-    """
+    """Append contig segments for each exon in ``row`` to the appropriate FASTA file."""
     ranges = row.get('parsed_ranges', [])
-    sequence_id = row.iloc[3]
+    exon_names = row.get('exon_names', [])
+    sequence_id = row.get('sequence_id')
+    if sequence_id is None and len(row) > 3:
+        sequence_id = row.iloc[3]
     # Find the full sequence record corresponding to this contig ID
     sequence = next((seq for seq in fasta_sequences if seq.id == sequence_id), None)
     if sequence is None:
         print(f"Warning: Sequence {sequence_id} not found in FASTA.")
         return
-    # Write each exon segment to its respective FASTA file
     for i, (start, end) in enumerate(ranges):
-        exon_name = row['exon_names'][i]
-        contig = sequence[start:end]              # extract subsequence for the exon
+        if i >= len(exon_names):
+            continue
+        exon_name = exon_names[i]
+        contig = sequence[start:end]
         contig.id = f"{exon_name}_{sequence_id}_{i+1}"
         contig.description = ""
         exon_file = os.path.join(output_dir, f"{exon_name}.fasta")
         with open(exon_file, "a") as fh:
             SeqIO.write(contig, fh, "fasta")
 
+
 def clean_fasta(row, fasta_sequences, output_dir):
-    """
-    Remove existing exon FASTA files for the exons present in the given row.
-    This prevents old data from previous genes from accumulating in the files.
-    """
+    """Remove stale exon FASTA files prior to writing updated contig sequences."""
     ranges = row.get('parsed_ranges', [])
-    sequence_id = row.iloc[3]
-    sequence = next((seq for seq in fasta_sequences if seq.id == sequence_id), None)
-    if sequence is None:
-        return
-    for i, _ in enumerate(ranges):
-        exon_name = row['exon_names'][i]
+    exon_names = row.get('exon_names', [])
+    for i in range(min(len(ranges), len(exon_names))):
+        exon_name = exon_names[i]
         exon_file = os.path.join(output_dir, f"{exon_name}.fasta")
         if os.path.exists(exon_file):
             os.remove(exon_file)
@@ -143,58 +140,144 @@ def check_overlap(exon_ranges, start, end, overlap_threshold):
     return None
 
 def process_exon_data(input_dir, gene_name, output_dir, overlap_threshold):
-    """
-    Process exonerate results for a single gene to define unique exons and extract corresponding contigs.
-    - Reads the exonerate_stats.tsv for the gene.
-    - Determines exon names (ensuring overlapping hits get the same name).
-    - Writes a TSV of exon assignments and creates FASTA files for each exon.
-    """
-    data_label = os.path.basename(input_dir)  # project or sample identifier (folder name)
+    """Process HybPiper exon statistics for ``gene_name`` and extract contig FASTAs."""
+    data_label = os.path.basename(input_dir)
     stats_file = os.path.join(input_dir, gene_name, data_label, 'exonerate_stats.tsv')
     if not os.path.isfile(stats_file):
         raise FileNotFoundError(f"Expected stats file not found: {stats_file}")
+
     df = pd.read_csv(stats_file, sep='\t')
-    # Truncate DataFrame at the line indicating frameshift filtering (if present)
-    end_idx = df[df.iloc[:, 0] == 'Hits filtered to remove hits with frameshifts'].index
-    if len(end_idx) > 0:
-        df = df.loc[:end_idx[0]-1]
-    exon_ranges = []  # list of ((start, end), exon_name) for discovered exons
-    exon_names_per_row = []  # exon name list for each alignment hit (row)
+    sentinel_idx = df[df.iloc[:, 0] == 'Hits filtered to remove hits with frameshifts'].index
+    if len(sentinel_idx) > 0:
+        df = df.loc[:sentinel_idx[0] - 1]
+    df = df.dropna(how='all')
+
+    output_tsv = os.path.join(output_dir, f"{data_label}_{gene_name}_exon_split.tsv")
+
+    if df.empty:
+        df.to_csv(output_tsv, sep='\t', index=False)
+        return {
+            "gene": gene_name,
+            "assignment_table": output_tsv,
+            "exon_fastas": [],
+            "metrics": [],
+        }
+
+    range_col = None
+    for col in df.columns:
+        non_null = df[col].dropna().head(5)
+        for value in non_null:
+            if isinstance(value, (list, tuple)):
+                range_col = col
+                break
+            if isinstance(value, str) and value.strip().startswith('['):
+                range_col = col
+                break
+        if range_col:
+            break
+    if range_col is None:
+        raise ValueError(f"Could not locate exon coordinate column in {stats_file}")
+
+    df['parsed_ranges'] = df[range_col].apply(parse_ranges_field)
+
+    candidate_sequence_cols = [
+        col for col in df.columns
+        if any(token in str(col).lower() for token in ('contig', 'sequence', 'seq', 'name', 'id'))
+    ]
+    candidate_sequence_cols += [col for col in df.columns if col not in candidate_sequence_cols]
+
+    sequence_col = None
+    for col in candidate_sequence_cols:
+        if col in df.columns and df[col].notna().any():
+            sequence_col = col
+            break
+    if sequence_col is None:
+        sequence_col = df.columns[0]
+    df['sequence_id'] = df[sequence_col].astype(str)
+
+    depth_columns = [col for col in df.columns if 'depth' in str(col).lower()]
+    score_columns = [col for col in df.columns if 'score' in str(col).lower()]
+
+    exon_ranges = []
+    exon_names_per_row = []
+    metrics_lookup = {}
+    exon_counter = 0
+
     for _, row in df.iterrows():
-        ranges = eval(row.iloc[6])  # parse stringified list of exon coordinates
+        ranges = row['parsed_ranges'] or []
+        depth_value = None
+        for col in depth_columns:
+            depth_value = coerce_numeric(row.get(col))
+            if depth_value is not None:
+                break
+        score_value = None
+        for col in score_columns:
+            score_value = coerce_numeric(row.get(col))
+            if score_value is not None:
+                break
+
         row_exon_names = []
-        for i, (start, end) in enumerate(ranges):
+        for start, end in ranges:
             overlap_exon = check_overlap(exon_ranges, start, end, overlap_threshold)
             if overlap_exon is None:
-                # Define a new exon
-                exon_name = f"{data_label}_{gene_name}_exon_{i+1}"
+                exon_counter += 1
+                exon_name = f"{data_label}_{gene_name}_exon_{exon_counter}"
                 exon_ranges.append(((start, end), exon_name))
             else:
-                # Use the existing exon name for overlapping region
                 exon_name = overlap_exon
+
+            entry = metrics_lookup.setdefault(
+                exon_name,
+                {
+                    'project': data_label,
+                    'gene': gene_name,
+                    'exon_name': exon_name,
+                    'lengths': [],
+                    'depth_values': [],
+                    'score_values': [],
+                },
+            )
+            length_bp = max(0, int(end) - int(start))
+            if length_bp:
+                entry['lengths'].append(length_bp)
+            if depth_value is not None:
+                entry['depth_values'].append(depth_value)
+            if score_value is not None:
+                entry['score_values'].append(score_value)
             row_exon_names.append(exon_name)
+
         exon_names_per_row.append(row_exon_names)
         print(f"{gene_name}: identified {len(row_exon_names)} exons in one alignment hit.")
+
     df['exon_names'] = exon_names_per_row
-    # Save exon assignment table for reference
-    output_tsv = os.path.join(output_dir, f"{data_label}_{gene_name}_exon_split.tsv")
     df.to_csv(output_tsv, sep='\t', index=False)
-    # Load assembled contigs FASTA for this gene (from HybPiper output)
+
     contigs_fasta = os.path.join(input_dir, gene_name, f"{gene_name}_contigs.fasta")
+    if not os.path.isfile(contigs_fasta):
+        raise FileNotFoundError(f"Expected FASTA file not found: {contigs_fasta}")
     fasta_sequences = list(SeqIO.parse(contigs_fasta, "fasta"))
-    # Remove any old entries in exon FASTA files for this gene, then extract new sequences
-    for _, row in df.iterrows():
-        if row['parsed_ranges']:
-            clean_fasta(row, fasta_sequences, output_dir)
+
+    unique_exons = sorted({name for names in exon_names_per_row for name in names})
+    for exon_name in unique_exons:
+        exon_file = os.path.join(output_dir, f"{exon_name}.fasta")
+        if os.path.exists(exon_file):
+            os.remove(exon_file)
+
     for _, row in df.iterrows():
         if row['parsed_ranges']:
             extract_contigs(row, fasta_sequences, output_dir)
 
+    exon_files = [
+        os.path.join(output_dir, f"{exon}.fasta")
+        for exon in unique_exons
+        if os.path.exists(os.path.join(output_dir, f"{exon}.fasta"))
+    ]
+
     metrics_records = []
     for entry in metrics_lookup.values():
-        lengths = entry.pop('lengths', [])
-        depth_values = entry.pop('depth_values', [])
-        score_values = entry.pop('score_values', [])
+        lengths = entry['lengths']
+        depth_values = entry['depth_values']
+        score_values = entry['score_values']
         metrics_records.append(
             {
                 'project': entry['project'],
@@ -205,19 +288,12 @@ def process_exon_data(input_dir, gene_name, output_dir, overlap_threshold):
                 'alignment_score': (sum(score_values) / len(score_values)) if score_values else None,
             }
         )
-    return metrics_records
 
-def sequence_assembly(num_threads, read1, read2, target_fasta, project, log_file, output_hyb_dir):
-    for _, row in df.iterrows():
-        clean_fasta(row, fasta_sequences, output_dir)
-    for _, row in df.iterrows():
-        extract_contigs(row, fasta_sequences, output_dir)
-    unique_exons = sorted({name for names in exon_names_per_row for name in names})
-    exon_files = [os.path.join(output_dir, f"{exon}.fasta") for exon in unique_exons]
     return {
         "gene": gene_name,
         "assignment_table": output_tsv,
         "exon_fastas": exon_files,
+        "metrics": metrics_records,
     }
 
 def sequence_assembly(num_threads, read1, read2, target_fasta, project, log_file, output_hyb_dir):
@@ -267,11 +343,23 @@ def exon_extraction(gene_list_path, overlap_threshold, project, log_file, input_
     input_project_dir = os.path.join(input_hyb_dir, project)
     assignment_tables = []
     exon_fastas = []
+    all_metrics = []
+    metrics_csv = None
+    metrics_json = None
+    metrics_manifest = None
     for gene in gene_names:
         try:
             gene_outputs = process_exon_data(input_project_dir, gene, output_exon_dir, overlap_threshold)
-            assignment_tables.append(os.path.abspath(gene_outputs["assignment_table"]))
-            exon_fastas.extend(os.path.abspath(path) for path in gene_outputs["exon_fastas"] if os.path.exists(path))
+            if gene_outputs:
+                assignment_table = gene_outputs.get("assignment_table")
+                if assignment_table and os.path.exists(assignment_table):
+                    assignment_tables.append(os.path.abspath(assignment_table))
+                exon_fastas.extend(
+                    os.path.abspath(path)
+                    for path in gene_outputs.get("exon_fastas", [])
+                    if os.path.exists(path)
+                )
+                all_metrics.extend(gene_outputs.get("metrics", []))
             log_status(log_file, f"Processed Exons for Gene {gene}: SUCCESS")
         except Exception as e:
             log_status(log_file, f"Failed to Process Exons for Gene {gene}: {e}: FAILURE")
@@ -289,7 +377,7 @@ def exon_extraction(gene_list_path, overlap_threshold, project, log_file, input_
         metrics_json = os.path.join(output_exon_dir, f"{project}_exon_metrics.json")
         with open(metrics_json, 'w') as fh:
             json.dump(records, fh, indent=2)
-        manifest_path = os.path.join(output_exon_dir, f"{project}_exon_metrics_manifest.json")
+        metrics_manifest = os.path.join(output_exon_dir, f"{project}_exon_metrics_manifest.json")
         manifest = {
             'project': project,
             'metrics_csv': metrics_csv,
@@ -297,17 +385,20 @@ def exon_extraction(gene_list_path, overlap_threshold, project, log_file, input_
             'gene_count': int(metrics_df['gene'].nunique()),
             'exon_count': int(len(metrics_df)),
         }
-        with open(manifest_path, 'w') as fh:
+        with open(metrics_manifest, 'w') as fh:
             json.dump(manifest, fh, indent=2)
         log_status(log_file, f"Exon metrics written to {metrics_csv}")
         log_status(log_file, f"Exon metrics JSON written to {metrics_json}")
-        log_status(log_file, f"Exon metrics manifest written to {manifest_path}")
+        log_status(log_file, f"Exon metrics manifest written to {metrics_manifest}")
     else:
         log_status(log_file, "No exon metrics were generated.")
     return {
         "assignment_tables": sorted(set(assignment_tables)),
         "exon_fastas": sorted(set(exon_fastas)),
         "gene_list": os.path.abspath('gene_list.txt'),
+        "metrics_csv": os.path.abspath(metrics_csv) if metrics_csv else None,
+        "metrics_json": os.path.abspath(metrics_json) if metrics_json else None,
+        "metrics_manifest": os.path.abspath(metrics_manifest) if metrics_manifest else None,
     }
 
 if __name__ == "__main__":
@@ -385,6 +476,9 @@ if __name__ == "__main__":
             "exon_assignment_tables": exon_outputs.get("assignment_tables", []),
             "exon_fastas": exon_outputs.get("exon_fastas", []),
             "clean_gene_list": exon_outputs.get("gene_list"),
+            "exon_metrics_csv": exon_outputs.get("metrics_csv"),
+            "exon_metrics_json": exon_outputs.get("metrics_json"),
+            "exon_metrics_manifest": exon_outputs.get("metrics_manifest"),
         },
         "downstream_inputs": {
             "stage2": {
