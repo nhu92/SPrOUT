@@ -141,9 +141,10 @@ def _sum_reindexed_matrices(matrices):
 def _aggregate_manifest_entries(entries, aggregate_by, matrix_dir):
     """Aggregate manifest entries according to the requested level."""
     if aggregate_by == "tree":
-        return entries
+        return entries, []
 
     aggregated = []
+    aggregated_paths = []
     key_field = "gene" if aggregate_by == "gene" else "exon"
     for key, group in sorted(((k, v) for k, v in _group_entries(entries, key_field).items()), key=lambda item: item[0]):
         matrices = [entry.pop("_dataframe") for entry in group]
@@ -164,7 +165,9 @@ def _aggregate_manifest_entries(entries, aggregate_by, matrix_dir):
             identifier = f"exon_{key}"
             filename = f"{identifier}.aggregated.similarity.json"
 
-        combined_df.to_json(os.path.join(matrix_dir, filename), orient='split')
+        aggregate_path = os.path.join(matrix_dir, filename)
+        combined_df.to_json(aggregate_path, orient='split')
+        aggregated_paths.append(os.path.abspath(aggregate_path))
         aggregated.append({
             "id": identifier,
             "gene": gene,
@@ -174,7 +177,7 @@ def _aggregate_manifest_entries(entries, aggregate_by, matrix_dir):
             "member_count": len(group),
             "_dataframe": combined_df,
         })
-    return aggregated
+    return aggregated, aggregated_paths
 
 
 def _group_entries(entries, field):
@@ -190,9 +193,16 @@ def process_matrices(matrix_dir, project, threshold, use_flag, use_threshold, ag
     Combine all per-gene distance matrices in `matrix_dir` into one summary DataFrame.
     Converts distances to similarities, persists per-tree similarity matrices, and
     generates a manifest with normalized weights for downstream visualization.
+
+    Returns
+    -------
+    tuple
+        (summary_df, manifest_path, similarity_jsons, aggregated_similarity_jsons)
     """
     all_dfs = []
     manifest_entries = []
+    similarity_paths = []
+    aggregated_paths = []
     for filename in os.listdir(matrix_dir):
         if filename.endswith('cleaned.csv'):
             file_path = os.path.join(matrix_dir, filename)
@@ -214,6 +224,7 @@ def process_matrices(matrix_dir, project, threshold, use_flag, use_threshold, ag
             similarity_filename = f"{base}.similarity.json"
             similarity_path = os.path.join(matrix_dir, similarity_filename)
             similarity_df.to_json(similarity_path, orient='split')
+            similarity_paths.append(os.path.abspath(similarity_path))
 
             tree_total = float(similarity_df.to_numpy().sum())
             manifest_entries.append({
@@ -228,9 +239,10 @@ def process_matrices(matrix_dir, project, threshold, use_flag, use_threshold, ag
             all_dfs.append(df)
 
     if manifest_entries:
-        aggregated_entries = _aggregate_manifest_entries(manifest_entries, aggregate_by, matrix_dir)
+        aggregated_entries, aggregated_paths = _aggregate_manifest_entries(manifest_entries, aggregate_by, matrix_dir)
         if aggregate_by == "tree":
             aggregated_entries = manifest_entries
+            aggregated_paths = []
         grand_total = sum(entry["total"] for entry in aggregated_entries)
         for entry in aggregated_entries:
             entry["weight"] = entry["total"] / grand_total if grand_total else 0.0
@@ -256,8 +268,9 @@ def process_matrices(matrix_dir, project, threshold, use_flag, use_threshold, ag
     with open(manifest_path, 'w') as manifest_file:
         json.dump(manifest_data, manifest_file, indent=2)
 
+    manifest_path_abs = os.path.abspath(manifest_path)
     if not all_dfs:
-        return pd.DataFrame(columns=['row_name', 'total_value'])
+        return pd.DataFrame(columns=['row_name', 'total_value']), manifest_path_abs, sorted(similarity_paths), sorted(aggregated_paths)
 
     # Concatenate all gene similarity data
     total_df = pd.concat(all_dfs, ignore_index=True)
@@ -267,7 +280,7 @@ def process_matrices(matrix_dir, project, threshold, use_flag, use_threshold, ag
     total_df['total_value'] = total_df[value_cols].sum(axis=1)
     # Return a DataFrame with taxon (row_name) and its aggregated total value
     result = total_df[['row_name', 'total_value']]
-    return result
+    return result, manifest_path_abs, sorted(similarity_paths), sorted(aggregated_paths)
 
 def genetic_distance_matrix(tree_file, node_output_file, output_file):
     """
@@ -440,7 +453,14 @@ if __name__ == "__main__":
             if result:
                 gene_results.append(result)
     # Combine all matrices and output summary
-    summary_df = process_matrices(output_tree, proj_name, threshold, use_flag, use_threshold)
+    summary_df, similarity_manifest, similarity_files, aggregated_similarity = process_matrices(
+        output_tree,
+        proj_name,
+        threshold,
+        use_flag,
+        use_threshold,
+        aggregate_by,
+    )
     summary_csv = os.path.join(output_tree, f"{proj_name}.summary_dist.csv")
     summary_df.to_csv(summary_csv, index=False)
     log_status(log_file, f"Processed matrices saved to {summary_csv}")
@@ -455,6 +475,9 @@ if __name__ == "__main__":
         "cleaned_matrices": sorted({path for res in gene_results for path in res.get("cleaned_matrices", [])}),
         "summary_matrix": os.path.abspath(summary_csv),
         "cumulative_matrix": os.path.abspath(cumulative_csv),
+        "similarity_manifest": similarity_manifest,
+        "similarity_matrices": similarity_files,
+        "aggregated_similarity_matrices": aggregated_similarity,
     }
     stage_manifest = {
         "stage": 3,
