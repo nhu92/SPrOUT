@@ -31,18 +31,72 @@ python 01_exons_assembly.py --threads 8 --read1 reads_1.fastq --read2 reads_2.fa
 """
 import os
 import sys
-import json
 import argparse
+import ast
+import json
 import pandas as pd
 from Bio import SeqIO
 # Import shared utilities
 from pipeline_utils import log_status, run_command, is_valid_project_name, load_config
 
+
+def parse_ranges_field(value):
+    """Safely parse exon coordinate ranges stored as strings."""
+    if isinstance(value, list):
+        ranges = value
+    elif isinstance(value, str):
+        value = value.strip()
+        if not value:
+            return []
+        try:
+            ranges = ast.literal_eval(value)
+        except (ValueError, SyntaxError):
+            return []
+    else:
+        return []
+    parsed = []
+    for item in ranges:
+        if isinstance(item, (list, tuple)) and len(item) >= 2:
+            try:
+                start = int(float(item[0]))
+                end = int(float(item[1]))
+                parsed.append((start, end))
+            except (TypeError, ValueError):
+                continue
+    return parsed
+
+
+def coerce_numeric(value):
+    """Convert a value or collection of values to a representative float if possible."""
+    if value is None or (isinstance(value, float) and pd.isna(value)):
+        return None
+    if isinstance(value, (int, float)):
+        return float(value)
+    if isinstance(value, str):
+        stripped = value.strip()
+        if not stripped:
+            return None
+        try:
+            return float(stripped)
+        except ValueError:
+            try:
+                literal = ast.literal_eval(stripped)
+            except (ValueError, SyntaxError):
+                return None
+            return coerce_numeric(literal)
+    if isinstance(value, (list, tuple)):
+        numeric_values = [coerce_numeric(v) for v in value]
+        numeric_values = [v for v in numeric_values if v is not None]
+        if numeric_values:
+            return sum(numeric_values) / len(numeric_values)
+        return None
+    return None
+
 def extract_contigs(row, fasta_sequences, output_dir):
     """
     Extract contig sequences for each exon in the DataFrame row and append to exon-specific FASTA files.
     """
-    ranges = eval(row.iloc[13])  # exon coordinate ranges
+    ranges = row.get('parsed_ranges', [])
     sequence_id = row.iloc[3]
     # Find the full sequence record corresponding to this contig ID
     sequence = next((seq for seq in fasta_sequences if seq.id == sequence_id), None)
@@ -64,7 +118,7 @@ def clean_fasta(row, fasta_sequences, output_dir):
     Remove existing exon FASTA files for the exons present in the given row.
     This prevents old data from previous genes from accumulating in the files.
     """
-    ranges = eval(row.iloc[13])
+    ranges = row.get('parsed_ranges', [])
     sequence_id = row.iloc[3]
     sequence = next((seq for seq in fasta_sequences if seq.id == sequence_id), None)
     if sequence is None:
@@ -129,6 +183,31 @@ def process_exon_data(input_dir, gene_name, output_dir, overlap_threshold):
     contigs_fasta = os.path.join(input_dir, gene_name, f"{gene_name}_contigs.fasta")
     fasta_sequences = list(SeqIO.parse(contigs_fasta, "fasta"))
     # Remove any old entries in exon FASTA files for this gene, then extract new sequences
+    for _, row in df.iterrows():
+        if row['parsed_ranges']:
+            clean_fasta(row, fasta_sequences, output_dir)
+    for _, row in df.iterrows():
+        if row['parsed_ranges']:
+            extract_contigs(row, fasta_sequences, output_dir)
+
+    metrics_records = []
+    for entry in metrics_lookup.values():
+        lengths = entry.pop('lengths', [])
+        depth_values = entry.pop('depth_values', [])
+        score_values = entry.pop('score_values', [])
+        metrics_records.append(
+            {
+                'project': entry['project'],
+                'gene': entry['gene'],
+                'exon_name': entry['exon_name'],
+                'length_bp': max(lengths) if lengths else None,
+                'mean_depth': (sum(depth_values) / len(depth_values)) if depth_values else None,
+                'alignment_score': (sum(score_values) / len(score_values)) if score_values else None,
+            }
+        )
+    return metrics_records
+
+def sequence_assembly(num_threads, read1, read2, target_fasta, project, log_file, output_hyb_dir):
     for _, row in df.iterrows():
         clean_fasta(row, fasta_sequences, output_dir)
     for _, row in df.iterrows():
@@ -197,6 +276,34 @@ def exon_extraction(gene_list_path, overlap_threshold, project, log_file, input_
         except Exception as e:
             log_status(log_file, f"Failed to Process Exons for Gene {gene}: {e}: FAILURE")
             print(f"Error processing exons for gene {gene}: {e}")
+    if all_metrics:
+        metrics_df = pd.DataFrame(all_metrics)
+        if not metrics_df.empty:
+            metrics_df.sort_values(['gene', 'exon_name'], inplace=True)
+        metrics_csv = os.path.join(output_exon_dir, f"{project}_exon_metrics.csv")
+        metrics_df.to_csv(metrics_csv, index=False)
+        records = []
+        for record in metrics_df.to_dict(orient='records'):
+            cleaned_record = {key: (None if pd.isna(value) else value) for key, value in record.items()}
+            records.append(cleaned_record)
+        metrics_json = os.path.join(output_exon_dir, f"{project}_exon_metrics.json")
+        with open(metrics_json, 'w') as fh:
+            json.dump(records, fh, indent=2)
+        manifest_path = os.path.join(output_exon_dir, f"{project}_exon_metrics_manifest.json")
+        manifest = {
+            'project': project,
+            'metrics_csv': metrics_csv,
+            'metrics_json': metrics_json,
+            'gene_count': int(metrics_df['gene'].nunique()),
+            'exon_count': int(len(metrics_df)),
+        }
+        with open(manifest_path, 'w') as fh:
+            json.dump(manifest, fh, indent=2)
+        log_status(log_file, f"Exon metrics written to {metrics_csv}")
+        log_status(log_file, f"Exon metrics JSON written to {metrics_json}")
+        log_status(log_file, f"Exon metrics manifest written to {manifest_path}")
+    else:
+        log_status(log_file, "No exon metrics were generated.")
     return {
         "assignment_tables": sorted(set(assignment_tables)),
         "exon_fastas": sorted(set(exon_fastas)),
