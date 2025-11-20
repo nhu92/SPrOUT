@@ -50,7 +50,13 @@ def process_column(column, level):
 
 def select_taxonomy_by_zscore(summary_df, z_threshold):
     """Return list of taxon names from summary_df where z_score > z_threshold."""
-    return summary_df.loc[summary_df['z_score'] > z_threshold, 'row_name'].tolist()
+    if 'z_score' not in summary_df.columns:
+        raise ValueError("summary_df must contain 'z_score' column")
+    if 'row_name' not in summary_df.columns:
+        raise ValueError("summary_df must contain 'row_name' column")
+    
+    selected = summary_df.loc[summary_df['z_score'] > z_threshold, 'row_name'].tolist()
+    return selected
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Summarize and filter taxa by total scores and z-score.')
@@ -89,9 +95,33 @@ if __name__ == '__main__':
 
     # Read input data and compute summary by taxonomic level
     df = pd.read_csv(input_file)
+    
+    # Ensure total_value column is numeric
+    if 'total_value' in df.columns:
+        df['total_value'] = pd.to_numeric(df['total_value'], errors='coerce')
+    else:
+        # If total_value doesn't exist, use the second column
+        df.rename(columns={df.columns[1]: 'total_value'}, inplace=True)
+        df['total_value'] = pd.to_numeric(df['total_value'], errors='coerce')
+    
+    # Remove rows with NaN total_value (from failed conversions)
+    if df['total_value'].isnull().any():
+        print(f"Warning: {df['total_value'].isnull().sum()} rows had non-numeric total_value and were excluded")
+        df = df.dropna(subset=['total_value'])
+    
     df['taxon_level'] = process_column(df.iloc[:, 0], taxonomic_level)
     summary = df.groupby('taxon_level')['total_value'].sum().reset_index()
-    summary['z_score'] = zscore(summary['total_value'])
+    
+    # Ensure summary['total_value'] is numeric before zscore
+    summary['total_value'] = pd.to_numeric(summary['total_value'], errors='coerce')
+    
+    # Only calculate zscore if we have numeric data
+    if summary['total_value'].dtype in [float, int, 'float64', 'int64']:
+        summary['z_score'] = zscore(summary['total_value'])
+    else:
+        print(f"Error: total_value column has dtype {summary['total_value'].dtype}, expected numeric")
+        raise ValueError(f"Cannot calculate z-score on non-numeric data: {summary['total_value'].dtype}")
+    
     summary = summary.rename(columns={'taxon_level': 'row_name', 'total_value': 'sum_of_total_value'})
     summary = summary.sort_values(by='sum_of_total_value', ascending=False)
     summary.to_csv(output_file, index=False)
@@ -99,10 +129,14 @@ if __name__ == '__main__':
 
     # Filter by z-score threshold and save selected taxa
     significant_taxa = select_taxonomy_by_zscore(summary, z_threshold)
+    
+    if not significant_taxa:
+        print(f"Warning: No taxa found with z_score > {z_threshold}")
+    
     with open(taxonomy_output, 'w') as fout:
         for name in significant_taxa:
-            fout.write(name + "\n")
-    print(f"Selected taxonomy names (z_score > {z_threshold}) have been written to {taxonomy_output}")
+            fout.write(str(name) + "\n")
+    print(f"Selected {len(significant_taxa)} taxa (z_score > {z_threshold}) written to {taxonomy_output}")
     inferred_project = config.get('proj_name') if isinstance(config, dict) else None
     if not inferred_project:
         base_name = os.path.basename(input_file)
