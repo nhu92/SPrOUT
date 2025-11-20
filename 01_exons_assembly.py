@@ -414,7 +414,7 @@ def main():
     parser.add_argument("--threads", "-t", type=int, default=None, help="Number of CPU threads.")
     parser.add_argument("--read1", "-r1", type=str, default=None, help="Path to read1 FASTQ.")
     parser.add_argument("--read2", "-r2", type=str, default=None, help="Path to read2 FASTQ.")
-    parser.add_argument("--target_fasta", "-tf", type=str, default=None, help="Target FASTA for HybPiper.")
+    parser.add_argument("--target_fasta", "-m", type=str, default=None, help="Target FASTA for HybPiper.")
     parser.add_argument("--proj_name", "-p", type=str, default=None, help="Project name (sample identifier).")
     parser.add_argument("--gene_list", "-g", type=str, default=None, help="Gene list file.")
     parser.add_argument("--overlap_threshold", "-o", type=float, default=None,
