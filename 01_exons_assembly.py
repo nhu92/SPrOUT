@@ -36,6 +36,7 @@ import ast
 import json
 import pandas as pd
 from Bio import SeqIO
+from Bio.SeqRecord import SeqRecord
 # Import shared utilities
 from pipeline_utils import log_status, run_command, is_valid_project_name, load_config
 
@@ -108,12 +109,16 @@ def extract_contigs(row, fasta_sequences, output_dir):
         if i >= len(exon_names):
             continue
         exon_name = exon_names[i]
-        contig = sequence[start:end]
-        contig.id = f"{exon_name}_{sequence_id}_{i+1}"
-        contig.description = ""
+        # Extract the subsequence and create a new SeqRecord
+        subseq = sequence.seq[start:end]
+        contig = SeqRecord(subseq, id=f"{exon_name}_{sequence_id}_{i+1}", description="")
         exon_file = os.path.join(output_dir, f"{exon_name}.fasta")
-        with open(exon_file, "a") as fh:
-            SeqIO.write(contig, fh, "fasta")
+        try:
+            with open(exon_file, "a") as fh:
+                SeqIO.write(contig, fh, "fasta")
+        except Exception as e:
+            print(f"Error writing exon {exon_name} to {exon_file}: {e}")
+            raise
 
 
 def clean_fasta(row, fasta_sequences, output_dir):
@@ -124,7 +129,10 @@ def clean_fasta(row, fasta_sequences, output_dir):
         exon_name = exon_names[i]
         exon_file = os.path.join(output_dir, f"{exon_name}.fasta")
         if os.path.exists(exon_file):
-            os.remove(exon_file)
+            try:
+                os.remove(exon_file)
+            except Exception as e:
+                print(f"Warning: Could not remove {exon_file}: {e}")
 
 def check_overlap(exon_ranges, start, end, overlap_threshold):
     """
@@ -272,6 +280,11 @@ def process_exon_data(input_dir, gene_name, output_dir, overlap_threshold):
         for exon in unique_exons
         if os.path.exists(os.path.join(output_dir, f"{exon}.fasta"))
     ]
+    
+    print(f"Gene {gene_name}: Created {len(exon_files)} exon FASTA files out of {len(unique_exons)} expected exons")
+    if len(exon_files) < len(unique_exons):
+        missing_exons = [e for e in unique_exons if not os.path.exists(os.path.join(output_dir, f"{e}.fasta"))]
+        print(f"Warning: Missing FASTA files for exons: {missing_exons}")
 
     metrics_records = []
     for entry in metrics_lookup.values():
