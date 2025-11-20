@@ -63,13 +63,39 @@ def parse_ranges_field(value):
                 end = int(float(item[1]))
                 parsed.append((start, end))
             except (TypeError, ValueError):
-                continue
-    return parsed
+        try:
+            if isinstance(item, (list, tuple)) and len(item) == 2:
+                start = int(item[0])
+                end = int(item[1])
+                if start < end:
+                    normalized.append((start, end))
+        except (ValueError, TypeError):
+            continue
+    return normalized
+
+
+def check_overlap(existing_exons, start, end, threshold):
+    """
+    Determine if exon (start, end) overlaps with any existing exon above a given threshold.
+    `existing_exons` is a list of tuples: [((start, end), exon_name), ...].
+    Returns the exon_name if overlapping exon is found, otherwise None.
+    """
+    for (exon_start, exon_end), exon_name in existing_exons:
+        overlap_start = max(start, exon_start)
+        overlap_end = min(end, exon_end)
+        overlap_len = max(0, overlap_end - overlap_start)
+        exon_len = exon_end - exon_start
+        if exon_len > 0 and (overlap_len / exon_len) >= threshold:
+            return exon_name
+    return None
 
 
 def coerce_numeric(value):
-    """Convert a value or collection of values to a representative float if possible."""
-    if value is None or (isinstance(value, float) and pd.isna(value)):
+    """
+    Try to coerce a value (possibly a string or list) to a float.
+    Returns None if this isn't possible.
+    """
+    if value is None:
         return None
     if isinstance(value, (int, float)):
         return float(value)
@@ -93,6 +119,7 @@ def coerce_numeric(value):
         return None
     return None
 
+
 def extract_contigs(row, fasta_sequences, output_dir):
     """Append contig segments for each exon in ``row`` to the appropriate FASTA file."""
     # Handle both dict and Series objects from pandas
@@ -114,66 +141,41 @@ def extract_contigs(row, fasta_sequences, output_dir):
         print(f"Debug: ranges={ranges}, exon_names={exon_names}, sequence_id={sequence_id}")
         return
     
-    # Find the full sequence record corresponding to this contig ID
-    if sequence_id is None:
-        print(f"Warning: No sequence_id found in row")
-        return
-    
+    # Find the sequence with the matching ID
     sequence = next((seq for seq in fasta_sequences if seq.id == str(sequence_id)), None)
     if sequence is None:
-        print(f"Warning: Sequence {sequence_id} not found in FASTA. Available sequences: {[s.id for s in fasta_sequences[:5]]}")
+        print(f"Warning: Sequence {sequence_id} not found in FASTA. Available sequences: {[seq.id for seq in fasta_sequences[:5]]}...")
         return
-    
+
+    # Write each exon segment to its respective FASTA file
     for i, (start, end) in enumerate(ranges):
-        if i >= len(exon_names):
-            continue
-        exon_name = exon_names[i]
-        # Ensure start and end are integers
         try:
-            start = int(start)
-            end = int(end)
-        except (ValueError, TypeError) as e:
-            print(f"Error: Could not convert start={start}, end={end} to integers: {e}")
+            exon_name = exon_names[i]
+        except IndexError:
+            print(f"Warning: exon_names index mismatch for sequence_id={sequence_id}, ranges={ranges}, exon_names={exon_names}")
             continue
-        
-        # Extract the subsequence and create a new SeqRecord
-        subseq = sequence.seq[start:end]
-        contig = SeqRecord(subseq, id=f"{exon_name}_{sequence_id}_{i+1}", description="")
+        contig = sequence[start:end]
+        contig.id = f"{exon_name}_{sequence_id}_{i+1}"
+        contig.description = ""
         exon_file = os.path.join(output_dir, f"{exon_name}.fasta")
-        try:
-            with open(exon_file, "a") as fh:
-                SeqIO.write(contig, fh, "fasta")
-                print(f"Wrote exon {exon_name} ({start}-{end}) to {exon_file}")
-        except Exception as e:
-            print(f"Error writing exon {exon_name} to {exon_file}: {e}")
-            raise
+        with open(exon_file, "a") as fh:
+            SeqIO.write(contig, fh, "fasta")
 
 
 def clean_fasta(row, fasta_sequences, output_dir):
-    """Remove stale exon FASTA files prior to writing updated contig sequences."""
-    ranges = row.get('parsed_ranges', [])
-    exon_names = row.get('exon_names', [])
-    for i in range(min(len(ranges), len(exon_names))):
-        exon_name = exon_names[i]
-        exon_file = os.path.join(output_dir, f"{exon_name}.fasta")
+    """
+    Remove existing exon FASTA files for the exons present in the given row.
+    This prevents old data from previous genes from accumulating in the files.
+    """
+    exon_names = row.get('exon_names', []) if hasattr(row, 'get') else row['exon_names']
+    if not exon_names:
+        return
+    unique_exons = set(exon_names)
+    for exon in unique_exons:
+        exon_file = os.path.join(output_dir, f"{exon}.fasta")
         if os.path.exists(exon_file):
-            try:
-                os.remove(exon_file)
-            except Exception as e:
-                print(f"Warning: Could not remove {exon_file}: {e}")
+            os.remove(exon_file)
 
-def check_overlap(exon_ranges, start, end, overlap_threshold):
-    """
-    Check if the interval (start, end) overlaps significantly (>= overlap_threshold) with any existing exon interval.
-    Returns the name of an overlapping exon if found, otherwise None.
-    """
-    for (existing_start, existing_end), exon_name in exon_ranges:
-        # Compute overlap length between intervals
-        overlap_len = min(end, existing_end) - max(start, existing_start)
-        # Check if overlap is at least the given fraction of the combined interval length
-        if overlap_len > 0 and overlap_len / (max(end, existing_end) - min(start, existing_start)) >= overlap_threshold:
-            return exon_name
-    return None
 
 def process_exon_data(input_dir, gene_name, output_dir, overlap_threshold):
     """Process HybPiper exon statistics for ``gene_name`` and extract contig FASTAs."""
@@ -199,37 +201,18 @@ def process_exon_data(input_dir, gene_name, output_dir, overlap_threshold):
             "metrics": [],
         }
 
-    range_col = None
-    for col in df.columns:
-        non_null = df[col].dropna().head(5)
-        for value in non_null:
-            if isinstance(value, (list, tuple)):
-                range_col = col
-                break
-            if isinstance(value, str) and value.strip().startswith('['):
-                range_col = col
-                break
-        if range_col:
-            break
-    if range_col is None:
-        raise ValueError(f"Could not locate exon coordinate column in {stats_file}")
+    # --------- FIXED COLUMN SELECTION (matches the original working script) ----------
+    # Use fixed column indices to match the original behaviour.
+    # Column index 6 (7th column) holds the exon coordinate ranges, typically
+    # something like "query_HSPFragment_ranges", containing a Python-like list
+    # of (start, end) tuples.
+    df['parsed_ranges'] = df.iloc[:, 6].apply(parse_ranges_field)
 
-    df['parsed_ranges'] = df[range_col].apply(parse_ranges_field)
-
-    candidate_sequence_cols = [
-        col for col in df.columns
-        if any(token in str(col).lower() for token in ('contig', 'sequence', 'seq', 'name', 'id'))
-    ]
-    candidate_sequence_cols += [col for col in df.columns if col not in candidate_sequence_cols]
-
-    sequence_col = None
-    for col in candidate_sequence_cols:
-        if col in df.columns and df[col].notna().any():
-            sequence_col = col
-            break
-    if sequence_col is None:
-        sequence_col = df.columns[0]
-    df['sequence_id'] = df[sequence_col].astype(str)
+    # Column index 3 (4th column) holds the contig / hit identifier that
+    # matches the record IDs in <gene>_contigs.fasta (usually the 'hit_id').
+    # We cast to string to be safe and to ensure matching against FASTA ids.
+    df['sequence_id'] = df.iloc[:, 3].astype(str)
+    # -------------------------------------------------------------------------------
 
     depth_columns = [col for col in df.columns if 'depth' in str(col).lower()]
     score_columns = [col for col in df.columns if 'score' in str(col).lower()]
@@ -262,25 +245,22 @@ def process_exon_data(input_dir, gene_name, output_dir, overlap_threshold):
             else:
                 exon_name = overlap_exon
 
-            entry = metrics_lookup.setdefault(
-                exon_name,
-                {
+            row_exon_names.append(exon_name)
+
+            if exon_name not in metrics_lookup:
+                metrics_lookup[exon_name] = {
                     'project': data_label,
                     'gene': gene_name,
                     'exon_name': exon_name,
                     'lengths': [],
                     'depth_values': [],
                     'score_values': [],
-                },
-            )
-            length_bp = max(0, int(end) - int(start))
-            if length_bp:
-                entry['lengths'].append(length_bp)
+                }
+            metrics_lookup[exon_name]['lengths'].append(end - start)
             if depth_value is not None:
-                entry['depth_values'].append(depth_value)
+                metrics_lookup[exon_name]['depth_values'].append(depth_value)
             if score_value is not None:
-                entry['score_values'].append(score_value)
-            row_exon_names.append(exon_name)
+                metrics_lookup[exon_name]['score_values'].append(score_value)
 
         exon_names_per_row.append(row_exon_names)
         print(f"{gene_name}: identified {len(row_exon_names)} exons in one alignment hit.")
@@ -295,18 +275,14 @@ def process_exon_data(input_dir, gene_name, output_dir, overlap_threshold):
     if not os.path.isfile(contigs_fasta):
         raise FileNotFoundError(f"Expected FASTA file not found: {contigs_fasta}")
     fasta_sequences = list(SeqIO.parse(contigs_fasta, "fasta"))
-    print(f"{gene_name}: Loaded {len(fasta_sequences)} sequences from {contigs_fasta}")
-
-    unique_exons = sorted({name for names in exon_names_per_row for name in names})
-    for exon_name in unique_exons:
-        exon_file = os.path.join(output_dir, f"{exon_name}.fasta")
-        if os.path.exists(exon_file):
-            os.remove(exon_file)
+    print(f"{gene_name}: Loaded {len(fasta_sequences)} contigs from {contigs_fasta}")
 
     for _, row in df.iterrows():
-        if row['parsed_ranges']:
-            extract_contigs(row, fasta_sequences, output_dir)
+        clean_fasta(row, fasta_sequences, output_dir)
+    for _, row in df.iterrows():
+        extract_contigs(row, fasta_sequences, output_dir)
 
+    unique_exons = sorted({exon for exon_list in exon_names_per_row for exon in exon_list})
     exon_files = [
         os.path.join(output_dir, f"{exon}.fasta")
         for exon in unique_exons
@@ -343,13 +319,13 @@ def process_exon_data(input_dir, gene_name, output_dir, overlap_threshold):
         "metrics": metrics_records,
     }
 
+
 def sequence_assembly(num_threads, read1, read2, target_fasta, project, log_file, output_hyb_dir):
     """
-    Step 1: Run quality trimming and assembly:
-    - Uses fastp for read trimming.
-    - Runs HybPiper to assemble target sequences from trimmed reads.
+    Step 1: Run fastp for quality trimming, then HybPiper for assembly.
     """
-    # 1A. Read trimming with fastp
+    log_status(log_file, "Starting sequence assembly")
+    # 1A. Quality trimming with fastp
     fastp_cmd = (
         f"fastp -i {read1} -I {read2} "
         f"-o {read1}.trimmed.fastq.gz -O {read2}.trimmed.fastq.gz "
@@ -365,23 +341,18 @@ def sequence_assembly(num_threads, read1, read2, target_fasta, project, log_file
         f"--prefix {project} --bwa --cpu {num_threads} -o {output_hyb_dir}"
     )
     run_command(hybpiper_cmd, "Sequence Assembly (HybPiper)", log_file, critical=True)
-    trimmed_read1 = os.path.abspath(f"{read1}.trimmed.fastq.gz")
-    trimmed_read2 = os.path.abspath(f"{read2}.trimmed.fastq.gz")
-    return {
-        "trimmed_reads": [trimmed_read1, trimmed_read2],
-        "fastp_reports": [os.path.abspath("fastp.json"), os.path.abspath("fastp.html")],
-        "hybpiper_output": os.path.abspath(output_hyb_dir),
-    }
+
 
 def exon_extraction(gene_list_path, overlap_threshold, project, log_file, input_hyb_dir, output_exon_dir):
     """
     Step 2: For each gene in the gene list, process exons and extract contigs.
     """
-    # Read gene names (strip any “.fasta” extension in the list if present)
-    with open(gene_list_path, 'r') as f:
-        gene_names = [line.strip().replace('.fasta', '') for line in f if line.strip()]
-    # Save a cleaned gene list for compatibility with downstream steps
-    with open('gene_list.txt', 'w') as f_out:
+    # Read gene names
+    with open(gene_list_path, "r") as f:
+        gene_names = [line.strip() for line in f if line.strip()]
+    # Save gene list in output folder
+    gene_list_output = os.path.join(output_exon_dir, "gene_list.txt")
+    with open(gene_list_output, "w") as f_out:
         for gene in gene_names:
             f_out.write(gene + '\n')
     log_status(log_file, "Modify Gene List: SUCCESS")
@@ -413,119 +384,97 @@ def exon_extraction(gene_list_path, overlap_threshold, project, log_file, input_
             print(f"Error processing exons for gene {gene}: {e}")
     if all_metrics:
         metrics_df = pd.DataFrame(all_metrics)
-        if not metrics_df.empty:
-            metrics_df.sort_values(['gene', 'exon_name'], inplace=True)
         metrics_csv = os.path.join(output_exon_dir, f"{project}_exon_metrics.csv")
         metrics_df.to_csv(metrics_csv, index=False)
-        records = []
-        for record in metrics_df.to_dict(orient='records'):
-            cleaned_record = {key: (None if pd.isna(value) else value) for key, value in record.items()}
-            records.append(cleaned_record)
         metrics_json = os.path.join(output_exon_dir, f"{project}_exon_metrics.json")
-        with open(metrics_json, 'w') as fh:
-            json.dump(records, fh, indent=2)
+        metrics_df.to_json(metrics_json, orient="records", indent=2)
         metrics_manifest = os.path.join(output_exon_dir, f"{project}_exon_metrics_manifest.json")
-        manifest = {
-            'project': project,
-            'metrics_csv': metrics_csv,
-            'metrics_json': metrics_json,
-            'gene_count': int(metrics_df['gene'].nunique()),
-            'exon_count': int(len(metrics_df)),
+        manifest_data = {
+            "project": project,
+            "metric_table": os.path.abspath(metrics_csv),
+            "metric_json": os.path.abspath(metrics_json),
         }
-        with open(metrics_manifest, 'w') as fh:
-            json.dump(manifest, fh, indent=2)
-        log_status(log_file, f"Exon metrics written to {metrics_csv}")
-        log_status(log_file, f"Exon metrics JSON written to {metrics_json}")
-        log_status(log_file, f"Exon metrics manifest written to {metrics_manifest}")
+        with open(metrics_manifest, "w") as mf:
+            json.dump(manifest_data, mf, indent=2)
+        log_status(log_file, f"Saved exon metrics to {metrics_csv} and {metrics_json}")
     else:
-        log_status(log_file, "No exon metrics were generated.")
+        log_status(log_file, "No exon metrics to save.")
     return {
-        "assignment_tables": sorted(set(assignment_tables)),
-        "exon_fastas": sorted(set(exon_fastas)),
-        "gene_list": os.path.abspath('gene_list.txt'),
-        "metrics_csv": os.path.abspath(metrics_csv) if metrics_csv else None,
-        "metrics_json": os.path.abspath(metrics_json) if metrics_json else None,
-        "metrics_manifest": os.path.abspath(metrics_manifest) if metrics_manifest else None,
+        "gene_list": gene_list_output,
+        "assignment_tables": assignment_tables,
+        "exon_fastas": exon_fastas,
+        "metrics_csv": metrics_csv,
+        "metrics_json": metrics_json,
+        "metrics_manifest": metrics_manifest,
     }
 
-if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Assemble reads and extract exons from a mixed sample.")
-    parser.add_argument("-c", "--config", help="Path to config file (YAML/JSON/TOML)")
-    parser.add_argument("-t", "--threads", type=int, help="Number of threads to use")
-    parser.add_argument("-r1", "--read1", help="Path to first reads file (FASTQ)")
-    parser.add_argument("-r2", "--read2", help="Path to second reads file (FASTQ)")
-    parser.add_argument("-m", "--mega353", help="Path to target FASTA (default Angiosperms353)", 
-                        default="angiosperms353_v2_interim_targetfile.fasta")
-    parser.add_argument("-p", "--proj_name", help="Project name identifier")
-    parser.add_argument("-g", "--gene_list", help="Path to gene list file")
-    parser.add_argument("-ov", "--overlap", type=float, help="Overlap ratio to consider same exon (0-1)",
-                        default=0.8)
-    parser.add_argument("--output_hyb", help="Output folder for HybPiper results", default="01_hyb_output")
-    parser.add_argument("--output_exon", help="Output folder for exon FASTAs", default="02_exon_extracted")
+
+def main():
+    parser = argparse.ArgumentParser(description="01_exons_assembly – Assemble reads and extract exons.")
+    parser.add_argument(
+        "-c", "--config", type=str, required=False,
+        help="Path to configuration file (YAML/JSON/TOML)."
+    )
+    parser.add_argument("--threads", "-t", type=int, default=None, help="Number of CPU threads.")
+    parser.add_argument("--read1", "-r1", type=str, default=None, help="Path to read1 FASTQ.")
+    parser.add_argument("--read2", "-r2", type=str, default=None, help="Path to read2 FASTQ.")
+    parser.add_argument("--target_fasta", "-tf", type=str, default=None, help="Target FASTA for HybPiper.")
+    parser.add_argument("--proj_name", "-p", type=str, default=None, help="Project name (sample identifier).")
+    parser.add_argument("--gene_list", "-g", type=str, default=None, help="Gene list file.")
+    parser.add_argument("--overlap_threshold", "-o", type=float, default=None,
+                        help="Overlap threshold for exons (0–1).")
+    parser.add_argument("--output_hyb_dir", type=str, default=None, help="Output directory for HybPiper.")
+    parser.add_argument("--output_exon_dir", type=str, default=None, help="Output directory for exon FASTAs.")
+    parser.add_argument("--log_file", type=str, default="01_exons_assembly.log", help="Log file.")
+
     args = parser.parse_args()
 
-    # Load config file if provided
-    config = {}
-    if args.config:
-        config = load_config(args.config)
-    # Merge CLI args and config, giving precedence to CLI
-    threads = args.threads if args.threads is not None else config.get('threads')
-    read1 = args.read1 or config.get('read1')
-    read2 = args.read2 or config.get('read2')
-    mega353 = args.mega353 or config.get('mega353', "angiosperms353_v2_interim_targetfile.fasta")
-    proj_name = args.proj_name or config.get('proj_name')
-    gene_list = args.gene_list or config.get('gene_list')
-    overlap = args.overlap if args.overlap is not None else config.get('overlap', 0.8)
-    output_hyb = args.output_hyb or config.get('output_hyb', "01_hyb_output")
-    output_exon = args.output_exon or config.get('output_exon', "02_exon_extracted")
-    # Validate required params
-    if threads is None or not read1 or not read2 or not proj_name or not gene_list:
-        parser.error("Missing required parameters (threads, read1, read2, proj_name, gene_list).")
-    if not is_valid_project_name(proj_name):
-        sys.exit(f"Error: Project name '{proj_name}' is invalid (contains disallowed characters).")
-    threads = int(threads)
-    overlap = float(overlap)
-    # Initialize log file
-    log_file = f"{proj_name}_01_exon_assembly.out"
-    if os.path.exists(log_file):
-        os.remove(log_file)
-    log_status(log_file, "Pipeline started with the following parameters:")
-    log_status(log_file, f"  Threads: {threads}")
-    log_status(log_file, f"  Read1: {read1}")
-    log_status(log_file, f"  Read2: {read2}")
-    log_status(log_file, f"  Mega353: {mega353}")
-    log_status(log_file, f"  Project Name: {proj_name}")
-    log_status(log_file, f"  Gene List: {gene_list}")
-    log_status(log_file, f"  Overlap Threshold: {overlap}")
-    log_status(log_file, f"  Output Hyb: {output_hyb}")
-    log_status(log_file, f"  Output Exon: {output_exon}")
-    # Run steps 1 and 2
-    assembly_outputs = sequence_assembly(threads, read1, read2, mega353, proj_name, log_file, output_hyb)
-    exon_outputs = exon_extraction(gene_list, overlap, proj_name, log_file, output_hyb, output_exon)
+    config = load_config(args.config) if args.config else {}
+    num_threads = args.threads or config.get("threads", 4)
+    read1 = args.read1 or config.get("read1")
+    read2 = args.read2 or config.get("read2")
+    target_fasta = args.target_fasta or config.get("target_fasta")
+    project = args.proj_name or config.get("proj_name")
+    gene_list = args.gene_list or config.get("gene_list")
+    overlap_threshold = args.overlap_threshold or config.get("overlap_threshold", 0.8)
+    output_hyb = args.output_hyb_dir or config.get("output_hyb_dir", "01_HybPiper_output")
+    output_exon = args.output_exon_dir or config.get("output_exon_dir", "02_Exons_output")
+    log_file = args.log_file or config.get("log_file", "01_exons_assembly.log")
+
+    if not is_valid_project_name(project):
+        print(f"Error: Invalid project name '{project}'.")
+        sys.exit(1)
+    if not read1 or not read2 or not target_fasta or not gene_list:
+        print("Error: Missing required inputs (read1, read2, target_fasta, gene_list).")
+        sys.exit(1)
+
+    log_status(log_file, "Starting 01_exons_assembly stage.")
+    os.makedirs(os.path.dirname(log_file) or ".", exist_ok=True)
+
+    sequence_assembly(num_threads, read1, read2, target_fasta, project, log_file, output_hyb)
+
+    exon_outputs = exon_extraction(
+        gene_list_path=gene_list,
+        overlap_threshold=overlap_threshold,
+        project=project,
+        log_file=log_file,
+        input_hyb_dir=output_hyb,
+        output_exon_dir=output_exon,
+    )
+
     stage_manifest = {
-        "stage": 1,
-        "project": proj_name,
+        "stage": "01_exons_assembly",
+        "project": project,
         "log_file": os.path.abspath(log_file),
-        "parameters": {
-            "threads": threads,
-            "read1": os.path.abspath(read1),
-            "read2": os.path.abspath(read2),
-            "target_fasta": os.path.abspath(mega353),
-            "gene_list_source": os.path.abspath(gene_list),
-            "overlap_threshold": overlap,
-            "output_hyb": os.path.abspath(output_hyb),
-            "output_exon": os.path.abspath(output_exon),
-        },
-        "artifacts": {
-            "trimmed_reads": assembly_outputs.get("trimmed_reads", []),
-            "fastp_reports": assembly_outputs.get("fastp_reports", []),
-            "hybpiper_output": assembly_outputs.get("hybpiper_output"),
-            "exon_assignment_tables": exon_outputs.get("assignment_tables", []),
+        "outputs": {
+            "hybpiper_dir": os.path.abspath(output_hyb),
+            "exon_dir": os.path.abspath(output_exon),
+            "gene_list": exon_outputs.get("gene_list"),
+            "assignment_tables": exon_outputs.get("assignment_tables", []),
             "exon_fastas": exon_outputs.get("exon_fastas", []),
-            "clean_gene_list": exon_outputs.get("gene_list"),
-            "exon_metrics_csv": exon_outputs.get("metrics_csv"),
-            "exon_metrics_json": exon_outputs.get("metrics_json"),
-            "exon_metrics_manifest": exon_outputs.get("metrics_manifest"),
+            "metrics_csv": exon_outputs.get("metrics_csv"),
+            "metrics_json": exon_outputs.get("metrics_json"),
+            "metrics_manifest": exon_outputs.get("metrics_manifest"),
         },
         "downstream_inputs": {
             "stage2": {
@@ -540,3 +489,7 @@ if __name__ == "__main__":
     log_status(log_file, f"Stage 1 manifest saved to {manifest_path}")
     log_status(log_file, "Pipeline completed successfully.")
     print(f"Pipeline completed. Check {log_file} for details.")
+
+
+if __name__ == "__main__":
+    main()
