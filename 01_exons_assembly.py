@@ -55,14 +55,10 @@ def parse_ranges_field(value):
             return []
     else:
         return []
-    parsed = []
+
+    # Normalize ranges to list of (start, end) tuples of ints
+    normalized = []
     for item in ranges:
-        if isinstance(item, (list, tuple)) and len(item) >= 2:
-            try:
-                start = int(float(item[0]))
-                end = int(float(item[1]))
-                parsed.append((start, end))
-            except (TypeError, ValueError):
         try:
             if isinstance(item, (list, tuple)) and len(item) == 2:
                 start = int(item[0])
