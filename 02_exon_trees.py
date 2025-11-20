@@ -92,33 +92,52 @@ def process_gene_exon_alignment(
             continue
         # Alignment with MAFFT
         ref_alignment = os.path.join(ref_dir, f"{gene_name}.fasta")
+        if not os.path.isfile(ref_alignment):
+            log_status(log_file, f"Reference alignment not found: {ref_alignment}. Skipping {gene_name} exon {i}")
+            gene_outputs["skipped_exons"].append(os.path.abspath(exon_path))
+            continue
         aligned_out = os.path.join(output_phylo, f"{gene_name}_exon_{i}_aligned.fasta")
         mafft_cmd = (
             f"mafft --preservecase --maxiterate 1000 --localpair --adjustdirection "
             f"--thread {threads} --addfragments {exon_path} {ref_alignment} > {aligned_out}"
         )
         run_command(mafft_cmd, f"MAFFT alignment for {gene_name} exon {i}", log_file)
+        if not os.path.isfile(aligned_out):
+            log_status(log_file, f"MAFFT failed to produce output for {gene_name} exon {i}")
+            continue
         gene_outputs["aligned_fastas"].append(os.path.abspath(aligned_out))
         # Trim alignment with trimAl
         trimmed_out = os.path.join(output_phylo, f"{gene_name}_exon_{i}_trimmed.fasta")
         trimal_cmd = f"trimal -in {aligned_out} -out {trimmed_out} -gt 0.5"
         run_command(trimal_cmd, f"Trim alignment for {gene_name} exon {i}", log_file)
+        if not os.path.isfile(trimmed_out):
+            log_status(log_file, f"trimAl failed to produce output for {gene_name} exon {i}")
+            continue
         gene_outputs["trimmed_fastas"].append(os.path.abspath(trimmed_out))
         # Build tree with selected method
         tree_out = os.path.join(output_phylo, f"{gene_name}_exon_{i}.tre")
         if tree_method == "fasttree":
             fasttree_cmd = f"fasttree -gtr -gamma -nt {trimmed_out} > {tree_out}"
             run_command(fasttree_cmd, f"Tree construction for {gene_name} exon {i} (FastTree)", log_file)
-            gene_outputs["tree_files"].append(os.path.abspath(tree_out))
+            if os.path.isfile(tree_out):
+                gene_outputs["tree_files"].append(os.path.abspath(tree_out))
+            else:
+                log_status(log_file, f"FastTree failed to produce tree for {gene_name} exon {i}")
         elif tree_method == "iqtree":
             if iqtree_mode == "mfp":
                 iqtree_cmd = (
                     f"iqtree2 -s {trimmed_out} -nt {threads} -m MFP -pre {tree_out.replace('.tre','')} "
                     f"--quiet"
                 )
-            else:  # fixed model (GTR+G or GTR)
+            elif iqtree_mode == "fixed+gamma":
+                # GTR with gamma distribution
                 iqtree_cmd = (
-                    f"iqtree2 -s {trimmed_out} -nt {threads} -m GTR{'+' if 'gamma' in iqtree_mode else ''}G "
+                    f"iqtree2 -s {trimmed_out} -nt {threads} -m GTR+G "
+                    f"-pre {tree_out.replace('.tre','')} --quiet"
+                )
+            else:  # fixed model (GTR without gamma)
+                iqtree_cmd = (
+                    f"iqtree2 -s {trimmed_out} -nt {threads} -m GTR "
                     f"-pre {tree_out.replace('.tre','')} --quiet"
                 )
             run_command(iqtree_cmd, f"Tree construction for {gene_name} exon {i} (IQ-TREE)", log_file)
@@ -126,7 +145,9 @@ def process_gene_exon_alignment(
             iqtree_treefile = tree_out.replace('.tre', '.treefile')
             if os.path.exists(iqtree_treefile):
                 os.replace(iqtree_treefile, tree_out)
-            gene_outputs["tree_files"].append(os.path.abspath(tree_out))
+                gene_outputs["tree_files"].append(os.path.abspath(tree_out))
+            else:
+                log_status(log_file, f"IQ-TREE failed to produce treefile for {gene_name} exon {i}")
         else:
             log_status(log_file, f"Unknown tree method: {tree_method}")
     return gene_outputs
@@ -154,13 +175,13 @@ if __name__ == "__main__":
     # Determine parameters (CLI overrides config)
     threads = args.threads if args.threads is not None else config.get('threads')
     proj_name = args.proj_name or config.get('proj_name')
-    input_exon_dir = args.input_exon if args.input_exon != parser.get_default('input_exon') else config.get('input_exon', "02_exon_extracted")
-    ref_dir = args.ref_alignment if args.ref_alignment != parser.get_default('ref_alignment') else config.get('ref_alignment', "ref")
-    gene_list_path = args.gene_list if args.gene_list != parser.get_default('gene_list') else config.get('gene_list', "gene_list.txt")
-    output_phylo = args.output_phylo if args.output_phylo != parser.get_default('output_phylo') else config.get('output_phylo', "03_phylo_results")
-    min_size = args.min_exon_size if args.min_exon_size != parser.get_default('min_exon_size') else config.get('min_exon_size', 80)
-    tree_method = args.tree_method if args.tree_method else config.get('tree_method', 'fasttree')
-    iqtree_mode = args.iqtree_mode if args.iqtree_mode else config.get('iqtree_mode', 'fixed')
+    input_exon_dir = args.input_exon or config.get('input_exon', "02_exon_extracted")
+    ref_dir = args.ref_alignment or config.get('ref_alignment', "ref")
+    gene_list_path = args.gene_list or config.get('gene_list', "gene_list.txt")
+    output_phylo = args.output_phylo or config.get('output_phylo', "03_phylo_results")
+    min_size = args.min_exon_size if args.min_exon_size is not None else config.get('min_exon_size', 80)
+    tree_method = args.tree_method or config.get('tree_method', 'fasttree')
+    iqtree_mode = args.iqtree_mode or config.get('iqtree_mode', 'fixed')
     # Disable iqtree_mode if tree_method is fasttree
     if tree_method == "fasttree":
         iqtree_mode = None
