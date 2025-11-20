@@ -26,6 +26,7 @@ import os
 import glob
 import json
 import argparse
+import shutil
 from concurrent.futures import ThreadPoolExecutor
 from Bio import Phylo
 import pandas as pd
@@ -95,14 +96,20 @@ def clean_up_matrix(df, project, threshold, taxa_file=None, use_flag=False, use_
     # Apply filtering to each project column
     for col in df.columns[1:]:
         if use_flag:
-            # Flag method: set the minimum value in this column to 0 (best match) and all others to 999
-            min_val = df[col].min()
-            df[col] = df[col].apply(lambda x: 0 if x == min_val else 999)
+            # Flag method: keep only the maximum value (best match) as 0, set others to 999
+            max_val = df[col].max()
+            df[col] = df[col].apply(lambda x: 0 if x == max_val else 999)
         elif use_threshold:
-            # Standard deviation method: mark as 999 any value higher than (mean - threshold*std) for the column
+            # Threshold method: mark as 999 any value higher than (mean - threshold*std)
             mean = df[col].mean()
             sd = df[col].std()
-            df[col] = df[col].apply(lambda x: 999 if x > (mean - threshold * sd) else x)
+            if sd > 0:
+                # For similarities, keep values above (mean + threshold*std) to identify good matches
+                threshold_val = mean + threshold * sd
+                df[col] = df[col].apply(lambda x: x if x > threshold_val else 999)
+            else:
+                # If std is 0, keep values above mean
+                df[col] = df[col].apply(lambda x: x if x >= mean else 999)
         # If neither flag nor threshold, do not filter
     # If a taxa mapping file is available, use it to further clean the matrix
     if taxa_file and os.path.exists(taxa_file):
@@ -113,13 +120,14 @@ def clean_up_matrix(df, project, threshold, taxa_file=None, use_flag=False, use_
                 if len(parts) == 2:
                     species, taxa_list = parts
                     species_to_taxa[species.strip()] = [tax.strip() for tax in taxa_list.split(';')]
+        
+        row_name_col = df.columns[0]
         for header in df.columns[1:]:
-            for species, taxa_list in species_to_taxa.items():
-                if header == species:
-                    # For each row, if its taxon (row_name) is not in the expected taxa list for this species, mark distance as 999
-                    for idx, row in df.iterrows():
-                        if row[df.columns[0]] not in taxa_list:
-                            df.at[idx, header] = 999
+            if header in species_to_taxa:
+                taxa_list = species_to_taxa[header]
+                # Mark as 999 any row whose taxon is not in the expected taxa list for this species
+                mask = ~df[row_name_col].astype(str).isin(taxa_list)
+                df.loc[mask, header] = 999
     # Simplify row names by removing any trailing numbers/underscores (from original sample IDs)
     df.iloc[:, 0] = df.iloc[:, 0].str.replace(r'\d+', '', regex=True).str.rstrip('_')
     return df
@@ -297,16 +305,28 @@ def genetic_distance_matrix(tree_file, node_output_file, output_file):
     """
     tree = Phylo.read(tree_file, 'newick')
     reroot_taxa = ["Amborella", "Nymphaea", "Austrobaileya"]
+    
+    # Try to root with known outgroups
+    rooted = False
     for taxa in reroot_taxa:
         for clade in tree.find_clades():
             if clade.name and taxa in clade.name:
-                tree.root_with_outgroup(clade)
-                break
-        else:
-            continue
-        break
-    else:
-        tree.root_at_midpoint()
+                try:
+                    tree.root_with_outgroup(clade)
+                    rooted = True
+                    break
+                except Exception as e:
+                    print(f"Warning: Could not root with {taxa}: {e}")
+        if rooted:
+            break
+    
+    # If no outgroup found, use midpoint rooting
+    if not rooted:
+        try:
+            tree.root_at_midpoint()
+        except Exception as e:
+            print(f"Warning: Midpoint rooting failed: {e}")
+    
     node_records = []
     for tip in tree.get_terminals():
         if tip.name and "NODE" in tip.name:
@@ -369,7 +389,6 @@ def process_gene(gene_name_shorter, input_dir, output_dir, log_file):
 
             # The genetic_distance_matrix writes a square CSV; copy/rename to *.cleaned.csv
             # (keep a separate 'cleaned' name because downstream code searches for it)
-            import shutil
             shutil.copy2(matrix_file, cleaned_csv)
             log_status(log_file, f"Copied matrix to cleaned CSV for {gene_name_shorter} tree {i}")
             artifacts["cleaned_matrices"].append(os.path.abspath(cleaned_csv))
@@ -406,13 +425,13 @@ if __name__ == "__main__":
         config = load_config(args.config)
     threads = args.threads if args.threads is not None else config.get('threads')
     proj_name = args.proj_name or config.get('proj_name')
-    gene_list_path = args.gene_list if args.gene_list != parser.get_default('gene_list') else config.get('gene_list', "gene_list.txt")
+    gene_list_path = args.gene_list or config.get('gene_list', "gene_list.txt")
     threshold = args.threshold if args.threshold is not None else config.get('threshold', 1.96)
     use_flag = args.use_flag or bool(config.get('use_flag', False))
     use_threshold = args.use_threshold or bool(config.get('use_threshold', False))
-    input_phylo = args.input_phylo if args.input_phylo != parser.get_default('input_phylo') else config.get('input_phylo', "03_phylo_results")
-    output_tree = args.output_tree if args.output_tree != parser.get_default('output_tree') else config.get('output_tree', "04_all_trees")
-    aggregate_by = args.aggregate_by if args.aggregate_by != parser.get_default('aggregate_by') else config.get('aggregate_by', "tree")
+    input_phylo = args.input_phylo or config.get('input_phylo', "03_phylo_results")
+    output_tree = args.output_tree or config.get('output_tree', "04_all_trees")
+    aggregate_by = args.aggregate_by or config.get('aggregate_by', "tree")
 
     if aggregate_by not in {"tree", "gene", "exon"}:
         parser.error("--aggregate_by must be one of: tree, gene, exon")
