@@ -95,20 +95,47 @@ def coerce_numeric(value):
 
 def extract_contigs(row, fasta_sequences, output_dir):
     """Append contig segments for each exon in ``row`` to the appropriate FASTA file."""
-    ranges = row.get('parsed_ranges', [])
-    exon_names = row.get('exon_names', [])
-    sequence_id = row.get('sequence_id')
-    if sequence_id is None and len(row) > 3:
-        sequence_id = row.iloc[3]
-    # Find the full sequence record corresponding to this contig ID
-    sequence = next((seq for seq in fasta_sequences if seq.id == sequence_id), None)
-    if sequence is None:
-        print(f"Warning: Sequence {sequence_id} not found in FASTA.")
+    # Handle both dict and Series objects from pandas
+    def get_value(row, key, default=None):
+        try:
+            if hasattr(row, 'get'):
+                return row.get(key, default)
+            else:
+                return row[key] if key in row else default
+        except (KeyError, TypeError):
+            return default
+    
+    ranges = get_value(row, 'parsed_ranges', [])
+    exon_names = get_value(row, 'exon_names', [])
+    sequence_id = get_value(row, 'sequence_id')
+    
+    # Debug output
+    if not ranges or not exon_names:
+        print(f"Debug: ranges={ranges}, exon_names={exon_names}, sequence_id={sequence_id}")
         return
+    
+    # Find the full sequence record corresponding to this contig ID
+    if sequence_id is None:
+        print(f"Warning: No sequence_id found in row")
+        return
+    
+    sequence = next((seq for seq in fasta_sequences if seq.id == str(sequence_id)), None)
+    if sequence is None:
+        print(f"Warning: Sequence {sequence_id} not found in FASTA. Available sequences: {[s.id for s in fasta_sequences[:5]]}")
+        return
+    
     for i, (start, end) in enumerate(ranges):
         if i >= len(exon_names):
             continue
         exon_name = exon_names[i]
+        # Ensure start and end are integers
+        try:
+            start = int(start)
+            end = int(end)
+        except (ValueError, TypeError) as e:
+            print(f"Error: Could not convert start={start}, end={end} to integers: {e}")
+            continue
+        
         # Extract the subsequence and create a new SeqRecord
         subseq = sequence.seq[start:end]
         contig = SeqRecord(subseq, id=f"{exon_name}_{sequence_id}_{i+1}", description="")
@@ -116,6 +143,7 @@ def extract_contigs(row, fasta_sequences, output_dir):
         try:
             with open(exon_file, "a") as fh:
                 SeqIO.write(contig, fh, "fasta")
+                print(f"Wrote exon {exon_name} ({start}-{end}) to {exon_file}")
         except Exception as e:
             print(f"Error writing exon {exon_name} to {exon_file}: {e}")
             raise
@@ -259,11 +287,15 @@ def process_exon_data(input_dir, gene_name, output_dir, overlap_threshold):
 
     df['exon_names'] = exon_names_per_row
     df.to_csv(output_tsv, sep='\t', index=False)
+    print(f"{gene_name}: Wrote assignment table with {len(df)} rows to {output_tsv}")
+    print(f"{gene_name}: Columns in dataframe: {list(df.columns)}")
+    print(f"{gene_name}: Sample exon_names: {exon_names_per_row[:2] if exon_names_per_row else 'EMPTY'}")
 
     contigs_fasta = os.path.join(input_dir, gene_name, f"{gene_name}_contigs.fasta")
     if not os.path.isfile(contigs_fasta):
         raise FileNotFoundError(f"Expected FASTA file not found: {contigs_fasta}")
     fasta_sequences = list(SeqIO.parse(contigs_fasta, "fasta"))
+    print(f"{gene_name}: Loaded {len(fasta_sequences)} sequences from {contigs_fasta}")
 
     unique_exons = sorted({name for names in exon_names_per_row for name in names})
     for exon_name in unique_exons:
@@ -285,6 +317,8 @@ def process_exon_data(input_dir, gene_name, output_dir, overlap_threshold):
     if len(exon_files) < len(unique_exons):
         missing_exons = [e for e in unique_exons if not os.path.exists(os.path.join(output_dir, f"{e}.fasta"))]
         print(f"Warning: Missing FASTA files for exons: {missing_exons}")
+    else:
+        print(f"Success: All {len(exon_files)} exon FASTA files created successfully!")
 
     metrics_records = []
     for entry in metrics_lookup.values():
