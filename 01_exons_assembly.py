@@ -37,6 +37,40 @@ from Bio import SeqIO
 # Import shared utilities
 from pipeline_utils import log_status, run_command, is_valid_project_name, load_config
 
+
+def record_exon_metrics(df, fasta_sequences, output_dir, data_label, gene_name):
+    """Write per-exon length and coverage metrics for GUI-ready summaries."""
+    metrics = []
+    seq_lookup = {seq.id: seq for seq in fasta_sequences}
+    for _, row in df.iterrows():
+        sequence_id = row.iloc[3]
+        ranges = eval(row.iloc[6])
+        exon_names = row['exon_names']
+        contig = seq_lookup.get(sequence_id)
+        contig_length = len(contig.seq) if contig else None
+        for idx, (start, end) in enumerate(ranges):
+            exon_length = end - start
+            coverage = (exon_length / contig_length) if contig_length else None
+            metrics.append(
+                {
+                    "project": data_label,
+                    "gene": gene_name,
+                    "contig_id": sequence_id,
+                    "exon_index": idx + 1,
+                    "exon_name": exon_names[idx],
+                    "range_start": start,
+                    "range_end": end,
+                    "exon_length": exon_length,
+                    "contig_length": contig_length,
+                    "coverage_fraction": coverage,
+                }
+            )
+    if metrics:
+        metrics_df = pd.DataFrame(metrics)
+        metrics_path = os.path.join(output_dir, f"{data_label}_{gene_name}_exon_metrics.tsv")
+        metrics_df.to_csv(metrics_path, sep='\t', index=False)
+
+
 def extract_contigs(row, fasta_sequences, output_dir):
     """
     Extract contig sequences for each exon in the DataFrame row and append to exon-specific FASTA files.
@@ -132,6 +166,8 @@ def process_exon_data(input_dir, gene_name, output_dir, overlap_threshold):
         clean_fasta(row, fasta_sequences, output_dir)
     for _, row in df.iterrows():
         extract_contigs(row, fasta_sequences, output_dir)
+    # Emit per-exon metrics for downstream GUI summaries
+    record_exon_metrics(df, fasta_sequences, output_dir, data_label, gene_name)
 
 def sequence_assembly(num_threads, read1, read2, target_fasta, project, log_file, output_hyb_dir):
     """
