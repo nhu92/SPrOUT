@@ -343,6 +343,10 @@ def exon_extraction(gene_list_path, overlap_threshold, project, log_file, input_
     """
     Step 2: For each gene in the gene list, process exons and extract contigs.
     """
+    # Create output directory first
+    os.makedirs(output_exon_dir, exist_ok=True)
+    log_status(log_file, f"Create Output Directory ({output_exon_dir}): SUCCESS")
+    
     # Read gene names
     with open(gene_list_path, "r") as f:
         gene_names = [line.strip() for line in f if line.strip()]
@@ -352,8 +356,6 @@ def exon_extraction(gene_list_path, overlap_threshold, project, log_file, input_
         for gene in gene_names:
             f_out.write(gene + '\n')
     log_status(log_file, "Modify Gene List: SUCCESS")
-    os.makedirs(output_exon_dir, exist_ok=True)
-    log_status(log_file, f"Create Output Directory ({output_exon_dir}): SUCCESS")
     input_project_dir = os.path.join(input_hyb_dir, project)
     assignment_tables = []
     exon_fastas = []
@@ -479,7 +481,7 @@ def main():
             }
         },
     }
-    manifest_path = f"{proj_name}_stage1_manifest.json"
+    manifest_path = f"{project}_stage1_manifest.json"
     with open(manifest_path, "w") as manifest_file:
         json.dump(stage_manifest, manifest_file, indent=2)
     log_status(log_file, f"Stage 1 manifest saved to {manifest_path}")
