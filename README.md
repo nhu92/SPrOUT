@@ -54,3 +54,19 @@ sbatch sample_command.sh
 ```
 
 Detailed instructions please refer to [Wiki page](https://github.com/nhu92/SPrOUT/wiki)
+
+## Preparing a GUI-ready results bundle
+
+After completing the pipeline, you can package outputs for a downstream GUI (e.g., R Shiny or Dash) without building the GUI itself. Run:
+
+```bash
+python 05_gui_ready.py -p <project_name> \
+  --exon_dir 02_exon_extracted --tree_dir 03_phylo_results --matrix_dir 04_all_trees
+```
+
+This creates `gui_ready/<project>_gui_bundle/` containing:
+- `trees/merged_exon_trees.nwk` and `trees/tree_index.csv` for quick browsing.
+- `exon_metrics/exon_metrics.csv` with per-exon length and coverage summaries.
+- `matrices/` with similarity tables, cumulative/summary distances, and tree contribution metrics.
+- `summaries/run_summary.json` plus a manifest listing all packaged files.
+- A compressed archive `sprout_<project>_results.zip` for download or transfer to the GUI repository.

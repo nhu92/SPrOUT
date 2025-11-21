@@ -126,9 +126,11 @@ def clean_up_matrix(df, project, threshold, taxa_file=None, use_flag=False, use_
 def process_matrices(matrix_dir, project, threshold, use_flag, use_threshold):
     """
     Combine all per-gene distance matrices in `matrix_dir` into one summary DataFrame.
-    Converts distances to similarities and computes a total sum per taxon.
+    Converts distances to similarities, saves per-tree similarity tables, and computes
+    a contribution table describing how much each tree influences the final score.
     """
     all_dfs = []
+    contribution_rows = []
     for filename in os.listdir(matrix_dir):
         if filename.endswith('cleaned.csv'):
             file_path = os.path.join(matrix_dir, filename)
@@ -138,16 +140,33 @@ def process_matrices(matrix_dir, project, threshold, use_flag, use_threshold):
             taxa_file = os.path.join(matrix_dir, f"{prefix}list.txt")
             df = clean_up_matrix(df, project, threshold, taxa_file if os.path.exists(taxa_file) else None, use_flag, use_threshold)
             df = distance_to_similarity(df)
+            similarity_path = os.path.join(matrix_dir, f"{prefix}similarity.csv")
+            df.to_csv(similarity_path, index=False)
+            value_cols = [col for col in df.columns if col != 'Unnamed: 0']
+            similarity_sum = df[value_cols].sum().sum()
+            contribution_rows.append(
+                {
+                    'tree_name': prefix.rstrip('.'),
+                    'matrix_file': filename,
+                    'similarity_table': os.path.basename(similarity_path),
+                    'similarity_sum': similarity_sum,
+                }
+            )
             all_dfs.append(df)
+    if not all_dfs:
+        return pd.DataFrame(columns=['row_name', 'total_value']), pd.DataFrame(contribution_rows)
     # Concatenate all gene similarity data
     total_df = pd.concat(all_dfs, ignore_index=True)
     total_df.fillna(0, inplace=True)
     # Sum similarity scores across all genes for each taxon
     value_cols = [col for col in total_df.columns if col != 'Unnamed: 0']
     total_df['total_value'] = total_df[value_cols].sum(axis=1)
-    # Return a DataFrame with taxon (row_name) and its aggregated total value
     result = total_df[['Unnamed: 0', 'total_value']].rename(columns={'Unnamed: 0': 'row_name'})
-    return result
+    grand_total = sum(row['similarity_sum'] for row in contribution_rows) or 1
+    for row in contribution_rows:
+        row['contribution_fraction'] = row['similarity_sum'] / grand_total
+    contribution_df = pd.DataFrame(contribution_rows).sort_values(by='similarity_sum', ascending=False)
+    return result, contribution_df
 
 def genetic_distance_matrix(tree_file, node_output_file, output_file):
     """
@@ -292,8 +311,8 @@ if __name__ == "__main__":
         futures = [executor.submit(process_gene, gene, input_phylo, output_tree, log_file) for gene in gene_names]
         for future in futures:
             future.result()  # raise exceptions if any
-    # Combine all matrices and output summary
-    summary_df = process_matrices(output_tree, proj_name, threshold, use_flag, use_threshold)
+    # Combine all matrices, emit per-tree similarity tables, and output summary
+    summary_df, contribution_df = process_matrices(output_tree, proj_name, threshold, use_flag, use_threshold)
     summary_csv = os.path.join(output_tree, f"{proj_name}.summary_dist.csv")
     summary_df.to_csv(summary_csv, index=False)
     log_status(log_file, f"Processed matrices saved to {summary_csv}")
@@ -301,5 +320,9 @@ if __name__ == "__main__":
     cumulative_csv = f"{proj_name}.cumulative_dist.csv"
     group_and_sum(summary_csv, cumulative_csv)
     log_status(log_file, f"Generated cumulative distance file: {cumulative_csv}")
+    if not contribution_df.empty:
+        contribution_csv = os.path.join(output_tree, f"{proj_name}_tree_contributions.csv")
+        contribution_df.to_csv(contribution_csv, index=False)
+        log_status(log_file, f"Recorded tree contributions: {contribution_csv}")
     log_status(log_file, "Pipeline completed successfully.")
     print(f"Pipeline completed. Check {log_file} for details.")
