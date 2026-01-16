@@ -217,7 +217,7 @@ if __name__ == "__main__":
     threads = int(threads)
     overlap = float(overlap)
     # Initialize log file
-    log_file = f"{proj_name}_01_exon_assembly.out"
+    log_file = f"{proj_name}_01_exon_assembly.log"
     if os.path.exists(log_file):
         os.remove(log_file)
     log_status(log_file, "Pipeline started with the following parameters:")
