@@ -36,10 +36,10 @@ python 04_prediction.py -i 01x02x03.cumulative_dist.csv -o 01x02x03.predictions.
 # Family Level Predictions
 # Step 1: Select families from predicted orders
 mkdir 01x02x03_ref_family
-while read line; do python misc/pick_match_list.py family298_refs_50genes/${line} 01x02x03_ref_family/${line} 01x02x03.order_candidates.txt; done < gene.list.txt
+while read line; do python misc/pick_match_list.py sample_data/family298_refs_50genes/${line} 01x02x03_ref_family/${line} 01x02x03.order_candidates.txt; done < sample_data/gene.list.txt
 
 # Step 2: Use the selected families as reference to reconstruct phylogeny
-python 02_exon_trees.py -t 64 -p 01x02x03 -r 01x02x03_ref \
+python 02_exon_trees.py -t 64 -p 01x02x03 -r 01x02x03_ref_family \
         -e 01x02x03_exon \
         --output_phylo 01x02x03_fam_phylo
 
