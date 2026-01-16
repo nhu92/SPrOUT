@@ -1,6 +1,6 @@
 # SPrOUT
 
-Nan Hu, 2025 August
+Nan Hu, 2025 November
 
 ---
 For citation, please refer to this:
