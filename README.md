@@ -61,6 +61,7 @@ Detailed instructions please refer to [Wiki page](https://github.com/nhu92/SPrOU
 <<<<<<< ours
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
 ## Stage 4 Output Bundle Contract
 
 Starting with this release, Stage 4 automatically packages the prediction artefacts into a portable bundle that downstream tooling (including the upcoming GUI) can consume without re-discovering file locations.
@@ -105,6 +106,8 @@ This contract is shared with the Wiki so automated services can rely on the stru
 >>>>>>> theirs
 =======
 >>>>>>> theirs
+=======
+>>>>>>> theirs
 ## Repository overview
 
 SPrOUT is organized as a four-step command-line pipeline plus a GUI-export helper:
@@ -130,6 +133,12 @@ python 05_gui_outputs.py \
   --prediction_summary my_project.summary_scores.csv \
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
+=======
+  --taxonomy_output_file selected_taxa.txt \
+  --zscore_threshold 1.96 \
+  --threshold 1.96 \
+>>>>>>> theirs
 =======
   --taxonomy_output_file selected_taxa.txt \
   --zscore_threshold 1.96 \
@@ -148,6 +157,7 @@ The exporter creates:
 - `run_metadata.json`: project name, input locations, creation time, and counts for exon FASTAs, trees, split tables, and contribution rows.
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
 - `exon_metrics.csv`: per-exon sequence count, minimum/mean/maximum exon length, total bases, and FASTA path. These fields are intended for basic run-quality cards in a GUI.
 - `tree_inventory.csv`: one row per exon tree, with stable `tree_id`, `gene`, `exon_index`, source path, and Newick length for a tree-selector panel.
 - `all_exon_trees.nwk`: all exon trees concatenated into one labeled Newick file for review in external tree viewers.
@@ -155,11 +165,16 @@ The exporter creates:
 =======
 =======
 >>>>>>> theirs
+=======
+>>>>>>> theirs
 - `exon_metrics.csv`: per-exon sequence count, minimum/mean/maximum exon length, total bases, mapped bases, target bases, mapping coverage, alignment-hit count, and FASTA path. These fields are intended for basic run-quality cards in a GUI.
 - `tree_inventory.csv`: one row per exon tree, with stable `tree_id`, `gene`, `exon_index`, source path, and Newick length for a tree-selector panel.
 - `all_exon_trees.nwk`: all exon trees concatenated into one labeled Newick file for review in external tree viewers.
 - `tree_contributions.csv`: per-tree, per-taxon ACS contribution values, fraction of each tree ACS, and whether the taxon appears in the thresholded final result. This table is intended to drive contribution bar plots and per-tree drill-downs.
 <<<<<<< ours
+<<<<<<< ours
+>>>>>>> theirs
+=======
 >>>>>>> theirs
 =======
 >>>>>>> theirs
@@ -179,6 +194,9 @@ Suggested GUI views for the separate application:
 <<<<<<< ours
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
+>>>>>>> theirs
+=======
 >>>>>>> theirs
 =======
 >>>>>>> theirs

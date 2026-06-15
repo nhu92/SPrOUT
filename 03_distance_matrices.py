@@ -215,10 +215,14 @@ def process_matrices(matrix_dir, project, threshold, use_flag, use_threshold, ag
 <<<<<<< ours
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
     all_dfs = []
     manifest_entries = []
     similarity_paths = []
     aggregated_paths = []
+=======
+    all_dfs = []
+>>>>>>> theirs
 =======
     all_dfs = []
 >>>>>>> theirs
@@ -246,6 +250,7 @@ def process_matrices(matrix_dir, project, threshold, use_flag, use_threshold, ag
             taxa_file = os.path.join(matrix_dir, f"{prefix}list.txt")
             df = clean_up_matrix(df, project, threshold, taxa_file if os.path.exists(taxa_file) else None, use_flag, use_threshold)
             df = distance_to_similarity(df)
+<<<<<<< ours
 <<<<<<< ours
 <<<<<<< ours
 <<<<<<< ours
@@ -312,6 +317,11 @@ def process_matrices(matrix_dir, project, threshold, use_flag, use_threshold, ag
     if not all_dfs:
         return pd.DataFrame(columns=['row_name', 'total_value']), manifest_path_abs, sorted(similarity_paths), sorted(aggregated_paths)
 
+=======
+            all_dfs.append(df)
+    if not all_dfs:
+        return pd.DataFrame(columns=['row_name', 'total_value'])
+>>>>>>> theirs
 =======
             all_dfs.append(df)
     if not all_dfs:
