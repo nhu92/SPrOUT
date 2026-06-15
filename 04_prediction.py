@@ -111,6 +111,9 @@ if __name__ == '__main__':
     
     df['taxon_level'] = process_column(df.iloc[:, 0], taxonomic_level)
     summary = df.groupby('taxon_level')['total_value'].sum().reset_index()
+<<<<<<< ours
+<<<<<<< ours
+<<<<<<< ours
     
     # Ensure summary['total_value'] is numeric before zscore
     summary['total_value'] = pd.to_numeric(summary['total_value'], errors='coerce')
@@ -122,6 +125,25 @@ if __name__ == '__main__':
         print(f"Error: total_value column has dtype {summary['total_value'].dtype}, expected numeric")
         raise ValueError(f"Cannot calculate z-score on non-numeric data: {summary['total_value'].dtype}")
     
+=======
+=======
+>>>>>>> theirs
+=======
+>>>>>>> theirs
+    if len(summary) > 1 and summary['total_value'].std(ddof=0) != 0:
+        summary['z_score'] = zscore(summary['total_value'])
+    else:
+        # scipy.stats.zscore returns NaN for a single value or zero variance,
+        # which breaks threshold-driven downstream reporting. Treat all tied
+        # summaries as neutral rather than significant.
+        summary['z_score'] = 0.0
+<<<<<<< ours
+<<<<<<< ours
+>>>>>>> theirs
+=======
+>>>>>>> theirs
+=======
+>>>>>>> theirs
     summary = summary.rename(columns={'taxon_level': 'row_name', 'total_value': 'sum_of_total_value'})
     summary = summary.sort_values(by='sum_of_total_value', ascending=False)
     summary.to_csv(output_file, index=False)

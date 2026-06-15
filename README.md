@@ -55,6 +55,9 @@ sbatch sample_command.sh
 
 Detailed instructions please refer to [Wiki page](https://github.com/nhu92/SPrOUT/wiki)
 
+<<<<<<< ours
+<<<<<<< ours
+<<<<<<< ours
 ## Stage 4 Output Bundle Contract
 
 Starting with this release, Stage 4 automatically packages the prediction artefacts into a portable bundle that downstream tooling (including the upcoming GUI) can consume without re-discovering file locations.
@@ -88,3 +91,59 @@ By default, a run that processes project `01x02x03` produces `01x02x03_bundle/` 
 - `reports/` stores the summarized predictions and the taxonomy candidate list.
 
 This contract is shared with the Wiki so automated services can rely on the structure when ingesting completed Stage 4 runs.
+=======
+=======
+>>>>>>> theirs
+=======
+>>>>>>> theirs
+## Repository overview
+
+SPrOUT is organized as a four-step command-line pipeline plus a GUI-export helper:
+
+1. `01_exons_assembly.py` trims reads, runs HybPiper, parses exonerate output, and writes per-exon FASTA files plus exon split tables.
+2. `02_exon_trees.py` aligns exon FASTAs to reference alignments, trims alignments, and builds one Newick tree per exon with FastTree or IQ-TREE.
+3. `03_distance_matrices.py` converts exon trees to per-tree distance matrices, applies optional filtering, transforms distances to ACS-style similarity scores, and writes cumulative taxon scores.
+4. `04_prediction.py` summarizes cumulative scores at order, family, genus, or species level and applies a z-score threshold to produce final predicted taxa.
+5. `05_gui_outputs.py` packages the outputs above into files intended for a separate visualization repository.
+
+Shared helpers live in `pipeline_utils.py`; example commands and small test data live in `sample_command.sh`, `test_run.sh`, and `sample_data/`.
+
+## GUI-ready outputs for SPrOUT 1.2
+
+To support a future R Shiny app or equivalent GUI, run the GUI export step after generating distance matrices and predictions:
+
+```bash
+python 05_gui_outputs.py \
+  --proj_name my_project \
+  --input_exon 02_exon_extracted \
+  --input_phylo 03_phylo_results \
+  --matrix_dir 04_all_trees \
+  --prediction_summary my_project.summary_scores.csv \
+  --output_dir 05_gui_results
+```
+
+The exporter creates:
+
+- `run_metadata.json`: project name, input locations, creation time, and counts for exon FASTAs, trees, split tables, and contribution rows.
+- `exon_metrics.csv`: per-exon sequence count, minimum/mean/maximum exon length, total bases, and FASTA path. These fields are intended for basic run-quality cards in a GUI.
+- `tree_inventory.csv`: one row per exon tree, with stable `tree_id`, `gene`, `exon_index`, source path, and Newick length for a tree-selector panel.
+- `all_exon_trees.nwk`: all exon trees concatenated into one labeled Newick file for review in external tree viewers.
+- `tree_contributions.csv`: per-tree, per-taxon ACS contribution values and whether the taxon appears in the thresholded final result. This table is intended to drive contribution bar plots and per-tree drill-downs.
+- `result_manifest.json`: a small machine-readable index of the GUI bundle.
+- `<project>.sprout_results.zip`: a compressed archive for sharing or upload into a separate GUI repository.
+
+Suggested GUI views for the separate application:
+
+- **Run overview**: read `run_metadata.json` and show total exon FASTAs, exon trees, and contribution rows.
+- **Exon QC table**: read `exon_metrics.csv` to display exon length distributions and sequence counts; highlight unusually short or sparse exons.
+- **Exon tree browser**: read `tree_inventory.csv` and `all_exon_trees.nwk`; let users select a gene/exon and render the corresponding Newick tree.
+- **Prediction threshold explorer**: read the final prediction CSV from `04_prediction.py`; use a slider for z-score threshold and update the selected taxa table interactively.
+- **ACS contribution view**: read `tree_contributions.csv`; aggregate `acs_contribution` by taxon, gene, or exon tree to explain how individual trees support final predictions.
+- **Download panel**: provide the ZIP bundle and selected CSV/Newick files as direct downloads.
+<<<<<<< ours
+<<<<<<< ours
+>>>>>>> theirs
+=======
+>>>>>>> theirs
+=======
+>>>>>>> theirs

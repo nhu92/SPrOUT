@@ -47,16 +47,18 @@ def find_clade_and_move(tree, node_name):
     if target:
         # Traverse from target leaf up toward root
         path = tree.get_path(target)
+        child_on_path = target
         for clade in reversed(path):
             if clade.clades:  # if not a terminal
-                # Check each sibling clade for real (non-"NODE") taxa
+                # Check true sibling clades of the branch that contains target.
                 for sister in clade.clades:
-                    if sister is not clade and any("NODE" not in leaf.name for leaf in sister.get_terminals()):
+                    if sister is not child_on_path and any("NODE" not in leaf.name for leaf in sister.get_terminals()):
                         related_taxa.extend([leaf.name for leaf in sister.get_terminals() if "NODE" not in leaf.name])
                         break
                 # If this clade had any sister taxa, and clade support is >0.7, stop climbing up
                 if related_taxa and (clade.confidence is None or clade.confidence > 0.7):
                     break
+            child_on_path = clade
     return related_taxa
 
 def calculate_genetic_distance(tree):
@@ -207,10 +209,22 @@ def process_matrices(matrix_dir, project, threshold, use_flag, use_threshold, ag
     tuple
         (summary_df, manifest_path, similarity_jsons, aggregated_similarity_jsons)
     """
+<<<<<<< ours
+<<<<<<< ours
+<<<<<<< ours
     all_dfs = []
     manifest_entries = []
     similarity_paths = []
     aggregated_paths = []
+=======
+    all_dfs = []
+>>>>>>> theirs
+=======
+    all_dfs = []
+>>>>>>> theirs
+=======
+    all_dfs = []
+>>>>>>> theirs
     for filename in os.listdir(matrix_dir):
         if filename.endswith('cleaned.csv'):
             file_path = os.path.join(matrix_dir, filename)
@@ -220,6 +234,9 @@ def process_matrices(matrix_dir, project, threshold, use_flag, use_threshold, ag
             taxa_file = os.path.join(matrix_dir, f"{prefix}list.txt")
             df = clean_up_matrix(df, project, threshold, taxa_file if os.path.exists(taxa_file) else None, use_flag, use_threshold)
             df = distance_to_similarity(df)
+<<<<<<< ours
+<<<<<<< ours
+<<<<<<< ours
             row_name_col = df.columns[0]
             df = df.rename(columns={row_name_col: 'row_name'})
             similarity_df = df.set_index('row_name')
@@ -280,6 +297,21 @@ def process_matrices(matrix_dir, project, threshold, use_flag, use_threshold, ag
     if not all_dfs:
         return pd.DataFrame(columns=['row_name', 'total_value']), manifest_path_abs, sorted(similarity_paths), sorted(aggregated_paths)
 
+=======
+            all_dfs.append(df)
+    if not all_dfs:
+        return pd.DataFrame(columns=['row_name', 'total_value'])
+>>>>>>> theirs
+=======
+            all_dfs.append(df)
+    if not all_dfs:
+        return pd.DataFrame(columns=['row_name', 'total_value'])
+>>>>>>> theirs
+=======
+            all_dfs.append(df)
+    if not all_dfs:
+        return pd.DataFrame(columns=['row_name', 'total_value'])
+>>>>>>> theirs
     # Concatenate all gene similarity data
     total_df = pd.concat(all_dfs, ignore_index=True)
     total_df.fillna(0, inplace=True)
