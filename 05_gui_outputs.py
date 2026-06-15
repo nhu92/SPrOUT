@@ -14,6 +14,11 @@ can be consumed by an external GUI (for example an R Shiny app). It creates:
 """
 import argparse
 <<<<<<< ours
+<<<<<<< ours
+=======
+import ast
+import importlib.util
+>>>>>>> theirs
 =======
 import ast
 import importlib.util
@@ -31,6 +36,7 @@ from Bio import SeqIO
 from pipeline_utils import is_valid_project_name, load_config
 
 <<<<<<< ours
+<<<<<<< ours
 
 def _safe_read_csv(path):
     return pd.read_csv(path) if path and Path(path).exists() else None
@@ -40,6 +46,8 @@ def parse_tree_label(tree_path):
     stem = Path(tree_path).stem
     match = re.match(r"(?P<gene>.+)_exon_(?P<exon>\d+)$", stem)
 =======
+=======
+>>>>>>> theirs
 EMPTY_EXON_COLUMNS = [
     "exon_id", "gene", "exon_index", "sequence_count", "min_length",
     "mean_length", "max_length", "total_bases", "mapped_bases",
@@ -95,6 +103,9 @@ def parse_tree_label(tree_path):
     underscore_match = re.match(r"(?P<gene>.+)_exon_(?P<exon>\d+)$", stem)
     dotted_match = re.match(r"(?P<gene>.+)\.(?P<exon>\d+)$", stem)
     match = underscore_match or dotted_match
+<<<<<<< ours
+>>>>>>> theirs
+=======
 >>>>>>> theirs
     return {
         "tree_id": stem,
@@ -115,6 +126,7 @@ def build_tree_inventory(input_phylo, output_file, merged_tree_file):
             rows.append(row)
             merged.write(f"[{row['tree_id']}] {newick}\n")
 <<<<<<< ours
+<<<<<<< ours
     pd.DataFrame(rows).to_csv(output_file, index=False)
     return rows
 
@@ -122,6 +134,8 @@ def build_tree_inventory(input_phylo, output_file, merged_tree_file):
 def exon_metrics(input_exon, exon_split_dir, output_file):
     rows = []
 =======
+=======
+>>>>>>> theirs
     pd.DataFrame(rows, columns=EMPTY_TREE_COLUMNS).to_csv(output_file, index=False)
     return rows
 
@@ -161,6 +175,9 @@ def summarize_exon_split_tables(exon_split_dir):
 def exon_metrics(input_exon, exon_split_dir, output_file):
     rows = []
     split_summaries, split_rows = summarize_exon_split_tables(exon_split_dir)
+<<<<<<< ours
+>>>>>>> theirs
+=======
 >>>>>>> theirs
     exon_files = sorted(Path(input_exon).glob("*.fasta")) if input_exon else []
     for fasta in exon_files:
@@ -168,11 +185,17 @@ def exon_metrics(input_exon, exon_split_dir, output_file):
         lengths = [len(record.seq) for record in records]
         parts = fasta.stem.split("_exon_")
 <<<<<<< ours
+<<<<<<< ours
 =======
+=======
+>>>>>>> theirs
         split_info = split_summaries.get(fasta.stem, {})
         mapped_bases = split_info.get("mapped_bases", sum(lengths))
         target_bases = split_info.get("target_bases", sum(lengths))
         coverage = round(mapped_bases / target_bases, 6) if target_bases else None
+<<<<<<< ours
+>>>>>>> theirs
+=======
 >>>>>>> theirs
         rows.append({
             "exon_id": fasta.stem,
@@ -183,6 +206,7 @@ def exon_metrics(input_exon, exon_split_dir, output_file):
             "mean_length": round(statistics.mean(lengths), 2) if lengths else 0,
             "max_length": max(lengths) if lengths else 0,
             "total_bases": sum(lengths),
+<<<<<<< ours
 <<<<<<< ours
             "fasta_file": str(fasta),
         })
@@ -206,6 +230,8 @@ def exon_metrics(input_exon, exon_split_dir, output_file):
             "mean_length", "max_length", "total_bases", "fasta_file"
         ]).to_csv(output_file, index=False)
 =======
+=======
+>>>>>>> theirs
             "mapped_bases": mapped_bases,
             "target_bases": target_bases,
             "mapping_coverage": coverage,
@@ -214,6 +240,9 @@ def exon_metrics(input_exon, exon_split_dir, output_file):
         })
 
     pd.DataFrame(rows, columns=EMPTY_EXON_COLUMNS).to_csv(output_file, index=False)
+<<<<<<< ours
+>>>>>>> theirs
+=======
 >>>>>>> theirs
     return rows, split_rows
 
@@ -226,6 +255,7 @@ def infer_tree_id_from_matrix(filename):
     return stem, None, stem
 
 
+<<<<<<< ours
 <<<<<<< ours
 def build_tree_contributions(matrix_dir, project, final_summary_file, output_file):
     final = _safe_read_csv(final_summary_file)
@@ -247,6 +277,8 @@ def build_tree_contributions(matrix_dir, project, final_summary_file, output_fil
             mask = taxa == taxon
             acs = float(similarity.loc[mask].sum().sum())
 =======
+=======
+>>>>>>> theirs
 def load_selected_taxa(taxonomy_output_file, prediction_summary_file, zscore_threshold):
     if taxonomy_output_file and Path(taxonomy_output_file).exists():
         with open(taxonomy_output_file, encoding="utf-8") as handle:
@@ -288,6 +320,9 @@ def build_tree_contributions(
         for taxon in sorted(set(similarity[label_col].astype(str))):
             mask = similarity[label_col].astype(str) == taxon
             acs = float(similarity.loc[mask, value_cols].sum().sum()) if value_cols else 0.0
+<<<<<<< ours
+>>>>>>> theirs
+=======
 >>>>>>> theirs
             rows.append({
                 "tree_id": matrix_id,
@@ -296,16 +331,22 @@ def build_tree_contributions(
                 "taxon": taxon,
                 "acs_contribution": round(acs, 6),
 <<<<<<< ours
+<<<<<<< ours
                 "included_in_final_threshold_result": taxon in selected_taxa,
                 "matrix_file": str(matrix_path),
             })
     pd.DataFrame(rows).to_csv(output_file, index=False)
 =======
+=======
+>>>>>>> theirs
                 "fraction_of_tree_acs": round(acs / tree_total, 6) if tree_total else 0.0,
                 "included_in_final_threshold_result": taxon in selected_taxa,
                 "matrix_file": str(matrix_path),
             })
     pd.DataFrame(rows, columns=EMPTY_CONTRIBUTION_COLUMNS).to_csv(output_file, index=False)
+<<<<<<< ours
+>>>>>>> theirs
+=======
 >>>>>>> theirs
     return rows
 
@@ -342,12 +383,18 @@ def main():
     parser.add_argument("--matrix_dir", default=None, help="Directory with per-tree cleaned matrices")
     parser.add_argument("--prediction_summary", default=None, help="Final prediction summary CSV from 04_prediction.py")
 <<<<<<< ours
+<<<<<<< ours
 =======
+=======
+>>>>>>> theirs
     parser.add_argument("--taxonomy_output_file", default=None, help="Selected taxa text file from 04_prediction.py")
     parser.add_argument("--zscore_threshold", type=float, default=None, help="Threshold used by 04_prediction.py")
     parser.add_argument("--threshold", type=float, default=None, help="Distance filtering threshold used by 03_distance_matrices.py")
     parser.add_argument("--use_flag", action="store_true", help="Use flag method when recomputing per-tree ACS contributions")
     parser.add_argument("--use_threshold", action="store_true", help="Use threshold filtering when recomputing per-tree ACS contributions")
+<<<<<<< ours
+>>>>>>> theirs
+=======
 >>>>>>> theirs
     parser.add_argument("--exon_split_dir", default=None, help="Directory containing *_exon_split.tsv files")
     parser.add_argument("-o", "--output_dir", default=None, help="Directory for GUI-ready outputs")
@@ -360,12 +407,18 @@ def main():
     args.matrix_dir = args.matrix_dir or config.get("output_tree", "04_all_trees")
     args.prediction_summary = args.prediction_summary or config.get("output_file")
 <<<<<<< ours
+<<<<<<< ours
 =======
+=======
+>>>>>>> theirs
     args.taxonomy_output_file = args.taxonomy_output_file or config.get("taxonomy_output_file")
     args.zscore_threshold = args.zscore_threshold if args.zscore_threshold is not None else config.get("zscore_threshold")
     args.threshold = args.threshold if args.threshold is not None else config.get("threshold", 1.96)
     args.use_flag = args.use_flag or bool(config.get("use_flag", False))
     args.use_threshold = args.use_threshold or bool(config.get("use_threshold", False))
+<<<<<<< ours
+>>>>>>> theirs
+=======
 >>>>>>> theirs
     args.exon_split_dir = args.exon_split_dir or args.input_exon
     args.output_dir = args.output_dir or config.get("gui_output_dir", "05_gui_results")
@@ -375,12 +428,18 @@ def main():
     if not is_valid_project_name(args.proj_name):
         parser.error(f"Project name '{args.proj_name}' contains invalid characters.")
 <<<<<<< ours
+<<<<<<< ours
 =======
+=======
+>>>>>>> theirs
     if args.use_flag and args.use_threshold:
         parser.error("You cannot enable both --use_flag and --use_threshold at the same time.")
 
     args.threshold = float(args.threshold)
     args.zscore_threshold = float(args.zscore_threshold) if args.zscore_threshold is not None else None
+<<<<<<< ours
+>>>>>>> theirs
+=======
 >>>>>>> theirs
 
     out = Path(args.output_dir)
@@ -388,13 +447,19 @@ def main():
     exon_rows, split_rows = exon_metrics(args.input_exon, args.exon_split_dir, out / "exon_metrics.csv")
     tree_rows = build_tree_inventory(args.input_phylo, out / "tree_inventory.csv", out / "all_exon_trees.nwk")
 <<<<<<< ours
+<<<<<<< ours
     contribution_rows = build_tree_contributions(args.matrix_dir, args.proj_name, args.prediction_summary, out / "tree_contributions.csv")
 =======
+=======
+>>>>>>> theirs
     contribution_rows = build_tree_contributions(
         args.matrix_dir, args.proj_name, args.prediction_summary, args.taxonomy_output_file,
         args.zscore_threshold, args.threshold, args.use_flag, args.use_threshold,
         out / "tree_contributions.csv",
     )
+<<<<<<< ours
+>>>>>>> theirs
+=======
 >>>>>>> theirs
     metadata = write_metadata(args, out, tree_rows, exon_rows, split_rows, contribution_rows)
     manifest = {
