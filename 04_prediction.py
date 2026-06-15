@@ -114,6 +114,8 @@ if __name__ == '__main__':
 <<<<<<< ours
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
+<<<<<<< ours
     
     # Ensure summary['total_value'] is numeric before zscore
     summary['total_value'] = pd.to_numeric(summary['total_value'], errors='coerce')
@@ -130,6 +132,10 @@ if __name__ == '__main__':
 >>>>>>> theirs
 =======
 >>>>>>> theirs
+=======
+>>>>>>> theirs
+=======
+>>>>>>> theirs
     if len(summary) > 1 and summary['total_value'].std(ddof=0) != 0:
         summary['z_score'] = zscore(summary['total_value'])
     else:
@@ -139,6 +145,12 @@ if __name__ == '__main__':
         summary['z_score'] = 0.0
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
+<<<<<<< ours
+>>>>>>> theirs
+=======
+>>>>>>> theirs
+=======
 >>>>>>> theirs
 =======
 >>>>>>> theirs
