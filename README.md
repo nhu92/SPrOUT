@@ -5,14 +5,15 @@ Nan Hu, 2025 August
 ---
 For citation, please refer to this:
 
-Nan Hu, Madison Bullock, Chris Jackson, Courtney Miller, Elizabeth Sage Hunter, Charles Huff, Yanni Chen, Sara M. Handy, Matthew G. Johnson. SPrOUT: A computational and targeted sequencing approach for mixed plant DNA identification with Angiosperms353. *In Press*.
+Nan Hu, Madison Bullock, Chris Jackson, Courtney Miller, Elizabeth Sage Hunter, Charles Huff, Yanni Chen, Sara M. Handy, Matthew G. Johnson. SPrOUT: A computational and targeted sequencing approach for mixed plant DNA identification with Angiosperms353. *In Press*. [doi: https://doi.org/10.64898/2026.02.20.707031](doi: https://doi.org/10.64898/2026.02.20.707031)
 
 ---
-SPrOUT is a computational pipeline designed for predicting species taxonomic information from single and mixed plant samples, using target sequencing arrays. We provides step-by-step instructions to run a pipeline designed for identifying plant species from mixed DNA samples using the Angiosperms353 target sequencing kit and the HybPiper workflow. SPrOUT is designed to be computational efficient and lab cost-effective for complicated mixed species identification with nuclear gene involved.
+SPrOUT is a computational pipeline designed for predicting species taxonomic information from single and mixed plant samples, using target sequencing arrays. We provide step-by-step instructions to run a pipeline designed for identifying plant species from mixed DNA samples using the Angiosperms353 target sequencing kit and the HybPiper workflow. SPrOUT is designed to be computationally efficient and lab cost-effective for complicated mixed species identification with nuclear genes involved.
 
 ---
-![logo](https://github.com/nhu92/SPrOUT/blob/main/assets/Logo.png)
-Thanks to Dr. Lisa Limeri in Texas Tech University for the logo design
+![logo](https://github.com/nhu92/SPrOUT/blob/main/assets/Logo.png =250x250)
+
+Thanks to Dr. Lisa Limeri at Texas Tech University for the logo design
 
 ---
 ### A common forensic scene:
@@ -49,8 +50,8 @@ Before running the pipeline, ensure that you have the following:
 
 - **Data**:
   - Paired-end reads from mixed plant DNA samples.
-  - Reference database of Angiosperms353 sequences. (Actually, these can be any target sequencing data but requires similar  well curated gene alignments as references)
-  > Reference sequences name should follow Order_Family_Genus_Species format for prediction. For example: >Rosales_Rosaceae_Rose_rosa
+  - Reference database of Angiosperms353 sequences. (Actually, these can be any target sequencing data but require similar well-curated gene alignments as references)
+  > Reference sequence names should follow Order_Family_Genus_Species format for prediction. For example: >Rosales_Rosaceae_Rose_rosa
 
 ## Installation
 
@@ -62,11 +63,11 @@ Before running the pipeline, ensure that you have the following:
 
 ### Quick Example Run
 
-Run this [Preparing commands](https://github.com/nhu92/SPrOUT/blob/main/test_run.sh) to clone the package and download the sample input files.
+Run these [Preparing commands](https://github.com/nhu92/SPrOUT/blob/main/test_run.sh) to clone the package and download the sample input files.
 
-To run the entire pipeline, execute the script [here](https://github.com/nhu92/SPrOUT/blob/main/sample_command.sh) (Using SLURM job submission system as an example). These steps require running on a node/job submission systems, preferring high performance computer clusters. You need to modify the input arguments if you aim to test your own sample. After then, submit the script with:
+To run the entire pipeline, execute the script [here](https://github.com/nhu92/SPrOUT/blob/main/sample_command.sh) (Using the SLURM job submission system as an example). These steps require running on a node/job submission system, preferring high performance computer clusters. You need to modify the input arguments if you aim to test your own sample. After then, submit the script with:
 ```bash
 sbatch sample_command.sh
 ```
 
-Detailed instructions please refer to [Wiki page](https://github.com/nhu92/SPrOUT/wiki)
+For detailed instructions, please refer to the [Wiki page](https://github.com/nhu92/SPrOUT/wiki)
