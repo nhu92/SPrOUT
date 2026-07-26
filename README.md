@@ -19,8 +19,12 @@ Thanks to Dr. Lisa Limeri at Texas Tech University for the logo design
 ### A common forensic scene:
 <img src="https://github.com/nhu92/SPrOUT/blob/main/assets/Detective_comic.png" width="600" height="600">
 
+(Painting credit: Nan Hu)
+
 ### What does SPrOUT do:
 <img src="https://github.com/nhu92/SPrOUT/blob/main/assets/SPrOUT_comic.png" width="600" height="600">
+
+(Painting credit: Nan Hu)
 
 ---
 ## Singularity on Docker Image
