@@ -13,6 +13,8 @@ SPrOUT is a computational pipeline designed for predicting species taxonomic inf
 ---
 ![logo](https://github.com/nhu92/SPrOUT/blob/main/assets/Logo.png)
 
+<img src="https://github.com/nhu92/SPrOUT/blob/main/assets/Logo.png" width="200" height="100">
+
 Thanks to Dr. Lisa Limeri at Texas Tech University for the logo design
 
 ---
