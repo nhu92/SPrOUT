@@ -5,13 +5,13 @@ Nan Hu, 2025 August
 ---
 For citation, please refer to this:
 
-Nan Hu, Madison Bullock, Chris Jackson, Courtney Miller, Elizabeth Sage Hunter, Charles Huff, Yanni Chen, Sara M. Handy, Matthew G. Johnson. SPrOUT: A computational and targeted sequencing approach for mixed plant DNA identification with Angiosperms353. *In Press*. [doi: https://doi.org/10.64898/2026.02.20.707031](doi: https://doi.org/10.64898/2026.02.20.707031)
+Nan Hu, Madison Bullock, Chris Jackson, Courtney Miller, Elizabeth Sage Hunter, Charles Huff, Yanni Chen, Sara M. Handy, Matthew G. Johnson. SPrOUT: A computational and targeted sequencing approach for mixed plant DNA identification with Angiosperms353. *In Press*. doi: https://doi.org/10.64898/2026.02.20.707031
 
 ---
 SPrOUT is a computational pipeline designed for predicting species taxonomic information from single and mixed plant samples, using target sequencing arrays. We provide step-by-step instructions to run a pipeline designed for identifying plant species from mixed DNA samples using the Angiosperms353 target sequencing kit and the HybPiper workflow. SPrOUT is designed to be computationally efficient and lab cost-effective for complicated mixed species identification with nuclear genes involved.
 
 ---
-![logo](https://github.com/nhu92/SPrOUT/blob/main/assets/Logo.png =250x250)
+![logo](https://github.com/nhu92/SPrOUT/blob/main/assets/Logo.png)
 
 Thanks to Dr. Lisa Limeri at Texas Tech University for the logo design
 
