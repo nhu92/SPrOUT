@@ -11,18 +11,16 @@ Nan Hu, Madison Bullock, Chris Jackson, Courtney Miller, Elizabeth Sage Hunter, 
 SPrOUT is a computational pipeline designed for predicting species taxonomic information from single and mixed plant samples, using target sequencing arrays. We provide step-by-step instructions to run a pipeline designed for identifying plant species from mixed DNA samples using the Angiosperms353 target sequencing kit and the HybPiper workflow. SPrOUT is designed to be computationally efficient and lab cost-effective for complicated mixed species identification with nuclear genes involved.
 
 ---
-![logo](https://github.com/nhu92/SPrOUT/blob/main/assets/Logo.png)
-
-<img src="https://github.com/nhu92/SPrOUT/blob/main/assets/Logo.png" width="200" height="100">
+<img src="https://github.com/nhu92/SPrOUT/blob/main/assets/Logo.png" width="250" height="400">
 
 Thanks to Dr. Lisa Limeri at Texas Tech University for the logo design
 
 ---
 ### A common forensic scene:
-![comic_detective](https://github.com/nhu92/SPrOUT/blob/main/assets/Detective_comic.png)
+<img src="https://github.com/nhu92/SPrOUT/blob/main/assets/Detective_comic.png" width="600" height="600">
 
 ### What does SPrOUT do:
-![comic_sprout](https://github.com/nhu92/SPrOUT/blob/main/assets/SPrOUT_comic.png)
+<img src="https://github.com/nhu92/SPrOUT/blob/main/assets/SPrOUT_comic.png" width="600" height="600">
 
 ---
 ## Singularity on Docker Image
