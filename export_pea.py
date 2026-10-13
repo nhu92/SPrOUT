@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """Export small, readable SPrOUT reports for SPrOUT-PEA.
 
 Only rankings and the nearest reference per query exon are exported. FASTQ,
@@ -14,7 +13,7 @@ import json
 import math
 import re
 from collections import defaultdict
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
 from statistics import median
 
@@ -172,9 +171,9 @@ def markdown(report: dict) -> str:
     for stage in report["stages"]:
         lines.extend([
             f"## {stage['id'].title()} ({stage['level']})", "",
-            f"Default Z threshold: {stage['default_z']:g}; "
-            f"genes with evidence: {len(stage['genes'])}; "
-            f"query exons: {stage['counts']['query_exons']}.", "",
+            (f"Default Z threshold: {stage['default_z']:g}; "
+             f"genes with evidence: {len(stage['genes'])}; "
+             f"query exons: {stage['counts']['query_exons']}."), "",
             "| Rank | Taxon | Score | Z | Locus votes | Pipeline selected |",
             "| ---: | --- | ---: | ---: | ---: | :---: |",
         ])
@@ -202,9 +201,9 @@ def markdown(report: dict) -> str:
             lines.append("")
     lines.extend([
         "## Interpretation", "",
-        "Changing a Z threshold in SPrOUT-PEA only explores the existing ranking. "
-        "It does not add references or recompute the trees. "
-        "Low-abundance taxa may be missed; review gene evidence and reference coverage before rerunning.", "",
+        ("Changing a Z threshold in SPrOUT-PEA only explores the existing ranking. "
+         "It does not add references or recompute the trees. "
+         "Low-abundance taxa may be missed; review gene evidence and reference coverage before rerunning."), "",
     ])
     return "\n".join(lines)
 
@@ -256,8 +255,8 @@ def main() -> int:
     else:
         stages = []
         for path in args.input:
-            raw = gzip.open(path, "rt", encoding="utf-8") if path.name.endswith(".gz") else path.open(encoding="utf-8")
-            with raw as handle:
+            with (gzip.open(path, "rt", encoding="utf-8") if path.name.endswith(".gz")
+                  else path.open(encoding="utf-8")) as handle:
                 item = json.load(handle)
             validate_report(item)
             if item["sample_id"] != args.project:
@@ -267,7 +266,7 @@ def main() -> int:
     report = {
         "schema_version": SCHEMA,
         "sample_id": args.project,
-        "generated_at": datetime.now(timezone.utc).isoformat(),
+        "generated_at": datetime.now(UTC).isoformat(),
         "producer": "SPrOUT / MrKnowItAll",
         "stages": stages,
     }

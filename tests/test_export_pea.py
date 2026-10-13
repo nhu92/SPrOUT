@@ -3,7 +3,7 @@ import unittest
 from pathlib import Path
 from types import SimpleNamespace
 
-from export_pea import build_stage, markdown, taxon_from_leaf, write_report, SCHEMA
+from export_pea import SCHEMA, build_stage, markdown, taxon_from_leaf, write_report
 
 
 class ExportPeaTest(unittest.TestCase):
