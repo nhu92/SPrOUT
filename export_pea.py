@@ -138,11 +138,26 @@ def gene_evidence(matrix_dir: Path | None, project: str, level: str) -> tuple[li
 def build_stage(args) -> dict:
     genes, counts = gene_evidence(args.matrix_dir, args.project, args.level)
     gene_list = read_names(args.gene_list)
+    predictions = read_predictions(args.predictions, args.evidence, args.candidates)
+    if args.evidence is None and genes:
+        derived = defaultdict(lambda: {"loci": 0, "queries": 0, "distances": []})
+        for gene in genes:
+            for match in gene["matches"]:
+                votes = derived[match["taxon"]]
+                votes["loci"] += 1
+                votes["queries"] += match["query_votes"]
+                votes["distances"].append(match["median_distance"])
+        for row in predictions:
+            votes = derived.get(row["taxon"])
+            if votes:
+                row["locus_votes"] = votes["loci"]
+                row["query_votes"] = votes["queries"]
+                row["median_winning_distance"] = median(votes["distances"])
     return {
         "id": args.stage_id or args.level,
         "level": args.level,
         "default_z": args.z_threshold,
-        "predictions": read_predictions(args.predictions, args.evidence, args.candidates),
+        "predictions": predictions,
         "genes": genes,
         "counts": {**counts, "requested_genes": len(gene_list)},
         "evidence_available": bool(genes),

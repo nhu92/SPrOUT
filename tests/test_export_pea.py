@@ -39,6 +39,8 @@ class ExportPeaTest(unittest.TestCase):
             self.assertEqual(stage["genes"][0]["matches"][0]["taxon"], "Rutaceae")
             self.assertEqual(stage["counts"]["query_exons"], 1)
             self.assertTrue(stage["predictions"][0]["pipeline_selected"])
+            self.assertEqual(stage["predictions"][0]["locus_votes"], 1)
+            self.assertEqual(stage["predictions"][0]["query_votes"], 1)
             report = {"schema_version": SCHEMA, "sample_id": "sample", "stages": [stage]}
             write_report(report, root / "sample.pea.json.gz", root / "sample.report.md")
             self.assertLess((root / "sample.pea.json.gz").stat().st_size, 10000)
