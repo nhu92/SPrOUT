@@ -73,6 +73,8 @@ To run the entire pipeline, execute the script [here](https://github.com/nhu92/S
 ```bash
 sbatch sample_command.sh
 ```
+Create the log directory before submission with `mkdir -p log` (Slurm opens log files
+before the script starts).
 
 The example now writes a readable `01x02x03.report.md` and a small
 `01x02x03.pea.json.gz`. Open the latter in
