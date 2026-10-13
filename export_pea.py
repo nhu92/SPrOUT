@@ -135,29 +135,33 @@ def gene_evidence(matrix_dir: Path | None, project: str, level: str) -> tuple[li
     return genes, {"matrices": len(files), "query_exons": total_queries, "reference_taxa": len(reference_taxa)}
 
 
+def populate_gene_votes(stage: dict) -> None:
+    """Backfill votes in plain SPrOUT reports, including older exported files."""
+    if not stage["genes"] or any(row.get("locus_votes", 0) for row in stage["predictions"]):
+        return
+    derived = defaultdict(lambda: {"loci": 0, "queries": 0, "distances": []})
+    for gene in stage["genes"]:
+        for match in gene["matches"]:
+            votes = derived[match["taxon"]]
+            votes["loci"] += 1
+            votes["queries"] += match["query_votes"]
+            votes["distances"].append(match["median_distance"])
+    for row in stage["predictions"]:
+        votes = derived.get(row["taxon"])
+        if votes:
+            row["locus_votes"] = votes["loci"]
+            row["query_votes"] = votes["queries"]
+            row["median_winning_distance"] = median(votes["distances"])
+
+
 def build_stage(args) -> dict:
     genes, counts = gene_evidence(args.matrix_dir, args.project, args.level)
     gene_list = read_names(args.gene_list)
-    predictions = read_predictions(args.predictions, args.evidence, args.candidates)
-    if args.evidence is None and genes:
-        derived = defaultdict(lambda: {"loci": 0, "queries": 0, "distances": []})
-        for gene in genes:
-            for match in gene["matches"]:
-                votes = derived[match["taxon"]]
-                votes["loci"] += 1
-                votes["queries"] += match["query_votes"]
-                votes["distances"].append(match["median_distance"])
-        for row in predictions:
-            votes = derived.get(row["taxon"])
-            if votes:
-                row["locus_votes"] = votes["loci"]
-                row["query_votes"] = votes["queries"]
-                row["median_winning_distance"] = median(votes["distances"])
-    return {
+    result = {
         "id": args.stage_id or args.level,
         "level": args.level,
         "default_z": args.z_threshold,
-        "predictions": predictions,
+        "predictions": read_predictions(args.predictions, args.evidence, args.candidates),
         "genes": genes,
         "counts": {**counts, "requested_genes": len(gene_list)},
         "evidence_available": bool(genes),
@@ -167,6 +171,9 @@ def build_stage(args) -> dict:
             "Per-gene matrices were not supplied; only aggregate rankings are available."
         ),
     }
+    if args.evidence is None:
+        populate_gene_votes(result)
+    return result
 
 
 def validate_report(report: dict) -> None:
@@ -225,6 +232,8 @@ def markdown(report: dict) -> str:
 
 def write_report(report: dict, output: Path, markdown_path: Path | None) -> None:
     validate_report(report)
+    for stage in report["stages"]:
+        populate_gene_votes(stage)
     output.parent.mkdir(parents=True, exist_ok=True)
     payload = json.dumps(report, ensure_ascii=False, separators=(",", ":"), allow_nan=False).encode("utf-8")
     if len(payload) > MAX_REPORT_BYTES:
