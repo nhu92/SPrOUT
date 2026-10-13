@@ -183,6 +183,23 @@ def markdown(report: dict) -> str:
             z = "—" if item["z_score"] is None else f"{item['z_score']:.3f}"
             lines.append(f"| {item['rank']} | {item['taxon']} | {score} | {z} | {item['locus_votes']} | {'yes' if item['pipeline_selected'] else 'no'} |")
         lines.extend(["", stage["note"], ""])
+        if stage["genes"]:
+            lines.extend([
+                "### Gene-by-gene nearest references", "",
+                "Each vote is a query exon whose closest reference is in that taxon; ties may vote for multiple taxa.", "",
+                "| Gene | Trees | Query exons | Leading taxon | Votes | Median tree distance |",
+                "| --- | ---: | ---: | --- | ---: | ---: |",
+            ])
+            for gene in stage["genes"]:
+                leader = gene["matches"][0] if gene["matches"] else None
+                taxon = leader["taxon"] if leader else "—"
+                votes = leader["query_votes"] if leader else "—"
+                distance = f"{leader['median_distance']:.4f}" if leader else "—"
+                lines.append(
+                    f"| {gene['gene']} | {gene['trees']} | {gene['query_exons']} | "
+                    f"{taxon} | {votes} | {distance} |"
+                )
+            lines.append("")
     lines.extend([
         "## Interpretation", "",
         "Changing a Z threshold in SPrOUT-PEA only explores the existing ranking. "
