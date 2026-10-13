@@ -77,11 +77,16 @@ if __name__ == '__main__':
     df = pd.read_csv(input_file)
     df['taxon_level'] = process_column(df.iloc[:, 0], taxonomic_level)
     summary = df.groupby('taxon_level')['total_value'].sum().reset_index()
-    summary['z_score'] = zscore(summary['total_value'])
+    # A one-taxon or equal-score panel has no defined standard deviation.
+    # Use 0 rather than writing "nan" into the user-facing ranking.
+    summary['z_score'] = pd.Series(zscore(summary['total_value']), index=summary.index).fillna(0.0)
     summary = summary.rename(columns={'taxon_level': 'row_name', 'total_value': 'sum_of_total_value'})
     summary = summary.sort_values(by='sum_of_total_value', ascending=False)
     summary.to_csv(output_file, index=False)
     print(f"Summary has been written to {output_file}")
+    print(f"Top {taxonomic_level} candidates (score | Z):")
+    for row in summary.head(10).itertuples(index=False):
+        print(f"  {row.row_name:30} {row.sum_of_total_value:10.3f} | {row.z_score:7.3f}")
 
     # Filter by z-score threshold and save selected taxa
     significant_taxa = select_taxonomy_by_zscore(summary, z_threshold)
@@ -89,3 +94,4 @@ if __name__ == '__main__':
         for name in significant_taxa:
             fout.write(name + "\n")
     print(f"Selected taxonomy names (z_score > {z_threshold}) have been written to {taxonomy_output}")
+    print(f"Selected {len(significant_taxa)} of {len(summary)} taxa")
