@@ -74,4 +74,13 @@ To run the entire pipeline, execute the script [here](https://github.com/nhu92/S
 sbatch sample_command.sh
 ```
 
+The example now writes a readable `01x02x03.report.md` and a small
+`01x02x03.pea.json.gz`. Open the latter in
+[SPrOUT-PEA](https://nhu92.github.io/SPrOUT-PEA/) to explore order/family scores, change the
+displayed Z cutoff, and inspect nearest-reference evidence for each gene. The report contains
+no FASTQ reads or full alignments. For a custom run, use `python export_pea.py stage --help`
+after `04_prediction.py`, then `python export_pea.py merge --help` to combine levels.
+Changing Z in the viewer does not recompute a tree or add references; rerun SPrOUT when you
+change the reference panel.
+
 For detailed instructions, please refer to the [Wiki page](https://github.com/nhu92/SPrOUT/wiki)
