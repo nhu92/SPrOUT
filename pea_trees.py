@@ -182,13 +182,18 @@ def export_exon_trees(phylo_dir: Path, matrix_dir: Path | None, project: str,
             trees[match.group(1)].append(path)
     for gene, files in sorted(trees.items()):
         for matrix_index, path in enumerate(files, 1):
+            try:
+                tree = Phylo.read(path, "newick")
+            except ValueError as exc:
+                if "There are no trees in this file" in str(exc):
+                    continue
+                raise
             alignment = phylo_dir / path.name.replace(".tre", "_trimmed.fasta")
             lengths, reference_bp, alignment_bp = _alignment_lengths(alignment, project)
             matrix = matrix_dir / f"{gene}.{matrix_index}.cleaned.csv" if matrix_dir else Path()
             support, query_bp = _matrix_support(
                 matrix, project, level, lengths, reference_bp, taxon_from_leaf,
             ) if matrix_dir else ([], 0)
-            tree = Phylo.read(path, "newick")
             context = _exon_context(
                 tree, project, level, candidates, taxon_from_leaf, max_tips,
             )

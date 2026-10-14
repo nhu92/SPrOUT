@@ -4,9 +4,23 @@ from pathlib import Path
 from types import SimpleNamespace
 
 from export_pea import SCHEMA, build_stage, markdown, stage_sort_key, taxon_from_leaf, write_report
+from pea_trees import export_exon_trees
 
 
 class ExportPeaTest(unittest.TestCase):
+    def test_empty_tree_file_does_not_abort_report(self):
+        with tempfile.TemporaryDirectory() as raw:
+            phylo = Path(raw)
+            (phylo / "4691_exon_1.tre").touch()
+            (phylo / "4691_exon_2.tre").write_text(
+                "(sample_4691_exon_2:0.1,Sapindales_Rutaceae_Citrus_sinensis:0.2);\n",
+                encoding="utf-8",
+            )
+            trees = export_exon_trees(
+                phylo, None, "sample", "family", [], taxon_from_leaf,
+            )
+            self.assertEqual([tree["id"] for tree in trees["4691"]], ["4691_exon_2"])
+
     def test_progressive_branch_rounds_precede_final_genus(self):
         stages = [
             {"id": "genus"}, {"id": "branch_round_02"}, {"id": "order"},
