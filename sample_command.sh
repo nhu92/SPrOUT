@@ -35,6 +35,7 @@ python 04_prediction.py -i 01x02x03.cumulative_dist.csv -o 01x02x03.predictions.
 python export_pea.py stage --project 01x02x03 --level order \
   --predictions 01x02x03.predictions.csv --candidates 01x02x03.order_candidates.txt \
   --gene-list sample_data/gene.list.txt --matrix-dir 01x02x03_matrix \
+  --phylo-dir 01x02x03_phylo \
   --z-threshold 0.9 --output 01x02x03.order.pea.json \
   --markdown 01x02x03.order.report.md
 
@@ -61,6 +62,7 @@ python 04_prediction.py -i 01x02x03.cumulative_dist.csv -o 01x02x03.predictions_
 python export_pea.py stage --project 01x02x03 --level family \
   --predictions 01x02x03.predictions_fam.csv --candidates 01x02x03.family_candidates.txt \
   --gene-list sample_data/gene.list.txt --matrix-dir 01x02x03_fam_matrix \
+  --phylo-dir 01x02x03_fam_phylo \
   --z-threshold 0 --output 01x02x03.family.pea.json \
   --markdown 01x02x03.family.report.md
 python export_pea.py merge --project 01x02x03 \

@@ -18,6 +18,25 @@ class ExportPeaTest(unittest.TestCase):
             root = Path(raw)
             matrix = root / "matrix"
             matrix.mkdir()
+            phylo = root / "phylo"
+            phylo.mkdir()
+            (phylo / "4691_exon_1.tre").write_text(
+                "((sample_4691_exon_1:0.02,Sapindales_Rutaceae_Citrus_sinensis:0.01):0.03,"
+                "Sapindales_Sapindaceae_Litchi_chinensis:0.04);\n", encoding="utf-8",
+            )
+            (phylo / "4691_exon_1_trimmed.fasta").write_text(
+                ">sample_4691_exon_1\n" + "A" * 100 + "-" * 100 + "\n"
+                ">Sapindales_Rutaceae_Citrus_sinensis\n" + "A" * 200 + "\n"
+                ">Sapindales_Sapindaceae_Litchi_chinensis\n" + "A" * 200 + "\n",
+                encoding="utf-8",
+            )
+            context = root / "kew.tree"
+            context.write_text(
+                "((Sapindales_Rutaceae_Citrus_sinensis_A:0.1,"
+                "Sapindales_Rutaceae_Citrus_medica_B:0.1):0.2,"
+                "Sapindales_Sapindaceae_Litchi_chinensis_C:0.3);\n",
+                encoding="utf-8",
+            )
             (matrix / "4691.1.cleaned.csv").write_text(
                 ",sample_4691_exon_1,Sapindales_Rutaceae_Citrus_sinensis\n"
                 "Sapindales_Rutaceae_Citrus_sinensis,0.01,0\n"
@@ -33,7 +52,8 @@ class ExportPeaTest(unittest.TestCase):
                 project="sample", level="family", stage_id=None,
                 matrix_dir=matrix, predictions=root / "predictions.csv",
                 evidence=None, candidates=root / "candidates.txt", gene_list=None,
-                z_threshold=0.0,
+                z_threshold=0.0, phylo_dir=phylo, context_tree=context,
+                max_tree_tips=8,
             )
             stage = build_stage(args)
             self.assertEqual(stage["genes"][0]["matches"][0]["taxon"], "Rutaceae")
@@ -41,6 +61,10 @@ class ExportPeaTest(unittest.TestCase):
             self.assertTrue(stage["predictions"][0]["pipeline_selected"])
             self.assertEqual(stage["predictions"][0]["locus_votes"], 1)
             self.assertEqual(stage["predictions"][0]["query_votes"], 1)
+            self.assertEqual(stage["genes"][0]["exons"][0]["query_usable_bp"], 100)
+            self.assertAlmostEqual(stage["weighted_support"][0]["score"], 0.5 / 1.01, places=5)
+            self.assertEqual(stage["summary_tree"]["represented_taxa"], ["Rutaceae", "Sapindaceae"])
+            self.assertEqual(stage["genes"][0]["exons"][0]["displayed_tips"], 3)
             stage["predictions"][0]["locus_votes"] = 0  # Simulate an older export.
             stage["predictions"][0]["query_votes"] = 0
             report = {"schema_version": SCHEMA, "sample_id": "sample", "stages": [stage]}

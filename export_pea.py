@@ -1,7 +1,8 @@
 """Export small, readable SPrOUT reports for SPrOUT-PEA.
 
-Only rankings and the nearest reference per query exon are exported. FASTQ,
-alignments, complete trees, and distance matrices never enter the web report.
+Rankings, nearest references, compact pruned exon trees, and length-weighted
+support can be exported. FASTQ, sequences, complete trees, and distance
+matrices never enter the web report.
 """
 
 from __future__ import annotations
@@ -16,6 +17,8 @@ from collections import defaultdict
 from datetime import UTC, datetime
 from pathlib import Path
 from statistics import median
+
+from pea_trees import export_exon_trees, export_summary_tree
 
 SCHEMA = "sprout-pea/v1"
 LEVEL_INDEX = {"order": 0, "family": 1, "genus": 2, "species": 3}
@@ -157,11 +160,12 @@ def populate_gene_votes(stage: dict) -> None:
 def build_stage(args) -> dict:
     genes, counts = gene_evidence(args.matrix_dir, args.project, args.level)
     gene_list = read_names(args.gene_list)
+    predictions = read_predictions(args.predictions, args.evidence, args.candidates)
     result = {
         "id": args.stage_id or args.level,
         "level": args.level,
         "default_z": args.z_threshold,
-        "predictions": read_predictions(args.predictions, args.evidence, args.candidates),
+        "predictions": predictions,
         "genes": genes,
         "counts": {**counts, "requested_genes": len(gene_list)},
         "evidence_available": bool(genes),
@@ -173,6 +177,40 @@ def build_stage(args) -> dict:
     }
     if args.evidence is None:
         populate_gene_votes(result)
+    phylo_dir = getattr(args, "phylo_dir", None)
+    if phylo_dir is not None:
+        exons = export_exon_trees(
+            phylo_dir, args.matrix_dir, args.project, args.level,
+            predictions, taxon_from_leaf, getattr(args, "max_tree_tips", 80),
+        )
+        indexed = {gene["gene"]: gene for gene in genes}
+        weighted = defaultdict(float)
+        for gene_name, entries in exons.items():
+            gene = indexed.get(gene_name)
+            if gene is None:
+                gene = {"gene": gene_name, "trees": len(entries), "query_exons": 0, "matches": []}
+                genes.append(gene)
+            gene["exons"] = entries
+            for exon in entries:
+                for match in exon["support"]:
+                    weighted[match["taxon"]] += match["score"]
+        genes.sort(key=lambda gene: gene["gene"])
+        result["tree_note"] = (
+            "Exon trees are pruned views of the original gene trees. "
+            "Length-weighted support = min(1, query ACGT bp / median reference ACGT bp) "
+            "× 1/(1+nearest tree distance), split across tied taxa, summed over query exons. "
+            "This is exploratory support, not abundance or the SPrOUT ranking score."
+        )
+        result["weighted_support"] = [
+            {"taxon": taxon, "score": round(score, 6)}
+            for taxon, score in sorted(weighted.items(), key=lambda item: (-item[1], item[0]))
+        ]
+    context_tree = getattr(args, "context_tree", None)
+    if context_tree is not None:
+        result["summary_tree"] = export_summary_tree(
+            context_tree, args.level, predictions, taxon_from_leaf,
+            getattr(args, "max_tree_tips", 80),
+        )
     return result
 
 
@@ -204,6 +242,15 @@ def markdown(report: dict) -> str:
             z = "—" if item["z_score"] is None else f"{item['z_score']:.3f}"
             lines.append(f"| {item['rank']} | {item['taxon']} | {score} | {z} | {item['locus_votes']} | {'yes' if item['pipeline_selected'] else 'no'} |")
         lines.extend(["", stage["note"], ""])
+        if stage.get("tree_note"):
+            lines.extend([stage["tree_note"], ""])
+        if stage.get("summary_tree"):
+            summary = stage["summary_tree"]
+            lines.extend([
+                f"Reference context tree: {summary['displayed_tips']} representative tips; "
+                f"{len(summary['represented_taxa'])}/{summary['requested_taxa']} ranked taxa represented.",
+                "This is a pruned Kew reference topology, not a mixture tree.", "",
+            ])
         if stage["genes"]:
             lines.extend([
                 "### Gene-by-gene nearest references", "",
@@ -260,6 +307,9 @@ def main() -> int:
     stage.add_argument("--stage-id")
     stage.add_argument("--predictions", required=True, type=Path)
     stage.add_argument("--matrix-dir", type=Path)
+    stage.add_argument("--phylo-dir", type=Path, help="SPrOUT .tre and *_trimmed.fasta files for compact exon trees")
+    stage.add_argument("--context-tree", type=Path, help="Optional Kew species tree for an overall reference context")
+    stage.add_argument("--max-tree-tips", type=int, default=80)
     stage.add_argument("--evidence", type=Path, help="MrKnowItAll candidate_evidence.csv")
     stage.add_argument("--candidates", type=Path)
     stage.add_argument("--gene-list", type=Path)
@@ -275,6 +325,12 @@ def main() -> int:
     if not re.fullmatch(r"[A-Za-z0-9_.-]+", args.project):
         parser.error("Project must contain only letters, numbers, dots, underscores, or hyphens")
     if args.command == "stage":
+        if args.phylo_dir is not None and not args.phylo_dir.is_dir():
+            parser.error(f"Phylogeny directory not found: {args.phylo_dir}")
+        if args.context_tree is not None and not args.context_tree.is_file():
+            parser.error(f"Context tree not found: {args.context_tree}")
+        if not 2 <= args.max_tree_tips <= 200:
+            parser.error("--max-tree-tips must be between 2 and 200")
         stages = [build_stage(args)]
     else:
         stages = []

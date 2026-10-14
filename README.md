@@ -79,8 +79,11 @@ before the script starts).
 The example now writes a readable `01x02x03.report.md` and a small
 `01x02x03.pea.json.gz`. Open the latter in
 [SPrOUT-PEA](https://nhu92.github.io/SPrOUT-PEA/) to explore order/family scores, change the
-displayed Z cutoff, and inspect nearest-reference evidence for each gene. The report contains
-no FASTQ reads or full alignments. For a custom run, use `python export_pea.py stage --help`
+displayed Z cutoff, inspect each available exon tree, and view length-aware contribution scores.
+The report contains no FASTQ reads or full alignments; large trees are pruned to the query,
+ranked candidates, and nearby reference branches. A cached Kew species tree can be passed with
+`--context-tree` for an overall reference-topology view (not a mixture consensus). For a custom
+run, use `python export_pea.py stage --help`
 after `04_prediction.py`, then `python export_pea.py merge --help` to combine levels.
 Changing Z in the viewer does not recompute a tree or add references; rerun SPrOUT when you
 change the reference panel.
