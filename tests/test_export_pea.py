@@ -3,10 +3,20 @@ import unittest
 from pathlib import Path
 from types import SimpleNamespace
 
-from export_pea import SCHEMA, build_stage, markdown, taxon_from_leaf, write_report
+from export_pea import SCHEMA, build_stage, markdown, stage_sort_key, taxon_from_leaf, write_report
 
 
 class ExportPeaTest(unittest.TestCase):
+    def test_progressive_branch_rounds_precede_final_genus(self):
+        stages = [
+            {"id": "genus"}, {"id": "branch_round_02"}, {"id": "order"},
+            {"id": "branch_round_01"}, {"id": "family"},
+        ]
+        self.assertEqual(
+            [stage["id"] for stage in sorted(stages, key=stage_sort_key)],
+            ["order", "family", "branch_round_01", "branch_round_02", "genus"],
+        )
+
     def test_taxon_parser(self):
         leaf = "Sapindales_Rutaceae_Citrus_sinensis_KEW_ERR"
         self.assertEqual(taxon_from_leaf(leaf, "family"), "Rutaceae")

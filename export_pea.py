@@ -26,6 +26,13 @@ STAGE_ORDER = {"order": 0, "family": 1, "branch": 2, "genus": 3, "species": 4}
 MAX_REPORT_BYTES = 20 * 1024 * 1024
 
 
+def stage_sort_key(stage: dict) -> tuple[int, str]:
+    stage_id = stage["id"]
+    if stage_id.startswith("branch_round_"):
+        return 2, stage_id
+    return STAGE_ORDER.get(stage_id, 99), stage_id
+
+
 def number(value):
     try:
         result = float(value)
@@ -358,7 +365,7 @@ def main() -> int:
             if item["sample_id"] != args.project:
                 parser.error(f"Sample mismatch in {path}: {item['sample_id']}")
             stages.extend(item["stages"])
-        stages.sort(key=lambda item: (STAGE_ORDER.get(item["id"], 99), item["id"]))
+        stages.sort(key=stage_sort_key)
     report = {
         "schema_version": SCHEMA,
         "sample_id": args.project,
