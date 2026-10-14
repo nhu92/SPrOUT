@@ -72,6 +72,7 @@ class ExportPeaTest(unittest.TestCase):
             self.assertEqual(stage["predictions"][0]["locus_votes"], 1)
             self.assertLess((root / "sample.pea.json.gz").stat().st_size, 10000)
             self.assertIn("Rutaceae", markdown(report))
+            self.assertIn("Length-aware support", markdown(report))
 
 
 if __name__ == "__main__":

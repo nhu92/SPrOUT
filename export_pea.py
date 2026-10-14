@@ -251,6 +251,22 @@ def markdown(report: dict) -> str:
                 f"{len(summary['represented_taxa'])}/{summary['requested_taxa']} ranked taxa represented.",
                 "This is a pruned Kew reference topology, not a mixture tree.", "",
             ])
+        if stage.get("weighted_support"):
+            lines.extend([
+                "### Length-aware support (exploratory)", "",
+                "| Taxon | Weighted support |", "| --- | ---: |",
+            ])
+            for row in stage["weighted_support"][:20]:
+                lines.append(f"| {row['taxon']} | {row['score']:.3f} |")
+            exons = sorted(
+                (exon for gene in stage["genes"] for exon in gene.get("exons", [])),
+                key=lambda exon: -sum(hit["score"] for hit in exon["support"]),
+            )
+            lines.extend(["", "| Exon | Query usable bp | Total support |", "| --- | ---: | ---: |"])
+            for exon in exons[:20]:
+                total = sum(hit["score"] for hit in exon["support"])
+                lines.append(f"| {exon['id']} | {exon['query_usable_bp']} | {total:.3f} |")
+            lines.append("")
         if stage["genes"]:
             lines.extend([
                 "### Gene-by-gene nearest references", "",
