@@ -1,0 +1,10 @@
+{
+  "evaluator_sha256": "6f4fdc869fc9fcd58abade9d6de310a95ae00d68371e7e5173bc259eda6b305f",
+  "truth_file_opened_for_this_run": false,
+  "primary_method": "profile_gene3",
+  "views": [
+    "table_literal",
+    "harmonized_two_taxa"
+  ],
+  "retrospective": true
+}

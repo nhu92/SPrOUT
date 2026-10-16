@@ -1,0 +1,705 @@
+{
+  "selected": [
+    {
+      "index": 0,
+      "sample": "01x02x13",
+      "project": "mix_01x02x13",
+      "run": "/lustre/scratch/nhu/202609/ttu_nocap100_z09_20261015/samples/mix_01x02x13",
+      "previously_seen": false
+    },
+    {
+      "index": 1,
+      "sample": "01x04x19",
+      "project": "mix_01x04x19",
+      "run": "/lustre/scratch/nhu/202609/ttu_nocap100_z09_20261015/samples/mix_01x04x19",
+      "previously_seen": true
+    },
+    {
+      "index": 2,
+      "sample": "01x07x16x18x25x08",
+      "project": "mix_01x07x16x18x25x08",
+      "run": "/lustre/scratch/nhu/202609/ttu_nocap100_z09_20261015/samples/mix_01x07x16x18x25x08",
+      "previously_seen": false
+    },
+    {
+      "index": 3,
+      "sample": "01x18x08x28x26x02",
+      "project": "mix_01x18x08x28x26x02",
+      "run": "/lustre/scratch/nhu/202609/ttu_nocap100_z09_20261015/samples/mix_01x18x08x28x26x02",
+      "previously_seen": true
+    },
+    {
+      "index": 4,
+      "sample": "01x19x08x22x25x30x07x26x10x28",
+      "project": "mix_01x19x08x22x25x30x07x26x10x28",
+      "run": "/lustre/scratch/nhu/202609/ttu_nocap100_z09_20261015/samples/mix_01x19x08x22x25x30x07x26x10x28",
+      "previously_seen": false
+    },
+    {
+      "index": 5,
+      "sample": "01x25x24x22x28x19x15x10x07x12",
+      "project": "mix_01x25x24x22x28x19x15x10x07x12",
+      "run": "/lustre/scratch/nhu/202609/ttu_nocap100_z09_20261015/samples/mix_01x25x24x22x28x19x15x10x07x12",
+      "previously_seen": true
+    },
+    {
+      "index": 6,
+      "sample": "01x30x25",
+      "project": "mix_01x30x25",
+      "run": "/lustre/scratch/nhu/202609/ttu_nocap100_z09_20261015/samples/mix_01x30x25",
+      "previously_seen": false
+    },
+    {
+      "index": 7,
+      "sample": "02x01x28x15x03x07",
+      "project": "mix_02x01x28x15x03x07",
+      "run": "/lustre/scratch/nhu/202609/ttu_nocap100_z09_20261015/samples/mix_02x01x28x15x03x07",
+      "previously_seen": false
+    },
+    {
+      "index": 8,
+      "sample": "02x12x28x10x01x09x30x03x18x13",
+      "project": "mix_02x12x28x10x01x09x30x03x18x13",
+      "run": "/lustre/scratch/nhu/202609/ttu_nocap100_z09_20261015/samples/mix_02x12x28x10x01x09x30x03x18x13",
+      "previously_seen": false
+    },
+    {
+      "index": 9,
+      "sample": "02x13x24x03x12x07x16x18x04x15",
+      "project": "mix_02x13x24x03x12x07x16x18x04x15",
+      "run": "/lustre/scratch/nhu/202609/ttu_nocap100_z09_20261015/samples/mix_02x13x24x03x12x07x16x18x04x15",
+      "previously_seen": false
+    },
+    {
+      "index": 10,
+      "sample": "02x15x24",
+      "project": "mix_02x15x24",
+      "run": "/lustre/scratch/nhu/202609/ttu_nocap100_z09_20261015/samples/mix_02x15x24",
+      "previously_seen": false
+    },
+    {
+      "index": 11,
+      "sample": "02x22x19",
+      "project": "mix_02x22x19",
+      "run": "/lustre/scratch/nhu/202609/ttu_nocap100_z09_20261015/samples/mix_02x22x19",
+      "previously_seen": false
+    },
+    {
+      "index": 12,
+      "sample": "02x22x25x07x24x03",
+      "project": "mix_02x22x25x07x24x03",
+      "run": "/lustre/scratch/nhu/202609/ttu_nocap100_z09_20261015/samples/mix_02x22x25x07x24x03",
+      "previously_seen": true
+    },
+    {
+      "index": 13,
+      "sample": "02x24x15",
+      "project": "mix_02x24x15",
+      "run": "/lustre/scratch/nhu/202609/ttu_nocap100_z09_20261015/samples/mix_02x24x15",
+      "previously_seen": false
+    },
+    {
+      "index": 14,
+      "sample": "02x24x25x09x28x16x04x07x12x13",
+      "project": "mix_02x24x25x09x28x16x04x07x12x13",
+      "run": "/lustre/scratch/nhu/202609/ttu_nocap100_z09_20261015/samples/mix_02x24x25x09x28x16x04x07x12x13",
+      "previously_seen": false
+    },
+    {
+      "index": 15,
+      "sample": "03x07x13",
+      "project": "mix_03x07x13",
+      "run": "/lustre/scratch/nhu/202609/ttu_nocap100_z09_20261015/samples/mix_03x07x13",
+      "previously_seen": false
+    },
+    {
+      "index": 16,
+      "sample": "03x16x28x24x01x07",
+      "project": "mix_03x16x28x24x01x07",
+      "run": "/lustre/scratch/nhu/202609/ttu_nocap100_z09_20261015/samples/mix_03x16x28x24x01x07",
+      "previously_seen": false
+    },
+    {
+      "index": 17,
+      "sample": "04x03x16x25x18x22x02x08x19x07",
+      "project": "mix_04x03x16x25x18x22x02x08x19x07",
+      "run": "/lustre/scratch/nhu/202609/ttu_nocap100_z09_20261015/samples/mix_04x03x16x25x18x22x02x08x19x07",
+      "previously_seen": false
+    },
+    {
+      "index": 18,
+      "sample": "04x07x08x15x16x01",
+      "project": "mix_04x07x08x15x16x01",
+      "run": "/lustre/scratch/nhu/202609/ttu_nocap100_z09_20261015/samples/mix_04x07x08x15x16x01",
+      "previously_seen": false
+    },
+    {
+      "index": 19,
+      "sample": "04x15x10",
+      "project": "mix_04x15x10",
+      "run": "/lustre/scratch/nhu/202609/ttu_nocap100_z09_20261015/samples/mix_04x15x10",
+      "previously_seen": false
+    },
+    {
+      "index": 20,
+      "sample": "04x19x30x02x13x16",
+      "project": "mix_04x19x30x02x13x16",
+      "run": "/lustre/scratch/nhu/202609/ttu_nocap100_z09_20261015/samples/mix_04x19x30x02x13x16",
+      "previously_seen": true
+    },
+    {
+      "index": 21,
+      "sample": "04x28x12x16x03x19",
+      "project": "mix_04x28x12x16x03x19",
+      "run": "/lustre/scratch/nhu/202609/ttu_nocap100_z09_20261015/samples/mix_04x28x12x16x03x19",
+      "previously_seen": false
+    },
+    {
+      "index": 22,
+      "sample": "04x28x15x07x16x09x13x10x08x03",
+      "project": "mix_04x28x15x07x16x09x13x10x08x03",
+      "run": "/lustre/scratch/nhu/202609/ttu_nocap100_z09_20261015/samples/mix_04x28x15x07x16x09x13x10x08x03",
+      "previously_seen": false
+    },
+    {
+      "index": 23,
+      "sample": "04x30x25x16x10x03x28x01x13x08",
+      "project": "mix_04x30x25x16x10x03x28x01x13x08",
+      "run": "/lustre/scratch/nhu/202609/ttu_nocap100_z09_20261015/samples/mix_04x30x25x16x10x03x28x01x13x08",
+      "previously_seen": true
+    },
+    {
+      "index": 24,
+      "sample": "07x10x04x16x13x15",
+      "project": "mix_07x10x04x16x13x15",
+      "run": "/lustre/scratch/nhu/202609/ttu_nocap100_z09_20261015/samples/mix_07x10x04x16x13x15",
+      "previously_seen": true
+    },
+    {
+      "index": 25,
+      "sample": "07x22x30x08x18x13x03x19x04x02",
+      "project": "mix_07x22x30x08x18x13x03x19x04x02",
+      "run": "/lustre/scratch/nhu/202609/ttu_nocap100_z09_20261015/samples/mix_07x22x30x08x18x13x03x19x04x02",
+      "previously_seen": false
+    },
+    {
+      "index": 26,
+      "sample": "07x26x30",
+      "project": "mix_07x26x30",
+      "run": "/lustre/scratch/nhu/202609/ttu_nocap100_z09_20261015/samples/mix_07x26x30",
+      "previously_seen": false
+    },
+    {
+      "index": 27,
+      "sample": "07x28x25x10x04x30",
+      "project": "mix_07x28x25x10x04x30",
+      "run": "/lustre/scratch/nhu/202609/ttu_nocap100_z09_20261015/samples/mix_07x28x25x10x04x30",
+      "previously_seen": false
+    },
+    {
+      "index": 28,
+      "sample": "08x07x01",
+      "project": "mix_08x07x01",
+      "run": "/lustre/scratch/nhu/202609/ttu_nocap100_z09_20261015/samples/mix_08x07x01",
+      "previously_seen": true
+    },
+    {
+      "index": 29,
+      "sample": "08x07x03",
+      "project": "mix_08x07x03",
+      "run": "/lustre/scratch/nhu/202609/ttu_nocap100_z09_20261015/samples/mix_08x07x03",
+      "previously_seen": true
+    },
+    {
+      "index": 30,
+      "sample": "08x16x09x25x03x18",
+      "project": "mix_08x16x09x25x03x18",
+      "run": "/lustre/scratch/nhu/202609/ttu_nocap100_z09_20261015/samples/mix_08x16x09x25x03x18",
+      "previously_seen": false
+    },
+    {
+      "index": 31,
+      "sample": "08x16x15x07x03x09",
+      "project": "mix_08x16x15x07x03x09",
+      "run": "/lustre/scratch/nhu/202609/ttu_nocap100_z09_20261015/samples/mix_08x16x15x07x03x09",
+      "previously_seen": true
+    },
+    {
+      "index": 32,
+      "sample": "08x30x16x22x15x19",
+      "project": "mix_08x30x16x22x15x19",
+      "run": "/lustre/scratch/nhu/202609/ttu_nocap100_z09_20261015/samples/mix_08x30x16x22x15x19",
+      "previously_seen": false
+    },
+    {
+      "index": 33,
+      "sample": "09x15x18x02x25x08x10x12x01x07",
+      "project": "mix_09x15x18x02x25x08x10x12x01x07",
+      "run": "/lustre/scratch/nhu/202609/ttu_nocap100_z09_20261015/samples/mix_09x15x18x02x25x08x10x12x01x07",
+      "previously_seen": false
+    },
+    {
+      "index": 34,
+      "sample": "09x19x12x16x07x25",
+      "project": "mix_09x19x12x16x07x25",
+      "run": "/lustre/scratch/nhu/202609/ttu_nocap100_z09_20261015/samples/mix_09x19x12x16x07x25",
+      "previously_seen": false
+    },
+    {
+      "index": 35,
+      "sample": "09x30x01x04x18x13x22x08x19x15",
+      "project": "mix_09x30x01x04x18x13x22x08x19x15",
+      "run": "/lustre/scratch/nhu/202609/ttu_nocap100_z09_20261015/samples/mix_09x30x01x04x18x13x22x08x19x15",
+      "previously_seen": false
+    },
+    {
+      "index": 36,
+      "sample": "10x04x13x19x02x15x01x09x30x24",
+      "project": "mix_10x04x13x19x02x15x01x09x30x24",
+      "run": "/lustre/scratch/nhu/202609/ttu_nocap100_z09_20261015/samples/mix_10x04x13x19x02x15x01x09x30x24",
+      "previously_seen": false
+    },
+    {
+      "index": 37,
+      "sample": "10x09x15x08x25x18",
+      "project": "mix_10x09x15x08x25x18",
+      "run": "/lustre/scratch/nhu/202609/ttu_nocap100_z09_20261015/samples/mix_10x09x15x08x25x18",
+      "previously_seen": false
+    },
+    {
+      "index": 38,
+      "sample": "10x19x28x09x15x22",
+      "project": "mix_10x19x28x09x15x22",
+      "run": "/lustre/scratch/nhu/202609/ttu_nocap100_z09_20261015/samples/mix_10x19x28x09x15x22",
+      "previously_seen": false
+    },
+    {
+      "index": 39,
+      "sample": "10x22x30x16x13x26",
+      "project": "mix_10x22x30x16x13x26",
+      "run": "/lustre/scratch/nhu/202609/ttu_nocap100_z09_20261015/samples/mix_10x22x30x16x13x26",
+      "previously_seen": false
+    },
+    {
+      "index": 40,
+      "sample": "10x24x07x19x02x25",
+      "project": "mix_10x24x07x19x02x25",
+      "run": "/lustre/scratch/nhu/202609/ttu_nocap100_z09_20261015/samples/mix_10x24x07x19x02x25",
+      "previously_seen": false
+    },
+    {
+      "index": 41,
+      "sample": "10x26x09x24x13x02",
+      "project": "mix_10x26x09x24x13x02",
+      "run": "/lustre/scratch/nhu/202609/ttu_nocap100_z09_20261015/samples/mix_10x26x09x24x13x02",
+      "previously_seen": true
+    },
+    {
+      "index": 42,
+      "sample": "12x01x07x04x03x02x13x18x09x19",
+      "project": "mix_12x01x07x04x03x02x13x18x09x19",
+      "run": "/lustre/scratch/nhu/202609/ttu_nocap100_z09_20261015/samples/mix_12x01x07x04x03x02x13x18x09x19",
+      "previously_seen": false
+    },
+    {
+      "index": 43,
+      "sample": "12x01x15",
+      "project": "mix_12x01x15",
+      "run": "/lustre/scratch/nhu/202609/ttu_nocap100_z09_20261015/samples/mix_12x01x15",
+      "previously_seen": false
+    },
+    {
+      "index": 44,
+      "sample": "12x07x10",
+      "project": "mix_12x07x10",
+      "run": "/lustre/scratch/nhu/202609/ttu_nocap100_z09_20261015/samples/mix_12x07x10",
+      "previously_seen": false
+    },
+    {
+      "index": 45,
+      "sample": "12x09x19x18x26x25x13x08x04x10",
+      "project": "mix_12x09x19x18x26x25x13x08x04x10",
+      "run": "/lustre/scratch/nhu/202609/ttu_nocap100_z09_20261015/samples/mix_12x09x19x18x26x25x13x08x04x10",
+      "previously_seen": true
+    },
+    {
+      "index": 46,
+      "sample": "12x13x01x18x22x07",
+      "project": "mix_12x13x01x18x22x07",
+      "run": "/lustre/scratch/nhu/202609/ttu_nocap100_z09_20261015/samples/mix_12x13x01x18x22x07",
+      "previously_seen": false
+    },
+    {
+      "index": 47,
+      "sample": "12x18x03",
+      "project": "mix_12x18x03",
+      "run": "/lustre/scratch/nhu/202609/ttu_nocap100_z09_20261015/samples/mix_12x18x03",
+      "previously_seen": false
+    },
+    {
+      "index": 48,
+      "sample": "12x22x15x26x03x01",
+      "project": "mix_12x22x15x26x03x01",
+      "run": "/lustre/scratch/nhu/202609/ttu_nocap100_z09_20261015/samples/mix_12x22x15x26x03x01",
+      "previously_seen": true
+    },
+    {
+      "index": 49,
+      "sample": "12x25x02",
+      "project": "mix_12x25x02",
+      "run": "/lustre/scratch/nhu/202609/ttu_nocap100_z09_20261015/samples/mix_12x25x02",
+      "previously_seen": false
+    },
+    {
+      "index": 50,
+      "sample": "12x25x04",
+      "project": "mix_12x25x04",
+      "run": "/lustre/scratch/nhu/202609/ttu_nocap100_z09_20261015/samples/mix_12x25x04",
+      "previously_seen": false
+    },
+    {
+      "index": 51,
+      "sample": "12x25x22x02x26x10",
+      "project": "mix_12x25x22x02x26x10",
+      "run": "/lustre/scratch/nhu/202609/ttu_nocap100_z09_20261015/samples/mix_12x25x22x02x26x10",
+      "previously_seen": false
+    },
+    {
+      "index": 52,
+      "sample": "13x07x10",
+      "project": "mix_13x07x10",
+      "run": "/lustre/scratch/nhu/202609/ttu_nocap100_z09_20261015/samples/mix_13x07x10",
+      "previously_seen": false
+    },
+    {
+      "index": 53,
+      "sample": "13x10x01",
+      "project": "mix_13x10x01",
+      "run": "/lustre/scratch/nhu/202609/ttu_nocap100_z09_20261015/samples/mix_13x10x01",
+      "previously_seen": true
+    },
+    {
+      "index": 54,
+      "sample": "13x24x08",
+      "project": "mix_13x24x08",
+      "run": "/lustre/scratch/nhu/202609/ttu_nocap100_z09_20261015/samples/mix_13x24x08",
+      "previously_seen": false
+    },
+    {
+      "index": 55,
+      "sample": "13x26x15x09x28x08x10x18x16x24",
+      "project": "mix_13x26x15x09x28x08x10x18x16x24",
+      "run": "/lustre/scratch/nhu/202609/ttu_nocap100_z09_20261015/samples/mix_13x26x15x09x28x08x10x18x16x24",
+      "previously_seen": false
+    },
+    {
+      "index": 56,
+      "sample": "13x28x15",
+      "project": "mix_13x28x15",
+      "run": "/lustre/scratch/nhu/202609/ttu_nocap100_z09_20261015/samples/mix_13x28x15",
+      "previously_seen": false
+    },
+    {
+      "index": 57,
+      "sample": "15x08x28",
+      "project": "mix_15x08x28",
+      "run": "/lustre/scratch/nhu/202609/ttu_nocap100_z09_20261015/samples/mix_15x08x28",
+      "previously_seen": false
+    },
+    {
+      "index": 58,
+      "sample": "15x10x28",
+      "project": "mix_15x10x28",
+      "run": "/lustre/scratch/nhu/202609/ttu_nocap100_z09_20261015/samples/mix_15x10x28",
+      "previously_seen": true
+    },
+    {
+      "index": 59,
+      "sample": "15x13x28",
+      "project": "mix_15x13x28",
+      "run": "/lustre/scratch/nhu/202609/ttu_nocap100_z09_20261015/samples/mix_15x13x28",
+      "previously_seen": false
+    },
+    {
+      "index": 60,
+      "sample": "15x22x12",
+      "project": "mix_15x22x12",
+      "run": "/lustre/scratch/nhu/202609/ttu_nocap100_z09_20261015/samples/mix_15x22x12",
+      "previously_seen": true
+    },
+    {
+      "index": 61,
+      "sample": "16x13x01",
+      "project": "mix_16x13x01",
+      "run": "/lustre/scratch/nhu/202609/ttu_nocap100_z09_20261015/samples/mix_16x13x01",
+      "previously_seen": false
+    },
+    {
+      "index": 62,
+      "sample": "16x25x10x24x12x08x30x09x03x15",
+      "project": "mix_16x25x10x24x12x08x30x09x03x15",
+      "run": "/lustre/scratch/nhu/202609/ttu_nocap100_z09_20261015/samples/mix_16x25x10x24x12x08x30x09x03x15",
+      "previously_seen": false
+    },
+    {
+      "index": 63,
+      "sample": "16x28x08",
+      "project": "mix_16x28x08",
+      "run": "/lustre/scratch/nhu/202609/ttu_nocap100_z09_20261015/samples/mix_16x28x08",
+      "previously_seen": false
+    },
+    {
+      "index": 64,
+      "sample": "18x07x13",
+      "project": "mix_18x07x13",
+      "run": "/lustre/scratch/nhu/202609/ttu_nocap100_z09_20261015/samples/mix_18x07x13",
+      "previously_seen": true
+    },
+    {
+      "index": 65,
+      "sample": "18x09x28",
+      "project": "mix_18x09x28",
+      "run": "/lustre/scratch/nhu/202609/ttu_nocap100_z09_20261015/samples/mix_18x09x28",
+      "previously_seen": false
+    },
+    {
+      "index": 66,
+      "sample": "18x10x22",
+      "project": "mix_18x10x22",
+      "run": "/lustre/scratch/nhu/202609/ttu_nocap100_z09_20261015/samples/mix_18x10x22",
+      "previously_seen": true
+    },
+    {
+      "index": 67,
+      "sample": "18x19x28x30x07x12",
+      "project": "mix_18x19x28x30x07x12",
+      "run": "/lustre/scratch/nhu/202609/ttu_nocap100_z09_20261015/samples/mix_18x19x28x30x07x12",
+      "previously_seen": true
+    },
+    {
+      "index": 68,
+      "sample": "18x25x12",
+      "project": "mix_18x25x12",
+      "run": "/lustre/scratch/nhu/202609/ttu_nocap100_z09_20261015/samples/mix_18x25x12",
+      "previously_seen": false
+    },
+    {
+      "index": 69,
+      "sample": "19x07x08x16x03x10",
+      "project": "mix_19x07x08x16x03x10",
+      "run": "/lustre/scratch/nhu/202609/ttu_nocap100_z09_20261015/samples/mix_19x07x08x16x03x10",
+      "previously_seen": false
+    },
+    {
+      "index": 70,
+      "sample": "19x22x10",
+      "project": "mix_19x22x10",
+      "run": "/lustre/scratch/nhu/202609/ttu_nocap100_z09_20261015/samples/mix_19x22x10",
+      "previously_seen": false
+    },
+    {
+      "index": 71,
+      "sample": "19x25x04x26x02x01",
+      "project": "mix_19x25x04x26x02x01",
+      "run": "/lustre/scratch/nhu/202609/ttu_nocap100_z09_20261015/samples/mix_19x25x04x26x02x01",
+      "previously_seen": true
+    },
+    {
+      "index": 72,
+      "sample": "19x28x04",
+      "project": "mix_19x28x04",
+      "run": "/lustre/scratch/nhu/202609/ttu_nocap100_z09_20261015/samples/mix_19x28x04",
+      "previously_seen": false
+    },
+    {
+      "index": 73,
+      "sample": "22x26x04",
+      "project": "mix_22x26x04",
+      "run": "/lustre/scratch/nhu/202609/ttu_nocap100_z09_20261015/samples/mix_22x26x04",
+      "previously_seen": true
+    },
+    {
+      "index": 74,
+      "sample": "24x04x28",
+      "project": "mix_24x04x28",
+      "run": "/lustre/scratch/nhu/202609/ttu_nocap100_z09_20261015/samples/mix_24x04x28",
+      "previously_seen": true
+    },
+    {
+      "index": 75,
+      "sample": "24x09x15",
+      "project": "mix_24x09x15",
+      "run": "/lustre/scratch/nhu/202609/ttu_nocap100_z09_20261015/samples/mix_24x09x15",
+      "previously_seen": false
+    },
+    {
+      "index": 76,
+      "sample": "24x10x28x01x25x13",
+      "project": "mix_24x10x28x01x25x13",
+      "run": "/lustre/scratch/nhu/202609/ttu_nocap100_z09_20261015/samples/mix_24x10x28x01x25x13",
+      "previously_seen": true
+    },
+    {
+      "index": 77,
+      "sample": "24x28x01",
+      "project": "mix_24x28x01",
+      "run": "/lustre/scratch/nhu/202609/ttu_nocap100_z09_20261015/samples/mix_24x28x01",
+      "previously_seen": false
+    },
+    {
+      "index": 78,
+      "sample": "25x01x19x28x10x24",
+      "project": "mix_25x01x19x28x10x24",
+      "run": "/lustre/scratch/nhu/202609/ttu_nocap100_z09_20261015/samples/mix_25x01x19x28x10x24",
+      "previously_seen": true
+    },
+    {
+      "index": 79,
+      "sample": "25x12x28x02x10x13",
+      "project": "mix_25x12x28x02x10x13",
+      "run": "/lustre/scratch/nhu/202609/ttu_nocap100_z09_20261015/samples/mix_25x12x28x02x10x13",
+      "previously_seen": true
+    },
+    {
+      "index": 80,
+      "sample": "25x16x10x01x12x09x18x02x13x08",
+      "project": "mix_25x16x10x01x12x09x18x02x13x08",
+      "run": "/lustre/scratch/nhu/202609/ttu_nocap100_z09_20261015/samples/mix_25x16x10x01x12x09x18x02x13x08",
+      "previously_seen": false
+    },
+    {
+      "index": 81,
+      "sample": "25x28x02x15x03x08",
+      "project": "mix_25x28x02x15x03x08",
+      "run": "/lustre/scratch/nhu/202609/ttu_nocap100_z09_20261015/samples/mix_25x28x02x15x03x08",
+      "previously_seen": false
+    },
+    {
+      "index": 82,
+      "sample": "25x28x30x07x22x24x12x04x03x18",
+      "project": "mix_25x28x30x07x22x24x12x04x03x18",
+      "run": "/lustre/scratch/nhu/202609/ttu_nocap100_z09_20261015/samples/mix_25x28x30x07x22x24x12x04x03x18",
+      "previously_seen": false
+    },
+    {
+      "index": 83,
+      "sample": "25x30x15x19x03x13",
+      "project": "mix_25x30x15x19x03x13",
+      "run": "/lustre/scratch/nhu/202609/ttu_nocap100_z09_20261015/samples/mix_25x30x15x19x03x13",
+      "previously_seen": true
+    },
+    {
+      "index": 84,
+      "sample": "26x01x24",
+      "project": "mix_26x01x24",
+      "run": "/lustre/scratch/nhu/202609/ttu_nocap100_z09_20261015/samples/mix_26x01x24",
+      "previously_seen": true
+    },
+    {
+      "index": 85,
+      "sample": "26x03x02x01x04x10",
+      "project": "mix_26x03x02x01x04x10",
+      "run": "/lustre/scratch/nhu/202609/ttu_nocap100_z09_20261015/samples/mix_26x03x02x01x04x10",
+      "previously_seen": false
+    },
+    {
+      "index": 86,
+      "sample": "26x19x08",
+      "project": "mix_26x19x08",
+      "run": "/lustre/scratch/nhu/202609/ttu_nocap100_z09_20261015/samples/mix_26x19x08",
+      "previously_seen": false
+    },
+    {
+      "index": 87,
+      "sample": "26x22x03x13x10x19x04x16x30x24",
+      "project": "mix_26x22x03x13x10x19x04x16x30x24",
+      "run": "/lustre/scratch/nhu/202609/ttu_nocap100_z09_20261015/samples/mix_26x22x03x13x10x19x04x16x30x24",
+      "previously_seen": false
+    },
+    {
+      "index": 88,
+      "sample": "28x12x25x10x03x15",
+      "project": "mix_28x12x25x10x03x15",
+      "run": "/lustre/scratch/nhu/202609/ttu_nocap100_z09_20261015/samples/mix_28x12x25x10x03x15",
+      "previously_seen": false
+    },
+    {
+      "index": 89,
+      "sample": "28x16x30",
+      "project": "mix_28x16x30",
+      "run": "/lustre/scratch/nhu/202609/ttu_nocap100_z09_20261015/samples/mix_28x16x30",
+      "previously_seen": false
+    },
+    {
+      "index": 90,
+      "sample": "28x19x02x09x18x26",
+      "project": "mix_28x19x02x09x18x26",
+      "run": "/lustre/scratch/nhu/202609/ttu_nocap100_z09_20261015/samples/mix_28x19x02x09x18x26",
+      "previously_seen": true
+    },
+    {
+      "index": 91,
+      "sample": "28x19x04x02x13x03",
+      "project": "mix_28x19x04x02x13x03",
+      "run": "/lustre/scratch/nhu/202609/ttu_nocap100_z09_20261015/samples/mix_28x19x04x02x13x03",
+      "previously_seen": true
+    },
+    {
+      "index": 92,
+      "sample": "28x24x25x15x04x01",
+      "project": "mix_28x24x25x15x04x01",
+      "run": "/lustre/scratch/nhu/202609/ttu_nocap100_z09_20261015/samples/mix_28x24x25x15x04x01",
+      "previously_seen": false
+    },
+    {
+      "index": 93,
+      "sample": "30x04x03",
+      "project": "mix_30x04x03",
+      "run": "/lustre/scratch/nhu/202609/ttu_nocap100_z09_20261015/samples/mix_30x04x03",
+      "previously_seen": false
+    },
+    {
+      "index": 94,
+      "sample": "30x04x13x26x19x28",
+      "project": "mix_30x04x13x26x19x28",
+      "run": "/lustre/scratch/nhu/202609/ttu_nocap100_z09_20261015/samples/mix_30x04x13x26x19x28",
+      "previously_seen": false
+    },
+    {
+      "index": 95,
+      "sample": "30x04x16x01x22x03",
+      "project": "mix_30x04x16x01x22x03",
+      "run": "/lustre/scratch/nhu/202609/ttu_nocap100_z09_20261015/samples/mix_30x04x16x01x22x03",
+      "previously_seen": false
+    },
+    {
+      "index": 96,
+      "sample": "30x04x19x07x03x16",
+      "project": "mix_30x04x19x07x03x16",
+      "run": "/lustre/scratch/nhu/202609/ttu_nocap100_z09_20261015/samples/mix_30x04x19x07x03x16",
+      "previously_seen": true
+    },
+    {
+      "index": 97,
+      "sample": "30x09x22x28x16x12",
+      "project": "mix_30x09x22x28x16x12",
+      "run": "/lustre/scratch/nhu/202609/ttu_nocap100_z09_20261015/samples/mix_30x09x22x28x16x12",
+      "previously_seen": false
+    },
+    {
+      "index": 98,
+      "sample": "30x10x08x04x25x26",
+      "project": "mix_30x10x08x04x25x26",
+      "run": "/lustre/scratch/nhu/202609/ttu_nocap100_z09_20261015/samples/mix_30x10x08x04x25x26",
+      "previously_seen": false
+    },
+    {
+      "index": 99,
+      "sample": "30x28x08x02x09x25x15x04x12x22",
+      "project": "mix_30x28x08x02x09x25x15x04x12x22",
+      "run": "/lustre/scratch/nhu/202609/ttu_nocap100_z09_20261015/samples/mix_30x28x08x02x09x25x15x04x12x22",
+      "previously_seen": false
+    }
+  ],
+  "unique_compositions": 98
+}

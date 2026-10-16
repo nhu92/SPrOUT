@@ -1,0 +1,33 @@
+{
+  "schema": 1,
+  "source_root": "/lustre/scratch/nhu/202609/ttu_nocap100_z09_20261015",
+  "software": {
+    "python": "3.13.7",
+    "numpy": "2.3.3",
+    "scikit-learn": "1.7.2",
+    "biopython": "1.85",
+    "joblib": "1.5.2"
+  },
+  "source_selection_sha256": "12c80e99182605e9679976095b660749e61ffb92b11b2c3eafdc7df315b5d1a7",
+  "selection_sha256": "b4a9cc77bed2c343ce4baaedf993c4f0ed34721c43bef74bec36c997677913e7",
+  "code_sha256": {
+    "transfer.py": "4268e5787324e1a25acd7b92b6fe5193a493cf5b97e02a8659c85ce036f9a925",
+    "batch_transfer.py": "6fd29524b233d683b3b8443e184820a2f464f957f4bf67470718b364b467f518"
+  },
+  "model_sha256": "ae8673bd3a42a4220abcd35fed00f60c5e93c7ad69c9ae77cb2ae021ee3247d8",
+  "training_sha256": "bbd006ebda07be822a7b701a7f5b477bfea25f90125ce229b2e545f0fe334926",
+  "truth_used_for_training": false,
+  "parameters": {
+    "primary": "profile_gene3",
+    "independent_gene_votes": 3,
+    "min_valid_genes": 10,
+    "baseline_confirmation_gene_votes": 2,
+    "candidate_count_cap": null,
+    "reference_training_trees_per_gene": 1,
+    "reference_training_queries_per_tree": 64,
+    "calibration": "reference-only species-balanced known acceptance / absent-family rejection utility; 101 fixed cutoffs",
+    "prediction": "nearest family by full distances, verified by learned full-profile features"
+  },
+  "reuse": "identical order predictions, assembly, family reference labels, topology and branch lengths",
+  "evaluation_status": "retrospective reanalysis of previously evaluated samples; not a new independent test"
+}

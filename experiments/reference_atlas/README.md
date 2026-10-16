@@ -236,6 +236,11 @@ specified in the design document.
 
 ## Iteration on the 100 existing TTU mixtures
 
+[Completed 100-sample results and diagnostics](results/transfer100_20261016/REPORT.zh-CN.md)
+include both the literal supplementary-table evaluation and the previously
+established two-taxon harmonization. All 100 predictions succeeded; the input
+hash audit and independent ZIP/XML truth/count audit passed.
+
 `transfer.py` fits a shared match verifier from reference-only leave-species-out
 pseudo-queries on existing family exon trees. This adapts the full-profile idea
 to patristic distances without applying the previous p-distance model to a new
@@ -260,3 +265,37 @@ harmonization views, along with TP/FP/FN/TN, precision, recall, F1, NPV and MCC.
 The truth workbook and evaluator are not uploaded to the prediction host. This
 is a retrospective iteration on previously evaluated mixtures, not an independent
 new blind validation. The HPC runtime versions are recorded in its protocol.
+
+The recorded HPC model used Python 3.13.7, NumPy 2.3.3, SciPy 1.16.2,
+scikit-learn 1.7.2, Biopython 1.85 and joblib 1.5.2. To repeat the run, copy
+`transfer.py` and `batch_transfer.py` together into a new empty HPC directory,
+then invoke the scripts directly:
+
+```bash
+python transfer.py train --source-root /path/to/completed100 --output /path/to/new-run/model
+python batch_transfer.py freeze --root /path/to/new-run --source /path/to/completed100
+python batch_transfer.py submit --root /path/to/new-run
+```
+
+The batch helper targets TTU's `nocona` partition and the interpreter path stated
+in the script. It reuses the completed batch's `selection.json`, `01_order` calls,
+validated `02_family` trees and existing final/native candidate lists. Use a new
+run directory to preserve previous results. `AUDIT.json` and `compact_results.tar.gz`
+are produced after all 100 succeed. In the recorded run, resource-only scheduling
+adjustments and completion of file verification/packaging are documented separately
+in `RESOURCE_UPDATE.json`; no prediction code or scientific parameter changed.
+
+After downloading and safely extracting the compact archive, run the evaluator
+and the independent count auditor locally from the SPrOUT checkout:
+
+```bash
+python -m experiments.reference_atlas.evaluate_transfer \
+  --batch /path/to/extracted-batch --truth /path/to/STable.xlsx --output /path/to/evaluation
+python -m experiments.reference_atlas.audit_transfer \
+  --batch /path/to/extracted-batch --truth /path/to/STable.xlsx --evaluation /path/to/evaluation
+```
+
+The auditor reads workbook ZIP/XML separately from openpyxl and recomputes calls
+directly from prediction files. The checked-in result directory compresses the
+large per-family table as `by_family.csv.gz`, and includes all five candidate sets
+per sample in `predictions.json`. Full per-fragment features remain in the HPC run.

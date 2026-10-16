@@ -1,0 +1,12 @@
+{
+  "utc": "2026-10-16T05:03:55.330798+00:00",
+  "array": "26168530",
+  "concurrency": "no array throttle; finite batch of 100",
+  "cpus_per_task": 2,
+  "maximum_requested_cpus": 200,
+  "verified_scontrol": true,
+  "reason": "All active tasks completed but pending tasks retained JobArrayTaskLimit; remove only the array throttle using documented scontrol update; no scientific changes",
+  "pending_time_limit": "00:15:00",
+  "resource_only_change": true,
+  "collection": "Pending collector cancelled; immutable file verification and archive packaging completed at low CPU priority; no inference rerun"
+}
