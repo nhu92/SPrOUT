@@ -1,0 +1,55 @@
+﻿sample,library_id,source_cell,library_source_cell,species,family,order,family_source_cell,order_source_cell,mapping_rule,mix_name,component_number,weight_g,tissue_id,tissue_type,proportion_of_mix_pct
+EMseq001,EM-1,D4,B4,Brassica juncea,Brassicaceae,Brassicales,J4,I4,unambiguous_genus_in_frozen_Kew_tree,brassica,1,0.0154,NYBG 02757110,leaf,12.39935588
+EMseq001,EM-1,D5,B5,Brassica napus var. pabularia,Brassicaceae,Brassicales,J5,I5,exact_binomial_in_frozen_Kew_tree,brassica,2,0.0155,wen12944,leaf,12.47987118
+EMseq001,EM-1,D6,B6,Brassica nigra,Brassicaceae,Brassicales,J6,I6,unambiguous_genus_in_frozen_Kew_tree,brassica,3,0.016,NYBG 01282366,leaf,12.88244767
+EMseq001,EM-1,D7,B7,Brassica oleracea,Brassicaceae,Brassicales,J7,I7,exact_binomial_in_frozen_Kew_tree,brassica,4,0.0155,wen12943,leaf,12.47987118
+EMseq001,EM-1,D8,B8,Brassica oleracea var. capitata,Brassicaceae,Brassicales,J8,I8,exact_binomial_in_frozen_Kew_tree,brassica,5,0.0156,wen17939,leaf,12.56038647
+EMseq001,EM-1,D9,B9,Brassica rapa subsp. chinensis,Brassicaceae,Brassicales,J9,I9,exact_binomial_in_frozen_Kew_tree,brassica,6,0.015,wen17943,leaf,12.07729469
+EMseq001,EM-1,D10,B10,Brassica rapa subsp. pekinensis,Brassicaceae,Brassicales,J10,I10,exact_binomial_in_frozen_Kew_tree,brassica,7,0.0157,wen17942,leaf,12.64090177
+EMseq001,EM-1,D11,B11,Brassica rapa subsp. rapa,Brassicaceae,Brassicales,J11,I11,exact_binomial_in_frozen_Kew_tree,brassica,8,0.0155,wen17977,leaf,12.47987118
+EMseq002,EM-2,D13,B13,Prunus armeniaca,Rosaceae,Rosales,J13,I13,exact_binomial_in_frozen_Kew_tree,prunus,1,0.0153,wen13871,leaf,12.37864078
+EMseq002,EM-2,D14,B14,Prunus avium,Rosaceae,Rosales,J14,I14,exact_binomial_in_frozen_Kew_tree,prunus,2,0.0158,wen13831,leaf,12.78317152
+EMseq002,EM-2,D15,B15,Prunus davidiana,Rosaceae,Rosales,J15,I15,exact_binomial_in_frozen_Kew_tree,prunus,3,0.0156,wen13690,leaf,12.62135922
+EMseq002,EM-2,D16,B16,Prunus dulcis,Rosaceae,Rosales,J16,I16,unambiguous_genus_in_frozen_Kew_tree,prunus,4,0.0157,wen13509,leaf,12.70226537
+EMseq002,EM-2,D17,B17,Prunus mume,Rosaceae,Rosales,J17,I17,exact_binomial_in_frozen_Kew_tree,prunus,5,0.0152,wen14010,leaf,12.29773463
+EMseq002,EM-2,D18,B18,Prunus padus,Rosaceae,Rosales,J18,I18,exact_binomial_in_frozen_Kew_tree,prunus,6,0.016,wen17760,leaf,12.94498382
+EMseq002,EM-2,D19,B19,Prunus persica,Rosaceae,Rosales,J19,I19,unambiguous_genus_in_frozen_Kew_tree,prunus,7,0.0155,wen13868,leaf,12.54045307
+EMseq002,EM-2,D20,B20,Prunus yedoensis,Rosaceae,Rosales,J20,I20,unambiguous_genus_in_frozen_Kew_tree,prunus,8,0.0145,NYBG 02759465,leaf,11.73139159
+EMseq003,EM-3,D22,B22,Citrus maxima,Rutaceae,Sapindales,J22,I22,exact_binomial_in_frozen_Kew_tree,citrus,1,0.0163,wen13444,leaf,19.70979444
+EMseq003,EM-3,D23,B23,Citrus medica,Rutaceae,Sapindales,J23,I23,exact_binomial_in_frozen_Kew_tree,citrus,2,0.0168,wen12888,leaf,20.31438936
+EMseq003,EM-3,D24,B24,Citrus reticulata,Rutaceae,Sapindales,J24,I24,exact_binomial_in_frozen_Kew_tree,citrus,3,0.0155,NCNPR 20739,leaf,18.74244256
+EMseq003,EM-3,D25,B25,Citrus sinensis,Rutaceae,Sapindales,J25,I25,unambiguous_genus_in_frozen_Kew_tree,citrus,4,0.0341,AHP Lot #3729F,fruit,41.23337364
+EMseq004,EM-4,D27,B27,Vaccinium corymbosum,Ericaceae,Ericales,J27,I27,exact_binomial_in_frozen_Kew_tree,vaccinium,1,0.0158,wen12931,leaf,33.19327731
+EMseq004,EM-4,D28,B28,Vaccinium darrowii,Ericaceae,Ericales,J28,I28,exact_binomial_in_frozen_Kew_tree,vaccinium,2,0.0164,NYBG 01426190,leaf,34.45378151
+EMseq004,EM-4,D29,B29,Vaccinium macrocarpon,Ericaceae,Ericales,J29,I29,exact_binomial_in_frozen_Kew_tree,vaccinium,3,0.0154,wen14928a,leaf,32.35294118
+EMseq005,EM-5,D31,B31,Carthamus tinctorius,Asteraceae,Asterales,J31,I31,exact_binomial_in_frozen_Kew_tree,mix1,1,0.0163,AHP Lot #4879,leaf,10.75907591
+EMseq005,EM-5,D32,B32,Beta vulgaris,Amaranthaceae,Caryophyllales,J32,I32,exact_binomial_in_frozen_Kew_tree,mix1,2,0.0153,AHP,leaf,10.0990099
+EMseq005,EM-5,D33,B33,Curcuma longa,Zingiberaceae,Zingiberales,J33,I33,exact_binomial_in_frozen_Kew_tree,mix1,3,0.0155,wen13706,leaf,10.2310231
+EMseq005,EM-5,D34,B34,Daucus carota subsp. sativus,Apiaceae,Apiales,J34,I34,exact_binomial_in_frozen_Kew_tree,mix1,4,0.0161,wen13408,leaf,10.62706271
+EMseq005,EM-5,D35,B35,Zea mays,Poaceae,Poales,J35,I35,exact_binomial_in_frozen_Kew_tree,mix1,5,0.0161,wen17880,leaf,10.62706271
+EMseq005,EM-5,D36,B36,Gardenia jasminoides,Rubiaceae,Gentianales,J36,I36,exact_binomial_in_frozen_Kew_tree,mix1,6,0.0159,wen17593,leaf,10.4950495
+EMseq005,EM-5,D37,B37,Nelumbo nucifera,Nelumbonaceae,Proteales,J37,I37,unambiguous_genus_in_frozen_Kew_tree,mix1,7,0.0563,AHP,root,37.16171617
+EMseq006,EM-6,D39,B39,Scutellaria baicalensis,Lamiaceae,Lamiales,J39,I39,exact_binomial_in_frozen_Kew_tree,mix2,1,0.0161,GF-15,leaf,20.85492228
+EMseq006,EM-6,D40,B40,Panax ginseng,Araliaceae,Apiales,J40,I40,exact_binomial_in_frozen_Kew_tree,mix2,2,0.0153,wen3116,leaf,19.81865285
+EMseq006,EM-6,D41,B41,Zingiber officinale,Zingiberaceae,Zingiberales,J41,I41,exact_binomial_in_frozen_Kew_tree,mix2,3,0.0152,wen13758,leaf,19.68911917
+EMseq006,EM-6,D42,B42,Camellia sinensis,Theaceae,Ericales,J42,I42,exact_binomial_in_frozen_Kew_tree,mix2,4,0.0151,wen13341,leaf,19.55958549
+EMseq006,EM-6,D43,B43,Ocimum tenuiflorum,Lamiaceae,Lamiales,J43,I43,exact_binomial_in_frozen_Kew_tree,mix2,5,0.0155,AHP Lot # 5818,leaf,20.07772021
+EMseq007,EM-7,D45,B45,Ginkgo biloba,Ginkgoaceae,Ginkgoales,J45,I45,exact_binomial_in_frozen_Kew_tree,mix3,1,0.0253,wen13439,leaf,49.70530452
+EMseq007,EM-7,D46,B46,Zizania latifolia,Poaceae,Poales,J46,I46,exact_binomial_in_frozen_Kew_tree,mix3,2,0.0256,wen Tibet 923,leaf,50.29469548
+EMseq008,EM-8,D48,B48,Artemisia annua,Asteraceae,Asterales,J48,I48,exact_binomial_in_frozen_Kew_tree,mix5,1,0.0159,GF-5,leaf,24.76635514
+EMseq008,EM-8,D49,B49,Coptis chinensis,Ranunculaceae,Ranunculales,J49,I49,exact_binomial_in_frozen_Kew_tree,mix5,2,0.0158,wen12843,leaf,24.6105919
+EMseq008,EM-8,D50,B50,Centella asiatica,Apiaceae,Apiales,J50,I50,exact_binomial_in_frozen_Kew_tree,mix5,3,0.0166,Jim Duke 6,leaf,25.85669782
+EMseq008,EM-8,D51,B51,Gynostemma pentaphyllum,Cucurbitaceae,Cucurbitales,J51,I51,exact_binomial_in_frozen_Kew_tree,mix5,4,0.0159,wen13272,leaf,24.76635514
+EMseq009,EM-9,D53,B53,Litchi chinensis,Sapindaceae,Sapindales,J53,I53,exact_binomial_in_frozen_Kew_tree,mix6,1,0.0157,wen13292,leaf,16.66666667
+EMseq009,EM-9,D54,B54,Dimocarpus longan,Sapindaceae,Sapindales,J54,I54,exact_binomial_in_frozen_Kew_tree,mix6,2,0.0153,wen13297,leaf,16.24203822
+EMseq009,EM-9,D55,B55,Citrus maxima,Rutaceae,Sapindales,J55,I55,exact_binomial_in_frozen_Kew_tree,mix6,3,0.0154,wen13444,leaf,16.34819533
+EMseq009,EM-9,D56,B56,Citrus reticulata,Rutaceae,Sapindales,J56,I56,exact_binomial_in_frozen_Kew_tree,mix6,4,0.0163,NCNPR 20736,leaf,17.30360934
+EMseq009,EM-9,D57,B57,Punica granatum,Lythraceae,Myrtales,J57,I57,exact_binomial_in_frozen_Kew_tree,mix6,5,0.016,wen17924,leaf,16.985138
+EMseq009,EM-9,D58,B58,Psidium guajava,Myrtaceae,Myrtales,J58,I58,exact_binomial_in_frozen_Kew_tree,mix6,6,0.0155,wen17850,leaf,16.45435244
+EMseq010,EM-10,D60,B60,Allium sativum,Amaryllidaceae,Asparagales,J60,I60,exact_binomial_in_frozen_Kew_tree,mix7,1,0.0153,Jim Duke 14,leaf,24.79740681
+EMseq010,EM-10,D61,B61,Asparagus officinalis,Asparagaceae,Asparagales,J61,I61,exact_binomial_in_frozen_Kew_tree,mix7,2,0.015,wen13722,leaf,24.31118314
+EMseq010,EM-10,D62,B62,Brassica oleracea,Brassicaceae,Brassicales,J62,I62,exact_binomial_in_frozen_Kew_tree,mix7,3,0.0153,wen12943,leaf,24.79740681
+EMseq010,EM-10,D63,B63,Artocarpus heterophyllus,Moraceae,Rosales,J63,I63,exact_binomial_in_frozen_Kew_tree,mix7,4,0.0161,wen13606,leaf,26.09400324
+EMseq011,EM-11,D65,B65,Theobroma cacao,Malvaceae,Malvales,J65,I65,exact_binomial_in_frozen_Kew_tree,mix8,1,0.0156,wen12890,leaf,21.63661581
+EMseq011,EM-11,D66,B66,Coffea arabica,Rubiaceae,Gentianales,J66,I66,exact_binomial_in_frozen_Kew_tree,mix8,2,0.0446,wen12944,leaf,61.85852982
+EMseq011,EM-11,D67,B67,Vanilla planifolia,Orchidaceae,Asparagales,J67,I67,exact_binomial_in_frozen_Kew_tree,mix8,3,0.0119,wen12897,leaf,16.50485437

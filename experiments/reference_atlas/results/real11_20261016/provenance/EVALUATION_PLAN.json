@@ -1,0 +1,20 @@
+{
+  "primary": "merged",
+  "target_rank": "family",
+  "samples": 11,
+  "sample_ids": "EMseq001 through EMseq011",
+  "truth_workbook_sha256": "2de758be063c78d01fc4048753d8985c606a997d78b20cb8933660e756a9f593",
+  "truth_sheet": "Table S7",
+  "truth_access": "Only after all 11 predictions and immutable-input audits finish; no workbook or truth evaluator on UMD",
+  "taxonomy_tree_sha256": "ff2cdf88a6f46da1f4155b36a4d9a96a838d415f9d609b8c8a284019f6e11b20",
+  "taxonomy_rule": "Use an explicit S7 family annotation as written if present. If S7 supplies species only, exact binomial lookup in the frozen MrKnowItAll Kew tree, followed by genus lookup only when all records of that genus have the same family/order. Retain the full source-to-family mapping. Unresolved/ambiguous names require explicit resolution without reference to prediction correctness.",
+  "no_inherited_truth_corrections": "Do not apply the earlier simulated-source identities 1/25 to the real-mixture IDs or modify S7.",
+  "duplicate_handling": "Deduplicate species within a sample and then family within a sample; multiple species of one family count as one family-presence event.",
+  "methods": ["original_z", "baseline_c", "stable_c", "core", "merged", "standalone_ml", "expanded_review_union"],
+  "positive_metrics": ["TP", "FP", "FN", "precision", "recall", "F1", "exact_family_sets"],
+  "negative_universe": "A common global union of all generated reference families and all annotated S7 truth families. Report the resulting size and conditional TN/NPV/specificity/MCC; NPV is not the headline metric.",
+  "coverage": "A true family absent from parent selection or available references remains FN. Deferred review truth remains FN in final predictions. Record parent, reference and scoring coverage separately.",
+  "audit": "Compare openpyxl cell values against an independent stdlib ZIP/XML extraction; recompute every per-sample count directly from the exported candidate files and compare aggregate counts.",
+  "selection": "Do not retune thresholds, add taxon/sample exceptions or choose a different primary after seeing S7 results.",
+  "scope": "External real-mixture validation of the frozen family classifier/fusion rule on previously assembled UMD data. These data had previous pipeline analyses; no claim of entirely new sample discovery or independent reference-library generalization."
+}

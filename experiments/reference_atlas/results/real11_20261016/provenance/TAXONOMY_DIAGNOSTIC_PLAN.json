@@ -1,0 +1,29 @@
+{
+  "created_before_metric_calculation": true,
+  "primary": "Literal S7 Expected Orders I and Expected Families J remain unchanged. Never use old Predicted columns K/L as truth.",
+  "secondary_diagnostic": "Apply exact binomial/unambiguous genus frozen-Kew lookup to every species row, retaining explicit S7 annotations only when lookup has no entry. Report all disagreements without changing predictions or selecting new thresholds.",
+  "differences_before_scoring": [
+    {
+      "row": 32,
+      "species": "Beta vulgaris",
+      "S7_order": "Caryophyllales",
+      "S7_family": "Amararthaceae",
+      "frozen_Kew": {
+        "order": "Caryophyllales",
+        "family": "Amaranthaceae",
+        "mapping_rule": "exact_binomial_in_frozen_Kew_tree"
+      }
+    },
+    {
+      "row": 60,
+      "species": "Allium sativum",
+      "S7_order": "Asparagales",
+      "S7_family": "Asparagaceae",
+      "frozen_Kew": {
+        "order": "Asparagales",
+        "family": "Amaryllidaceae",
+        "mapping_rule": "exact_binomial_in_frozen_Kew_tree"
+      }
+    }
+  ]
+}

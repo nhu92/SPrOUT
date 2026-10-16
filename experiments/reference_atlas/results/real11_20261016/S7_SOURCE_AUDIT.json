@@ -1,0 +1,49 @@
+{
+  "successful_audit_started_utc": "2026-10-16T19:07:36.425182+00:00",
+  "prediction_sealed_utc": "2026-10-16T19:06:43.482792+00:00",
+  "initial_read_attempt_after_prediction_sealing": true,
+  "sealed_before_truth": true,
+  "workbook_sha256": "2de758be063c78d01fc4048753d8985c606a997d78b20cb8933660e756a9f593",
+  "sheet": "Table S7",
+  "openpyxl_vs_xml_nonempty_cells": 661,
+  "all_cell_values_match": true,
+  "numeric_comparison_relative_and_absolute_tolerance": 1e-14,
+  "max_numeric_absolute_difference": 0.0,
+  "initial_audit_attempt": "Exact Decimal string comparison rejected harmless XLSX floating point serialization differences; repeated with numeric tolerance. Text identifiers remain exact. No scores were computed.",
+  "used_layout_dimensions": "A1:L67",
+  "parser_audit_started_utc": "2026-10-16T19:09:16.357152+00:00",
+  "taxonomy_sha256": "ff2cdf88a6f46da1f4155b36a4d9a96a838d415f9d609b8c8a284019f6e11b20",
+  "source_range": "B4:J67",
+  "primary_columns": "B=Library ID, D=Species, I=Expected Orders, J=Expected Families",
+  "legacy_predicted_columns_K_L_used_as_truth": false,
+  "all_text_cells_match_exactly": true,
+  "all_numeric_cells_match_as_binary64": true,
+  "nonempty_cells_checked": 661,
+  "component_rows_independently_checked": 54,
+  "libraries": 11,
+  "literal_truth_kept_unchanged": true,
+  "taxonomy_disagreements": [
+    {
+      "sample": "EMseq005",
+      "source_cell": "D32",
+      "species": "Beta vulgaris",
+      "S7_family": "Amararthaceae",
+      "frozen_Kew_family": "Amaranthaceae",
+      "S7_order": "Caryophyllales",
+      "frozen_Kew_order": "Caryophyllales",
+      "mapping_rule": "exact_binomial_in_frozen_Kew_tree"
+    },
+    {
+      "sample": "EMseq010",
+      "source_cell": "D60",
+      "species": "Allium sativum",
+      "S7_family": "Asparagaceae",
+      "frozen_Kew_family": "Amaryllidaceae",
+      "S7_order": "Asparagales",
+      "frozen_Kew_order": "Asparagales",
+      "mapping_rule": "exact_binomial_in_frozen_Kew_tree"
+    }
+  ],
+  "secondary_mapping_applied_to_every_component": true,
+  "secondary_unresolved_rows": 0
+}

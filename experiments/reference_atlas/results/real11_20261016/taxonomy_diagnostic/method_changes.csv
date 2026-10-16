@@ -1,0 +1,2 @@
+﻿sample,comparison,direction,family,true_family,project,parent_order,c_selected,b_selected,rescue_selected,ml_gene_votes,nearest_gene_votes,valid_genes,original_z,discriminating_genes,comparable_genes,bootstrap_lower,stability_lower,stability_frequency,max_gene_share,statistical_coverage,core,auxiliary,merged,review,route
+EMseq008,C_to_merged,removed,Griseliniaceae,False,emseq008,Apiales,True,True,True,0,15,48,0.5781092198199995,12,48,0.034042147216666915,0.8500189229905127,0.92,0.17567608583357264,True,False,False,False,True,review

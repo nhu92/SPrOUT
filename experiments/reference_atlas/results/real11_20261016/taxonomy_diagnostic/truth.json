@@ -1,0 +1,56 @@
+{
+  "EMseq001": [
+    "Brassicaceae"
+  ],
+  "EMseq002": [
+    "Rosaceae"
+  ],
+  "EMseq003": [
+    "Rutaceae"
+  ],
+  "EMseq004": [
+    "Ericaceae"
+  ],
+  "EMseq005": [
+    "Amaranthaceae",
+    "Apiaceae",
+    "Asteraceae",
+    "Nelumbonaceae",
+    "Poaceae",
+    "Rubiaceae",
+    "Zingiberaceae"
+  ],
+  "EMseq006": [
+    "Araliaceae",
+    "Lamiaceae",
+    "Theaceae",
+    "Zingiberaceae"
+  ],
+  "EMseq007": [
+    "Ginkgoaceae",
+    "Poaceae"
+  ],
+  "EMseq008": [
+    "Apiaceae",
+    "Asteraceae",
+    "Cucurbitaceae",
+    "Ranunculaceae"
+  ],
+  "EMseq009": [
+    "Lythraceae",
+    "Myrtaceae",
+    "Rutaceae",
+    "Sapindaceae"
+  ],
+  "EMseq010": [
+    "Amaryllidaceae",
+    "Asparagaceae",
+    "Brassicaceae",
+    "Moraceae"
+  ],
+  "EMseq011": [
+    "Malvaceae",
+    "Orchidaceae",
+    "Rubiaceae"
+  ]
+}

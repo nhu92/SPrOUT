@@ -1,0 +1,3 @@
+﻿sample,source_cell,species,S7_family,frozen_Kew_family,S7_order,frozen_Kew_order,mapping_rule
+EMseq005,D32,Beta vulgaris,Amararthaceae,Amaranthaceae,Caryophyllales,Caryophyllales,exact_binomial_in_frozen_Kew_tree
+EMseq010,D60,Allium sativum,Asparagaceae,Amaryllidaceae,Asparagales,Asparagales,exact_binomial_in_frozen_Kew_tree

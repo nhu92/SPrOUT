@@ -1,0 +1,23 @@
+{
+  "scientific_parameters_changed": false,
+  "model_retrained": false,
+  "truth_read": false,
+  "changes": [
+    {
+      "kind": "preflight environment repair",
+      "detail": "UMD's base sprout environment lacked scikit-learn. Created a run-local venv with system site packages and installed scikit-learn 1.7.2, joblib 1.5.2 and threadpoolctl 3.6.0. NumPy 2.3.3 and SciPy 1.16.2 already matched TTU. Base environment unchanged.",
+      "previous_failed_prepare": "23332510",
+      "successful_prepare": "23332553",
+      "partial_selection_cache": "Existing source SHA-256 discovery reused; all source hashes remain checked before each sample and again at collection."
+    },
+    {
+      "kind": "array concurrency",
+      "array": "23332566",
+      "from": 3,
+      "to": 6,
+      "command": "scontrol update JobId=23332566 ArrayTaskThrottle=6",
+      "detail": "Parallelism only; source code, model, thresholds, sample set, reference-selection rules and collector dependency unchanged."
+    }
+  ],
+  "collector_diagnostics": "Three read-only ps, /proc/fd and /proc/io probes in the existing collector allocation; no prediction code, scientific parameters or outputs changed."
+}

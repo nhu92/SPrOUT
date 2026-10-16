@@ -334,3 +334,52 @@ the full gzipped evidence snapshot, the frozen policy and a hash manifest.
 `evaluate_fusion` subsequently reads truth, computes both views and independently
 recounts ZIP/XML truth and exported lists. It also reports the cost of adding all
 review candidates, so deferral does not hide false negatives.
+
+## UMD real-mixture validation
+
+[Completed real11 report and prediction sets](results/real11_20261016/REPORT.zh-CN.md)
+show a modest gain over complete C, but a lower F1 than original Z on this cohort.
+The literal S7 annotations remain primary. A separately marked, systematic Kew
+taxonomy diagnostic retains the same predictions and reports both annotation
+disagreements, including the extra Allium family that literal S7 merges away.
+
+`real_validation.py` runs the frozen fusion rule on all eleven UMD real mixtures
+(EMseq001–EMseq011). It reuses the saved query assemblies and complete per-gene
+order matching evidence. Old capped order lists are replaced by replaying the
+predeclared order admission rule with distinct-gene votes. Family panels and
+complete exon trees are rebuilt once for the admitted orders and shared by all
+comparison methods. No model fitting or threshold selection uses these mixtures.
+
+The original reference-trained checkpoint is backed up under
+`models/full_profile_transfer_v1/`. Its scientific Python runtime is pinned on UMD;
+`verify_runtime.py` independently reconstructs its standardization and logistic
+scores. `prepare`, `prefetch`, the per-sample `run` array and `collect` record input,
+model, source, reference, tree and distance checksums. Collection requires all
+eleven samples to pass. The truth workbook and truth evaluator stay local.
+
+After downloading and safely extracting a completed compact archive, seal the
+prediction export **before** opening Table S7:
+
+```bash
+python -m experiments.reference_atlas.export_real_predictions \
+  --batch /path/to/extracted-real11 --output /path/to/new-results
+python -m experiments.reference_atlas.parse_real_truth \
+  --batch /path/to/extracted-real11 --workbook /path/to/STable.xlsx \
+  --taxonomy /path/to/frozen-taxonomy.tree --output /path/to/new-results
+```
+
+The parser uses only S7's Expected Orders/Families columns I/J. Old Predicted
+columns K/L are not truth. It keeps explicit annotations literally for the
+primary comparison and maps every species to the frozen Kew taxonomy in a
+separate diagnostic CSV. Source cells and mapping decisions are retained.
+`evaluate_real` verifies the sealed artifacts and independently recounts the
+plain candidate files. Missing parent/reference families remain false negatives;
+review calls are not final presence. The results concern family presence, not
+species identification or mixture abundance.
+
+```bash
+python -m experiments.reference_atlas.evaluate_real \
+  --batch /path/to/extracted-real11 --mapping /path/to/truth_mapping.csv \
+  --output /path/to/sealed-results
+python -m experiments.reference_atlas.plot_real --results /path/to/sealed-results
+```

@@ -1,0 +1,54 @@
+{
+  "model_sha256": "ae8673bd3a42a4220abcd35fed00f60c5e93c7ad69c9ae77cb2ae021ee3247d8",
+  "software": {
+    "numpy": "2.3.3",
+    "scipy": "1.16.2",
+    "scikit-learn": "1.7.2",
+    "biopython": "1.85",
+    "joblib": "1.5.2",
+    "pandas": "2.3.2",
+    "threadpoolctl": "3.6.0"
+  },
+  "schema": "full-profile-transfer-v1",
+  "features": [
+    "nearest",
+    "mean_distance",
+    "sibling_margin",
+    "centered_profile_rmse",
+    "profile_correlation",
+    "profile_offset",
+    "distance_rank"
+  ],
+  "threshold": 0.9400000000000001,
+  "scaler_mean": [
+    0.39540778800692367,
+    0.4322713040963507,
+    -0.27200505406944636,
+    0.052723902015063905,
+    0.9662658535416283,
+    0.07092918849584841,
+    0.03309979000353477
+  ],
+  "scaler_scale": [
+    0.23858355355009092,
+    0.2380143409868088,
+    0.49342702398214294,
+    0.06754580624188293,
+    0.10270193138588107,
+    0.1664690819986892,
+    0.04042203531226638
+  ],
+  "logistic_coef": [
+    -0.5492634774147122,
+    0.4463419155418395,
+    4.90034816037912,
+    -3.6541052336218156,
+    -0.9010230822312433,
+    -0.5745667862740765,
+    0.9702388002285716
+  ],
+  "logistic_intercept": -4.043670834288164,
+  "numeric_equivalence_max_abs_error": 0.0,
+  "numeric_equivalence_checked": true,
+  "truth_used": false
+}

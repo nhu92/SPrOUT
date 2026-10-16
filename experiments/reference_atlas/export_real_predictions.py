@@ -1,6 +1,7 @@
 """Export completed, audited real-mixture predictions without S7 access."""
 import argparse
 import csv
+from datetime import datetime, timezone
 import hashlib
 import json
 from pathlib import Path
@@ -59,6 +60,7 @@ def export(batch, output):
                     raise ValueError("Exported source list mismatch")
                 archive.write(path, f'{sample["sample"]}/{method}_families.txt')
     record = {"samples": 11, "rank": "family", "primary": "merged", "truth_read_by_exporter": False,
+        "sealed_utc": datetime.now(timezone.utc).isoformat(),
         "prediction_audit_sha256": sha(batch / "AUDIT.json"), "frozen_protocol_sha256": sha(batch / "PROTOCOL.json"),
         "artifact_sha256": {p.name: sha(p) for p in output.iterdir() if p.is_file()}}
     (output / "PREDICTION_EXPORT.json").write_text(json.dumps(record, indent=2) + "\n")

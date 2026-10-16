@@ -21,7 +21,7 @@ def prediction(sample, method):
 
 def score(calls, truth, reference_families):
     by_sample = []
-    if {r["sample"] for r in calls} != set(truth):
+    if len(calls) != len(truth) or {r["sample"] for r in calls} != set(truth):
         raise ValueError("Truth/prediction sample IDs must match exactly")
     universe = set(reference_families) | {f for families in truth.values() for f in families}
     for sample in calls:

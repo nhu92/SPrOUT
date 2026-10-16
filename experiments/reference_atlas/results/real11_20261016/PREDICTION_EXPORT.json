@@ -1,0 +1,16 @@
+{
+  "samples": 11,
+  "rank": "family",
+  "primary": "merged",
+  "truth_read_by_exporter": false,
+  "sealed_utc": "2026-10-16T19:06:43.482792+00:00",
+  "prediction_audit_sha256": "47ed604a661a1c5a78627b060d28762882a417a92c37e31ea8fa57cb3088d23f",
+  "frozen_protocol_sha256": "d0e425e403f977e04e4371e96ed75176fddcdd4abdd306d13a49feca26d5d298",
+  "artifact_sha256": {
+    "candidate_evidence.csv": "1af5b00051c1671b5a8e0cfa750227b97480f33cb6f51d8ada42c527c73c9f0d",
+    "merged_predictions.csv": "2c7780ef6fe35ef9866e51727c825c3d6f773a4101802538031179fc5ca5b60d",
+    "POLICY.json": "9e3b19778f2e4ace99329a942da35f74264bdbcfec23b7f4a274238ae555bfdd",
+    "predictions.json": "72990a641ff0d5fab067bd680f4866a11893410881341e44fb98f147605d1744",
+    "prediction_sets.zip": "5fd4fcd20909aa502729a7e2546be5229ee5416a986c674e58f07cd50b140f4b"
+  }
+}

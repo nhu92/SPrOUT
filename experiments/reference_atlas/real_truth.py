@@ -85,6 +85,6 @@ def verify_complete_batch(batch):
     if not audit.get("all_11_complete") or not audit.get("frozen_code_model_policy_and_inputs_unchanged"):
         raise ValueError("The eleven-sample freeze audit must pass")
     samples = json.loads((batch / "predictions.json").read_text())
-    if {r["sample"] for r in samples} != {f"EMseq{i:03d}" for i in range(1, 12)}:
+    if len(samples) != 11 or {r["sample"] for r in samples} != {f"EMseq{i:03d}" for i in range(1, 12)}:
         raise ValueError("Unexpected eleven-sample prediction set")
     return samples

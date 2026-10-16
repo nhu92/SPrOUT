@@ -2,6 +2,7 @@ import pytest
 
 from experiments.reference_atlas.real_truth import resolve_taxonomy, taxonomy_index, verify_complete_batch
 from experiments.reference_atlas.real_evaluation import METHODS, score
+from experiments.reference_atlas.parse_real_truth import expected_rows
 
 
 def test_taxonomy_resolves_only_without_cross_family_ambiguity(tmp_path):
@@ -32,3 +33,26 @@ def test_family_truth_is_deduplicated_and_deferred_missing_family_stays_fn():
     assert expanded["TP"] == 2 and expanded["FN"] == 1
     total = next(r for r in summary if r["method"] == "merged")
     assert total["macro_recall_present_families"] == 1 / 3
+
+
+def test_duplicate_sample_rows_cannot_inflate_scores():
+    sample = {method: ["A"] for method in METHODS if method != "expanded_review_union"}
+    sample.update(sample="real1", review=[])
+    with pytest.raises(ValueError, match="sample IDs"):
+        score([sample, sample], {"real1": ["A"]}, {"A"})
+
+
+def test_s7_uses_expected_columns_and_library_ids_not_legacy_predictions():
+    cells = {"B3": "Library ID", "D3": "Species", "I3": "Expected Orders", "J3": "Expected Families"}
+    for i in range(1, 12):
+        row = i + 3
+        cells.update({f"B{row}": f"EM-{i}", f"C{row}": 1, f"D{row}": "G species",
+                      f"E{row}": .1, f"H{row}": 100, f"I{row}": "TrueOrder", f"J{row}": "TrueFamily",
+                      f"K{row}": "WrongOrder", f"L{row}": "WrongFamily"})
+    rows = expected_rows(cells)
+    assert len(rows) == 11
+    assert rows[-1]["sample"] == "EMseq011"
+    assert {r["family"] for r in rows} == {"TrueFamily"}
+    cells["B14"] = "EM-12"
+    with pytest.raises(ValueError, match="Unexpected library"):
+        expected_rows(cells)
