@@ -1,2 +1,2 @@
 # Preserve audited artifact bytes and hashes across Windows/Unix checkouts.
-* -text
+* -text whitespace=cr-at-eol
