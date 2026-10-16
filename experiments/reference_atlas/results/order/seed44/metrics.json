@@ -1,0 +1,684 @@
+{
+  "schema": "sprout-reference-atlas-v1",
+  "seed": 44,
+  "rank": "order",
+  "within_order": null,
+  "software": {
+    "python": "3.12.14",
+    "numpy": "2.0.2",
+    "scipy": "1.13.1",
+    "scikit-learn": "1.6.1",
+    "matplotlib": "3.9.4",
+    "joblib": "1.5.3"
+  },
+  "experiment_sha256": "bd9f2c659e04e81241524eaa0f6176b2f54527342ff4cbfe2c0cab26d38c8147",
+  "dataset_metadata": {
+    "distance_kind": "pairwise-deletion-p",
+    "min_overlap": 80,
+    "files": [
+      {
+        "file": "4691.fasta",
+        "sha256": "de3a57d5462911b6bb88158d491ecf8be24c2898e6015f69ee2cab7870f1bdeb"
+      },
+      {
+        "file": "5064.fasta",
+        "sha256": "40b9764178cb84d9d9f6352b8e59ce2aec1d60034b50547fbc194bae55b624a1"
+      },
+      {
+        "file": "5090.fasta",
+        "sha256": "d36455c2a21a84f131ef8a78295ea2d307b4c4d30268071aa595e690b805587f"
+      },
+      {
+        "file": "5206.fasta",
+        "sha256": "9e69c6b6ebc55d31ab0ede49be1006c4a6c892a4a428cb02b231232b36f752eb"
+      },
+      {
+        "file": "5260.fasta",
+        "sha256": "aef6c946169321cb5dea005d4ea1ebd66593c1f62776b2c276cb2424f404e148"
+      },
+      {
+        "file": "5304.fasta",
+        "sha256": "59cd6b88fbd201a624fd410fdf82290137226d397f01afbf80b237d5e2b3fc76"
+      },
+      {
+        "file": "5318.fasta",
+        "sha256": "ed3ac971a60c6fbb3f6ec5f734e16fef2c6f2a900e48c0fdf59756d5277b9cbf"
+      },
+      {
+        "file": "5357.fasta",
+        "sha256": "79b75ad3cf4a45047cdae4a42fea8b9df6cd9f43e14df36b5badd7e12b946473"
+      },
+      {
+        "file": "5562.fasta",
+        "sha256": "eb04b4672b8843d703bbf37043ee611b5bc5abe7bf57690a862426f5c1dd39bf"
+      },
+      {
+        "file": "5578.fasta",
+        "sha256": "c33fc299fd3dd2ddb5bc2f66352ddfd155b066172255d7a6c03e70fe2740f0a8"
+      },
+      {
+        "file": "5594.fasta",
+        "sha256": "94928c2d9512293c57009b035713784fad1f854fa4c1271d82ed9a29d28af014"
+      },
+      {
+        "file": "5744.fasta",
+        "sha256": "1891b4bb973b8a9e69a45b6003ed39946ebe2022c6889fc8581718eccc811c16"
+      },
+      {
+        "file": "5857.fasta",
+        "sha256": "ffefa955e28784ca5ff61753a4ca55297330447b3c10df6e89cd8e45a5b97bb9"
+      },
+      {
+        "file": "5910.fasta",
+        "sha256": "1f8b02f4aa6afcbe296a4f5eee1af0153bb65624dbc92deb6785589d178cc16e"
+      },
+      {
+        "file": "5941.fasta",
+        "sha256": "958e3da357b9ccc8cf42937a793f74f0f5d9294285d03dde02da4122247138f4"
+      },
+      {
+        "file": "5942.fasta",
+        "sha256": "9021472b346c93c7345b00fb0bf4ca1eaafc0d46454910bf84728eb508919860"
+      },
+      {
+        "file": "5945.fasta",
+        "sha256": "62fbb06f424fb81efc9c812e1924afd9e5847f13ff3f89972067a71b46fa7eb5"
+      },
+      {
+        "file": "5958.fasta",
+        "sha256": "5661d42ae9f2917f06d9ff16b439de5a154a3b33f55f99a9d56bd22f889e1f26"
+      },
+      {
+        "file": "5968.fasta",
+        "sha256": "514dcc3e7be5985eab8219d16dbd145a8d2478d5d6a476344bc43ebaaf978da8"
+      },
+      {
+        "file": "6003.fasta",
+        "sha256": "ff6bf939110721be626f7daa8a8a46f04dbe263c184dcfa83fc09476b852fab3"
+      },
+      {
+        "file": "6048.fasta",
+        "sha256": "47aa3ca4738ec6541ac45a0d508f17e0e5f9f221ac6c6ec81212d9a0ebf4b780"
+      },
+      {
+        "file": "6068.fasta",
+        "sha256": "79561bec13781e5f51bc3675cd138aff9684a1c485c54a010a291d653755be37"
+      },
+      {
+        "file": "6110.fasta",
+        "sha256": "3139d2f41fae1dd938d5fb7b12df3a33b22d83929b5ea31ae6230505fb7b8785"
+      },
+      {
+        "file": "6128.fasta",
+        "sha256": "6b49b78d7529dcbf22caa5faaed35172f849ca577404164fb8b1ffac1b299d28"
+      },
+      {
+        "file": "6227.fasta",
+        "sha256": "d616d3f3f8dd55ea275d4e2af13cf8d1c25ef4dffaddf6be46c27e803008b7de"
+      },
+      {
+        "file": "6274.fasta",
+        "sha256": "b9f01c6f187f8203c8c52949215003f46af7639850239cdb2f300900fdc2739f"
+      },
+      {
+        "file": "6298.fasta",
+        "sha256": "7b52c3e2f21bb3f8cc99aa5445307e81ca1e80673c1d4524326ee477d2f82c7a"
+      },
+      {
+        "file": "6407.fasta",
+        "sha256": "a463b42b40d9906a0db73321c1e99eb3d2fe8dbbc2d64b535dc7ccd98680002c"
+      },
+      {
+        "file": "6412.fasta",
+        "sha256": "13e633fbda467222408403bc7376c984e5dda0d36dc298eec3b2a49db0a24b44"
+      },
+      {
+        "file": "6432.fasta",
+        "sha256": "20e1381782bbfe7273281585910e3e0463f0bdd8124612e8a5da8d419e23aa3e"
+      },
+      {
+        "file": "6447.fasta",
+        "sha256": "c913f7742d9d1579cf3bf3da75df33b690372c81ce96f6ba1265dbc02961a7a1"
+      },
+      {
+        "file": "6449.fasta",
+        "sha256": "c77b400d1849de78685451a07a4fab939da86d6f2ee2e02f6dfdd9a34a9d40d0"
+      },
+      {
+        "file": "6492.fasta",
+        "sha256": "9e3015910374b01c637f2c833f34e80d116610391be2e3665f213c6a7373795c"
+      },
+      {
+        "file": "6498.fasta",
+        "sha256": "e77d42ce4f0cd6416903e7c6f974f3e1827b6bd2661448637b63947f6bf86395"
+      },
+      {
+        "file": "6528.fasta",
+        "sha256": "05821ee085c7e1cb1c280f6d4ca790e0592d76f2098a3e24d64d25d1d52a5eb1"
+      },
+      {
+        "file": "6532.fasta",
+        "sha256": "e0abf6a642699db2d20e725a92de3608ac97e781d2cad143558d48868a9c95ac"
+      },
+      {
+        "file": "6636.fasta",
+        "sha256": "79eb344a3a171eb341350a55b2f169a32db4cce1611b7633539c011ddb84732f"
+      },
+      {
+        "file": "6641.fasta",
+        "sha256": "d88edbd98f2b40619ac83489560567375c71a34c17dfaa2f959356f6cb9e96e2"
+      },
+      {
+        "file": "6649.fasta",
+        "sha256": "fa0f4b8bca7ec3ba4b7e56474b1dc9b2c8b76b58c873e6e698fa34fce126d95d"
+      },
+      {
+        "file": "6738.fasta",
+        "sha256": "2965eb642432b731a863fb317756fb28fbcc7c432261e990031d202a42ff489b"
+      },
+      {
+        "file": "6746.fasta",
+        "sha256": "4d56719c52f5bfa09ce76a9bf66c02f3b0104788d7f45a81e753ff78f7adaa4f"
+      },
+      {
+        "file": "6780.fasta",
+        "sha256": "00b485c3ff382bc44dadd03959ecbbf64cc616e846db3ed0814ab2c41955e869"
+      },
+      {
+        "file": "6825.fasta",
+        "sha256": "4507d4a3e80a947e63fa4ea2be63ae5feb5cd8745bd5b5665de038a775dfcda7"
+      },
+      {
+        "file": "6886.fasta",
+        "sha256": "f861474a61147c97fb3973a405051a4fc5043fdf7b4ce51857fcd230143ea45b"
+      },
+      {
+        "file": "6946.fasta",
+        "sha256": "cda081c5cf55599361f0e46de9a417232b0b08da29f4e1128dc33861ce14f67d"
+      },
+      {
+        "file": "6962.fasta",
+        "sha256": "d23289a93858aacdde57582b261208ae84b524ba01be24975447a7a37f8ec067"
+      },
+      {
+        "file": "6969.fasta",
+        "sha256": "175cb72f9fd7f9ce7e90880ba3db5b4337a970c580c7a0d3147a880c531ec44c"
+      },
+      {
+        "file": "7136.fasta",
+        "sha256": "5bbe9192763cb3f937567d4a06210e443c108c1d5f89b12af9a2744ab9cde91b"
+      },
+      {
+        "file": "7367.fasta",
+        "sha256": "aeacacc686e9a7bc0e4f79f4fa8eeac0894542e1fba9394cb467174efd462cb2"
+      },
+      {
+        "file": "7371.fasta",
+        "sha256": "fe405818ac1e060b122ccb206ffc712d481a3cce6107e98e5346b62b281df9ea"
+      }
+    ]
+  },
+  "n_species": 298,
+  "n_loci": 50,
+  "n_classes": 29,
+  "panel_size": 48,
+  "anchor_candidates": 54,
+  "split": {
+    "anchor": [
+      "Alismatales_Juncaginaceae_Triglochin_maritima",
+      "Alismatales_Alismataceae_Sagittaria_latifolia",
+      "Apiales_Apiaceae_Angelica_archangelica",
+      "Asparagales_Hemerocallidaceae_Hemerocallis_sp",
+      "Asparagales_Lanariaceae_Lanaria_lanata",
+      "Asparagales_Themidaceae_Brodiaea_sierrae",
+      "Asparagales_Asphodelaceae_Aloe_vera",
+      "Asparagales_Alliaceae_Allium_sativum",
+      "Asterales_Menyanthaceae_Menyanthes_trifoliata",
+      "Brassicales_Cleomaceae_Cleome_gynandra",
+      "Brassicales_Limnanthaceae_Limnanthes_douglasii",
+      "Caryophyllales_Basellaceae_Basella_alba",
+      "Caryophyllales_Caryophyllaceae_Schiedea_membranacea",
+      "Caryophyllales_Talinaceae_Talinum_sp",
+      "Caryophyllales_Molluginaceae_Mollugo_verticillata",
+      "Caryophyllales_Nepenthaceae_Nepenthes_alata",
+      "Commelinales_Haemodoraceae_Xiphidium_caeruleum",
+      "Cornales_Hydrangeaceae_Hydrangea_quercifolia",
+      "Cucurbitales_Apodanthaceae_Pilostyles_thurberi",
+      "Ericales_Styracaceae_Sinojackia_xylocarpa",
+      "Ericales_Polemoniaceae_Phlox_sp",
+      "Ericales_Roridulaceae_Roridula_gorgonias",
+      "Ericales_Myrsinaceae_Ardisia_humilis",
+      "Fagales_Betulaceae_Corylus_americana",
+      "Gentianales_Gelsemiaceae_Gelsemium_sempervirens",
+      "Lamiales_Plantaginaceae_Plantago_virginica",
+      "Lamiales_Tetrachondraceae_Polypremum_procumbens",
+      "Lamiales_Phrymaceae_Mimulus_guttatus",
+      "Lamiales_Orobanchaceae_Lindenbergia_philippensis",
+      "Laurales_Gomortegaceae_Gomortega_keule",
+      "Liliales_Smilacaceae_Smilax_bona-nox",
+      "Liliales_Philesiaceae_Lapageria_sp",
+      "Magnoliales_Myristicaceae_Myristica_fragrans",
+      "Malpighiales_Erythroyxlaceae_Erythroxylum_coca",
+      "Malpighiales_Chrysobalanaceae_Chrysobalanus_icaco",
+      "Malpighiales_Malesherbiaceae_Malesherbia_fasciculata",
+      "Malpighiales_Malpighiaceae_Galphimia_gracilis",
+      "Malvales_Cistaceae_Cistus_inflatus",
+      "Myrtales_Lythraceae_Lagerstroemia_indica",
+      "Oxalidales_Elaeocarpaceae_Elaeocarpus_sylvestris",
+      "Pandanales_Triuridaceae_Lacandonia_schismatica",
+      "Poales_Typhaceae_Typha_latifolia",
+      "Poales_Xyridaceae_Xyris_brevifolia",
+      "Poales_Ecdeiocoleaceae_Ecdeiocolea_monostachya",
+      "Proteales_Proteaceae_Hakea_prostrata",
+      "Ranunculales_Ranunculaceae_Aquilegia_coerulea",
+      "Rosales_Rhamnaceae_Rhamnus_japonica",
+      "Santalales_Olacaceae_Ximenia_americana",
+      "Sapindales_Meliaceae_Melia_azedarach",
+      "Sapindales_Kirkiaceae_Kirkia_wilmsii",
+      "Saxifragales_Cercidiphyllaceae_Cercidiphyllum_japonicum",
+      "Saxifragales_Paeoniaceae_Paeonia_lactiflora",
+      "Zingiberales_Zingiberaceae_Curcuma_longa",
+      "Zingiberales_Zingiberaceae_Zingiber_officinale"
+    ],
+    "train": [
+      "Alismatales_Posidoniaceae_Posidonia_australis",
+      "Alismatales_Aponogetonaceae_Aponogeton_crispus",
+      "Alismatales_Scheuchzeriaceae_Scheuchzeria_palustris",
+      "Alismatales_Zosteraceae_Zostera_marina",
+      "Alismatales_Tofieldiaceae_Tofieldia_racemosa",
+      "Apiales_Myodocarpaceae_Myodocarpus_sp",
+      "Apiales_Pittosporaceae_Pittosporum_resiniferum",
+      "Apiales_Griseliniaceae_Griselinia_racemosa",
+      "Apiales_Mackinlayaceae_Centella_asiatica",
+      "Asparagales_Hyacinthaceae_Urginea_maritima",
+      "Asparagales_Boryaceae_Borya_sphaerocephala",
+      "Asparagales_Ruscaceae_Sansevieria_trifasciata",
+      "Asparagales_Laxmanniaceae_Lomandra_longifolia",
+      "Asparagales_Agavaceae_Hesperaloe_parviflora",
+      "Asparagales_Asparagaceae_Anemarrhena_asphodeloides",
+      "Asparagales_Amaryllidaceae_Narcissus_viridiflorus",
+      "Asparagales_Hypoxidaceae_Hypoxis_hemerocallidea",
+      "Asparagales_Iridaceae_Sisyrinchium_angustifolium",
+      "Asterales_Campanulaceae_Platycodon_grandiflorus",
+      "Asterales_Asteraceae_Conyza_canadensis",
+      "Asterales_Argophyllaceae_Corokia_cotoneaster",
+      "Asterales_Phellinaceae_Phelline_lucida",
+      "Brassicales_Tropaeolaceae_Tropaeolum_peregrinum",
+      "Brassicales_Salvadoraceae_Salvadora_sp",
+      "Brassicales_Akaniaceae_Akania_lucens",
+      "Brassicales_Moringaceae_Moringa_oleifera",
+      "Brassicales_Caricaceae_Carica_papaya",
+      "Brassicales_Koeberliniaceae_Koeberlinia_spinosa",
+      "Brassicales_Brassicaceae_Boechera_stricta",
+      "Caryophyllales_Plumbaginaceae_Limonium_spectabile",
+      "Caryophyllales_Cactaceae_Lophophora_williamsii",
+      "Caryophyllales_Amaranthaceae_Alternanthera_brasiliana",
+      "Caryophyllales_Polygonaceae_Polygonum_convolvulus",
+      "Caryophyllales_Physenaceae_Physena_madagascariensis",
+      "Caryophyllales_Frankeniaceae_Frankenia_laevis",
+      "Caryophyllales_Chenopodiaceae_Atriplex_hortensis",
+      "Caryophyllales_Miroteaceae_Microtea_debilis",
+      "Caryophyllales_Petiveriaceae_Petiveria_alliacea",
+      "Commelinales_Commelinaceae_Tradescantia_pallida",
+      "Cornales_Cornaceae_Cornus_florida",
+      "Cornales_Alangiaceae_Alangium_chinense",
+      "Cucurbitales_Cucurbitaceae_Cucumis_sativus",
+      "Ericales_Balsaminaceae_Impatiens_balsamifera",
+      "Ericales_Pentaphylacaceae_Ternstroemia_gymnanthera",
+      "Ericales_Diapensiaceae_Galax_urceolata",
+      "Ericales_Theophrastaceae_Jacquinia_sp",
+      "Ericales_Ericaceae_Vaccinium_darrowii",
+      "Ericales_Marcgraviaceae_Souroubea_exauriculata",
+      "Ericales_Fouquieriaceae_Fouquieria_macdougalii",
+      "Ericales_Symplocaceae_Symplocos_tinctoria",
+      "Fagales_Fagaceae_Castanea_pumila",
+      "Fagales_Casuarinaceae_Casuarina_equisetifolia",
+      "Fagales_Myricaceae_Myrica_cerifera",
+      "Gentianales_Loganiaceae_Strychnos_spinosa",
+      "Gentianales_Apocynaceae_Apocynum_androsaemifolium",
+      "Lamiales_Paulowniaceae_Paulownia_fargesii",
+      "Lamiales_Verbenaceae_Phyla_dulcis",
+      "Lamiales_Byblidaceae_Byblis_gigantea",
+      "Lamiales_Bignoniaceae_Tabebuia_umbellata",
+      "Lamiales_Oleaceae_Ligustrum_sinense",
+      "Lamiales_Lamiaceae_Micromeria_fruticosa",
+      "Lamiales_Acanthaceae_Sanchezia_sp",
+      "Lamiales_Calceolariaceae_Calceolaria_pinifolia",
+      "Lamiales_Gesneriaceae_Sinningia_tuberosa",
+      "Laurales_Atherospermataceae_Laurelia_sempervirens",
+      "Laurales_Hernandiaceae_Gyrocarpus_americanus",
+      "Laurales_Lauraceae_Cassytha_filiformis",
+      "Liliales_Campynemataceae_Campynemanthe_neocaledonica",
+      "Liliales_Colchicaceae_Uvularia_grandiflora",
+      "Liliales_Melanthiaceae_Helonias_bullata",
+      "Liliales_Liliaceae_Lilium_superbum",
+      "Magnoliales_Magnoliaceae_Magnolia_grandiflora",
+      "Malpighiales_Passifloraceae_Passiflora_caerulea",
+      "Malpighiales_Clusiaceae_Garcinia_livingstonei",
+      "Malpighiales_Euphorbiaceae_Manihot_esculenta",
+      "Malpighiales_Rhizophoraceae_Rhizophora_mangle",
+      "Malpighiales_Phyllanthaceae_Bischofia_javanica",
+      "Malpighiales_Clusiaceae_Garcinia_oblongifolia",
+      "Malpighiales_Calophyllaceae_Mammea_americana",
+      "Malpighiales_Putranjivaceae_Drypetes_deplanchei",
+      "Malpighiales_Ochnaceae_Ochna_serrulata",
+      "Malvales_Malvaceae_Gossypium_hirsutum",
+      "Malvales_Sarcolaenaceae_Schizolaena_sp",
+      "Myrtales_Melastomataceae_Medinilla_magnifica",
+      "Myrtales_Combretaceae_Terminalia_neotaliala",
+      "Myrtales_Onagraceae_Oenothera_biennis",
+      "Oxalidales_Oxalidaceae_Oxalis_sp",
+      "Pandanales_Stemonaceae_Croomia_pauciflora",
+      "Pandanales_Triuridaceae_Triuris_brevistylis",
+      "Pandanales_Velloziaceae_Talbotia_elegans",
+      "Poales_Poaceae_Eleusine_coracana",
+      "Poales_Mayacaceae_Mayaca_fluviatils",
+      "Poales_Flagellariaceae_Flagellaria_indica",
+      "Poales_Juncaceae_Juncus_effusus",
+      "Poales_Cyperaceae_Lepidosperma_gibsonii",
+      "Poales_Joinvilleaceae_Joinvillea_ascendens",
+      "Proteales_Platanaceae_Platanus_occidentalis",
+      "Ranunculales_Papaveraceae_Eschscholzia_californica",
+      "Ranunculales_Lardizabalaceae_Akebia_trifoliata",
+      "Ranunculales_Berberidaceae_Nandina_domestica",
+      "Rosales_Elaeagnaceae_Elaeagnus_pungens",
+      "Rosales_Rosaceae_Prunus_persica",
+      "Rosales_Cannabaceae_Cannabis_sativa",
+      "Rosales_Urticaceae_Urtica_dioica",
+      "Santalales_Santalaceae_Exocarpos_cupressiformis",
+      "Santalales_Loranthaceae_Dendropemon_caribaeus",
+      "Sapindales_Anacardiaceae_Rhus_radicans",
+      "Sapindales_Nitrariaceae_Peganum_harmala",
+      "Sapindales_Burseraceae_Boswellia_sacra",
+      "Sapindales_Sapindaceae_Acer_negundo",
+      "Saxifragales_Haloragaceae_Myriophyllum_aquaticum",
+      "Saxifragales_Aphanopetalaceae_Aphanopetalum_resinosum",
+      "Saxifragales_Saxifragaceae_Oresitrophe_rupifraga",
+      "Saxifragales_Iteaceae_Itea_virginica",
+      "Saxifragales_Crassulaceae_Kalanchoe_fedtschenkoi",
+      "Saxifragales_Daphniphyllaceae_Daphniphyllum_macropodum",
+      "Zingiberales_Costaceae_Costus_pulverulentus",
+      "Zingiberales_Musaceae_Musa_acuminata",
+      "Zingiberales_Strelitziaceae_Strelitzia_reginae",
+      "Zingiberales_Lowiaceae_Orchidantha_maxillarioides",
+      "Zingiberales_Heliconiaceae_Heliconia_sp"
+    ],
+    "validation": [
+      "Alismatales_Butomaceae_Butomus_sp",
+      "Apiales_Araliaceae_Polyscias_fruticosa",
+      "Asparagales_Ixioliriaceae_Ixiolirion_sp",
+      "Asparagales_Doryantheaceae_Doryanthes_excelsa",
+      "Asparagales_Xanthorrhoeaceae_Johnsonia_pubescens",
+      "Asterales_Stylidiaceae_Stylidium_adnatum",
+      "Brassicales_Bataceae_Batis_maritima",
+      "Caryophyllales_Aizoaceae_Sesuvium_verrucosum",
+      "Caryophyllales_Portulacaceae_Portulaca_oleracea",
+      "Caryophyllales_Sarcobataceae_Sarcobatus_vermiculatus",
+      "Commelinales_Philydraceae_Helmholtzia_sp",
+      "Cornales_Nyssaceae_Nyssa_ogeche",
+      "Cucurbitales_Coriariaceae_Coriaria_nepalensis",
+      "Ericales_Ebenaceae_Diospyros_malabarica",
+      "Ericales_Sapotaceae_Synsepalum_dulcificum",
+      "Fagales_Nothofagaceae_Nothofagus_obliqua",
+      "Gentianales_Rubiaceae_Psychotria_ipecacuanha",
+      "Lamiales_Lentibulariaceae_Pinguicula_caudata",
+      "Lamiales_Schlegeliaceae_Schlegelia_parasitica",
+      "Lamiales_Pedaliaceae_Uncarina_grandidieri",
+      "Laurales_Monimiaceae_Peumus_boldus",
+      "Liliales_Petermanniaceae_Petermannia_cirrosa",
+      "Magnoliales_Eupomatiaceae_Eupomatia_bennettii",
+      "Malpighiales_Salicaceae_Populus_trichocarpa",
+      "Malpighiales_Linaceae_Linum_usitatissimum",
+      "Malvales_Muntingiaceae_Muntingia_calabura",
+      "Myrtales_Myrtaceae_Corymbia_citriodora",
+      "Oxalidales_Cephalotaceae_Cephalotus_follicularis",
+      "Pandanales_Cyclanthaceae_Ludovia_sp",
+      "Poales_Restionaceae_Chondropetalum_tectorum",
+      "Poales_Prioniaceae_Prionium_serratum",
+      "Proteales_Nelumbonaceae_Nelumbo_sp",
+      "Ranunculales_Fumariaceae_Hypecoum_procumbens",
+      "Rosales_Ulmaceae_Ulmus_alata",
+      "Santalales_Viscaceae_Phoradendron_serotinum",
+      "Sapindales_Simaroubaceae_Quassia_amara",
+      "Saxifragales_Hamamelidaceae_Loropetalum_chinense",
+      "Zingiberales_Cannaceae_Canna_sp"
+    ],
+    "test": [
+      "Alismatales_Potamogetonaceae_Potamogeton_sp",
+      "Apiales_Pennantiaceae_Pennantia_corymbosa",
+      "Asparagales_Agapanthaceae_Agapanthus_africanus",
+      "Asparagales_Xeronemataceae_Xeronema_callistemon",
+      "Asparagales_Tecophilaeaceae_Cyanella_orchidiformis",
+      "Asterales_Goodeniaceae_Scaevola_mossambicensis",
+      "Brassicales_Resedaceae_Reseda_odorata",
+      "Caryophyllales_Simmondsiaceae_Simmondsia_chinensis",
+      "Caryophyllales_Nyctaginaceae_Boerhavia_coccinea",
+      "Caryophyllales_Phytolaccaceae_Hilleria_latifolia",
+      "Commelinales_Hanguanaceae_Hanguana_malayana",
+      "Cornales_Loasaceae_Caiophora_chuquitensis",
+      "Cucurbitales_Begoniaceae_Begonia_sp",
+      "Ericales_Maesaceae_Maesa_lanceolata",
+      "Ericales_Actinidiaceae_Actinidia_chinensis",
+      "Fagales_Juglandaceae_Carya_illinoinensis",
+      "Gentianales_Gentianaceae_Gentiana_acaulis",
+      "Lamiales_Acanthaceae_Strobilanthes_dyeriana",
+      "Lamiales_Rehmnniaceae_Rehmannia_glutinosa",
+      "Lamiales_Scrophulariaceae_Celsia_arcturus",
+      "Laurales_Calycanthaceae_Calycanthus_floridus",
+      "Liliales_Alstroemeriaceae_Alstroemeria_sp",
+      "Magnoliales_Annonaceae_Annona_muricata",
+      "Malpighiales_Hypericaceae_Hypericum_perforatum",
+      "Malpighiales_Violaceae_Viola_tricolor",
+      "Malvales_Bixaceae_Bixa_orellana",
+      "Myrtales_Lythraceae_Punica_granatum",
+      "Oxalidales_Cunoniaceae_Cunonia_capensis",
+      "Pandanales_Pandanaceae_Pandanus_tectorius",
+      "Poales_Eriocaulaceae_Lachnocaulon_anceps",
+      "Poales_Rapateaceae_Stegolepis_ferruginea",
+      "Proteales_Sabiaceae_Meliosma_cuneifolia",
+      "Ranunculales_Eupteleaceae_Euptelea_pleiosperma",
+      "Rosales_Moraceae_Ficus_religiosa",
+      "Santalales_Balanophoraceae_Balanophora_fungosa",
+      "Sapindales_Rutaceae_Poncirus_trifoliata",
+      "Saxifragales_Grossulariaceae_Ribes_aff",
+      "Zingiberales_Marantaceae_Maranta_leuconeura"
+    ],
+    "unknown": [
+      "Acorales_Acoraceae_Acorus_americanus",
+      "Amborellales_Amborellaceae_Amborella_trichopoda",
+      "Aquifoliales_Helwingiaceae_Helwingia_japonica",
+      "Aquifoliales_Aquifoliaceae_Ilex_paraguariensis",
+      "Arecales_Arecaceae_Typhonium_blumei",
+      "Austrobaileyales_Austrobaileyaceae_Austrobaileya_scandens",
+      "Austrobaileyales_Schisandraceae_Illicium_floridanum",
+      "Berberidopsidales_Aextoxicaceae_Aextoxicon_punctatum",
+      "Berberidopsidales_Berberidopsidaceae_Berberidopsis_beckleri",
+      "Boraginales_Boraginaceae_Heliotropium_calcicola",
+      "Buxales_Buxaceae_Buxus_sempervirens",
+      "Canellales_Canellaceae_Canella_winterana",
+      "Canellales_Winteraceae_Drimys_winteri",
+      "Celastrales_Celastraceae_Crossopetalum_rhacoma",
+      "Ceratophyllales_Ceratophyllaceae_Ceratophyllum_demersum",
+      "Chloranthales_Chloranthaceae_Ascarina_rubricaulis",
+      "Crossosomatales_Staphyleaceae_Staphylea_trifolia",
+      "Dasypogonales_Dasypogonaceae_Dasypogon_bromeliifolius",
+      "Dilleniales_Dilleniaceae_Hibbertia_grossulariifolia",
+      "Dioscoreales_Nartheciaceae_Aletris_farinosa",
+      "Dioscoreales_Dioscoreaceae_Dioscorea_alata",
+      "Dioscoreales_Burmanniaceae_Burmannia_biflora",
+      "Dipsacales_Adoxaceae_Viburnum_odoratissimum",
+      "Dipsacales_Caprifoliaceae_Lonicera_japonica",
+      "Dipsacales_Valerianaceae_Valeriana_officinalis",
+      "Fabales_Fabaceae_Acacia_pycnantha",
+      "Fabales_Quillajaceae_Quillaja_saponaria",
+      "Fabales_Polygalaceae_Polygala_lutea",
+      "Garryales_Garryaceae_Aucuba_japonica",
+      "Garryales_Eucommiaceae_Eucommia_ulmoides",
+      "Geraniales_Melianthaceae_Francoa_appendiculata",
+      "Geraniales_Geraniaceae_Geranium_maculatum",
+      "Gunnerales_Gunneraceae_Gunnera_manicata",
+      "Huerteales_Tapisciaceae_Tapiscia_sinensis",
+      "Icacinales_Icacinaceae_Pyrenacantha_malvifolia",
+      "Icacinales_Oncothecaceae_Oncotheca_balansae",
+      "Nymphaeales_Nymphaeaceae_Nymphaea_colorata",
+      "Petrosaviales_Petrosaviaceae_Japonolirion_osense",
+      "Piperales_Aristolochiaceae_Saruma_henryi",
+      "Piperales_Piperaceae_Peperomia_fraseri",
+      "Piperales_Saururaceae_Houttuynia_cordata",
+      "Solanales_Solanaceae_Atropa_belladonna",
+      "Solanales_Convolvulaceae_Ipomoea_purpurea",
+      "Trochodendrales_Trochodendraceae_Trochodendron_aralioides",
+      "Vitales_Vitaceae_Vitis_vinifera",
+      "Zygophyllales_Zygophyllaceae_Tribulus_eichlerianus",
+      "Zygophyllales_Krameriaceae_Krameria_lanceolata"
+    ]
+  },
+  "atlas": {
+    "positive_mass_2d": 0.2241396642659657,
+    "negative_mass_fraction": 0.0
+  },
+  "atlas_completion": {
+    "method": "error",
+    "imputed_pairs": 0
+  },
+  "results": {
+    "distance_learned_panel": {
+      "validation": {
+        "n": 38,
+        "no_evidence": 0,
+        "accuracy": 0.9473684210526315,
+        "macro_f1": 0.9080459770114943
+      },
+      "test": {
+        "n": 38,
+        "no_evidence": 0,
+        "accuracy": 0.8157894736842105,
+        "macro_f1": 0.7057471264367817,
+        "threshold": 0.19152760279200723,
+        "accepted": 37,
+        "coverage": 0.9736842105263158,
+        "selective_accuracy": 0.8378378378378378
+      },
+      "unknown": {
+        "n": 47,
+        "false_accept_rate": 0.6382978723404256,
+        "known_vs_unknown_confidence_auroc": 0.9188129899216125
+      }
+    },
+    "distance_random_panel": {
+      "validation": {
+        "n": 38,
+        "no_evidence": 0,
+        "accuracy": 0.9473684210526315,
+        "macro_f1": 0.9080459770114943
+      },
+      "test": {
+        "n": 38,
+        "no_evidence": 0,
+        "accuracy": 0.868421052631579,
+        "macro_f1": 0.7977011494252875,
+        "threshold": 0.19324990806846526,
+        "accepted": 37,
+        "coverage": 0.9736842105263158,
+        "selective_accuracy": 0.8918918918918919
+      },
+      "unknown": {
+        "n": 47,
+        "false_accept_rate": 0.6382978723404256,
+        "known_vs_unknown_confidence_auroc": 0.921612541993281
+      }
+    },
+    "distance_all_anchors": {
+      "validation": {
+        "n": 38,
+        "no_evidence": 0,
+        "accuracy": 0.9210526315789473,
+        "macro_f1": 0.8620689655172413
+      },
+      "test": {
+        "n": 38,
+        "no_evidence": 0,
+        "accuracy": 0.8421052631578947,
+        "macro_f1": 0.7517241379310347,
+        "threshold": 0.20262042158825033,
+        "accepted": 37,
+        "coverage": 0.9736842105263158,
+        "selective_accuracy": 0.8648648648648649
+      },
+      "unknown": {
+        "n": 47,
+        "false_accept_rate": 0.6382978723404256,
+        "known_vs_unknown_confidence_auroc": 0.9238521836506158
+      }
+    },
+    "raster_pattern": {
+      "validation": {
+        "n": 38,
+        "no_evidence": 0,
+        "accuracy": 0.7631578947368421,
+        "macro_f1": 0.6551724137931034
+      },
+      "test": {
+        "n": 38,
+        "no_evidence": 0,
+        "accuracy": 0.631578947368421,
+        "macro_f1": 0.46633825944170765,
+        "threshold": 0.20884937902357376,
+        "accepted": 28,
+        "coverage": 0.7368421052631579,
+        "selective_accuracy": 0.75
+      },
+      "unknown": {
+        "n": 47,
+        "false_accept_rate": 0.5531914893617021,
+        "known_vs_unknown_confidence_auroc": 0.765397536394177
+      }
+    },
+    "pcoa2_logistic": {
+      "validation": {
+        "n": 38,
+        "no_evidence": 0,
+        "accuracy": 0.21052631578947367,
+        "macro_f1": 0.11395730706075531
+      },
+      "test": {
+        "n": 38,
+        "no_evidence": 0,
+        "accuracy": 0.2894736842105263,
+        "macro_f1": 0.1834975369458128,
+        "threshold": 1.01,
+        "accepted": 0,
+        "coverage": 0.0,
+        "selective_accuracy": null
+      },
+      "unknown": {
+        "n": 47,
+        "false_accept_rate": 0.0,
+        "known_vs_unknown_confidence_auroc": 0.561030235162374
+      }
+    },
+    "pcoa2_kmeans": {
+      "test": {
+        "n": 38,
+        "no_evidence": 0,
+        "accuracy": 0.34210526315789475,
+        "macro_f1": 0.2120689655172414
+      }
+    },
+    "nearest_anchor": {
+      "test": {
+        "n": 38,
+        "no_evidence": 0,
+        "accuracy": 0.7894736842105263,
+        "macro_f1": 0.6482758620689656
+      }
+    }
+  },
+  "limitations": [
+    "Reference pseudo-queries, no raw-read or assembled-mixture validation",
+    "Unknown taxa are too rare to train, not a random holdout of entire well-sampled clades",
+    "Confidence is an uncalibrated model score; cutoff uses known validation queries only",
+    "Loci are genes in supplied sample data, not independently identified exons",
+    "No species-level generalization claim or DNA abundance estimate"
+  ]
+}

@@ -1,0 +1,9 @@
+species,label,x,y,discrimination_score
+Lamiales_Acanthaceae_Ruellia_brittoniana,Acanthaceae,-0.2344244710599447,0.57833523911759,3.115504304456881
+Lamiales_Lamiaceae_Thymus_vulgaris,Lamiaceae,0.5297950502350302,-0.07074387591545321,0.4284786589174922
+Lamiales_Oleaceae_Chionanthus_retusus,Oleaceae,-0.46879441620232865,-0.4936900052792686,5.497746417277755
+Lamiales_Orobanchaceae_Conopholis_americana,Orobanchaceae,-0.19368500949909703,0.17550656519465543,1.3443101555325099
+Lamiales_Plantaginaceae_Digitalis_purpurea,Plantaginaceae,-0.32770833086856255,-0.08429865927177436,0.32615647418014676
+Lamiales_Scrophulariaceae_Verbascum_sp,Scrophulariaceae,-0.2707142487791995,0.0021526082345136935,1.7078773972206884
+Lamiales_Lamiaceae_Micromeria_fruticosa,Lamiaceae,0.5014904961920071,-0.04430416003396088,0.42446965330393427
+Lamiales_Lamiaceae_Prunella_vulgaris,Lamiaceae,0.46404092998209723,-0.06295771204630088,0.4158982815941854

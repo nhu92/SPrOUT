@@ -1,0 +1,9 @@
+species,label,x,y,discrimination_score
+Lamiales_Acanthaceae_Ruellia_brittoniana,Acanthaceae,-0.17965313320348983,-0.20095143659940054,6.224982836751324
+Lamiales_Lamiaceae_Agastache_rugosa,Lamiaceae,0.43435309796889987,0.029762228089236415,1.4334455072206387
+Lamiales_Oleaceae_Forestiera_segregata,Oleaceae,-0.4280367570732657,-0.4410839570736693,9.63794694063674
+Lamiales_Orobanchaceae_Lindenbergia_philippensis,Orobanchaceae,-0.09258588260749404,-0.0939899885549164,2.021009181771951
+Lamiales_Plantaginaceae_Plantago_virginica,Plantaginaceae,-0.4651127302453666,0.6749805742329961,2.197836938289497
+Lamiales_Scrophulariaceae_Verbascum_sp,Scrophulariaceae,-0.21818642928520374,-0.07447791039997914,3.162555576377244
+Lamiales_Lamiaceae_Salvia_spp,Lamiaceae,0.44370296412034754,0.03725738441512872,1.3388561853129144
+Lamiales_Lamiaceae_Prunella_vulgaris,Lamiaceae,0.5055188703255741,0.06850310589060482,1.220748766685516

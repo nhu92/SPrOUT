@@ -1,0 +1,9 @@
+species,label,x,y,discrimination_score
+Lamiales_Acanthaceae_Strobilanthes_dyeriana,Acanthaceae,-0.16380431947349686,0.6968682825924586,0.9615860613973943
+Lamiales_Lamiaceae_Micromeria_fruticosa,Lamiaceae,0.5620387038910166,-0.08982119169577502,0.45912504921557945
+Lamiales_Oleaceae_Forestiera_segregata,Oleaceae,-0.5061068451569333,-0.4224855820536108,4.782939476742929
+Lamiales_Orobanchaceae_Lindenbergia_philippensis,Orobanchaceae,-0.08970666832499612,0.05112140720017403,0.929213778998896
+Lamiales_Plantaginaceae_Antirrhinum_majus,Plantaginaceae,-0.27396195283785796,-0.0280973390102803,0.19470384188449255
+Lamiales_Scrophulariaceae_Buddleja_sp,Scrophulariaceae,-0.17843609965020177,-0.04910491786805159,1.380073727875121
+Lamiales_Lamiaceae_Thymus_vulgaris,Lamiaceae,0.6013471316792313,-0.09653521532465704,0.45823207096026
+Lamiales_Lamiaceae_Leonurus_japonicus,Lamiaceae,0.0486300498732374,-0.061945443840257006,0.385917667467135

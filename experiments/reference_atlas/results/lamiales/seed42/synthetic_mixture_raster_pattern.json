@@ -1,0 +1,21 @@
+{
+  "kind": "in-silico pool of reference locus profiles, no assembly simulation",
+  "species": [
+    "Lamiales_Acanthaceae_Ruellia_brittoniana",
+    "Lamiales_Lamiaceae_Teucrium_chamaedrys",
+    "Lamiales_Oleaceae_Ligustrum_sinense"
+  ],
+  "truth": [
+    "Acanthaceae",
+    "Lamiaceae",
+    "Oleaceae"
+  ],
+  "class_evidence": {
+    "Acanthaceae": 0.3478001535193864,
+    "Lamiaceae": 0.1895304053585738,
+    "Oleaceae": 0.32332371813709443,
+    "Orobanchaceae": 0.06902983204136684,
+    "Plantaginaceae": 0.05314777506052696,
+    "Scrophulariaceae": 0.017168115883051758
+  }
+}

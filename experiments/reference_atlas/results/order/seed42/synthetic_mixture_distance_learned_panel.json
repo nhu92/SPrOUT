@@ -1,0 +1,44 @@
+{
+  "kind": "in-silico pool of reference locus profiles, no assembly simulation",
+  "species": [
+    "Alismatales_Butomaceae_Butomus_sp",
+    "Apiales_Pittosporaceae_Pittosporum_resiniferum",
+    "Asparagales_Hypoxidaceae_Hypoxis_hemerocallidea"
+  ],
+  "truth": [
+    "Alismatales",
+    "Apiales",
+    "Asparagales"
+  ],
+  "class_evidence": {
+    "Alismatales": 0.12457315422300264,
+    "Apiales": 0.2401038585024884,
+    "Asparagales": 0.16268262950685905,
+    "Asterales": 0.04616694832079137,
+    "Brassicales": 0.003655213876437711,
+    "Caryophyllales": 0.0015507107327094316,
+    "Commelinales": 0.10856779001970844,
+    "Cornales": 0.018590608708776123,
+    "Cucurbitales": 0.005306829782765452,
+    "Ericales": 0.00795648455277591,
+    "Fagales": 0.0002841535309095901,
+    "Gentianales": 0.007530841693273204,
+    "Lamiales": 0.0018863769999136843,
+    "Laurales": 0.011350401702550264,
+    "Liliales": 0.0863490037025463,
+    "Magnoliales": 0.010586058563881853,
+    "Malpighiales": 0.0014946047470804661,
+    "Malvales": 0.002766701465790438,
+    "Myrtales": 0.005760358454300023,
+    "Oxalidales": 0.0019342833480622081,
+    "Pandanales": 0.04891025353124227,
+    "Poales": 0.05683887184682232,
+    "Proteales": 0.0021772645019609467,
+    "Ranunculales": 0.010113713444324124,
+    "Rosales": 0.003521580537253018,
+    "Santalales": 0.006162951070066408,
+    "Sapindales": 0.0013438883710236089,
+    "Saxifragales": 0.0075638773866421065,
+    "Zingiberales": 0.014270586876042683
+  }
+}

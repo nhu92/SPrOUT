@@ -89,3 +89,11 @@ Changing Z in the viewer does not recompute a tree or add references; rerun SPrO
 change the reference panel.
 
 For detailed instructions, please refer to the [Wiki page](https://github.com/nhu92/SPrOUT/wiki)
+
+## Experimental learned reference atlas
+
+The [reference atlas experiment](experiments/reference_atlas/README.md) revisits
+reference panels, supervised distance profiles and spatial pattern learning. It
+includes species-disjoint order/family benchmarks, a MrKnowItAll reference import,
+and fixed two-dimensional evidence surfaces. This research prototype runs
+independently of steps 01–04; see its recorded results and limitations before use.

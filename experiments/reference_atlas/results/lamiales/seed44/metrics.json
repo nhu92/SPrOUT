@@ -1,0 +1,730 @@
+{
+  "schema": "sprout-reference-atlas-v1",
+  "seed": 44,
+  "rank": "family",
+  "within_order": "Lamiales",
+  "software": {
+    "python": "3.12.14",
+    "numpy": "2.0.2",
+    "scipy": "1.13.1",
+    "scikit-learn": "1.6.1",
+    "matplotlib": "3.9.4",
+    "joblib": "1.5.3"
+  },
+  "experiment_sha256": "bd9f2c659e04e81241524eaa0f6176b2f54527342ff4cbfe2c0cab26d38c8147",
+  "dataset_metadata": {
+    "distance_kind": "pairwise-deletion-p",
+    "min_overlap": 80,
+    "files": [
+      {
+        "file": "4691.fasta",
+        "sha256": "3b4021b60679f783d6ea9a08c740b2f017fad44cd0f5cf33a188182fb7de54bf"
+      },
+      {
+        "file": "5064.fasta",
+        "sha256": "37a7bb443dea768fc144d16df3133e81d1b447fda66247316d69fc5e227dc025"
+      },
+      {
+        "file": "5090.fasta",
+        "sha256": "a8b546a0c4a3fd09e17dc8fe0d07d4c834f31862f993e836b9bffff0c279ed05"
+      },
+      {
+        "file": "5206.fasta",
+        "sha256": "715dbc248e08df777dceeb73ae22be41fd53f9e5c3452b09f7d49b971a69e70a"
+      },
+      {
+        "file": "5260.fasta",
+        "sha256": "ab0de512f81bfb1021233804d8ac32d8ec251ed2ee7b18d4767811ee8c2517db"
+      },
+      {
+        "file": "5304.fasta",
+        "sha256": "1128ea104ab8a458a638d0ec06d44dc34cda7052c065329b9c15408306a7d8c1"
+      },
+      {
+        "file": "5318.fasta",
+        "sha256": "d1081fe3ccae2d9eabbde69e1d7c1b7bde8dd61e5a250329192dbabb7ed9f667"
+      },
+      {
+        "file": "5357.fasta",
+        "sha256": "7092b91e0caaf303c2af6cb9ca508fbb1ecbed77bede1560ba2fc486f3cda15a"
+      },
+      {
+        "file": "5562.fasta",
+        "sha256": "91ea8cbd722a83362da04dba0b30ca0b50bea6f1602a6f5e8666e1b745aa3148"
+      },
+      {
+        "file": "5578.fasta",
+        "sha256": "88605323c7e427f5738e593a523869d5a510a53929c698f3703c4711d339a5fd"
+      },
+      {
+        "file": "5594.fasta",
+        "sha256": "9dcfafd25f170886a2058008fb4d1a3953cf98b1f114c707a4c9d87afcb23e9e"
+      },
+      {
+        "file": "5744.fasta",
+        "sha256": "e2b24473904ddf9af3ce1d8a9b13a6a64d421366084f2946fb5442db1dbf2ea7"
+      },
+      {
+        "file": "5857.fasta",
+        "sha256": "e7ca2242419dddae5b2da965ce27bf285fc2416da62bc8bd044ed80444a98882"
+      },
+      {
+        "file": "5910.fasta",
+        "sha256": "b5a7d496cb75eb97ff313171b00034d0e928646782bdfa25f6165d465789d249"
+      },
+      {
+        "file": "5941.fasta",
+        "sha256": "1f8cc208b908c2d04982685fe042774973367b4fff40d9d1b0e2a0b603d5ff53"
+      },
+      {
+        "file": "5942.fasta",
+        "sha256": "b3df75ddae9a56352246a597d54adb58dd6f6d9159affa78c67324b930a79788"
+      },
+      {
+        "file": "5945.fasta",
+        "sha256": "29e5e89ac107d5714eb08569bfd548327235ee453e027dbd7c7e94f97cabcb3f"
+      },
+      {
+        "file": "5958.fasta",
+        "sha256": "b4d60e4df852d124fdcf210c19d694147daced236674158732a6f2e292bd766e"
+      },
+      {
+        "file": "5968.fasta",
+        "sha256": "883f4be17ec166ef8066f5ab2e4e39ac1de88cb32438710c67f522d13a01eedd"
+      },
+      {
+        "file": "6003.fasta",
+        "sha256": "a635b0e2ee9540f63dc2a16bd8f77870deed4376fd3da27036d4b819a3237989"
+      },
+      {
+        "file": "6048.fasta",
+        "sha256": "6667dadcfd7f467ecc22a898da0b8be16054d8da7403c343818d29ab4dcae7a3"
+      },
+      {
+        "file": "6068.fasta",
+        "sha256": "462c857bd4c4496d9b9a441e2ec565535ded80f8f8d82556436a8524b6d46f5a"
+      },
+      {
+        "file": "6110.fasta",
+        "sha256": "70030d738c6f1a3ac7fafbb42d6cd6d0977fc2beb1df7c155259ac00c5f26779"
+      },
+      {
+        "file": "6128.fasta",
+        "sha256": "80ca373063a82767a44897c202b3ea71e394e8f17a0382b5bb7ec33b9be2ee53"
+      },
+      {
+        "file": "6227.fasta",
+        "sha256": "cf559990e1a8fc3158d0e51650f56a5cae791136f2f5be12227be49dfd930a82"
+      },
+      {
+        "file": "6274.fasta",
+        "sha256": "23cdf50fa3acd2ea3935d829ed7ed1c607363813952197fb3684985101a2f249"
+      },
+      {
+        "file": "6298.fasta",
+        "sha256": "6ab36f38d4c82424062d6eb2c7e1e0d9dfbc1685ddeddc89e72aca64ad152b21"
+      },
+      {
+        "file": "6407.fasta",
+        "sha256": "8c1cee1dbed41de0d56f753d3a215d537233020215277f268cfc24a26c78a24d"
+      },
+      {
+        "file": "6412.fasta",
+        "sha256": "53ffaa631f4cd1df6768ace03de0535f5f387b2f1f4c44f80d4b9c09e6d1b297"
+      },
+      {
+        "file": "6432.fasta",
+        "sha256": "799e335d7ec5f2bcb15c37ffbd8793f508d623826c814864a256930f22fba836"
+      },
+      {
+        "file": "6447.fasta",
+        "sha256": "e49a35cc577bb07bd3f00b8e5a1dd6826b36ac50815956dedc853d456d3ece21"
+      },
+      {
+        "file": "6449.fasta",
+        "sha256": "871d763385ffe132dd43b93916fcb4d4e5682ac73f62d99e530af7e4f28a7fc0"
+      },
+      {
+        "file": "6492.fasta",
+        "sha256": "25bc0f9cb6bc70c8deced90b2bc1edbfaf28e105093e6470ed4822009f76ca34"
+      },
+      {
+        "file": "6498.fasta",
+        "sha256": "6256510b4e7604f00cb0ec2e3dae6f73ea8dd2e5f81a986ac142495ef76b1fa7"
+      },
+      {
+        "file": "6528.fasta",
+        "sha256": "d98e58f7b12e8069395ec5b337e05d922aba7456b12837eda2a8b001bce3c94a"
+      },
+      {
+        "file": "6532.fasta",
+        "sha256": "16d89ea2148ba76bf087c764c4d4fbb9f1de4703998f788cc8ef9564f6a3633c"
+      },
+      {
+        "file": "6636.fasta",
+        "sha256": "63da3f2ca7de99a8671e3bb329b08e1fad864664f18fe87d34ae0ccf5dd02f7c"
+      },
+      {
+        "file": "6641.fasta",
+        "sha256": "ca890585a51ca1abf6f2f0f4cf85d9dd6499632aba2be6f7229624dbc38b7d50"
+      },
+      {
+        "file": "6649.fasta",
+        "sha256": "f6a39c263132a6b97b86edace748b3cf3e75e2814c69961882b249896c3fab75"
+      },
+      {
+        "file": "6738.fasta",
+        "sha256": "0faf6420990210103d6f504d05241b4e3393b3f5087e5fa3e2709bd959888283"
+      },
+      {
+        "file": "6746.fasta",
+        "sha256": "a9e9facabd0c8452d2bbe2ecf4e77272f9faf5a206c70a9190b5055a74df4890"
+      },
+      {
+        "file": "6780.fasta",
+        "sha256": "e739f5940bd50c1fbd93f7874720adb99feeaf010261f4acfcb86e6b34e70b86"
+      },
+      {
+        "file": "6825.fasta",
+        "sha256": "4e30ea325e60d96876ab0707b3ced8644875b0298566dff1781b9db4edea765a"
+      },
+      {
+        "file": "6886.fasta",
+        "sha256": "c57d67df4d37cd4ea0d5366112abfa1fc895b57ac756b655880a51edb13a1946"
+      },
+      {
+        "file": "6946.fasta",
+        "sha256": "19b2bb6cfd318f8852e000901a1fadc82b02f4d7861791a45e9d0070685ac377"
+      },
+      {
+        "file": "6962.fasta",
+        "sha256": "288db425dd2cd1bc85d42d8cd0580317041bb118edb93e69bd1979104071bb24"
+      },
+      {
+        "file": "6969.fasta",
+        "sha256": "2bc08dfdd2754fa877006a6da30667828b403f72547cff830462ae00bf4766f6"
+      },
+      {
+        "file": "7136.fasta",
+        "sha256": "5a6894597d9411e8771fff9a3ebfbb4c8d20eef482f819b386e3f7daa10d22f5"
+      },
+      {
+        "file": "7367.fasta",
+        "sha256": "988c17ac0f78ae68c1204a4a9dcbd909fac5c1aeb9dc3c5aebe19dca169ebc28"
+      },
+      {
+        "file": "7371.fasta",
+        "sha256": "dbd01e19ef695f10d9cc285d0f4405508739d204649e319f1a09fa5ec12490ea"
+      }
+    ],
+    "reference_builder": {
+      "repository": "https://github.com/nhu92/MrKnowItAll",
+      "revision": "c3d7df29aed81071e18b32401fd21b1d0bd541be",
+      "installer_sha256": "ebf64645700424670ba7eed0af890edd0d7651b2d89139c5a9977d46250b7e19",
+      "corrections_sha256": "b90534ff2a52f4e4b2e12d9e9c1a79e6f5e3447cd9826d0b0e18b8a99fea5ee9",
+      "installation": {
+        "schema_version": 2,
+        "source_archive": "angiosperms_353_v2_interim_targetfile_gene_alignments.zip",
+        "source_sha256": "42b0c210961c13376c8e01f8a2673148cd4f6a330e5b7b2deca6ae51d3819931",
+        "summary_files": [
+          "gene_summary.csv",
+          "species_summary.csv"
+        ],
+        "taxonomy_corrections_sha256": "b90534ff2a52f4e4b2e12d9e9c1a79e6f5e3447cd9826d0b0e18b8a99fea5ee9",
+        "taxonomy_corrections": {
+          "rules": 57,
+          "replacement_rules": 48,
+          "exclusion_rules": 9,
+          "replaced_locus_sequences": 10646,
+          "excluded_locus_sequences": 1901,
+          "shadowed_by_exclusion": [
+            "Myrtales_Heteropyxidaceae_Heteropyxis_natalensis"
+          ],
+          "unmatched_replacements": [],
+          "unmatched_exclusions": []
+        },
+        "locus_count": 353,
+        "sequence_count": 186266,
+        "specimen_count": 810,
+        "species_count": 797,
+        "order_count": 59,
+        "family_count": 291
+      }
+    },
+    "excluded_invalid_identities": [
+      {
+        "file": "4691.fasta",
+        "header": "Asparagales_Asphodelaceae_Hemerocallis_1KP-4691 transcript_36966-BLAJ",
+        "reason": "missing/invalid species identity"
+      },
+      {
+        "file": "5064.fasta",
+        "header": "Asparagales_Asphodelaceae_Hemerocallis_1KP-5064 transcript_50760-BLAJ",
+        "reason": "missing/invalid species identity"
+      },
+      {
+        "file": "5206.fasta",
+        "header": "Asparagales_Asphodelaceae_Hemerocallis_1KP-5206 transcript_46356-BLAJ",
+        "reason": "missing/invalid species identity"
+      },
+      {
+        "file": "5260.fasta",
+        "header": "Asparagales_Asphodelaceae_Hemerocallis_1KP-5260 transcript_76746-BLAJ",
+        "reason": "missing/invalid species identity"
+      },
+      {
+        "file": "5304.fasta",
+        "header": "Asparagales_Asphodelaceae_Hemerocallis_1KP-5304 transcript_68292-BLAJ",
+        "reason": "missing/invalid species identity"
+      },
+      {
+        "file": "5318.fasta",
+        "header": "Asparagales_Asphodelaceae_Hemerocallis_1KP-5318 transcript_61820-BLAJ",
+        "reason": "missing/invalid species identity"
+      },
+      {
+        "file": "5357.fasta",
+        "header": "Asparagales_Asphodelaceae_Hemerocallis_1KP-5357 transcript_5046-BLAJ",
+        "reason": "missing/invalid species identity"
+      },
+      {
+        "file": "5562.fasta",
+        "header": "Asparagales_Asphodelaceae_Hemerocallis_1KP-5562 transcript_75424-BLAJ",
+        "reason": "missing/invalid species identity"
+      },
+      {
+        "file": "5578.fasta",
+        "header": "Asparagales_Asphodelaceae_Hemerocallis_1KP-5578 transcript_42414-BLAJ",
+        "reason": "missing/invalid species identity"
+      },
+      {
+        "file": "5594.fasta",
+        "header": "Asparagales_Asphodelaceae_Hemerocallis_1KP-5594 transcript_36087-BLAJ",
+        "reason": "missing/invalid species identity"
+      },
+      {
+        "file": "5744.fasta",
+        "header": "Asparagales_Asphodelaceae_Hemerocallis_1KP-5744 transcript_81375-BLAJ",
+        "reason": "missing/invalid species identity"
+      },
+      {
+        "file": "5857.fasta",
+        "header": "Asparagales_Asphodelaceae_Hemerocallis_1KP-5857 transcript_71258-BLAJ",
+        "reason": "missing/invalid species identity"
+      },
+      {
+        "file": "5910.fasta",
+        "header": "Asparagales_Asphodelaceae_Hemerocallis_1KP-5910 transcript_73959-BLAJ",
+        "reason": "missing/invalid species identity"
+      },
+      {
+        "file": "5941.fasta",
+        "header": "Asparagales_Asphodelaceae_Hemerocallis_1KP-5941 transcript_73123-BLAJ",
+        "reason": "missing/invalid species identity"
+      },
+      {
+        "file": "5942.fasta",
+        "header": "Asparagales_Asphodelaceae_Hemerocallis_1KP-5942 transcript_49825-BLAJ",
+        "reason": "missing/invalid species identity"
+      },
+      {
+        "file": "5945.fasta",
+        "header": "Asparagales_Asphodelaceae_Hemerocallis_1KP-5945 transcript_62230-BLAJ",
+        "reason": "missing/invalid species identity"
+      },
+      {
+        "file": "5958.fasta",
+        "header": "Asparagales_Asphodelaceae_Hemerocallis_1KP-5958 transcript_42956-BLAJ",
+        "reason": "missing/invalid species identity"
+      },
+      {
+        "file": "5968.fasta",
+        "header": "Asparagales_Asphodelaceae_Hemerocallis_1KP-5968 transcript_51720-BLAJ",
+        "reason": "missing/invalid species identity"
+      },
+      {
+        "file": "6003.fasta",
+        "header": "Asparagales_Asphodelaceae_Hemerocallis_1KP-6003 transcript_20166-BLAJ",
+        "reason": "missing/invalid species identity"
+      },
+      {
+        "file": "6048.fasta",
+        "header": "Asparagales_Asphodelaceae_Hemerocallis_1KP-6048 transcript_18677-BLAJ",
+        "reason": "missing/invalid species identity"
+      },
+      {
+        "file": "6068.fasta",
+        "header": "Asparagales_Asphodelaceae_Hemerocallis_1KP-6068 transcript_42588-BLAJ",
+        "reason": "missing/invalid species identity"
+      },
+      {
+        "file": "6110.fasta",
+        "header": "Asparagales_Asphodelaceae_Hemerocallis_1KP-6110 transcript_54407-BLAJ",
+        "reason": "missing/invalid species identity"
+      },
+      {
+        "file": "6128.fasta",
+        "header": "Asparagales_Asphodelaceae_Hemerocallis_1KP-6128 transcript_83437-BLAJ",
+        "reason": "missing/invalid species identity"
+      },
+      {
+        "file": "6227.fasta",
+        "header": "Asparagales_Asphodelaceae_Hemerocallis_1KP-6227 transcript_87293-BLAJ",
+        "reason": "missing/invalid species identity"
+      },
+      {
+        "file": "6274.fasta",
+        "header": "Asparagales_Asphodelaceae_Hemerocallis_1KP-6274 transcript_77192-BLAJ",
+        "reason": "missing/invalid species identity"
+      },
+      {
+        "file": "6298.fasta",
+        "header": "Asparagales_Asphodelaceae_Hemerocallis_1KP-6298 transcript_26194-BLAJ",
+        "reason": "missing/invalid species identity"
+      },
+      {
+        "file": "6407.fasta",
+        "header": "Asparagales_Asphodelaceae_Hemerocallis_1KP-6407 transcript_88796-BLAJ",
+        "reason": "missing/invalid species identity"
+      },
+      {
+        "file": "6412.fasta",
+        "header": "Asparagales_Asphodelaceae_Hemerocallis_1KP-6412 transcript_100846-BLAJ",
+        "reason": "missing/invalid species identity"
+      },
+      {
+        "file": "6432.fasta",
+        "header": "Asparagales_Asphodelaceae_Hemerocallis_1KP-6432 transcript_38065-BLAJ",
+        "reason": "missing/invalid species identity"
+      },
+      {
+        "file": "6447.fasta",
+        "header": "Asparagales_Asphodelaceae_Hemerocallis_1KP-6447 transcript_28603-BLAJ",
+        "reason": "missing/invalid species identity"
+      },
+      {
+        "file": "6449.fasta",
+        "header": "Asparagales_Asphodelaceae_Hemerocallis_1KP-6449 transcript_43315-BLAJ",
+        "reason": "missing/invalid species identity"
+      },
+      {
+        "file": "6492.fasta",
+        "header": "Asparagales_Asphodelaceae_Hemerocallis_1KP-6492 transcript_86946-BLAJ",
+        "reason": "missing/invalid species identity"
+      },
+      {
+        "file": "6498.fasta",
+        "header": "Asparagales_Asphodelaceae_Hemerocallis_1KP-6498 transcript_84895-BLAJ",
+        "reason": "missing/invalid species identity"
+      },
+      {
+        "file": "6528.fasta",
+        "header": "Asparagales_Asphodelaceae_Hemerocallis_1KP-6528 transcript_85035-BLAJ",
+        "reason": "missing/invalid species identity"
+      },
+      {
+        "file": "6532.fasta",
+        "header": "Asparagales_Asphodelaceae_Hemerocallis_1KP-6532 transcript_36694-BLAJ",
+        "reason": "missing/invalid species identity"
+      },
+      {
+        "file": "6636.fasta",
+        "header": "Asparagales_Asphodelaceae_Hemerocallis_1KP-6636 transcript_27293-BLAJ",
+        "reason": "missing/invalid species identity"
+      },
+      {
+        "file": "6641.fasta",
+        "header": "Asparagales_Asphodelaceae_Hemerocallis_1KP-6641 transcript_62639-BLAJ",
+        "reason": "missing/invalid species identity"
+      },
+      {
+        "file": "6649.fasta",
+        "header": "Asparagales_Asphodelaceae_Hemerocallis_1KP-6649 transcript_5947-BLAJ",
+        "reason": "missing/invalid species identity"
+      },
+      {
+        "file": "6738.fasta",
+        "header": "Asparagales_Asphodelaceae_Hemerocallis_1KP-6738 transcript_82038-BLAJ",
+        "reason": "missing/invalid species identity"
+      },
+      {
+        "file": "6746.fasta",
+        "header": "Asparagales_Asphodelaceae_Hemerocallis_1KP-6746 transcript_17494-BLAJ",
+        "reason": "missing/invalid species identity"
+      },
+      {
+        "file": "6780.fasta",
+        "header": "Asparagales_Asphodelaceae_Hemerocallis_1KP-6780 transcript_75590-BLAJ",
+        "reason": "missing/invalid species identity"
+      },
+      {
+        "file": "6825.fasta",
+        "header": "Asparagales_Asphodelaceae_Hemerocallis_1KP-6825 transcript_71526-BLAJ",
+        "reason": "missing/invalid species identity"
+      },
+      {
+        "file": "6886.fasta",
+        "header": "Asparagales_Asphodelaceae_Hemerocallis_1KP-6886 transcript_13296-BLAJ",
+        "reason": "missing/invalid species identity"
+      },
+      {
+        "file": "6946.fasta",
+        "header": "Asparagales_Asphodelaceae_Hemerocallis_1KP-6946 transcript_15973-BLAJ",
+        "reason": "missing/invalid species identity"
+      },
+      {
+        "file": "6962.fasta",
+        "header": "Asparagales_Asphodelaceae_Hemerocallis_1KP-6962 transcript_4913-BLAJ",
+        "reason": "missing/invalid species identity"
+      },
+      {
+        "file": "6969.fasta",
+        "header": "Asparagales_Asphodelaceae_Hemerocallis_1KP-6969 transcript_69795-BLAJ",
+        "reason": "missing/invalid species identity"
+      },
+      {
+        "file": "7136.fasta",
+        "header": "Asparagales_Asphodelaceae_Hemerocallis_1KP-7136 transcript_92613-BLAJ",
+        "reason": "missing/invalid species identity"
+      },
+      {
+        "file": "7367.fasta",
+        "header": "Asparagales_Asphodelaceae_Hemerocallis_1KP-7367 transcript_43156-BLAJ",
+        "reason": "missing/invalid species identity"
+      },
+      {
+        "file": "7371.fasta",
+        "header": "Asparagales_Asphodelaceae_Hemerocallis_1KP-7371 transcript_66249-BLAJ",
+        "reason": "missing/invalid species identity"
+      }
+    ]
+  },
+  "n_species": 63,
+  "n_loci": 50,
+  "n_classes": 6,
+  "panel_size": 8,
+  "anchor_candidates": 10,
+  "split": {
+    "anchor": [
+      "Lamiales_Acanthaceae_Ruellia_brittoniana",
+      "Lamiales_Lamiaceae_Prunella_vulgaris",
+      "Lamiales_Lamiaceae_Salvia_spp",
+      "Lamiales_Lamiaceae_Oxera_neriifolia",
+      "Lamiales_Lamiaceae_Agastache_rugosa",
+      "Lamiales_Lamiaceae_Pycnanthemum_tenuifolium",
+      "Lamiales_Oleaceae_Forestiera_segregata",
+      "Lamiales_Orobanchaceae_Lindenbergia_philippensis",
+      "Lamiales_Plantaginaceae_Plantago_virginica",
+      "Lamiales_Scrophulariaceae_Verbascum_sp"
+    ],
+    "train": [
+      "Lamiales_Acanthaceae_Strobilanthes_dyeriana",
+      "Lamiales_Lamiaceae_Lavandula_angustifolia",
+      "Lamiales_Lamiaceae_Salvia_rosmarinus",
+      "Lamiales_Lamiaceae_Oxera_pulchella",
+      "Lamiales_Lamiaceae_Poliomintha_bustamanta",
+      "Lamiales_Lamiaceae_Vitex_agnus-castus",
+      "Lamiales_Lamiaceae_Pogostemon_sp",
+      "Lamiales_Lamiaceae_Micromeria_fruticosa",
+      "Lamiales_Lamiaceae_Coleus_scutellarioides",
+      "Lamiales_Lamiaceae_Teucrium_chamaedrys",
+      "Lamiales_Lamiaceae_Scutellaria_montana",
+      "Lamiales_Oleaceae_Chionanthus_retusus",
+      "Lamiales_Orobanchaceae_Conopholis_americana",
+      "Lamiales_Plantaginaceae_Plantago_maritima",
+      "Lamiales_Plantaginaceae_Digitalis_purpurea",
+      "Lamiales_Scrophulariaceae_Buddleja_sp",
+      "Lamiales_Scrophulariaceae_Buddleja_lindleyana"
+    ],
+    "validation": [
+      "Lamiales_Acanthaceae_Anisacanthus_quadrifidus",
+      "Lamiales_Lamiaceae_Marrubium_vulgare",
+      "Lamiales_Lamiaceae_Nepeta_cataria",
+      "Lamiales_Lamiaceae_Melissa_officinalis",
+      "Lamiales_Oleaceae_Ligustrum_sinense",
+      "Lamiales_Orobanchaceae_Orobanche_fasciculata",
+      "Lamiales_Plantaginaceae_Antirrhinum_majus",
+      "Lamiales_Scrophulariaceae_Anticharis_glandulosa"
+    ],
+    "test": [
+      "Lamiales_Acanthaceae_Sanchezia_sp",
+      "Lamiales_Lamiaceae_Ajuga_reptans",
+      "Lamiales_Lamiaceae_Leonurus_japonicus",
+      "Lamiales_Lamiaceae_Thymus_vulgaris",
+      "Lamiales_Oleaceae_Olea_europaea",
+      "Lamiales_Orobanchaceae_Epifagus_virginiana",
+      "Lamiales_Plantaginaceae_Bacopa_caroliniana",
+      "Lamiales_Scrophulariaceae_Celsia_arcturus"
+    ],
+    "unknown": [
+      "Lamiales_Bignoniaceae_Kigelia_africana",
+      "Lamiales_Bignoniaceae_Tabebuia_umbellata",
+      "Lamiales_Bignoniaceae_Mansoa_alliacea",
+      "Lamiales_Byblidaceae_Byblis_gigantea",
+      "Lamiales_Calceolariaceae_Calceolaria_pinifolia",
+      "Lamiales_Gesneriaceae_Sinningia_tuberosa",
+      "Lamiales_Gesneriaceae_Saintpaulia_ionantha",
+      "Lamiales_Lentibulariaceae_Pinguicula_caudata",
+      "Lamiales_Lentibulariaceae_Pinguicula_agnata",
+      "Lamiales_Lentibulariaceae_Utricularia_sp",
+      "Lamiales_Paulowniaceae_Paulownia_fargesii",
+      "Lamiales_Pedaliaceae_Uncarina_grandidieri",
+      "Lamiales_Phrymaceae_Mimulus_guttatus",
+      "Lamiales_Rehmnniaceae_Rehmannia_glutinosa",
+      "Lamiales_Schlegeliaceae_Schlegelia_parasitica",
+      "Lamiales_Schlegeliaceae_Schlegelia_violacea",
+      "Lamiales_Tetrachondraceae_Polypremum_procumbens",
+      "Lamiales_Verbenaceae_Verbena_hastata",
+      "Lamiales_Verbenaceae_Lantana_camara",
+      "Lamiales_Verbenaceae_Phyla_dulcis"
+    ]
+  },
+  "atlas": {
+    "positive_mass_2d": 0.519292413350832,
+    "negative_mass_fraction": 0.0
+  },
+  "atlas_completion": {
+    "method": "shortest-path",
+    "imputed_pairs": 0
+  },
+  "results": {
+    "distance_learned_panel": {
+      "validation": {
+        "n": 8,
+        "no_evidence": 0,
+        "accuracy": 1.0,
+        "macro_f1": 1.0
+      },
+      "test": {
+        "n": 8,
+        "no_evidence": 0,
+        "accuracy": 1.0,
+        "macro_f1": 1.0,
+        "threshold": 0.29567238025412096,
+        "accepted": 8,
+        "coverage": 1.0,
+        "selective_accuracy": 1.0
+      },
+      "unknown": {
+        "n": 20,
+        "false_accept_rate": 0.9,
+        "known_vs_unknown_confidence_auroc": 0.8875000000000001
+      }
+    },
+    "distance_random_panel": {
+      "validation": {
+        "n": 8,
+        "no_evidence": 0,
+        "accuracy": 1.0,
+        "macro_f1": 1.0
+      },
+      "test": {
+        "n": 8,
+        "no_evidence": 0,
+        "accuracy": 1.0,
+        "macro_f1": 1.0,
+        "threshold": 0.29567238025412096,
+        "accepted": 8,
+        "coverage": 1.0,
+        "selective_accuracy": 1.0
+      },
+      "unknown": {
+        "n": 20,
+        "false_accept_rate": 0.9,
+        "known_vs_unknown_confidence_auroc": 0.8875000000000001
+      }
+    },
+    "distance_all_anchors": {
+      "validation": {
+        "n": 8,
+        "no_evidence": 0,
+        "accuracy": 1.0,
+        "macro_f1": 1.0
+      },
+      "test": {
+        "n": 8,
+        "no_evidence": 0,
+        "accuracy": 1.0,
+        "macro_f1": 1.0,
+        "threshold": 0.30188003050604284,
+        "accepted": 8,
+        "coverage": 1.0,
+        "selective_accuracy": 1.0
+      },
+      "unknown": {
+        "n": 20,
+        "false_accept_rate": 0.8,
+        "known_vs_unknown_confidence_auroc": 0.91875
+      }
+    },
+    "raster_pattern": {
+      "validation": {
+        "n": 8,
+        "no_evidence": 0,
+        "accuracy": 1.0,
+        "macro_f1": 1.0
+      },
+      "test": {
+        "n": 8,
+        "no_evidence": 0,
+        "accuracy": 1.0,
+        "macro_f1": 1.0,
+        "threshold": 0.37602506142079073,
+        "accepted": 8,
+        "coverage": 1.0,
+        "selective_accuracy": 1.0
+      },
+      "unknown": {
+        "n": 20,
+        "false_accept_rate": 0.7,
+        "known_vs_unknown_confidence_auroc": 0.9437500000000001
+      }
+    },
+    "pcoa2_logistic": {
+      "validation": {
+        "n": 8,
+        "no_evidence": 0,
+        "accuracy": 0.5,
+        "macro_f1": 0.35555555555555557
+      },
+      "test": {
+        "n": 8,
+        "no_evidence": 0,
+        "accuracy": 0.375,
+        "macro_f1": 0.2976190476190476,
+        "threshold": 1.01,
+        "accepted": 0,
+        "coverage": 0.0,
+        "selective_accuracy": null
+      },
+      "unknown": {
+        "n": 20,
+        "false_accept_rate": 0.0,
+        "known_vs_unknown_confidence_auroc": 0.68125
+      }
+    },
+    "pcoa2_kmeans": {
+      "test": {
+        "n": 8,
+        "no_evidence": 0,
+        "accuracy": 0.625,
+        "macro_f1": 0.611111111111111
+      }
+    },
+    "nearest_anchor": {
+      "test": {
+        "n": 8,
+        "no_evidence": 0,
+        "accuracy": 0.875,
+        "macro_f1": 0.7777777777777777
+      }
+    }
+  },
+  "limitations": [
+    "Reference pseudo-queries, no raw-read or assembled-mixture validation",
+    "Unknown taxa are too rare to train, not a random holdout of entire well-sampled clades",
+    "Confidence is an uncalibrated model score; cutoff uses known validation queries only",
+    "Loci are genes in supplied sample data, not independently identified exons",
+    "No species-level generalization claim or DNA abundance estimate"
+  ]
+}
