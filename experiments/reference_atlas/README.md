@@ -299,3 +299,38 @@ The auditor reads workbook ZIP/XML separately from openpyxl and recomputes calls
 directly from prediction files. The checked-in result directory compresses the
 large per-family table as `by_family.csv.gz`, and includes all five candidate sets
 per sample in `predictions.json`. Full per-fragment features remain in the HPC run.
+
+## Combined C, auxiliary gene rescue and ML prediction sets
+
+[Completed fusion results and exported 100-sample lists](results/fusion100_20261016/REPORT.zh-CN.md)
+retain the two-gene ML-confirmed C core, with an auxiliary route for C gene-rescue
+candidates having a stability Monte Carlo lower bound >0.5 and at least one
+ML-verified gene. `merged` is the deduplicated union. B/C/three-gene ML candidates
+outside that union remain in `review`, which is not final presence. Channels
+share trees and do not yield independent biological presence probabilities.
+
+The fusion rule was developed after seeing earlier errors on these mixtures;
+it is a retrospective improvement, not independent validation. The literal-table
+and established two-taxon-harmonization views both remain in the report, including
+the independent ML comparator that has better literal-table F1. No taxon-specific
+or sample-specific exception is used.
+
+```bash
+python -m experiments.reference_atlas.fuse \
+  --transfer-batch /path/to/transfer100/batch \
+  --legacy-batch /path/to/nocap100/batch \
+  --statistical-panels /path/to/statistical_evidence/panels \
+  --output /path/to/new-fusion
+python -m experiments.reference_atlas.evaluate_fusion \
+  --predictions /path/to/new-fusion --truth /path/to/STable.xlsx
+```
+
+`fuse` refuses an existing output directory and verifies source C memberships,
+family panels, parent labels, stability membership and ML threshold before joining.
+Its inputs are the completed original C batch, audited ML batch and existing
+statistical panels, not sample truth. It writes merged/core/auxiliary/review files
+for all 100 samples inside `prediction_sets.zip`, a flat `merged_predictions.csv`,
+the full gzipped evidence snapshot, the frozen policy and a hash manifest.
+`evaluate_fusion` subsequently reads truth, computes both views and independently
+recounts ZIP/XML truth and exported lists. It also reports the cost of adding all
+review candidates, so deferral does not hide false negatives.

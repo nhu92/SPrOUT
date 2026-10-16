@@ -1,0 +1,16 @@
+{
+  "schema": "family-evidence-fusion-v1",
+  "primary": "merged",
+  "core": "C selected AND at least 2 distinct ML-verified genes",
+  "auxiliary": "C selected AND gene-rescue selected AND stability Monte Carlo lower bound > 0.5 AND at least 1 ML-verified gene",
+  "merged": "core OR auxiliary",
+  "review": "(B selected OR C selected OR at least 3 ML-verified genes) AND NOT merged",
+  "ml_match_cutoff": 0.94,
+  "core_ml_genes": 2,
+  "auxiliary_ml_genes": 1,
+  "auxiliary_stability_lower_exclusive": 0.5,
+  "standalone_ml_genes": 3,
+  "candidate_count_cap": null,
+  "evaluation_status": "Retrospective development after inspecting earlier results on these 100 mixtures; new fusion rule fixed before its evaluation. No independent validation.",
+  "statistical_interpretation": "ML match scores and selection stability are evidence diagnostics, not calibrated family-presence probabilities. Evidence channels share the same trees."
+}

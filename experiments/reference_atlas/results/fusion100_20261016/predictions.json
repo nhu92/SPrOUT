@@ -1,0 +1,5299 @@
+[
+  {
+    "sample": "01x02x13",
+    "project": "mix_01x02x13",
+    "historical30": false,
+    "baseline_c": [
+      "Amaranthaceae",
+      "Cabombaceae",
+      "Oleaceae"
+    ],
+    "stable_c": [
+      "Amaranthaceae",
+      "Cabombaceae",
+      "Oleaceae"
+    ],
+    "core": [
+      "Amaranthaceae",
+      "Cabombaceae",
+      "Oleaceae"
+    ],
+    "auxiliary": [
+      "Amaranthaceae",
+      "Cabombaceae",
+      "Oleaceae"
+    ],
+    "merged": [
+      "Amaranthaceae",
+      "Cabombaceae",
+      "Oleaceae"
+    ],
+    "review": [
+      "Nymphaeaceae"
+    ],
+    "standalone_ml": [
+      "Amaranthaceae",
+      "Cabombaceae",
+      "Nymphaeaceae",
+      "Oleaceae"
+    ]
+  },
+  {
+    "sample": "01x04x19",
+    "project": "mix_01x04x19",
+    "historical30": true,
+    "baseline_c": [
+      "Cabombaceae",
+      "Caryophyllaceae",
+      "Cucurbitaceae",
+      "Molluginaceae"
+    ],
+    "stable_c": [
+      "Cabombaceae",
+      "Caryophyllaceae",
+      "Cucurbitaceae",
+      "Molluginaceae"
+    ],
+    "core": [
+      "Cabombaceae",
+      "Caryophyllaceae",
+      "Cucurbitaceae"
+    ],
+    "auxiliary": [
+      "Cabombaceae",
+      "Caryophyllaceae",
+      "Cucurbitaceae"
+    ],
+    "merged": [
+      "Cabombaceae",
+      "Caryophyllaceae",
+      "Cucurbitaceae"
+    ],
+    "review": [
+      "Amaranthaceae",
+      "Molluginaceae",
+      "Nymphaeaceae"
+    ],
+    "standalone_ml": [
+      "Cabombaceae",
+      "Caryophyllaceae",
+      "Cucurbitaceae",
+      "Nymphaeaceae"
+    ]
+  },
+  {
+    "sample": "01x07x16x18x25x08",
+    "project": "mix_01x07x16x18x25x08",
+    "historical30": false,
+    "baseline_c": [
+      "Apiaceae",
+      "Araliaceae",
+      "Cabombaceae",
+      "Capparaceae",
+      "Cucurbitaceae",
+      "Fabaceae",
+      "Nymphaeaceae",
+      "Pittosporaceae"
+    ],
+    "stable_c": [
+      "Apiaceae",
+      "Araliaceae",
+      "Cabombaceae",
+      "Capparaceae",
+      "Cucurbitaceae",
+      "Fabaceae",
+      "Nymphaeaceae"
+    ],
+    "core": [
+      "Apiaceae",
+      "Araliaceae",
+      "Cabombaceae",
+      "Capparaceae",
+      "Cucurbitaceae",
+      "Fabaceae",
+      "Nymphaeaceae"
+    ],
+    "auxiliary": [
+      "Araliaceae",
+      "Cabombaceae",
+      "Capparaceae",
+      "Cucurbitaceae",
+      "Fabaceae"
+    ],
+    "merged": [
+      "Apiaceae",
+      "Araliaceae",
+      "Cabombaceae",
+      "Capparaceae",
+      "Cucurbitaceae",
+      "Fabaceae",
+      "Nymphaeaceae"
+    ],
+    "review": [
+      "Pittosporaceae"
+    ],
+    "standalone_ml": [
+      "Araliaceae",
+      "Cabombaceae",
+      "Capparaceae",
+      "Cucurbitaceae",
+      "Fabaceae",
+      "Nymphaeaceae"
+    ]
+  },
+  {
+    "sample": "01x18x08x28x26x02",
+    "project": "mix_01x18x08x28x26x02",
+    "historical30": true,
+    "baseline_c": [
+      "Amaranthaceae",
+      "Araliaceae",
+      "Cabombaceae",
+      "Cucurbitaceae",
+      "Poaceae",
+      "Rutaceae"
+    ],
+    "stable_c": [
+      "Amaranthaceae",
+      "Araliaceae",
+      "Cabombaceae",
+      "Cucurbitaceae",
+      "Poaceae",
+      "Rutaceae"
+    ],
+    "core": [
+      "Amaranthaceae",
+      "Araliaceae",
+      "Cabombaceae",
+      "Cucurbitaceae",
+      "Poaceae",
+      "Rutaceae"
+    ],
+    "auxiliary": [
+      "Amaranthaceae",
+      "Araliaceae",
+      "Cabombaceae",
+      "Cucurbitaceae",
+      "Poaceae",
+      "Rutaceae"
+    ],
+    "merged": [
+      "Amaranthaceae",
+      "Araliaceae",
+      "Cabombaceae",
+      "Cucurbitaceae",
+      "Poaceae",
+      "Rutaceae"
+    ],
+    "review": [
+      "Apiaceae",
+      "Nymphaeaceae",
+      "Pittosporaceae"
+    ],
+    "standalone_ml": [
+      "Amaranthaceae",
+      "Araliaceae",
+      "Cabombaceae",
+      "Cucurbitaceae",
+      "Nymphaeaceae",
+      "Poaceae",
+      "Rutaceae"
+    ]
+  },
+  {
+    "sample": "01x19x08x22x25x30x07x26x10x28",
+    "project": "mix_01x19x08x22x25x30x07x26x10x28",
+    "historical30": false,
+    "baseline_c": [
+      "Apiaceae",
+      "Araliaceae",
+      "Asteraceae",
+      "Cabombaceae",
+      "Capparaceae",
+      "Cucurbitaceae",
+      "Malvaceae",
+      "Nymphaeaceae",
+      "Pittosporaceae",
+      "Poaceae",
+      "Rutaceae"
+    ],
+    "stable_c": [
+      "Apiaceae",
+      "Araliaceae",
+      "Asteraceae",
+      "Cabombaceae",
+      "Capparaceae",
+      "Cucurbitaceae",
+      "Malvaceae",
+      "Nymphaeaceae",
+      "Pittosporaceae",
+      "Poaceae",
+      "Rutaceae"
+    ],
+    "core": [
+      "Apiaceae",
+      "Araliaceae",
+      "Asteraceae",
+      "Cabombaceae",
+      "Capparaceae",
+      "Cucurbitaceae",
+      "Malvaceae",
+      "Nymphaeaceae",
+      "Poaceae",
+      "Rutaceae"
+    ],
+    "auxiliary": [
+      "Apiaceae",
+      "Araliaceae",
+      "Asteraceae",
+      "Cabombaceae",
+      "Capparaceae",
+      "Cucurbitaceae",
+      "Malvaceae",
+      "Poaceae",
+      "Rutaceae"
+    ],
+    "merged": [
+      "Apiaceae",
+      "Araliaceae",
+      "Asteraceae",
+      "Cabombaceae",
+      "Capparaceae",
+      "Cucurbitaceae",
+      "Malvaceae",
+      "Nymphaeaceae",
+      "Poaceae",
+      "Rutaceae"
+    ],
+    "review": [
+      "Cleomaceae",
+      "Francoaceae",
+      "Pittosporaceae"
+    ],
+    "standalone_ml": [
+      "Apiaceae",
+      "Araliaceae",
+      "Asteraceae",
+      "Cabombaceae",
+      "Capparaceae",
+      "Cleomaceae",
+      "Cucurbitaceae",
+      "Francoaceae",
+      "Malvaceae",
+      "Nymphaeaceae",
+      "Poaceae",
+      "Rutaceae"
+    ]
+  },
+  {
+    "sample": "01x25x24x22x28x19x15x10x07x12",
+    "project": "mix_01x25x24x22x28x19x15x10x07x12",
+    "historical30": true,
+    "baseline_c": [
+      "Apiaceae",
+      "Araliaceae",
+      "Asteraceae",
+      "Brassicaceae",
+      "Cabombaceae",
+      "Capparaceae",
+      "Cucurbitaceae",
+      "Lamiaceae",
+      "Malvaceae",
+      "Pittosporaceae",
+      "Poaceae",
+      "Solanaceae"
+    ],
+    "stable_c": [
+      "Apiaceae",
+      "Asteraceae",
+      "Brassicaceae",
+      "Cabombaceae",
+      "Capparaceae",
+      "Cucurbitaceae",
+      "Lamiaceae",
+      "Malvaceae",
+      "Pittosporaceae",
+      "Poaceae",
+      "Solanaceae"
+    ],
+    "core": [
+      "Apiaceae",
+      "Asteraceae",
+      "Brassicaceae",
+      "Cabombaceae",
+      "Capparaceae",
+      "Cucurbitaceae",
+      "Lamiaceae",
+      "Malvaceae",
+      "Poaceae",
+      "Solanaceae"
+    ],
+    "auxiliary": [
+      "Apiaceae",
+      "Asteraceae",
+      "Brassicaceae",
+      "Cabombaceae",
+      "Capparaceae",
+      "Cucurbitaceae",
+      "Lamiaceae",
+      "Malvaceae",
+      "Poaceae",
+      "Solanaceae"
+    ],
+    "merged": [
+      "Apiaceae",
+      "Asteraceae",
+      "Brassicaceae",
+      "Cabombaceae",
+      "Capparaceae",
+      "Cucurbitaceae",
+      "Lamiaceae",
+      "Malvaceae",
+      "Poaceae",
+      "Solanaceae"
+    ],
+    "review": [
+      "Araliaceae",
+      "Nymphaeaceae",
+      "Pittosporaceae"
+    ],
+    "standalone_ml": [
+      "Apiaceae",
+      "Asteraceae",
+      "Brassicaceae",
+      "Cabombaceae",
+      "Capparaceae",
+      "Cucurbitaceae",
+      "Lamiaceae",
+      "Malvaceae",
+      "Nymphaeaceae",
+      "Poaceae",
+      "Solanaceae"
+    ]
+  },
+  {
+    "sample": "01x30x25",
+    "project": "mix_01x30x25",
+    "historical30": false,
+    "baseline_c": [
+      "Cabombaceae",
+      "Capparaceae",
+      "Cleomaceae",
+      "Poaceae"
+    ],
+    "stable_c": [
+      "Cabombaceae",
+      "Capparaceae",
+      "Poaceae"
+    ],
+    "core": [
+      "Cabombaceae",
+      "Capparaceae",
+      "Poaceae"
+    ],
+    "auxiliary": [
+      "Cabombaceae",
+      "Capparaceae",
+      "Poaceae"
+    ],
+    "merged": [
+      "Cabombaceae",
+      "Capparaceae",
+      "Poaceae"
+    ],
+    "review": [
+      "Cleomaceae",
+      "Nymphaeaceae",
+      "Typhaceae"
+    ],
+    "standalone_ml": [
+      "Cabombaceae",
+      "Capparaceae",
+      "Nymphaeaceae",
+      "Poaceae"
+    ]
+  },
+  {
+    "sample": "02x01x28x15x03x07",
+    "project": "mix_02x01x28x15x03x07",
+    "historical30": false,
+    "baseline_c": [
+      "Amaranthaceae",
+      "Apiaceae",
+      "Araliaceae",
+      "Cabombaceae",
+      "Cactaceae",
+      "Pittosporaceae",
+      "Poaceae",
+      "Solanaceae"
+    ],
+    "stable_c": [
+      "Amaranthaceae",
+      "Apiaceae",
+      "Cabombaceae",
+      "Cactaceae",
+      "Pittosporaceae",
+      "Poaceae",
+      "Solanaceae"
+    ],
+    "core": [
+      "Amaranthaceae",
+      "Apiaceae",
+      "Cabombaceae",
+      "Cactaceae",
+      "Poaceae",
+      "Solanaceae"
+    ],
+    "auxiliary": [
+      "Amaranthaceae",
+      "Cabombaceae",
+      "Cactaceae",
+      "Poaceae",
+      "Solanaceae"
+    ],
+    "merged": [
+      "Amaranthaceae",
+      "Apiaceae",
+      "Cabombaceae",
+      "Cactaceae",
+      "Poaceae",
+      "Solanaceae"
+    ],
+    "review": [
+      "Araliaceae",
+      "Nymphaeaceae",
+      "Pittosporaceae"
+    ],
+    "standalone_ml": [
+      "Amaranthaceae",
+      "Cabombaceae",
+      "Cactaceae",
+      "Nymphaeaceae",
+      "Poaceae",
+      "Solanaceae"
+    ]
+  },
+  {
+    "sample": "02x12x28x10x01x09x30x03x18x13",
+    "project": "mix_02x12x28x10x01x09x30x03x18x13",
+    "historical30": false,
+    "baseline_c": [
+      "Amaranthaceae",
+      "Asteraceae",
+      "Cabombaceae",
+      "Cactaceae",
+      "Cucurbitaceae",
+      "Lamiaceae",
+      "Oleaceae",
+      "Paulowniaceae",
+      "Poaceae"
+    ],
+    "stable_c": [
+      "Amaranthaceae",
+      "Asteraceae",
+      "Cabombaceae",
+      "Cactaceae",
+      "Cucurbitaceae",
+      "Lamiaceae",
+      "Oleaceae",
+      "Poaceae"
+    ],
+    "core": [
+      "Amaranthaceae",
+      "Asteraceae",
+      "Cabombaceae",
+      "Cactaceae",
+      "Cucurbitaceae",
+      "Lamiaceae",
+      "Oleaceae",
+      "Poaceae"
+    ],
+    "auxiliary": [
+      "Amaranthaceae",
+      "Asteraceae",
+      "Cabombaceae",
+      "Cactaceae",
+      "Cucurbitaceae",
+      "Lamiaceae",
+      "Oleaceae",
+      "Poaceae"
+    ],
+    "merged": [
+      "Amaranthaceae",
+      "Asteraceae",
+      "Cabombaceae",
+      "Cactaceae",
+      "Cucurbitaceae",
+      "Lamiaceae",
+      "Oleaceae",
+      "Poaceae"
+    ],
+    "review": [
+      "Didiereaceae",
+      "Nymphaeaceae",
+      "Paulowniaceae",
+      "Talinaceae"
+    ],
+    "standalone_ml": [
+      "Amaranthaceae",
+      "Asteraceae",
+      "Cabombaceae",
+      "Cactaceae",
+      "Cucurbitaceae",
+      "Lamiaceae",
+      "Nymphaeaceae",
+      "Oleaceae",
+      "Poaceae",
+      "Talinaceae"
+    ]
+  },
+  {
+    "sample": "02x13x24x03x12x07x16x18x04x15",
+    "project": "mix_02x13x24x03x12x07x16x18x04x15",
+    "historical30": false,
+    "baseline_c": [
+      "Amaranthaceae",
+      "Apiaceae",
+      "Araliaceae",
+      "Brassicaceae",
+      "Cactaceae",
+      "Caryophyllaceae",
+      "Cucurbitaceae",
+      "Fabaceae",
+      "Lamiaceae",
+      "Oleaceae",
+      "Solanaceae"
+    ],
+    "stable_c": [
+      "Amaranthaceae",
+      "Apiaceae",
+      "Brassicaceae",
+      "Cactaceae",
+      "Caryophyllaceae",
+      "Cucurbitaceae",
+      "Fabaceae",
+      "Lamiaceae",
+      "Oleaceae",
+      "Solanaceae"
+    ],
+    "core": [
+      "Amaranthaceae",
+      "Apiaceae",
+      "Brassicaceae",
+      "Cactaceae",
+      "Caryophyllaceae",
+      "Cucurbitaceae",
+      "Fabaceae",
+      "Lamiaceae",
+      "Oleaceae",
+      "Solanaceae"
+    ],
+    "auxiliary": [
+      "Amaranthaceae",
+      "Apiaceae",
+      "Brassicaceae",
+      "Cactaceae",
+      "Caryophyllaceae",
+      "Cucurbitaceae",
+      "Fabaceae",
+      "Lamiaceae",
+      "Oleaceae",
+      "Solanaceae"
+    ],
+    "merged": [
+      "Amaranthaceae",
+      "Apiaceae",
+      "Brassicaceae",
+      "Cactaceae",
+      "Caryophyllaceae",
+      "Cucurbitaceae",
+      "Fabaceae",
+      "Lamiaceae",
+      "Oleaceae",
+      "Solanaceae"
+    ],
+    "review": [
+      "Araliaceae"
+    ],
+    "standalone_ml": [
+      "Amaranthaceae",
+      "Apiaceae",
+      "Brassicaceae",
+      "Cactaceae",
+      "Caryophyllaceae",
+      "Cucurbitaceae",
+      "Fabaceae",
+      "Lamiaceae",
+      "Oleaceae",
+      "Solanaceae"
+    ]
+  },
+  {
+    "sample": "02x15x24",
+    "project": "mix_02x15x24",
+    "historical30": false,
+    "baseline_c": [
+      "Amaranthaceae",
+      "Brassicaceae",
+      "Solanaceae"
+    ],
+    "stable_c": [
+      "Amaranthaceae",
+      "Brassicaceae",
+      "Solanaceae"
+    ],
+    "core": [
+      "Amaranthaceae",
+      "Brassicaceae",
+      "Solanaceae"
+    ],
+    "auxiliary": [
+      "Amaranthaceae",
+      "Brassicaceae",
+      "Solanaceae"
+    ],
+    "merged": [
+      "Amaranthaceae",
+      "Brassicaceae",
+      "Solanaceae"
+    ],
+    "review": [],
+    "standalone_ml": [
+      "Amaranthaceae",
+      "Brassicaceae",
+      "Solanaceae"
+    ]
+  },
+  {
+    "sample": "02x22x19",
+    "project": "mix_02x22x19",
+    "historical30": false,
+    "baseline_c": [
+      "Amaranthaceae",
+      "Cucurbitaceae",
+      "Malvaceae"
+    ],
+    "stable_c": [
+      "Amaranthaceae",
+      "Cucurbitaceae",
+      "Malvaceae"
+    ],
+    "core": [
+      "Amaranthaceae",
+      "Cucurbitaceae",
+      "Malvaceae"
+    ],
+    "auxiliary": [
+      "Amaranthaceae",
+      "Cucurbitaceae",
+      "Malvaceae"
+    ],
+    "merged": [
+      "Amaranthaceae",
+      "Cucurbitaceae",
+      "Malvaceae"
+    ],
+    "review": [],
+    "standalone_ml": [
+      "Amaranthaceae",
+      "Cucurbitaceae",
+      "Malvaceae"
+    ]
+  },
+  {
+    "sample": "02x22x25x07x24x03",
+    "project": "mix_02x22x25x07x24x03",
+    "historical30": true,
+    "baseline_c": [
+      "Amaranthaceae",
+      "Apiaceae",
+      "Araliaceae",
+      "Brassicaceae",
+      "Cactaceae",
+      "Capparaceae",
+      "Malvaceae"
+    ],
+    "stable_c": [
+      "Amaranthaceae",
+      "Apiaceae",
+      "Brassicaceae",
+      "Cactaceae",
+      "Capparaceae",
+      "Malvaceae"
+    ],
+    "core": [
+      "Amaranthaceae",
+      "Apiaceae",
+      "Brassicaceae",
+      "Cactaceae",
+      "Capparaceae",
+      "Malvaceae"
+    ],
+    "auxiliary": [
+      "Amaranthaceae",
+      "Apiaceae",
+      "Brassicaceae",
+      "Cactaceae",
+      "Capparaceae",
+      "Malvaceae"
+    ],
+    "merged": [
+      "Amaranthaceae",
+      "Apiaceae",
+      "Brassicaceae",
+      "Cactaceae",
+      "Capparaceae",
+      "Malvaceae"
+    ],
+    "review": [
+      "Araliaceae"
+    ],
+    "standalone_ml": [
+      "Amaranthaceae",
+      "Apiaceae",
+      "Brassicaceae",
+      "Cactaceae",
+      "Capparaceae",
+      "Malvaceae"
+    ]
+  },
+  {
+    "sample": "02x24x15",
+    "project": "mix_02x24x15",
+    "historical30": false,
+    "baseline_c": [
+      "Amaranthaceae",
+      "Brassicaceae",
+      "Solanaceae"
+    ],
+    "stable_c": [
+      "Amaranthaceae",
+      "Brassicaceae",
+      "Solanaceae"
+    ],
+    "core": [
+      "Amaranthaceae",
+      "Brassicaceae",
+      "Solanaceae"
+    ],
+    "auxiliary": [
+      "Amaranthaceae",
+      "Brassicaceae",
+      "Solanaceae"
+    ],
+    "merged": [
+      "Amaranthaceae",
+      "Brassicaceae",
+      "Solanaceae"
+    ],
+    "review": [],
+    "standalone_ml": [
+      "Amaranthaceae",
+      "Brassicaceae",
+      "Solanaceae"
+    ]
+  },
+  {
+    "sample": "02x24x25x09x28x16x04x07x12x13",
+    "project": "mix_02x24x25x09x28x16x04x07x12x13",
+    "historical30": false,
+    "baseline_c": [
+      "Amaranthaceae",
+      "Apiaceae",
+      "Asteraceae",
+      "Brassicaceae",
+      "Capparaceae",
+      "Caryophyllaceae",
+      "Fabaceae",
+      "Lamiaceae",
+      "Oleaceae",
+      "Poaceae"
+    ],
+    "stable_c": [
+      "Amaranthaceae",
+      "Apiaceae",
+      "Asteraceae",
+      "Brassicaceae",
+      "Capparaceae",
+      "Caryophyllaceae",
+      "Fabaceae",
+      "Lamiaceae",
+      "Oleaceae",
+      "Poaceae"
+    ],
+    "core": [
+      "Amaranthaceae",
+      "Apiaceae",
+      "Asteraceae",
+      "Brassicaceae",
+      "Capparaceae",
+      "Caryophyllaceae",
+      "Fabaceae",
+      "Lamiaceae",
+      "Oleaceae",
+      "Poaceae"
+    ],
+    "auxiliary": [
+      "Amaranthaceae",
+      "Apiaceae",
+      "Asteraceae",
+      "Brassicaceae",
+      "Capparaceae",
+      "Caryophyllaceae",
+      "Fabaceae",
+      "Lamiaceae",
+      "Oleaceae",
+      "Poaceae"
+    ],
+    "merged": [
+      "Amaranthaceae",
+      "Apiaceae",
+      "Asteraceae",
+      "Brassicaceae",
+      "Capparaceae",
+      "Caryophyllaceae",
+      "Fabaceae",
+      "Lamiaceae",
+      "Oleaceae",
+      "Poaceae"
+    ],
+    "review": [
+      "Didiereaceae"
+    ],
+    "standalone_ml": [
+      "Amaranthaceae",
+      "Apiaceae",
+      "Asteraceae",
+      "Brassicaceae",
+      "Capparaceae",
+      "Caryophyllaceae",
+      "Fabaceae",
+      "Lamiaceae",
+      "Oleaceae",
+      "Poaceae"
+    ]
+  },
+  {
+    "sample": "03x07x13",
+    "project": "mix_03x07x13",
+    "historical30": false,
+    "baseline_c": [
+      "Apiaceae",
+      "Araliaceae",
+      "Cactaceae",
+      "Oleaceae",
+      "Pittosporaceae"
+    ],
+    "stable_c": [
+      "Apiaceae",
+      "Araliaceae",
+      "Cactaceae",
+      "Oleaceae"
+    ],
+    "core": [
+      "Apiaceae",
+      "Cactaceae",
+      "Oleaceae"
+    ],
+    "auxiliary": [
+      "Apiaceae",
+      "Cactaceae",
+      "Oleaceae"
+    ],
+    "merged": [
+      "Apiaceae",
+      "Cactaceae",
+      "Oleaceae"
+    ],
+    "review": [
+      "Araliaceae",
+      "Pittosporaceae"
+    ],
+    "standalone_ml": [
+      "Apiaceae",
+      "Cactaceae",
+      "Oleaceae"
+    ]
+  },
+  {
+    "sample": "03x16x28x24x01x07",
+    "project": "mix_03x16x28x24x01x07",
+    "historical30": false,
+    "baseline_c": [
+      "Apiaceae",
+      "Brassicaceae",
+      "Cabombaceae",
+      "Cactaceae",
+      "Fabaceae",
+      "Nymphaeaceae"
+    ],
+    "stable_c": [
+      "Apiaceae",
+      "Brassicaceae",
+      "Cabombaceae",
+      "Cactaceae",
+      "Fabaceae",
+      "Nymphaeaceae"
+    ],
+    "core": [
+      "Apiaceae",
+      "Brassicaceae",
+      "Cabombaceae",
+      "Cactaceae",
+      "Fabaceae",
+      "Nymphaeaceae"
+    ],
+    "auxiliary": [
+      "Brassicaceae",
+      "Cabombaceae",
+      "Cactaceae",
+      "Fabaceae"
+    ],
+    "merged": [
+      "Apiaceae",
+      "Brassicaceae",
+      "Cabombaceae",
+      "Cactaceae",
+      "Fabaceae",
+      "Nymphaeaceae"
+    ],
+    "review": [
+      "Poaceae"
+    ],
+    "standalone_ml": [
+      "Apiaceae",
+      "Brassicaceae",
+      "Cabombaceae",
+      "Cactaceae",
+      "Fabaceae",
+      "Nymphaeaceae",
+      "Poaceae"
+    ]
+  },
+  {
+    "sample": "04x03x16x25x18x22x02x08x19x07",
+    "project": "mix_04x03x16x25x18x22x02x08x19x07",
+    "historical30": false,
+    "baseline_c": [
+      "Amaranthaceae",
+      "Apiaceae",
+      "Araliaceae",
+      "Cactaceae",
+      "Capparaceae",
+      "Caryophyllaceae",
+      "Cucurbitaceae",
+      "Fabaceae",
+      "Malvaceae",
+      "Pittosporaceae"
+    ],
+    "stable_c": [
+      "Amaranthaceae",
+      "Apiaceae",
+      "Araliaceae",
+      "Cactaceae",
+      "Capparaceae",
+      "Caryophyllaceae",
+      "Cucurbitaceae",
+      "Fabaceae",
+      "Malvaceae",
+      "Pittosporaceae"
+    ],
+    "core": [
+      "Amaranthaceae",
+      "Apiaceae",
+      "Araliaceae",
+      "Cactaceae",
+      "Capparaceae",
+      "Caryophyllaceae",
+      "Cucurbitaceae",
+      "Fabaceae",
+      "Malvaceae"
+    ],
+    "auxiliary": [
+      "Amaranthaceae",
+      "Apiaceae",
+      "Araliaceae",
+      "Cactaceae",
+      "Capparaceae",
+      "Caryophyllaceae",
+      "Cucurbitaceae",
+      "Fabaceae",
+      "Malvaceae"
+    ],
+    "merged": [
+      "Amaranthaceae",
+      "Apiaceae",
+      "Araliaceae",
+      "Cactaceae",
+      "Capparaceae",
+      "Caryophyllaceae",
+      "Cucurbitaceae",
+      "Fabaceae",
+      "Malvaceae"
+    ],
+    "review": [
+      "Pittosporaceae"
+    ],
+    "standalone_ml": [
+      "Amaranthaceae",
+      "Apiaceae",
+      "Araliaceae",
+      "Cactaceae",
+      "Capparaceae",
+      "Caryophyllaceae",
+      "Cucurbitaceae",
+      "Fabaceae",
+      "Malvaceae"
+    ]
+  },
+  {
+    "sample": "04x07x08x15x16x01",
+    "project": "mix_04x07x08x15x16x01",
+    "historical30": false,
+    "baseline_c": [
+      "Apiaceae",
+      "Araliaceae",
+      "Cabombaceae",
+      "Caryophyllaceae",
+      "Fabaceae",
+      "Pittosporaceae",
+      "Solanaceae"
+    ],
+    "stable_c": [
+      "Apiaceae",
+      "Araliaceae",
+      "Cabombaceae",
+      "Caryophyllaceae",
+      "Fabaceae",
+      "Pittosporaceae",
+      "Solanaceae"
+    ],
+    "core": [
+      "Apiaceae",
+      "Araliaceae",
+      "Cabombaceae",
+      "Caryophyllaceae",
+      "Fabaceae",
+      "Solanaceae"
+    ],
+    "auxiliary": [
+      "Apiaceae",
+      "Araliaceae",
+      "Cabombaceae",
+      "Caryophyllaceae",
+      "Fabaceae",
+      "Solanaceae"
+    ],
+    "merged": [
+      "Apiaceae",
+      "Araliaceae",
+      "Cabombaceae",
+      "Caryophyllaceae",
+      "Fabaceae",
+      "Solanaceae"
+    ],
+    "review": [
+      "Nymphaeaceae",
+      "Pittosporaceae"
+    ],
+    "standalone_ml": [
+      "Apiaceae",
+      "Araliaceae",
+      "Cabombaceae",
+      "Caryophyllaceae",
+      "Fabaceae",
+      "Nymphaeaceae",
+      "Solanaceae"
+    ]
+  },
+  {
+    "sample": "04x15x10",
+    "project": "mix_04x15x10",
+    "historical30": false,
+    "baseline_c": [
+      "Asteraceae",
+      "Caryophyllaceae",
+      "Solanaceae"
+    ],
+    "stable_c": [
+      "Asteraceae",
+      "Caryophyllaceae",
+      "Solanaceae"
+    ],
+    "core": [
+      "Asteraceae",
+      "Caryophyllaceae",
+      "Solanaceae"
+    ],
+    "auxiliary": [
+      "Asteraceae",
+      "Caryophyllaceae",
+      "Solanaceae"
+    ],
+    "merged": [
+      "Asteraceae",
+      "Caryophyllaceae",
+      "Solanaceae"
+    ],
+    "review": [],
+    "standalone_ml": [
+      "Asteraceae",
+      "Caryophyllaceae",
+      "Solanaceae"
+    ]
+  },
+  {
+    "sample": "04x19x30x02x13x16",
+    "project": "mix_04x19x30x02x13x16",
+    "historical30": true,
+    "baseline_c": [
+      "Amaranthaceae",
+      "Caryophyllaceae",
+      "Cucurbitaceae",
+      "Fabaceae",
+      "Molluginaceae",
+      "Oleaceae",
+      "Poaceae"
+    ],
+    "stable_c": [
+      "Amaranthaceae",
+      "Caryophyllaceae",
+      "Cucurbitaceae",
+      "Fabaceae",
+      "Oleaceae",
+      "Poaceae"
+    ],
+    "core": [
+      "Amaranthaceae",
+      "Caryophyllaceae",
+      "Cucurbitaceae",
+      "Fabaceae",
+      "Oleaceae",
+      "Poaceae"
+    ],
+    "auxiliary": [
+      "Amaranthaceae",
+      "Caryophyllaceae",
+      "Cucurbitaceae",
+      "Fabaceae",
+      "Oleaceae",
+      "Poaceae"
+    ],
+    "merged": [
+      "Amaranthaceae",
+      "Caryophyllaceae",
+      "Cucurbitaceae",
+      "Fabaceae",
+      "Oleaceae",
+      "Poaceae"
+    ],
+    "review": [
+      "Molluginaceae"
+    ],
+    "standalone_ml": [
+      "Amaranthaceae",
+      "Caryophyllaceae",
+      "Cucurbitaceae",
+      "Fabaceae",
+      "Oleaceae",
+      "Poaceae"
+    ]
+  },
+  {
+    "sample": "04x28x12x16x03x19",
+    "project": "mix_04x28x12x16x03x19",
+    "historical30": false,
+    "baseline_c": [
+      "Cactaceae",
+      "Caryophyllaceae",
+      "Cucurbitaceae",
+      "Fabaceae",
+      "Lamiaceae",
+      "Poaceae"
+    ],
+    "stable_c": [
+      "Cactaceae",
+      "Caryophyllaceae",
+      "Cucurbitaceae",
+      "Fabaceae",
+      "Lamiaceae",
+      "Poaceae"
+    ],
+    "core": [
+      "Cactaceae",
+      "Caryophyllaceae",
+      "Cucurbitaceae",
+      "Fabaceae",
+      "Lamiaceae",
+      "Poaceae"
+    ],
+    "auxiliary": [
+      "Cactaceae",
+      "Caryophyllaceae",
+      "Cucurbitaceae",
+      "Fabaceae",
+      "Lamiaceae",
+      "Poaceae"
+    ],
+    "merged": [
+      "Cactaceae",
+      "Caryophyllaceae",
+      "Cucurbitaceae",
+      "Fabaceae",
+      "Lamiaceae",
+      "Poaceae"
+    ],
+    "review": [
+      "Francoaceae"
+    ],
+    "standalone_ml": [
+      "Cactaceae",
+      "Caryophyllaceae",
+      "Cucurbitaceae",
+      "Fabaceae",
+      "Francoaceae",
+      "Lamiaceae",
+      "Poaceae"
+    ]
+  },
+  {
+    "sample": "04x28x15x07x16x09x13x10x08x03",
+    "project": "mix_04x28x15x07x16x09x13x10x08x03",
+    "historical30": false,
+    "baseline_c": [
+      "Apiaceae",
+      "Araliaceae",
+      "Asteraceae",
+      "Cactaceae",
+      "Caryophyllaceae",
+      "Fabaceae",
+      "Oleaceae",
+      "Pittosporaceae",
+      "Poaceae",
+      "Solanaceae"
+    ],
+    "stable_c": [
+      "Apiaceae",
+      "Araliaceae",
+      "Asteraceae",
+      "Cactaceae",
+      "Caryophyllaceae",
+      "Fabaceae",
+      "Oleaceae",
+      "Pittosporaceae",
+      "Poaceae",
+      "Solanaceae"
+    ],
+    "core": [
+      "Apiaceae",
+      "Araliaceae",
+      "Asteraceae",
+      "Cactaceae",
+      "Caryophyllaceae",
+      "Fabaceae",
+      "Oleaceae",
+      "Pittosporaceae",
+      "Poaceae",
+      "Solanaceae"
+    ],
+    "auxiliary": [
+      "Apiaceae",
+      "Araliaceae",
+      "Asteraceae",
+      "Cactaceae",
+      "Caryophyllaceae",
+      "Fabaceae",
+      "Oleaceae",
+      "Poaceae",
+      "Solanaceae"
+    ],
+    "merged": [
+      "Apiaceae",
+      "Araliaceae",
+      "Asteraceae",
+      "Cactaceae",
+      "Caryophyllaceae",
+      "Fabaceae",
+      "Oleaceae",
+      "Pittosporaceae",
+      "Poaceae",
+      "Solanaceae"
+    ],
+    "review": [],
+    "standalone_ml": [
+      "Apiaceae",
+      "Araliaceae",
+      "Asteraceae",
+      "Cactaceae",
+      "Caryophyllaceae",
+      "Fabaceae",
+      "Oleaceae",
+      "Poaceae",
+      "Solanaceae"
+    ]
+  },
+  {
+    "sample": "04x30x25x16x10x03x28x01x13x08",
+    "project": "mix_04x30x25x16x10x03x28x01x13x08",
+    "historical30": true,
+    "baseline_c": [
+      "Araliaceae",
+      "Asteraceae",
+      "Cabombaceae",
+      "Cactaceae",
+      "Capparaceae",
+      "Caryophyllaceae",
+      "Fabaceae",
+      "Oleaceae",
+      "Poaceae"
+    ],
+    "stable_c": [
+      "Araliaceae",
+      "Asteraceae",
+      "Cabombaceae",
+      "Cactaceae",
+      "Capparaceae",
+      "Caryophyllaceae",
+      "Fabaceae",
+      "Oleaceae",
+      "Poaceae"
+    ],
+    "core": [
+      "Araliaceae",
+      "Asteraceae",
+      "Cabombaceae",
+      "Cactaceae",
+      "Capparaceae",
+      "Caryophyllaceae",
+      "Fabaceae",
+      "Oleaceae",
+      "Poaceae"
+    ],
+    "auxiliary": [
+      "Araliaceae",
+      "Asteraceae",
+      "Cabombaceae",
+      "Cactaceae",
+      "Capparaceae",
+      "Caryophyllaceae",
+      "Fabaceae",
+      "Oleaceae",
+      "Poaceae"
+    ],
+    "merged": [
+      "Araliaceae",
+      "Asteraceae",
+      "Cabombaceae",
+      "Cactaceae",
+      "Capparaceae",
+      "Caryophyllaceae",
+      "Fabaceae",
+      "Oleaceae",
+      "Poaceae"
+    ],
+    "review": [
+      "Apiaceae",
+      "Didiereaceae",
+      "Nymphaeaceae",
+      "Pittosporaceae",
+      "Portulacaceae"
+    ],
+    "standalone_ml": [
+      "Araliaceae",
+      "Asteraceae",
+      "Cabombaceae",
+      "Cactaceae",
+      "Capparaceae",
+      "Fabaceae",
+      "Nymphaeaceae",
+      "Oleaceae",
+      "Poaceae"
+    ]
+  },
+  {
+    "sample": "07x10x04x16x13x15",
+    "project": "mix_07x10x04x16x13x15",
+    "historical30": true,
+    "baseline_c": [
+      "Apiaceae",
+      "Araliaceae",
+      "Asteraceae",
+      "Caryophyllaceae",
+      "Fabaceae",
+      "Oleaceae",
+      "Pittosporaceae",
+      "Solanaceae"
+    ],
+    "stable_c": [
+      "Apiaceae",
+      "Asteraceae",
+      "Caryophyllaceae",
+      "Fabaceae",
+      "Oleaceae",
+      "Pittosporaceae",
+      "Solanaceae"
+    ],
+    "core": [
+      "Apiaceae",
+      "Asteraceae",
+      "Caryophyllaceae",
+      "Fabaceae",
+      "Oleaceae",
+      "Solanaceae"
+    ],
+    "auxiliary": [
+      "Apiaceae",
+      "Asteraceae",
+      "Caryophyllaceae",
+      "Fabaceae",
+      "Oleaceae",
+      "Solanaceae"
+    ],
+    "merged": [
+      "Apiaceae",
+      "Asteraceae",
+      "Caryophyllaceae",
+      "Fabaceae",
+      "Oleaceae",
+      "Solanaceae"
+    ],
+    "review": [
+      "Araliaceae",
+      "Pittosporaceae"
+    ],
+    "standalone_ml": [
+      "Apiaceae",
+      "Asteraceae",
+      "Caryophyllaceae",
+      "Fabaceae",
+      "Oleaceae",
+      "Solanaceae"
+    ]
+  },
+  {
+    "sample": "07x22x30x08x18x13x03x19x04x02",
+    "project": "mix_07x22x30x08x18x13x03x19x04x02",
+    "historical30": false,
+    "baseline_c": [
+      "Amaranthaceae",
+      "Apiaceae",
+      "Araliaceae",
+      "Cactaceae",
+      "Caryophyllaceae",
+      "Cucurbitaceae",
+      "Malvaceae",
+      "Oleaceae",
+      "Pittosporaceae",
+      "Poaceae"
+    ],
+    "stable_c": [
+      "Amaranthaceae",
+      "Apiaceae",
+      "Araliaceae",
+      "Cactaceae",
+      "Caryophyllaceae",
+      "Cucurbitaceae",
+      "Malvaceae",
+      "Oleaceae",
+      "Pittosporaceae",
+      "Poaceae"
+    ],
+    "core": [
+      "Amaranthaceae",
+      "Apiaceae",
+      "Araliaceae",
+      "Cactaceae",
+      "Caryophyllaceae",
+      "Cucurbitaceae",
+      "Malvaceae",
+      "Oleaceae",
+      "Poaceae"
+    ],
+    "auxiliary": [
+      "Amaranthaceae",
+      "Apiaceae",
+      "Araliaceae",
+      "Cactaceae",
+      "Caryophyllaceae",
+      "Cucurbitaceae",
+      "Malvaceae",
+      "Oleaceae",
+      "Poaceae"
+    ],
+    "merged": [
+      "Amaranthaceae",
+      "Apiaceae",
+      "Araliaceae",
+      "Cactaceae",
+      "Caryophyllaceae",
+      "Cucurbitaceae",
+      "Malvaceae",
+      "Oleaceae",
+      "Poaceae"
+    ],
+    "review": [
+      "Pittosporaceae"
+    ],
+    "standalone_ml": [
+      "Amaranthaceae",
+      "Apiaceae",
+      "Araliaceae",
+      "Cactaceae",
+      "Caryophyllaceae",
+      "Cucurbitaceae",
+      "Malvaceae",
+      "Oleaceae",
+      "Poaceae"
+    ]
+  },
+  {
+    "sample": "07x26x30",
+    "project": "mix_07x26x30",
+    "historical30": false,
+    "baseline_c": [
+      "Apiaceae",
+      "Poaceae",
+      "Rutaceae"
+    ],
+    "stable_c": [
+      "Apiaceae",
+      "Poaceae",
+      "Rutaceae"
+    ],
+    "core": [
+      "Apiaceae",
+      "Poaceae",
+      "Rutaceae"
+    ],
+    "auxiliary": [
+      "Apiaceae",
+      "Poaceae",
+      "Rutaceae"
+    ],
+    "merged": [
+      "Apiaceae",
+      "Poaceae",
+      "Rutaceae"
+    ],
+    "review": [],
+    "standalone_ml": [
+      "Apiaceae",
+      "Poaceae",
+      "Rutaceae"
+    ]
+  },
+  {
+    "sample": "07x28x25x10x04x30",
+    "project": "mix_07x28x25x10x04x30",
+    "historical30": false,
+    "baseline_c": [
+      "Apiaceae",
+      "Asteraceae",
+      "Capparaceae",
+      "Caryophyllaceae",
+      "Poaceae"
+    ],
+    "stable_c": [
+      "Apiaceae",
+      "Asteraceae",
+      "Capparaceae",
+      "Caryophyllaceae",
+      "Poaceae"
+    ],
+    "core": [
+      "Apiaceae",
+      "Asteraceae",
+      "Capparaceae",
+      "Caryophyllaceae",
+      "Poaceae"
+    ],
+    "auxiliary": [
+      "Apiaceae",
+      "Asteraceae",
+      "Capparaceae",
+      "Caryophyllaceae",
+      "Poaceae"
+    ],
+    "merged": [
+      "Apiaceae",
+      "Asteraceae",
+      "Capparaceae",
+      "Caryophyllaceae",
+      "Poaceae"
+    ],
+    "review": [],
+    "standalone_ml": [
+      "Apiaceae",
+      "Asteraceae",
+      "Capparaceae",
+      "Caryophyllaceae",
+      "Poaceae"
+    ]
+  },
+  {
+    "sample": "08x07x01",
+    "project": "mix_08x07x01",
+    "historical30": true,
+    "baseline_c": [
+      "Apiaceae",
+      "Araliaceae",
+      "Cabombaceae"
+    ],
+    "stable_c": [
+      "Araliaceae",
+      "Cabombaceae"
+    ],
+    "core": [
+      "Apiaceae",
+      "Araliaceae",
+      "Cabombaceae"
+    ],
+    "auxiliary": [
+      "Araliaceae",
+      "Cabombaceae"
+    ],
+    "merged": [
+      "Apiaceae",
+      "Araliaceae",
+      "Cabombaceae"
+    ],
+    "review": [
+      "Nymphaeaceae"
+    ],
+    "standalone_ml": [
+      "Araliaceae",
+      "Cabombaceae",
+      "Nymphaeaceae"
+    ]
+  },
+  {
+    "sample": "08x07x03",
+    "project": "mix_08x07x03",
+    "historical30": true,
+    "baseline_c": [
+      "Apiaceae",
+      "Araliaceae",
+      "Cactaceae",
+      "Pittosporaceae"
+    ],
+    "stable_c": [
+      "Apiaceae",
+      "Araliaceae",
+      "Cactaceae",
+      "Pittosporaceae"
+    ],
+    "core": [
+      "Apiaceae",
+      "Araliaceae",
+      "Cactaceae"
+    ],
+    "auxiliary": [
+      "Apiaceae",
+      "Araliaceae",
+      "Cactaceae"
+    ],
+    "merged": [
+      "Apiaceae",
+      "Araliaceae",
+      "Cactaceae"
+    ],
+    "review": [
+      "Pittosporaceae"
+    ],
+    "standalone_ml": [
+      "Apiaceae",
+      "Araliaceae",
+      "Cactaceae"
+    ]
+  },
+  {
+    "sample": "08x16x09x25x03x18",
+    "project": "mix_08x16x09x25x03x18",
+    "historical30": false,
+    "baseline_c": [
+      "Araliaceae",
+      "Asteraceae",
+      "Cactaceae",
+      "Capparaceae",
+      "Cucurbitaceae",
+      "Fabaceae"
+    ],
+    "stable_c": [
+      "Araliaceae",
+      "Asteraceae",
+      "Cactaceae",
+      "Capparaceae",
+      "Cucurbitaceae",
+      "Fabaceae"
+    ],
+    "core": [
+      "Araliaceae",
+      "Asteraceae",
+      "Cactaceae",
+      "Capparaceae",
+      "Cucurbitaceae",
+      "Fabaceae"
+    ],
+    "auxiliary": [
+      "Araliaceae",
+      "Asteraceae",
+      "Cactaceae",
+      "Capparaceae",
+      "Cucurbitaceae",
+      "Fabaceae"
+    ],
+    "merged": [
+      "Araliaceae",
+      "Asteraceae",
+      "Cactaceae",
+      "Capparaceae",
+      "Cucurbitaceae",
+      "Fabaceae"
+    ],
+    "review": [
+      "Apiaceae"
+    ],
+    "standalone_ml": [
+      "Araliaceae",
+      "Asteraceae",
+      "Cactaceae",
+      "Capparaceae",
+      "Cucurbitaceae",
+      "Fabaceae"
+    ]
+  },
+  {
+    "sample": "08x16x15x07x03x09",
+    "project": "mix_08x16x15x07x03x09",
+    "historical30": true,
+    "baseline_c": [
+      "Apiaceae",
+      "Araliaceae",
+      "Asteraceae",
+      "Cactaceae",
+      "Fabaceae",
+      "Pittosporaceae",
+      "Solanaceae"
+    ],
+    "stable_c": [
+      "Apiaceae",
+      "Araliaceae",
+      "Asteraceae",
+      "Cactaceae",
+      "Fabaceae",
+      "Pittosporaceae",
+      "Solanaceae"
+    ],
+    "core": [
+      "Apiaceae",
+      "Araliaceae",
+      "Asteraceae",
+      "Cactaceae",
+      "Fabaceae",
+      "Solanaceae"
+    ],
+    "auxiliary": [
+      "Apiaceae",
+      "Araliaceae",
+      "Asteraceae",
+      "Cactaceae",
+      "Fabaceae",
+      "Solanaceae"
+    ],
+    "merged": [
+      "Apiaceae",
+      "Araliaceae",
+      "Asteraceae",
+      "Cactaceae",
+      "Fabaceae",
+      "Solanaceae"
+    ],
+    "review": [
+      "Pittosporaceae"
+    ],
+    "standalone_ml": [
+      "Apiaceae",
+      "Araliaceae",
+      "Asteraceae",
+      "Cactaceae",
+      "Fabaceae",
+      "Solanaceae"
+    ]
+  },
+  {
+    "sample": "08x30x16x22x15x19",
+    "project": "mix_08x30x16x22x15x19",
+    "historical30": false,
+    "baseline_c": [
+      "Araliaceae",
+      "Cucurbitaceae",
+      "Fabaceae",
+      "Malvaceae",
+      "Poaceae",
+      "Solanaceae"
+    ],
+    "stable_c": [
+      "Araliaceae",
+      "Cucurbitaceae",
+      "Fabaceae",
+      "Malvaceae",
+      "Poaceae",
+      "Solanaceae"
+    ],
+    "core": [
+      "Araliaceae",
+      "Cucurbitaceae",
+      "Fabaceae",
+      "Malvaceae",
+      "Poaceae",
+      "Solanaceae"
+    ],
+    "auxiliary": [
+      "Araliaceae",
+      "Cucurbitaceae",
+      "Fabaceae",
+      "Malvaceae",
+      "Poaceae",
+      "Solanaceae"
+    ],
+    "merged": [
+      "Araliaceae",
+      "Cucurbitaceae",
+      "Fabaceae",
+      "Malvaceae",
+      "Poaceae",
+      "Solanaceae"
+    ],
+    "review": [
+      "Pittosporaceae"
+    ],
+    "standalone_ml": [
+      "Araliaceae",
+      "Cucurbitaceae",
+      "Fabaceae",
+      "Malvaceae",
+      "Poaceae",
+      "Solanaceae"
+    ]
+  },
+  {
+    "sample": "09x15x18x02x25x08x10x12x01x07",
+    "project": "mix_09x15x18x02x25x08x10x12x01x07",
+    "historical30": false,
+    "baseline_c": [
+      "Amaranthaceae",
+      "Apiaceae",
+      "Araliaceae",
+      "Asteraceae",
+      "Cabombaceae",
+      "Capparaceae",
+      "Cucurbitaceae",
+      "Lamiaceae",
+      "Nymphaeaceae",
+      "Paulowniaceae",
+      "Solanaceae"
+    ],
+    "stable_c": [
+      "Amaranthaceae",
+      "Apiaceae",
+      "Araliaceae",
+      "Asteraceae",
+      "Cabombaceae",
+      "Capparaceae",
+      "Cucurbitaceae",
+      "Lamiaceae",
+      "Nymphaeaceae",
+      "Solanaceae"
+    ],
+    "core": [
+      "Amaranthaceae",
+      "Apiaceae",
+      "Araliaceae",
+      "Asteraceae",
+      "Cabombaceae",
+      "Capparaceae",
+      "Cucurbitaceae",
+      "Lamiaceae",
+      "Nymphaeaceae",
+      "Solanaceae"
+    ],
+    "auxiliary": [
+      "Amaranthaceae",
+      "Apiaceae",
+      "Araliaceae",
+      "Asteraceae",
+      "Cabombaceae",
+      "Capparaceae",
+      "Cucurbitaceae",
+      "Lamiaceae",
+      "Solanaceae"
+    ],
+    "merged": [
+      "Amaranthaceae",
+      "Apiaceae",
+      "Araliaceae",
+      "Asteraceae",
+      "Cabombaceae",
+      "Capparaceae",
+      "Cucurbitaceae",
+      "Lamiaceae",
+      "Nymphaeaceae",
+      "Solanaceae"
+    ],
+    "review": [
+      "Paulowniaceae"
+    ],
+    "standalone_ml": [
+      "Amaranthaceae",
+      "Apiaceae",
+      "Araliaceae",
+      "Asteraceae",
+      "Cabombaceae",
+      "Capparaceae",
+      "Cucurbitaceae",
+      "Lamiaceae",
+      "Nymphaeaceae",
+      "Solanaceae"
+    ]
+  },
+  {
+    "sample": "09x19x12x16x07x25",
+    "project": "mix_09x19x12x16x07x25",
+    "historical30": false,
+    "baseline_c": [
+      "Apiaceae",
+      "Asteraceae",
+      "Capparaceae",
+      "Cucurbitaceae",
+      "Fabaceae",
+      "Lamiaceae"
+    ],
+    "stable_c": [
+      "Apiaceae",
+      "Asteraceae",
+      "Capparaceae",
+      "Cucurbitaceae",
+      "Fabaceae",
+      "Lamiaceae"
+    ],
+    "core": [
+      "Apiaceae",
+      "Asteraceae",
+      "Capparaceae",
+      "Cucurbitaceae",
+      "Fabaceae",
+      "Lamiaceae"
+    ],
+    "auxiliary": [
+      "Apiaceae",
+      "Asteraceae",
+      "Capparaceae",
+      "Cucurbitaceae",
+      "Fabaceae",
+      "Lamiaceae"
+    ],
+    "merged": [
+      "Apiaceae",
+      "Asteraceae",
+      "Capparaceae",
+      "Cucurbitaceae",
+      "Fabaceae",
+      "Lamiaceae"
+    ],
+    "review": [],
+    "standalone_ml": [
+      "Apiaceae",
+      "Asteraceae",
+      "Capparaceae",
+      "Cucurbitaceae",
+      "Fabaceae",
+      "Lamiaceae"
+    ]
+  },
+  {
+    "sample": "09x30x01x04x18x13x22x08x19x15",
+    "project": "mix_09x30x01x04x18x13x22x08x19x15",
+    "historical30": false,
+    "baseline_c": [
+      "Araliaceae",
+      "Asteraceae",
+      "Cabombaceae",
+      "Caryophyllaceae",
+      "Cucurbitaceae",
+      "Malvaceae",
+      "Oleaceae",
+      "Poaceae",
+      "Solanaceae"
+    ],
+    "stable_c": [
+      "Araliaceae",
+      "Asteraceae",
+      "Cabombaceae",
+      "Caryophyllaceae",
+      "Cucurbitaceae",
+      "Malvaceae",
+      "Oleaceae",
+      "Poaceae",
+      "Solanaceae"
+    ],
+    "core": [
+      "Araliaceae",
+      "Asteraceae",
+      "Cabombaceae",
+      "Caryophyllaceae",
+      "Cucurbitaceae",
+      "Malvaceae",
+      "Oleaceae",
+      "Poaceae",
+      "Solanaceae"
+    ],
+    "auxiliary": [
+      "Araliaceae",
+      "Asteraceae",
+      "Cabombaceae",
+      "Caryophyllaceae",
+      "Cucurbitaceae",
+      "Malvaceae",
+      "Oleaceae",
+      "Poaceae",
+      "Solanaceae"
+    ],
+    "merged": [
+      "Araliaceae",
+      "Asteraceae",
+      "Cabombaceae",
+      "Caryophyllaceae",
+      "Cucurbitaceae",
+      "Malvaceae",
+      "Oleaceae",
+      "Poaceae",
+      "Solanaceae"
+    ],
+    "review": [
+      "Apiaceae",
+      "Nymphaeaceae",
+      "Pittosporaceae"
+    ],
+    "standalone_ml": [
+      "Araliaceae",
+      "Asteraceae",
+      "Cabombaceae",
+      "Caryophyllaceae",
+      "Cucurbitaceae",
+      "Malvaceae",
+      "Nymphaeaceae",
+      "Oleaceae",
+      "Poaceae",
+      "Solanaceae"
+    ]
+  },
+  {
+    "sample": "10x04x13x19x02x15x01x09x30x24",
+    "project": "mix_10x04x13x19x02x15x01x09x30x24",
+    "historical30": false,
+    "baseline_c": [
+      "Amaranthaceae",
+      "Asteraceae",
+      "Brassicaceae",
+      "Cabombaceae",
+      "Caryophyllaceae",
+      "Cucurbitaceae",
+      "Oleaceae",
+      "Poaceae",
+      "Solanaceae"
+    ],
+    "stable_c": [
+      "Amaranthaceae",
+      "Asteraceae",
+      "Brassicaceae",
+      "Cabombaceae",
+      "Caryophyllaceae",
+      "Cucurbitaceae",
+      "Oleaceae",
+      "Poaceae",
+      "Solanaceae"
+    ],
+    "core": [
+      "Amaranthaceae",
+      "Asteraceae",
+      "Brassicaceae",
+      "Cabombaceae",
+      "Caryophyllaceae",
+      "Cucurbitaceae",
+      "Oleaceae",
+      "Poaceae",
+      "Solanaceae"
+    ],
+    "auxiliary": [
+      "Amaranthaceae",
+      "Asteraceae",
+      "Brassicaceae",
+      "Cabombaceae",
+      "Caryophyllaceae",
+      "Cucurbitaceae",
+      "Oleaceae",
+      "Poaceae",
+      "Solanaceae"
+    ],
+    "merged": [
+      "Amaranthaceae",
+      "Asteraceae",
+      "Brassicaceae",
+      "Cabombaceae",
+      "Caryophyllaceae",
+      "Cucurbitaceae",
+      "Oleaceae",
+      "Poaceae",
+      "Solanaceae"
+    ],
+    "review": [
+      "Achatocarpaceae",
+      "Nymphaeaceae"
+    ],
+    "standalone_ml": [
+      "Achatocarpaceae",
+      "Amaranthaceae",
+      "Asteraceae",
+      "Brassicaceae",
+      "Cabombaceae",
+      "Caryophyllaceae",
+      "Cucurbitaceae",
+      "Nymphaeaceae",
+      "Oleaceae",
+      "Poaceae",
+      "Solanaceae"
+    ]
+  },
+  {
+    "sample": "10x09x15x08x25x18",
+    "project": "mix_10x09x15x08x25x18",
+    "historical30": false,
+    "baseline_c": [
+      "Araliaceae",
+      "Asteraceae",
+      "Capparaceae",
+      "Cucurbitaceae",
+      "Solanaceae"
+    ],
+    "stable_c": [
+      "Araliaceae",
+      "Asteraceae",
+      "Capparaceae",
+      "Cucurbitaceae",
+      "Solanaceae"
+    ],
+    "core": [
+      "Araliaceae",
+      "Asteraceae",
+      "Capparaceae",
+      "Cucurbitaceae",
+      "Solanaceae"
+    ],
+    "auxiliary": [
+      "Araliaceae",
+      "Asteraceae",
+      "Capparaceae",
+      "Cucurbitaceae",
+      "Solanaceae"
+    ],
+    "merged": [
+      "Araliaceae",
+      "Asteraceae",
+      "Capparaceae",
+      "Cucurbitaceae",
+      "Solanaceae"
+    ],
+    "review": [],
+    "standalone_ml": [
+      "Araliaceae",
+      "Asteraceae",
+      "Capparaceae",
+      "Cucurbitaceae",
+      "Solanaceae"
+    ]
+  },
+  {
+    "sample": "10x19x28x09x15x22",
+    "project": "mix_10x19x28x09x15x22",
+    "historical30": false,
+    "baseline_c": [
+      "Asteraceae",
+      "Cucurbitaceae",
+      "Malvaceae",
+      "Poaceae",
+      "Solanaceae"
+    ],
+    "stable_c": [
+      "Asteraceae",
+      "Cucurbitaceae",
+      "Malvaceae",
+      "Poaceae",
+      "Solanaceae"
+    ],
+    "core": [
+      "Asteraceae",
+      "Cucurbitaceae",
+      "Malvaceae",
+      "Poaceae",
+      "Solanaceae"
+    ],
+    "auxiliary": [
+      "Asteraceae",
+      "Cucurbitaceae",
+      "Malvaceae",
+      "Poaceae",
+      "Solanaceae"
+    ],
+    "merged": [
+      "Asteraceae",
+      "Cucurbitaceae",
+      "Malvaceae",
+      "Poaceae",
+      "Solanaceae"
+    ],
+    "review": [],
+    "standalone_ml": [
+      "Asteraceae",
+      "Cucurbitaceae",
+      "Malvaceae",
+      "Poaceae",
+      "Solanaceae"
+    ]
+  },
+  {
+    "sample": "10x22x30x16x13x26",
+    "project": "mix_10x22x30x16x13x26",
+    "historical30": false,
+    "baseline_c": [
+      "Asteraceae",
+      "Fabaceae",
+      "Malvaceae",
+      "Oleaceae",
+      "Poaceae",
+      "Rutaceae"
+    ],
+    "stable_c": [
+      "Asteraceae",
+      "Fabaceae",
+      "Malvaceae",
+      "Oleaceae",
+      "Poaceae",
+      "Rutaceae"
+    ],
+    "core": [
+      "Asteraceae",
+      "Fabaceae",
+      "Malvaceae",
+      "Oleaceae",
+      "Poaceae",
+      "Rutaceae"
+    ],
+    "auxiliary": [
+      "Asteraceae",
+      "Fabaceae",
+      "Malvaceae",
+      "Oleaceae",
+      "Poaceae",
+      "Rutaceae"
+    ],
+    "merged": [
+      "Asteraceae",
+      "Fabaceae",
+      "Malvaceae",
+      "Oleaceae",
+      "Poaceae",
+      "Rutaceae"
+    ],
+    "review": [],
+    "standalone_ml": [
+      "Asteraceae",
+      "Fabaceae",
+      "Malvaceae",
+      "Oleaceae",
+      "Poaceae",
+      "Rutaceae"
+    ]
+  },
+  {
+    "sample": "10x24x07x19x02x25",
+    "project": "mix_10x24x07x19x02x25",
+    "historical30": false,
+    "baseline_c": [
+      "Amaranthaceae",
+      "Apiaceae",
+      "Asteraceae",
+      "Brassicaceae",
+      "Capparaceae",
+      "Cucurbitaceae"
+    ],
+    "stable_c": [
+      "Amaranthaceae",
+      "Apiaceae",
+      "Asteraceae",
+      "Brassicaceae",
+      "Capparaceae",
+      "Cucurbitaceae"
+    ],
+    "core": [
+      "Amaranthaceae",
+      "Apiaceae",
+      "Asteraceae",
+      "Brassicaceae",
+      "Capparaceae",
+      "Cucurbitaceae"
+    ],
+    "auxiliary": [
+      "Amaranthaceae",
+      "Apiaceae",
+      "Asteraceae",
+      "Brassicaceae",
+      "Capparaceae",
+      "Cucurbitaceae"
+    ],
+    "merged": [
+      "Amaranthaceae",
+      "Apiaceae",
+      "Asteraceae",
+      "Brassicaceae",
+      "Capparaceae",
+      "Cucurbitaceae"
+    ],
+    "review": [],
+    "standalone_ml": [
+      "Amaranthaceae",
+      "Apiaceae",
+      "Asteraceae",
+      "Brassicaceae",
+      "Capparaceae",
+      "Cucurbitaceae"
+    ]
+  },
+  {
+    "sample": "10x26x09x24x13x02",
+    "project": "mix_10x26x09x24x13x02",
+    "historical30": true,
+    "baseline_c": [
+      "Amaranthaceae",
+      "Asteraceae",
+      "Brassicaceae",
+      "Oleaceae",
+      "Rutaceae"
+    ],
+    "stable_c": [
+      "Amaranthaceae",
+      "Asteraceae",
+      "Brassicaceae",
+      "Oleaceae",
+      "Rutaceae"
+    ],
+    "core": [
+      "Amaranthaceae",
+      "Asteraceae",
+      "Brassicaceae",
+      "Oleaceae",
+      "Rutaceae"
+    ],
+    "auxiliary": [
+      "Amaranthaceae",
+      "Asteraceae",
+      "Brassicaceae",
+      "Oleaceae",
+      "Rutaceae"
+    ],
+    "merged": [
+      "Amaranthaceae",
+      "Asteraceae",
+      "Brassicaceae",
+      "Oleaceae",
+      "Rutaceae"
+    ],
+    "review": [
+      "Simaroubaceae"
+    ],
+    "standalone_ml": [
+      "Amaranthaceae",
+      "Asteraceae",
+      "Brassicaceae",
+      "Oleaceae",
+      "Rutaceae"
+    ]
+  },
+  {
+    "sample": "12x01x07x04x03x02x13x18x09x19",
+    "project": "mix_12x01x07x04x03x02x13x18x09x19",
+    "historical30": false,
+    "baseline_c": [
+      "Amaranthaceae",
+      "Apiaceae",
+      "Araliaceae",
+      "Asteraceae",
+      "Cabombaceae",
+      "Cactaceae",
+      "Caryophyllaceae",
+      "Cucurbitaceae",
+      "Lamiaceae",
+      "Oleaceae",
+      "Paulowniaceae"
+    ],
+    "stable_c": [
+      "Amaranthaceae",
+      "Apiaceae",
+      "Asteraceae",
+      "Cabombaceae",
+      "Cactaceae",
+      "Caryophyllaceae",
+      "Cucurbitaceae",
+      "Lamiaceae",
+      "Oleaceae",
+      "Paulowniaceae"
+    ],
+    "core": [
+      "Amaranthaceae",
+      "Apiaceae",
+      "Asteraceae",
+      "Cabombaceae",
+      "Cactaceae",
+      "Caryophyllaceae",
+      "Cucurbitaceae",
+      "Lamiaceae",
+      "Oleaceae"
+    ],
+    "auxiliary": [
+      "Amaranthaceae",
+      "Apiaceae",
+      "Asteraceae",
+      "Cabombaceae",
+      "Cactaceae",
+      "Caryophyllaceae",
+      "Cucurbitaceae",
+      "Lamiaceae",
+      "Oleaceae"
+    ],
+    "merged": [
+      "Amaranthaceae",
+      "Apiaceae",
+      "Asteraceae",
+      "Cabombaceae",
+      "Cactaceae",
+      "Caryophyllaceae",
+      "Cucurbitaceae",
+      "Lamiaceae",
+      "Oleaceae"
+    ],
+    "review": [
+      "Araliaceae",
+      "Nymphaeaceae",
+      "Paulowniaceae",
+      "Talinaceae"
+    ],
+    "standalone_ml": [
+      "Amaranthaceae",
+      "Apiaceae",
+      "Asteraceae",
+      "Cabombaceae",
+      "Cactaceae",
+      "Caryophyllaceae",
+      "Cucurbitaceae",
+      "Lamiaceae",
+      "Nymphaeaceae",
+      "Oleaceae",
+      "Talinaceae"
+    ]
+  },
+  {
+    "sample": "12x01x15",
+    "project": "mix_12x01x15",
+    "historical30": false,
+    "baseline_c": [
+      "Cabombaceae",
+      "Lamiaceae",
+      "Solanaceae"
+    ],
+    "stable_c": [
+      "Cabombaceae",
+      "Lamiaceae",
+      "Solanaceae"
+    ],
+    "core": [
+      "Cabombaceae",
+      "Lamiaceae",
+      "Solanaceae"
+    ],
+    "auxiliary": [
+      "Cabombaceae",
+      "Lamiaceae",
+      "Solanaceae"
+    ],
+    "merged": [
+      "Cabombaceae",
+      "Lamiaceae",
+      "Solanaceae"
+    ],
+    "review": [
+      "Nymphaeaceae"
+    ],
+    "standalone_ml": [
+      "Cabombaceae",
+      "Lamiaceae",
+      "Nymphaeaceae",
+      "Solanaceae"
+    ]
+  },
+  {
+    "sample": "12x07x10",
+    "project": "mix_12x07x10",
+    "historical30": false,
+    "baseline_c": [
+      "Apiaceae",
+      "Asteraceae",
+      "Lamiaceae"
+    ],
+    "stable_c": [
+      "Apiaceae",
+      "Asteraceae",
+      "Lamiaceae"
+    ],
+    "core": [
+      "Apiaceae",
+      "Asteraceae",
+      "Lamiaceae"
+    ],
+    "auxiliary": [
+      "Apiaceae",
+      "Asteraceae",
+      "Lamiaceae"
+    ],
+    "merged": [
+      "Apiaceae",
+      "Asteraceae",
+      "Lamiaceae"
+    ],
+    "review": [],
+    "standalone_ml": [
+      "Apiaceae",
+      "Asteraceae",
+      "Lamiaceae"
+    ]
+  },
+  {
+    "sample": "12x09x19x18x26x25x13x08x04x10",
+    "project": "mix_12x09x19x18x26x25x13x08x04x10",
+    "historical30": true,
+    "baseline_c": [
+      "Araliaceae",
+      "Asteraceae",
+      "Capparaceae",
+      "Caryophyllaceae",
+      "Cucurbitaceae",
+      "Lamiaceae",
+      "Oleaceae",
+      "Paulowniaceae",
+      "Rutaceae"
+    ],
+    "stable_c": [
+      "Araliaceae",
+      "Asteraceae",
+      "Capparaceae",
+      "Caryophyllaceae",
+      "Cucurbitaceae",
+      "Lamiaceae",
+      "Oleaceae",
+      "Paulowniaceae",
+      "Rutaceae"
+    ],
+    "core": [
+      "Araliaceae",
+      "Asteraceae",
+      "Capparaceae",
+      "Caryophyllaceae",
+      "Cucurbitaceae",
+      "Lamiaceae",
+      "Oleaceae",
+      "Rutaceae"
+    ],
+    "auxiliary": [
+      "Araliaceae",
+      "Asteraceae",
+      "Capparaceae",
+      "Caryophyllaceae",
+      "Cucurbitaceae",
+      "Lamiaceae",
+      "Oleaceae",
+      "Rutaceae"
+    ],
+    "merged": [
+      "Araliaceae",
+      "Asteraceae",
+      "Capparaceae",
+      "Caryophyllaceae",
+      "Cucurbitaceae",
+      "Lamiaceae",
+      "Oleaceae",
+      "Rutaceae"
+    ],
+    "review": [
+      "Paulowniaceae"
+    ],
+    "standalone_ml": [
+      "Araliaceae",
+      "Asteraceae",
+      "Capparaceae",
+      "Caryophyllaceae",
+      "Cucurbitaceae",
+      "Lamiaceae",
+      "Oleaceae",
+      "Rutaceae"
+    ]
+  },
+  {
+    "sample": "12x13x01x18x22x07",
+    "project": "mix_12x13x01x18x22x07",
+    "historical30": false,
+    "baseline_c": [
+      "Apiaceae",
+      "Araliaceae",
+      "Bignoniaceae",
+      "Cabombaceae",
+      "Cucurbitaceae",
+      "Lamiaceae",
+      "Malvaceae",
+      "Mazaceae",
+      "Oleaceae",
+      "Paulowniaceae"
+    ],
+    "stable_c": [
+      "Apiaceae",
+      "Araliaceae",
+      "Cabombaceae",
+      "Cucurbitaceae",
+      "Lamiaceae",
+      "Malvaceae",
+      "Oleaceae",
+      "Paulowniaceae"
+    ],
+    "core": [
+      "Apiaceae",
+      "Cabombaceae",
+      "Cucurbitaceae",
+      "Lamiaceae",
+      "Malvaceae",
+      "Oleaceae"
+    ],
+    "auxiliary": [
+      "Apiaceae",
+      "Cabombaceae",
+      "Cucurbitaceae",
+      "Lamiaceae",
+      "Malvaceae",
+      "Oleaceae"
+    ],
+    "merged": [
+      "Apiaceae",
+      "Cabombaceae",
+      "Cucurbitaceae",
+      "Lamiaceae",
+      "Malvaceae",
+      "Oleaceae"
+    ],
+    "review": [
+      "Araliaceae",
+      "Bignoniaceae",
+      "Mazaceae",
+      "Nymphaeaceae",
+      "Paulowniaceae"
+    ],
+    "standalone_ml": [
+      "Apiaceae",
+      "Cabombaceae",
+      "Cucurbitaceae",
+      "Lamiaceae",
+      "Malvaceae",
+      "Nymphaeaceae",
+      "Oleaceae"
+    ]
+  },
+  {
+    "sample": "12x18x03",
+    "project": "mix_12x18x03",
+    "historical30": false,
+    "baseline_c": [
+      "Cactaceae",
+      "Cucurbitaceae",
+      "Lamiaceae",
+      "Paulowniaceae"
+    ],
+    "stable_c": [
+      "Cactaceae",
+      "Cucurbitaceae",
+      "Lamiaceae",
+      "Paulowniaceae"
+    ],
+    "core": [
+      "Cactaceae",
+      "Cucurbitaceae",
+      "Lamiaceae",
+      "Paulowniaceae"
+    ],
+    "auxiliary": [
+      "Cactaceae",
+      "Cucurbitaceae",
+      "Lamiaceae"
+    ],
+    "merged": [
+      "Cactaceae",
+      "Cucurbitaceae",
+      "Lamiaceae",
+      "Paulowniaceae"
+    ],
+    "review": [],
+    "standalone_ml": [
+      "Cactaceae",
+      "Cucurbitaceae",
+      "Lamiaceae"
+    ]
+  },
+  {
+    "sample": "12x22x15x26x03x01",
+    "project": "mix_12x22x15x26x03x01",
+    "historical30": true,
+    "baseline_c": [
+      "Cabombaceae",
+      "Cactaceae",
+      "Lamiaceae",
+      "Malvaceae",
+      "Rutaceae",
+      "Solanaceae"
+    ],
+    "stable_c": [
+      "Cabombaceae",
+      "Cactaceae",
+      "Lamiaceae",
+      "Malvaceae",
+      "Rutaceae",
+      "Solanaceae"
+    ],
+    "core": [
+      "Cabombaceae",
+      "Cactaceae",
+      "Lamiaceae",
+      "Malvaceae",
+      "Rutaceae",
+      "Solanaceae"
+    ],
+    "auxiliary": [
+      "Cabombaceae",
+      "Cactaceae",
+      "Lamiaceae",
+      "Malvaceae",
+      "Rutaceae",
+      "Solanaceae"
+    ],
+    "merged": [
+      "Cabombaceae",
+      "Cactaceae",
+      "Lamiaceae",
+      "Malvaceae",
+      "Rutaceae",
+      "Solanaceae"
+    ],
+    "review": [
+      "Nymphaeaceae"
+    ],
+    "standalone_ml": [
+      "Cabombaceae",
+      "Cactaceae",
+      "Lamiaceae",
+      "Malvaceae",
+      "Nymphaeaceae",
+      "Rutaceae",
+      "Solanaceae"
+    ]
+  },
+  {
+    "sample": "12x25x02",
+    "project": "mix_12x25x02",
+    "historical30": false,
+    "baseline_c": [
+      "Amaranthaceae",
+      "Capparaceae",
+      "Lamiaceae",
+      "Pedaliaceae"
+    ],
+    "stable_c": [
+      "Amaranthaceae",
+      "Capparaceae",
+      "Lamiaceae"
+    ],
+    "core": [
+      "Amaranthaceae",
+      "Capparaceae",
+      "Lamiaceae"
+    ],
+    "auxiliary": [
+      "Amaranthaceae",
+      "Capparaceae",
+      "Lamiaceae"
+    ],
+    "merged": [
+      "Amaranthaceae",
+      "Capparaceae",
+      "Lamiaceae"
+    ],
+    "review": [
+      "Didiereaceae",
+      "Pedaliaceae"
+    ],
+    "standalone_ml": [
+      "Amaranthaceae",
+      "Capparaceae",
+      "Lamiaceae"
+    ]
+  },
+  {
+    "sample": "12x25x04",
+    "project": "mix_12x25x04",
+    "historical30": false,
+    "baseline_c": [
+      "Capparaceae",
+      "Caryophyllaceae",
+      "Lamiaceae",
+      "Molluginaceae"
+    ],
+    "stable_c": [
+      "Capparaceae",
+      "Caryophyllaceae",
+      "Lamiaceae"
+    ],
+    "core": [
+      "Capparaceae",
+      "Caryophyllaceae",
+      "Lamiaceae"
+    ],
+    "auxiliary": [
+      "Capparaceae",
+      "Caryophyllaceae",
+      "Lamiaceae"
+    ],
+    "merged": [
+      "Capparaceae",
+      "Caryophyllaceae",
+      "Lamiaceae"
+    ],
+    "review": [
+      "Molluginaceae"
+    ],
+    "standalone_ml": [
+      "Capparaceae",
+      "Caryophyllaceae",
+      "Lamiaceae"
+    ]
+  },
+  {
+    "sample": "12x25x22x02x26x10",
+    "project": "mix_12x25x22x02x26x10",
+    "historical30": false,
+    "baseline_c": [
+      "Amaranthaceae",
+      "Asteraceae",
+      "Capparaceae",
+      "Lamiaceae",
+      "Malvaceae",
+      "Rutaceae"
+    ],
+    "stable_c": [
+      "Amaranthaceae",
+      "Asteraceae",
+      "Capparaceae",
+      "Lamiaceae",
+      "Malvaceae",
+      "Rutaceae"
+    ],
+    "core": [
+      "Amaranthaceae",
+      "Asteraceae",
+      "Capparaceae",
+      "Lamiaceae",
+      "Malvaceae",
+      "Rutaceae"
+    ],
+    "auxiliary": [
+      "Amaranthaceae",
+      "Asteraceae",
+      "Capparaceae",
+      "Lamiaceae",
+      "Malvaceae",
+      "Rutaceae"
+    ],
+    "merged": [
+      "Amaranthaceae",
+      "Asteraceae",
+      "Capparaceae",
+      "Lamiaceae",
+      "Malvaceae",
+      "Rutaceae"
+    ],
+    "review": [
+      "Mazaceae"
+    ],
+    "standalone_ml": [
+      "Amaranthaceae",
+      "Asteraceae",
+      "Capparaceae",
+      "Lamiaceae",
+      "Malvaceae",
+      "Rutaceae"
+    ]
+  },
+  {
+    "sample": "13x07x10",
+    "project": "mix_13x07x10",
+    "historical30": false,
+    "baseline_c": [
+      "Apiaceae",
+      "Asteraceae",
+      "Oleaceae",
+      "Pittosporaceae"
+    ],
+    "stable_c": [
+      "Apiaceae",
+      "Asteraceae",
+      "Oleaceae"
+    ],
+    "core": [
+      "Apiaceae",
+      "Asteraceae",
+      "Oleaceae"
+    ],
+    "auxiliary": [
+      "Apiaceae",
+      "Asteraceae",
+      "Oleaceae"
+    ],
+    "merged": [
+      "Apiaceae",
+      "Asteraceae",
+      "Oleaceae"
+    ],
+    "review": [
+      "Pittosporaceae"
+    ],
+    "standalone_ml": [
+      "Apiaceae",
+      "Asteraceae",
+      "Oleaceae"
+    ]
+  },
+  {
+    "sample": "13x10x01",
+    "project": "mix_13x10x01",
+    "historical30": true,
+    "baseline_c": [
+      "Asteraceae",
+      "Cabombaceae",
+      "Oleaceae"
+    ],
+    "stable_c": [
+      "Asteraceae",
+      "Cabombaceae",
+      "Oleaceae"
+    ],
+    "core": [
+      "Asteraceae",
+      "Cabombaceae",
+      "Oleaceae"
+    ],
+    "auxiliary": [
+      "Asteraceae",
+      "Cabombaceae",
+      "Oleaceae"
+    ],
+    "merged": [
+      "Asteraceae",
+      "Cabombaceae",
+      "Oleaceae"
+    ],
+    "review": [
+      "Nymphaeaceae"
+    ],
+    "standalone_ml": [
+      "Asteraceae",
+      "Cabombaceae",
+      "Nymphaeaceae",
+      "Oleaceae"
+    ]
+  },
+  {
+    "sample": "13x24x08",
+    "project": "mix_13x24x08",
+    "historical30": false,
+    "baseline_c": [
+      "Araliaceae",
+      "Brassicaceae",
+      "Oleaceae"
+    ],
+    "stable_c": [
+      "Araliaceae",
+      "Brassicaceae",
+      "Oleaceae"
+    ],
+    "core": [
+      "Araliaceae",
+      "Brassicaceae",
+      "Oleaceae"
+    ],
+    "auxiliary": [
+      "Araliaceae",
+      "Brassicaceae",
+      "Oleaceae"
+    ],
+    "merged": [
+      "Araliaceae",
+      "Brassicaceae",
+      "Oleaceae"
+    ],
+    "review": [
+      "Apiaceae",
+      "Pittosporaceae"
+    ],
+    "standalone_ml": [
+      "Araliaceae",
+      "Brassicaceae",
+      "Oleaceae"
+    ]
+  },
+  {
+    "sample": "13x26x15x09x28x08x10x18x16x24",
+    "project": "mix_13x26x15x09x28x08x10x18x16x24",
+    "historical30": false,
+    "baseline_c": [
+      "Araliaceae",
+      "Asteraceae",
+      "Brassicaceae",
+      "Cucurbitaceae",
+      "Fabaceae",
+      "Oleaceae",
+      "Pittosporaceae",
+      "Poaceae",
+      "Rutaceae",
+      "Solanaceae"
+    ],
+    "stable_c": [
+      "Araliaceae",
+      "Asteraceae",
+      "Brassicaceae",
+      "Cucurbitaceae",
+      "Fabaceae",
+      "Oleaceae",
+      "Poaceae",
+      "Rutaceae",
+      "Solanaceae"
+    ],
+    "core": [
+      "Araliaceae",
+      "Asteraceae",
+      "Brassicaceae",
+      "Cucurbitaceae",
+      "Fabaceae",
+      "Oleaceae",
+      "Poaceae",
+      "Rutaceae",
+      "Solanaceae"
+    ],
+    "auxiliary": [
+      "Araliaceae",
+      "Asteraceae",
+      "Brassicaceae",
+      "Cucurbitaceae",
+      "Fabaceae",
+      "Oleaceae",
+      "Poaceae",
+      "Rutaceae",
+      "Solanaceae"
+    ],
+    "merged": [
+      "Araliaceae",
+      "Asteraceae",
+      "Brassicaceae",
+      "Cucurbitaceae",
+      "Fabaceae",
+      "Oleaceae",
+      "Poaceae",
+      "Rutaceae",
+      "Solanaceae"
+    ],
+    "review": [
+      "Pittosporaceae"
+    ],
+    "standalone_ml": [
+      "Araliaceae",
+      "Asteraceae",
+      "Brassicaceae",
+      "Cucurbitaceae",
+      "Fabaceae",
+      "Oleaceae",
+      "Poaceae",
+      "Rutaceae",
+      "Solanaceae"
+    ]
+  },
+  {
+    "sample": "13x28x15",
+    "project": "mix_13x28x15",
+    "historical30": false,
+    "baseline_c": [
+      "Oleaceae",
+      "Poaceae",
+      "Solanaceae"
+    ],
+    "stable_c": [
+      "Oleaceae",
+      "Poaceae",
+      "Solanaceae"
+    ],
+    "core": [
+      "Oleaceae",
+      "Poaceae",
+      "Solanaceae"
+    ],
+    "auxiliary": [
+      "Oleaceae",
+      "Poaceae",
+      "Solanaceae"
+    ],
+    "merged": [
+      "Oleaceae",
+      "Poaceae",
+      "Solanaceae"
+    ],
+    "review": [],
+    "standalone_ml": [
+      "Oleaceae",
+      "Poaceae",
+      "Solanaceae"
+    ]
+  },
+  {
+    "sample": "15x08x28",
+    "project": "mix_15x08x28",
+    "historical30": false,
+    "baseline_c": [
+      "Araliaceae",
+      "Pittosporaceae",
+      "Poaceae",
+      "Solanaceae"
+    ],
+    "stable_c": [
+      "Araliaceae",
+      "Poaceae",
+      "Solanaceae"
+    ],
+    "core": [
+      "Araliaceae",
+      "Poaceae",
+      "Solanaceae"
+    ],
+    "auxiliary": [
+      "Araliaceae",
+      "Poaceae",
+      "Solanaceae"
+    ],
+    "merged": [
+      "Araliaceae",
+      "Poaceae",
+      "Solanaceae"
+    ],
+    "review": [
+      "Apiaceae",
+      "Pittosporaceae"
+    ],
+    "standalone_ml": [
+      "Araliaceae",
+      "Poaceae",
+      "Solanaceae"
+    ]
+  },
+  {
+    "sample": "15x10x28",
+    "project": "mix_15x10x28",
+    "historical30": true,
+    "baseline_c": [
+      "Asteraceae",
+      "Poaceae",
+      "Solanaceae"
+    ],
+    "stable_c": [
+      "Asteraceae",
+      "Poaceae",
+      "Solanaceae"
+    ],
+    "core": [
+      "Asteraceae",
+      "Poaceae",
+      "Solanaceae"
+    ],
+    "auxiliary": [
+      "Asteraceae",
+      "Poaceae",
+      "Solanaceae"
+    ],
+    "merged": [
+      "Asteraceae",
+      "Poaceae",
+      "Solanaceae"
+    ],
+    "review": [],
+    "standalone_ml": [
+      "Asteraceae",
+      "Poaceae",
+      "Solanaceae"
+    ]
+  },
+  {
+    "sample": "15x13x28",
+    "project": "mix_15x13x28",
+    "historical30": false,
+    "baseline_c": [
+      "Oleaceae",
+      "Poaceae",
+      "Solanaceae"
+    ],
+    "stable_c": [
+      "Oleaceae",
+      "Poaceae",
+      "Solanaceae"
+    ],
+    "core": [
+      "Oleaceae",
+      "Poaceae",
+      "Solanaceae"
+    ],
+    "auxiliary": [
+      "Oleaceae",
+      "Poaceae",
+      "Solanaceae"
+    ],
+    "merged": [
+      "Oleaceae",
+      "Poaceae",
+      "Solanaceae"
+    ],
+    "review": [],
+    "standalone_ml": [
+      "Oleaceae",
+      "Poaceae",
+      "Solanaceae"
+    ]
+  },
+  {
+    "sample": "15x22x12",
+    "project": "mix_15x22x12",
+    "historical30": true,
+    "baseline_c": [
+      "Lamiaceae",
+      "Malvaceae",
+      "Solanaceae"
+    ],
+    "stable_c": [
+      "Lamiaceae",
+      "Malvaceae",
+      "Solanaceae"
+    ],
+    "core": [
+      "Lamiaceae",
+      "Malvaceae",
+      "Solanaceae"
+    ],
+    "auxiliary": [
+      "Lamiaceae",
+      "Malvaceae",
+      "Solanaceae"
+    ],
+    "merged": [
+      "Lamiaceae",
+      "Malvaceae",
+      "Solanaceae"
+    ],
+    "review": [],
+    "standalone_ml": [
+      "Lamiaceae",
+      "Malvaceae",
+      "Solanaceae"
+    ]
+  },
+  {
+    "sample": "16x13x01",
+    "project": "mix_16x13x01",
+    "historical30": false,
+    "baseline_c": [
+      "Cabombaceae",
+      "Fabaceae",
+      "Oleaceae"
+    ],
+    "stable_c": [
+      "Cabombaceae",
+      "Fabaceae",
+      "Oleaceae"
+    ],
+    "core": [
+      "Cabombaceae",
+      "Fabaceae",
+      "Oleaceae"
+    ],
+    "auxiliary": [
+      "Cabombaceae",
+      "Fabaceae",
+      "Oleaceae"
+    ],
+    "merged": [
+      "Cabombaceae",
+      "Fabaceae",
+      "Oleaceae"
+    ],
+    "review": [
+      "Asparagaceae",
+      "Betulaceae",
+      "Casuarinaceae",
+      "Convolvulaceae",
+      "Cunoniaceae",
+      "Elaeocarpaceae",
+      "Fagaceae",
+      "Juglandaceae",
+      "Lardizabalaceae",
+      "Meliaceae",
+      "Myricaceae",
+      "Nymphaeaceae",
+      "Orchidaceae",
+      "Papaveraceae",
+      "Rutaceae",
+      "Sapindaceae",
+      "Simaroubaceae",
+      "Tecophilaeaceae"
+    ],
+    "standalone_ml": [
+      "Cabombaceae",
+      "Fabaceae",
+      "Nymphaeaceae",
+      "Oleaceae"
+    ]
+  },
+  {
+    "sample": "16x25x10x24x12x08x30x09x03x15",
+    "project": "mix_16x25x10x24x12x08x30x09x03x15",
+    "historical30": false,
+    "baseline_c": [
+      "Araliaceae",
+      "Asteraceae",
+      "Brassicaceae",
+      "Cactaceae",
+      "Capparaceae",
+      "Fabaceae",
+      "Lamiaceae",
+      "Mazaceae",
+      "Poaceae",
+      "Solanaceae"
+    ],
+    "stable_c": [
+      "Araliaceae",
+      "Asteraceae",
+      "Brassicaceae",
+      "Cactaceae",
+      "Capparaceae",
+      "Fabaceae",
+      "Lamiaceae",
+      "Poaceae",
+      "Solanaceae"
+    ],
+    "core": [
+      "Araliaceae",
+      "Asteraceae",
+      "Brassicaceae",
+      "Cactaceae",
+      "Capparaceae",
+      "Fabaceae",
+      "Lamiaceae",
+      "Poaceae",
+      "Solanaceae"
+    ],
+    "auxiliary": [
+      "Araliaceae",
+      "Asteraceae",
+      "Brassicaceae",
+      "Cactaceae",
+      "Capparaceae",
+      "Fabaceae",
+      "Lamiaceae",
+      "Poaceae",
+      "Solanaceae"
+    ],
+    "merged": [
+      "Araliaceae",
+      "Asteraceae",
+      "Brassicaceae",
+      "Cactaceae",
+      "Capparaceae",
+      "Fabaceae",
+      "Lamiaceae",
+      "Poaceae",
+      "Solanaceae"
+    ],
+    "review": [
+      "Mazaceae"
+    ],
+    "standalone_ml": [
+      "Araliaceae",
+      "Asteraceae",
+      "Brassicaceae",
+      "Cactaceae",
+      "Capparaceae",
+      "Fabaceae",
+      "Lamiaceae",
+      "Poaceae",
+      "Solanaceae"
+    ]
+  },
+  {
+    "sample": "16x28x08",
+    "project": "mix_16x28x08",
+    "historical30": false,
+    "baseline_c": [
+      "Apiaceae",
+      "Araliaceae",
+      "Fabaceae",
+      "Pittosporaceae",
+      "Poaceae"
+    ],
+    "stable_c": [
+      "Araliaceae",
+      "Fabaceae",
+      "Pittosporaceae"
+    ],
+    "core": [
+      "Araliaceae",
+      "Fabaceae",
+      "Pittosporaceae",
+      "Poaceae"
+    ],
+    "auxiliary": [
+      "Araliaceae",
+      "Fabaceae"
+    ],
+    "merged": [
+      "Araliaceae",
+      "Fabaceae",
+      "Pittosporaceae",
+      "Poaceae"
+    ],
+    "review": [
+      "Apiaceae"
+    ],
+    "standalone_ml": [
+      "Araliaceae",
+      "Fabaceae",
+      "Poaceae"
+    ]
+  },
+  {
+    "sample": "18x07x13",
+    "project": "mix_18x07x13",
+    "historical30": true,
+    "baseline_c": [
+      "Apiaceae",
+      "Cucurbitaceae",
+      "Oleaceae"
+    ],
+    "stable_c": [
+      "Apiaceae",
+      "Cucurbitaceae",
+      "Oleaceae"
+    ],
+    "core": [
+      "Apiaceae",
+      "Cucurbitaceae",
+      "Oleaceae"
+    ],
+    "auxiliary": [
+      "Apiaceae",
+      "Cucurbitaceae",
+      "Oleaceae"
+    ],
+    "merged": [
+      "Apiaceae",
+      "Cucurbitaceae",
+      "Oleaceae"
+    ],
+    "review": [],
+    "standalone_ml": [
+      "Apiaceae",
+      "Cucurbitaceae",
+      "Oleaceae"
+    ]
+  },
+  {
+    "sample": "18x09x28",
+    "project": "mix_18x09x28",
+    "historical30": false,
+    "baseline_c": [
+      "Asteraceae",
+      "Cucurbitaceae",
+      "Poaceae"
+    ],
+    "stable_c": [
+      "Asteraceae",
+      "Cucurbitaceae",
+      "Poaceae"
+    ],
+    "core": [
+      "Asteraceae",
+      "Cucurbitaceae",
+      "Poaceae"
+    ],
+    "auxiliary": [
+      "Asteraceae",
+      "Cucurbitaceae",
+      "Poaceae"
+    ],
+    "merged": [
+      "Asteraceae",
+      "Cucurbitaceae",
+      "Poaceae"
+    ],
+    "review": [],
+    "standalone_ml": [
+      "Asteraceae",
+      "Cucurbitaceae",
+      "Poaceae"
+    ]
+  },
+  {
+    "sample": "18x10x22",
+    "project": "mix_18x10x22",
+    "historical30": true,
+    "baseline_c": [
+      "Asteraceae",
+      "Cucurbitaceae",
+      "Malvaceae"
+    ],
+    "stable_c": [
+      "Asteraceae",
+      "Cucurbitaceae",
+      "Malvaceae"
+    ],
+    "core": [
+      "Asteraceae",
+      "Cucurbitaceae",
+      "Malvaceae"
+    ],
+    "auxiliary": [
+      "Asteraceae",
+      "Cucurbitaceae",
+      "Malvaceae"
+    ],
+    "merged": [
+      "Asteraceae",
+      "Cucurbitaceae",
+      "Malvaceae"
+    ],
+    "review": [],
+    "standalone_ml": [
+      "Asteraceae",
+      "Cucurbitaceae",
+      "Malvaceae"
+    ]
+  },
+  {
+    "sample": "18x19x28x30x07x12",
+    "project": "mix_18x19x28x30x07x12",
+    "historical30": true,
+    "baseline_c": [
+      "Apiaceae",
+      "Cucurbitaceae",
+      "Lamiaceae",
+      "Poaceae"
+    ],
+    "stable_c": [
+      "Apiaceae",
+      "Cucurbitaceae",
+      "Lamiaceae",
+      "Poaceae"
+    ],
+    "core": [
+      "Apiaceae",
+      "Cucurbitaceae",
+      "Lamiaceae",
+      "Poaceae"
+    ],
+    "auxiliary": [
+      "Apiaceae",
+      "Cucurbitaceae",
+      "Lamiaceae",
+      "Poaceae"
+    ],
+    "merged": [
+      "Apiaceae",
+      "Cucurbitaceae",
+      "Lamiaceae",
+      "Poaceae"
+    ],
+    "review": [],
+    "standalone_ml": [
+      "Apiaceae",
+      "Cucurbitaceae",
+      "Lamiaceae",
+      "Poaceae"
+    ]
+  },
+  {
+    "sample": "18x25x12",
+    "project": "mix_18x25x12",
+    "historical30": false,
+    "baseline_c": [
+      "Capparaceae",
+      "Cucurbitaceae",
+      "Lamiaceae"
+    ],
+    "stable_c": [
+      "Capparaceae",
+      "Cucurbitaceae",
+      "Lamiaceae"
+    ],
+    "core": [
+      "Capparaceae",
+      "Cucurbitaceae",
+      "Lamiaceae"
+    ],
+    "auxiliary": [
+      "Capparaceae",
+      "Cucurbitaceae",
+      "Lamiaceae"
+    ],
+    "merged": [
+      "Capparaceae",
+      "Cucurbitaceae",
+      "Lamiaceae"
+    ],
+    "review": [],
+    "standalone_ml": [
+      "Capparaceae",
+      "Cucurbitaceae",
+      "Lamiaceae"
+    ]
+  },
+  {
+    "sample": "19x07x08x16x03x10",
+    "project": "mix_19x07x08x16x03x10",
+    "historical30": false,
+    "baseline_c": [
+      "Apiaceae",
+      "Araliaceae",
+      "Asteraceae",
+      "Cactaceae",
+      "Cucurbitaceae",
+      "Fabaceae",
+      "Pittosporaceae"
+    ],
+    "stable_c": [
+      "Apiaceae",
+      "Araliaceae",
+      "Asteraceae",
+      "Cactaceae",
+      "Cucurbitaceae",
+      "Fabaceae",
+      "Pittosporaceae"
+    ],
+    "core": [
+      "Apiaceae",
+      "Araliaceae",
+      "Asteraceae",
+      "Cactaceae",
+      "Cucurbitaceae",
+      "Fabaceae",
+      "Pittosporaceae"
+    ],
+    "auxiliary": [
+      "Apiaceae",
+      "Araliaceae",
+      "Asteraceae",
+      "Cactaceae",
+      "Cucurbitaceae",
+      "Fabaceae"
+    ],
+    "merged": [
+      "Apiaceae",
+      "Araliaceae",
+      "Asteraceae",
+      "Cactaceae",
+      "Cucurbitaceae",
+      "Fabaceae",
+      "Pittosporaceae"
+    ],
+    "review": [],
+    "standalone_ml": [
+      "Apiaceae",
+      "Araliaceae",
+      "Asteraceae",
+      "Cactaceae",
+      "Cucurbitaceae",
+      "Fabaceae"
+    ]
+  },
+  {
+    "sample": "19x22x10",
+    "project": "mix_19x22x10",
+    "historical30": false,
+    "baseline_c": [
+      "Asteraceae",
+      "Cucurbitaceae",
+      "Malvaceae"
+    ],
+    "stable_c": [
+      "Asteraceae",
+      "Cucurbitaceae",
+      "Malvaceae"
+    ],
+    "core": [
+      "Asteraceae",
+      "Cucurbitaceae",
+      "Malvaceae"
+    ],
+    "auxiliary": [
+      "Asteraceae",
+      "Cucurbitaceae",
+      "Malvaceae"
+    ],
+    "merged": [
+      "Asteraceae",
+      "Cucurbitaceae",
+      "Malvaceae"
+    ],
+    "review": [],
+    "standalone_ml": [
+      "Asteraceae",
+      "Cucurbitaceae",
+      "Malvaceae"
+    ]
+  },
+  {
+    "sample": "19x25x04x26x02x01",
+    "project": "mix_19x25x04x26x02x01",
+    "historical30": true,
+    "baseline_c": [
+      "Amaranthaceae",
+      "Cabombaceae",
+      "Capparaceae",
+      "Caryophyllaceae",
+      "Cucurbitaceae",
+      "Rutaceae"
+    ],
+    "stable_c": [
+      "Amaranthaceae",
+      "Cabombaceae",
+      "Capparaceae",
+      "Caryophyllaceae",
+      "Cucurbitaceae",
+      "Rutaceae"
+    ],
+    "core": [
+      "Amaranthaceae",
+      "Cabombaceae",
+      "Capparaceae",
+      "Caryophyllaceae",
+      "Cucurbitaceae",
+      "Rutaceae"
+    ],
+    "auxiliary": [
+      "Amaranthaceae",
+      "Cabombaceae",
+      "Capparaceae",
+      "Caryophyllaceae",
+      "Cucurbitaceae",
+      "Rutaceae"
+    ],
+    "merged": [
+      "Amaranthaceae",
+      "Cabombaceae",
+      "Capparaceae",
+      "Caryophyllaceae",
+      "Cucurbitaceae",
+      "Rutaceae"
+    ],
+    "review": [
+      "Nymphaeaceae"
+    ],
+    "standalone_ml": [
+      "Amaranthaceae",
+      "Cabombaceae",
+      "Capparaceae",
+      "Caryophyllaceae",
+      "Cucurbitaceae",
+      "Nymphaeaceae",
+      "Rutaceae"
+    ]
+  },
+  {
+    "sample": "19x28x04",
+    "project": "mix_19x28x04",
+    "historical30": false,
+    "baseline_c": [
+      "Caryophyllaceae",
+      "Cucurbitaceae",
+      "Poaceae"
+    ],
+    "stable_c": [
+      "Caryophyllaceae",
+      "Cucurbitaceae",
+      "Poaceae"
+    ],
+    "core": [
+      "Caryophyllaceae",
+      "Cucurbitaceae",
+      "Poaceae"
+    ],
+    "auxiliary": [
+      "Caryophyllaceae",
+      "Cucurbitaceae",
+      "Poaceae"
+    ],
+    "merged": [
+      "Caryophyllaceae",
+      "Cucurbitaceae",
+      "Poaceae"
+    ],
+    "review": [],
+    "standalone_ml": [
+      "Caryophyllaceae",
+      "Cucurbitaceae",
+      "Poaceae"
+    ]
+  },
+  {
+    "sample": "22x26x04",
+    "project": "mix_22x26x04",
+    "historical30": true,
+    "baseline_c": [
+      "Caryophyllaceae",
+      "Malvaceae",
+      "Rutaceae"
+    ],
+    "stable_c": [
+      "Caryophyllaceae",
+      "Malvaceae",
+      "Rutaceae"
+    ],
+    "core": [
+      "Caryophyllaceae",
+      "Malvaceae",
+      "Rutaceae"
+    ],
+    "auxiliary": [
+      "Caryophyllaceae",
+      "Malvaceae",
+      "Rutaceae"
+    ],
+    "merged": [
+      "Caryophyllaceae",
+      "Malvaceae",
+      "Rutaceae"
+    ],
+    "review": [],
+    "standalone_ml": [
+      "Caryophyllaceae",
+      "Malvaceae",
+      "Rutaceae"
+    ]
+  },
+  {
+    "sample": "24x04x28",
+    "project": "mix_24x04x28",
+    "historical30": true,
+    "baseline_c": [
+      "Brassicaceae",
+      "Caryophyllaceae",
+      "Poaceae"
+    ],
+    "stable_c": [
+      "Brassicaceae",
+      "Caryophyllaceae",
+      "Poaceae"
+    ],
+    "core": [
+      "Brassicaceae",
+      "Caryophyllaceae",
+      "Poaceae"
+    ],
+    "auxiliary": [
+      "Brassicaceae",
+      "Caryophyllaceae",
+      "Poaceae"
+    ],
+    "merged": [
+      "Brassicaceae",
+      "Caryophyllaceae",
+      "Poaceae"
+    ],
+    "review": [],
+    "standalone_ml": [
+      "Brassicaceae",
+      "Caryophyllaceae",
+      "Poaceae"
+    ]
+  },
+  {
+    "sample": "24x09x15",
+    "project": "mix_24x09x15",
+    "historical30": false,
+    "baseline_c": [
+      "Asteraceae",
+      "Brassicaceae",
+      "Solanaceae"
+    ],
+    "stable_c": [
+      "Asteraceae",
+      "Brassicaceae",
+      "Solanaceae"
+    ],
+    "core": [
+      "Asteraceae",
+      "Brassicaceae",
+      "Solanaceae"
+    ],
+    "auxiliary": [
+      "Asteraceae",
+      "Brassicaceae",
+      "Solanaceae"
+    ],
+    "merged": [
+      "Asteraceae",
+      "Brassicaceae",
+      "Solanaceae"
+    ],
+    "review": [],
+    "standalone_ml": [
+      "Asteraceae",
+      "Brassicaceae",
+      "Solanaceae"
+    ]
+  },
+  {
+    "sample": "24x10x28x01x25x13",
+    "project": "mix_24x10x28x01x25x13",
+    "historical30": true,
+    "baseline_c": [
+      "Asteraceae",
+      "Brassicaceae",
+      "Cabombaceae",
+      "Capparaceae",
+      "Oleaceae",
+      "Poaceae"
+    ],
+    "stable_c": [
+      "Asteraceae",
+      "Brassicaceae",
+      "Cabombaceae",
+      "Capparaceae",
+      "Oleaceae",
+      "Poaceae"
+    ],
+    "core": [
+      "Asteraceae",
+      "Brassicaceae",
+      "Cabombaceae",
+      "Capparaceae",
+      "Oleaceae",
+      "Poaceae"
+    ],
+    "auxiliary": [
+      "Asteraceae",
+      "Brassicaceae",
+      "Cabombaceae",
+      "Capparaceae",
+      "Oleaceae",
+      "Poaceae"
+    ],
+    "merged": [
+      "Asteraceae",
+      "Brassicaceae",
+      "Cabombaceae",
+      "Capparaceae",
+      "Oleaceae",
+      "Poaceae"
+    ],
+    "review": [
+      "Nymphaeaceae"
+    ],
+    "standalone_ml": [
+      "Asteraceae",
+      "Brassicaceae",
+      "Cabombaceae",
+      "Capparaceae",
+      "Nymphaeaceae",
+      "Oleaceae",
+      "Poaceae"
+    ]
+  },
+  {
+    "sample": "24x28x01",
+    "project": "mix_24x28x01",
+    "historical30": false,
+    "baseline_c": [
+      "Brassicaceae",
+      "Cabombaceae"
+    ],
+    "stable_c": [
+      "Brassicaceae",
+      "Cabombaceae"
+    ],
+    "core": [
+      "Brassicaceae",
+      "Cabombaceae"
+    ],
+    "auxiliary": [
+      "Brassicaceae",
+      "Cabombaceae"
+    ],
+    "merged": [
+      "Brassicaceae",
+      "Cabombaceae"
+    ],
+    "review": [
+      "Asparagaceae",
+      "Hypoxidaceae",
+      "Nymphaeaceae",
+      "Poaceae",
+      "Typhaceae"
+    ],
+    "standalone_ml": [
+      "Brassicaceae",
+      "Cabombaceae",
+      "Nymphaeaceae",
+      "Poaceae"
+    ]
+  },
+  {
+    "sample": "25x01x19x28x10x24",
+    "project": "mix_25x01x19x28x10x24",
+    "historical30": true,
+    "baseline_c": [
+      "Asteraceae",
+      "Brassicaceae",
+      "Cabombaceae",
+      "Capparaceae",
+      "Cucurbitaceae",
+      "Poaceae"
+    ],
+    "stable_c": [
+      "Asteraceae",
+      "Brassicaceae",
+      "Cabombaceae",
+      "Capparaceae",
+      "Cucurbitaceae",
+      "Poaceae"
+    ],
+    "core": [
+      "Asteraceae",
+      "Brassicaceae",
+      "Cabombaceae",
+      "Capparaceae",
+      "Cucurbitaceae",
+      "Poaceae"
+    ],
+    "auxiliary": [
+      "Asteraceae",
+      "Brassicaceae",
+      "Cabombaceae",
+      "Capparaceae",
+      "Cucurbitaceae",
+      "Poaceae"
+    ],
+    "merged": [
+      "Asteraceae",
+      "Brassicaceae",
+      "Cabombaceae",
+      "Capparaceae",
+      "Cucurbitaceae",
+      "Poaceae"
+    ],
+    "review": [
+      "Nymphaeaceae"
+    ],
+    "standalone_ml": [
+      "Asteraceae",
+      "Brassicaceae",
+      "Cabombaceae",
+      "Capparaceae",
+      "Cucurbitaceae",
+      "Nymphaeaceae",
+      "Poaceae"
+    ]
+  },
+  {
+    "sample": "25x12x28x02x10x13",
+    "project": "mix_25x12x28x02x10x13",
+    "historical30": true,
+    "baseline_c": [
+      "Amaranthaceae",
+      "Asteraceae",
+      "Capparaceae",
+      "Lamiaceae",
+      "Mazaceae",
+      "Oleaceae",
+      "Poaceae"
+    ],
+    "stable_c": [
+      "Amaranthaceae",
+      "Asteraceae",
+      "Capparaceae",
+      "Lamiaceae",
+      "Oleaceae",
+      "Poaceae"
+    ],
+    "core": [
+      "Amaranthaceae",
+      "Asteraceae",
+      "Capparaceae",
+      "Lamiaceae",
+      "Oleaceae",
+      "Poaceae"
+    ],
+    "auxiliary": [
+      "Amaranthaceae",
+      "Asteraceae",
+      "Capparaceae",
+      "Lamiaceae",
+      "Oleaceae",
+      "Poaceae"
+    ],
+    "merged": [
+      "Amaranthaceae",
+      "Asteraceae",
+      "Capparaceae",
+      "Lamiaceae",
+      "Oleaceae",
+      "Poaceae"
+    ],
+    "review": [
+      "Mazaceae"
+    ],
+    "standalone_ml": [
+      "Amaranthaceae",
+      "Asteraceae",
+      "Capparaceae",
+      "Lamiaceae",
+      "Oleaceae",
+      "Poaceae"
+    ]
+  },
+  {
+    "sample": "25x16x10x01x12x09x18x02x13x08",
+    "project": "mix_25x16x10x01x12x09x18x02x13x08",
+    "historical30": false,
+    "baseline_c": [
+      "Amaranthaceae",
+      "Araliaceae",
+      "Asteraceae",
+      "Cabombaceae",
+      "Capparaceae",
+      "Cucurbitaceae",
+      "Fabaceae",
+      "Lamiaceae",
+      "Oleaceae",
+      "Paulowniaceae"
+    ],
+    "stable_c": [
+      "Amaranthaceae",
+      "Araliaceae",
+      "Asteraceae",
+      "Cabombaceae",
+      "Capparaceae",
+      "Cucurbitaceae",
+      "Fabaceae",
+      "Lamiaceae",
+      "Oleaceae"
+    ],
+    "core": [
+      "Amaranthaceae",
+      "Araliaceae",
+      "Asteraceae",
+      "Cabombaceae",
+      "Capparaceae",
+      "Cucurbitaceae",
+      "Fabaceae",
+      "Lamiaceae",
+      "Oleaceae"
+    ],
+    "auxiliary": [
+      "Amaranthaceae",
+      "Araliaceae",
+      "Asteraceae",
+      "Cabombaceae",
+      "Capparaceae",
+      "Cucurbitaceae",
+      "Fabaceae",
+      "Lamiaceae",
+      "Oleaceae"
+    ],
+    "merged": [
+      "Amaranthaceae",
+      "Araliaceae",
+      "Asteraceae",
+      "Cabombaceae",
+      "Capparaceae",
+      "Cucurbitaceae",
+      "Fabaceae",
+      "Lamiaceae",
+      "Oleaceae"
+    ],
+    "review": [
+      "Apiaceae",
+      "Nymphaeaceae",
+      "Paulowniaceae"
+    ],
+    "standalone_ml": [
+      "Amaranthaceae",
+      "Araliaceae",
+      "Asteraceae",
+      "Cabombaceae",
+      "Capparaceae",
+      "Cucurbitaceae",
+      "Fabaceae",
+      "Lamiaceae",
+      "Nymphaeaceae",
+      "Oleaceae"
+    ]
+  },
+  {
+    "sample": "25x28x02x15x03x08",
+    "project": "mix_25x28x02x15x03x08",
+    "historical30": false,
+    "baseline_c": [
+      "Amaranthaceae",
+      "Araliaceae",
+      "Cactaceae",
+      "Capparaceae",
+      "Poaceae",
+      "Solanaceae"
+    ],
+    "stable_c": [
+      "Amaranthaceae",
+      "Araliaceae",
+      "Cactaceae",
+      "Capparaceae",
+      "Poaceae",
+      "Solanaceae"
+    ],
+    "core": [
+      "Amaranthaceae",
+      "Araliaceae",
+      "Cactaceae",
+      "Capparaceae",
+      "Poaceae",
+      "Solanaceae"
+    ],
+    "auxiliary": [
+      "Amaranthaceae",
+      "Araliaceae",
+      "Cactaceae",
+      "Capparaceae",
+      "Poaceae",
+      "Solanaceae"
+    ],
+    "merged": [
+      "Amaranthaceae",
+      "Araliaceae",
+      "Cactaceae",
+      "Capparaceae",
+      "Poaceae",
+      "Solanaceae"
+    ],
+    "review": [
+      "Apiaceae"
+    ],
+    "standalone_ml": [
+      "Amaranthaceae",
+      "Araliaceae",
+      "Cactaceae",
+      "Capparaceae",
+      "Poaceae",
+      "Solanaceae"
+    ]
+  },
+  {
+    "sample": "25x28x30x07x22x24x12x04x03x18",
+    "project": "mix_25x28x30x07x22x24x12x04x03x18",
+    "historical30": false,
+    "baseline_c": [
+      "Apiaceae",
+      "Brassicaceae",
+      "Cactaceae",
+      "Capparaceae",
+      "Caryophyllaceae",
+      "Cucurbitaceae",
+      "Lamiaceae",
+      "Malvaceae",
+      "Poaceae"
+    ],
+    "stable_c": [
+      "Apiaceae",
+      "Brassicaceae",
+      "Cactaceae",
+      "Capparaceae",
+      "Caryophyllaceae",
+      "Cucurbitaceae",
+      "Lamiaceae",
+      "Malvaceae",
+      "Poaceae"
+    ],
+    "core": [
+      "Apiaceae",
+      "Brassicaceae",
+      "Cactaceae",
+      "Capparaceae",
+      "Caryophyllaceae",
+      "Cucurbitaceae",
+      "Lamiaceae",
+      "Malvaceae",
+      "Poaceae"
+    ],
+    "auxiliary": [
+      "Apiaceae",
+      "Brassicaceae",
+      "Cactaceae",
+      "Capparaceae",
+      "Caryophyllaceae",
+      "Cucurbitaceae",
+      "Lamiaceae",
+      "Malvaceae",
+      "Poaceae"
+    ],
+    "merged": [
+      "Apiaceae",
+      "Brassicaceae",
+      "Cactaceae",
+      "Capparaceae",
+      "Caryophyllaceae",
+      "Cucurbitaceae",
+      "Lamiaceae",
+      "Malvaceae",
+      "Poaceae"
+    ],
+    "review": [],
+    "standalone_ml": [
+      "Apiaceae",
+      "Brassicaceae",
+      "Cactaceae",
+      "Capparaceae",
+      "Caryophyllaceae",
+      "Cucurbitaceae",
+      "Lamiaceae",
+      "Malvaceae",
+      "Poaceae"
+    ]
+  },
+  {
+    "sample": "25x30x15x19x03x13",
+    "project": "mix_25x30x15x19x03x13",
+    "historical30": true,
+    "baseline_c": [
+      "Cactaceae",
+      "Capparaceae",
+      "Cucurbitaceae",
+      "Oleaceae",
+      "Poaceae",
+      "Solanaceae"
+    ],
+    "stable_c": [
+      "Cactaceae",
+      "Capparaceae",
+      "Cucurbitaceae",
+      "Oleaceae",
+      "Poaceae",
+      "Solanaceae"
+    ],
+    "core": [
+      "Cactaceae",
+      "Capparaceae",
+      "Cucurbitaceae",
+      "Oleaceae",
+      "Poaceae",
+      "Solanaceae"
+    ],
+    "auxiliary": [
+      "Cactaceae",
+      "Capparaceae",
+      "Cucurbitaceae",
+      "Oleaceae",
+      "Poaceae",
+      "Solanaceae"
+    ],
+    "merged": [
+      "Cactaceae",
+      "Capparaceae",
+      "Cucurbitaceae",
+      "Oleaceae",
+      "Poaceae",
+      "Solanaceae"
+    ],
+    "review": [],
+    "standalone_ml": [
+      "Cactaceae",
+      "Capparaceae",
+      "Cucurbitaceae",
+      "Oleaceae",
+      "Poaceae",
+      "Solanaceae"
+    ]
+  },
+  {
+    "sample": "26x01x24",
+    "project": "mix_26x01x24",
+    "historical30": true,
+    "baseline_c": [
+      "Brassicaceae",
+      "Cabombaceae",
+      "Rutaceae"
+    ],
+    "stable_c": [
+      "Brassicaceae",
+      "Cabombaceae",
+      "Rutaceae"
+    ],
+    "core": [
+      "Brassicaceae",
+      "Cabombaceae",
+      "Rutaceae"
+    ],
+    "auxiliary": [
+      "Brassicaceae",
+      "Cabombaceae",
+      "Rutaceae"
+    ],
+    "merged": [
+      "Brassicaceae",
+      "Cabombaceae",
+      "Rutaceae"
+    ],
+    "review": [
+      "Nymphaeaceae"
+    ],
+    "standalone_ml": [
+      "Brassicaceae",
+      "Cabombaceae",
+      "Nymphaeaceae",
+      "Rutaceae"
+    ]
+  },
+  {
+    "sample": "26x03x02x01x04x10",
+    "project": "mix_26x03x02x01x04x10",
+    "historical30": false,
+    "baseline_c": [
+      "Amaranthaceae",
+      "Asteraceae",
+      "Cabombaceae",
+      "Cactaceae",
+      "Caryophyllaceae",
+      "Rutaceae"
+    ],
+    "stable_c": [
+      "Amaranthaceae",
+      "Asteraceae",
+      "Cabombaceae",
+      "Cactaceae",
+      "Caryophyllaceae",
+      "Rutaceae"
+    ],
+    "core": [
+      "Amaranthaceae",
+      "Asteraceae",
+      "Cabombaceae",
+      "Cactaceae",
+      "Caryophyllaceae",
+      "Rutaceae"
+    ],
+    "auxiliary": [
+      "Amaranthaceae",
+      "Asteraceae",
+      "Cabombaceae",
+      "Cactaceae",
+      "Caryophyllaceae",
+      "Rutaceae"
+    ],
+    "merged": [
+      "Amaranthaceae",
+      "Asteraceae",
+      "Cabombaceae",
+      "Cactaceae",
+      "Caryophyllaceae",
+      "Rutaceae"
+    ],
+    "review": [
+      "Nymphaeaceae",
+      "Talinaceae"
+    ],
+    "standalone_ml": [
+      "Amaranthaceae",
+      "Asteraceae",
+      "Cabombaceae",
+      "Cactaceae",
+      "Caryophyllaceae",
+      "Nymphaeaceae",
+      "Rutaceae",
+      "Talinaceae"
+    ]
+  },
+  {
+    "sample": "26x19x08",
+    "project": "mix_26x19x08",
+    "historical30": false,
+    "baseline_c": [
+      "Araliaceae",
+      "Cucurbitaceae",
+      "Rutaceae"
+    ],
+    "stable_c": [
+      "Araliaceae",
+      "Cucurbitaceae",
+      "Rutaceae"
+    ],
+    "core": [
+      "Araliaceae",
+      "Cucurbitaceae",
+      "Rutaceae"
+    ],
+    "auxiliary": [
+      "Araliaceae",
+      "Cucurbitaceae",
+      "Rutaceae"
+    ],
+    "merged": [
+      "Araliaceae",
+      "Cucurbitaceae",
+      "Rutaceae"
+    ],
+    "review": [],
+    "standalone_ml": [
+      "Araliaceae",
+      "Cucurbitaceae",
+      "Rutaceae"
+    ]
+  },
+  {
+    "sample": "26x22x03x13x10x19x04x16x30x24",
+    "project": "mix_26x22x03x13x10x19x04x16x30x24",
+    "historical30": false,
+    "baseline_c": [
+      "Asteraceae",
+      "Brassicaceae",
+      "Cactaceae",
+      "Caryophyllaceae",
+      "Cucurbitaceae",
+      "Fabaceae",
+      "Malvaceae",
+      "Molluginaceae",
+      "Oleaceae",
+      "Poaceae",
+      "Rutaceae"
+    ],
+    "stable_c": [
+      "Asteraceae",
+      "Brassicaceae",
+      "Cactaceae",
+      "Caryophyllaceae",
+      "Cucurbitaceae",
+      "Fabaceae",
+      "Malvaceae",
+      "Oleaceae",
+      "Poaceae",
+      "Rutaceae"
+    ],
+    "core": [
+      "Asteraceae",
+      "Brassicaceae",
+      "Cactaceae",
+      "Cucurbitaceae",
+      "Fabaceae",
+      "Malvaceae",
+      "Oleaceae",
+      "Poaceae",
+      "Rutaceae"
+    ],
+    "auxiliary": [
+      "Asteraceae",
+      "Brassicaceae",
+      "Cactaceae",
+      "Caryophyllaceae",
+      "Cucurbitaceae",
+      "Fabaceae",
+      "Malvaceae",
+      "Oleaceae",
+      "Poaceae",
+      "Rutaceae"
+    ],
+    "merged": [
+      "Asteraceae",
+      "Brassicaceae",
+      "Cactaceae",
+      "Caryophyllaceae",
+      "Cucurbitaceae",
+      "Fabaceae",
+      "Malvaceae",
+      "Oleaceae",
+      "Poaceae",
+      "Rutaceae"
+    ],
+    "review": [
+      "Molluginaceae"
+    ],
+    "standalone_ml": [
+      "Asteraceae",
+      "Brassicaceae",
+      "Cactaceae",
+      "Cucurbitaceae",
+      "Fabaceae",
+      "Malvaceae",
+      "Oleaceae",
+      "Poaceae",
+      "Rutaceae"
+    ]
+  },
+  {
+    "sample": "28x12x25x10x03x15",
+    "project": "mix_28x12x25x10x03x15",
+    "historical30": false,
+    "baseline_c": [
+      "Asteraceae",
+      "Cactaceae",
+      "Capparaceae",
+      "Lamiaceae",
+      "Mazaceae",
+      "Poaceae",
+      "Solanaceae",
+      "Verbenaceae"
+    ],
+    "stable_c": [
+      "Asteraceae",
+      "Cactaceae",
+      "Capparaceae",
+      "Lamiaceae",
+      "Poaceae",
+      "Solanaceae",
+      "Verbenaceae"
+    ],
+    "core": [
+      "Asteraceae",
+      "Cactaceae",
+      "Capparaceae",
+      "Lamiaceae",
+      "Poaceae",
+      "Solanaceae"
+    ],
+    "auxiliary": [
+      "Asteraceae",
+      "Cactaceae",
+      "Capparaceae",
+      "Lamiaceae",
+      "Poaceae",
+      "Solanaceae"
+    ],
+    "merged": [
+      "Asteraceae",
+      "Cactaceae",
+      "Capparaceae",
+      "Lamiaceae",
+      "Poaceae",
+      "Solanaceae"
+    ],
+    "review": [
+      "Mazaceae",
+      "Verbenaceae"
+    ],
+    "standalone_ml": [
+      "Asteraceae",
+      "Cactaceae",
+      "Capparaceae",
+      "Lamiaceae",
+      "Poaceae",
+      "Solanaceae"
+    ]
+  },
+  {
+    "sample": "28x16x30",
+    "project": "mix_28x16x30",
+    "historical30": false,
+    "baseline_c": [
+      "Fabaceae",
+      "Poaceae"
+    ],
+    "stable_c": [
+      "Fabaceae",
+      "Poaceae"
+    ],
+    "core": [
+      "Fabaceae",
+      "Poaceae"
+    ],
+    "auxiliary": [
+      "Fabaceae",
+      "Poaceae"
+    ],
+    "merged": [
+      "Fabaceae",
+      "Poaceae"
+    ],
+    "review": [],
+    "standalone_ml": [
+      "Fabaceae",
+      "Poaceae"
+    ]
+  },
+  {
+    "sample": "28x19x02x09x18x26",
+    "project": "mix_28x19x02x09x18x26",
+    "historical30": true,
+    "baseline_c": [
+      "Amaranthaceae",
+      "Asteraceae",
+      "Cucurbitaceae",
+      "Poaceae",
+      "Rutaceae"
+    ],
+    "stable_c": [
+      "Amaranthaceae",
+      "Asteraceae",
+      "Cucurbitaceae",
+      "Poaceae",
+      "Rutaceae"
+    ],
+    "core": [
+      "Amaranthaceae",
+      "Asteraceae",
+      "Cucurbitaceae",
+      "Poaceae",
+      "Rutaceae"
+    ],
+    "auxiliary": [
+      "Amaranthaceae",
+      "Asteraceae",
+      "Cucurbitaceae",
+      "Poaceae",
+      "Rutaceae"
+    ],
+    "merged": [
+      "Amaranthaceae",
+      "Asteraceae",
+      "Cucurbitaceae",
+      "Poaceae",
+      "Rutaceae"
+    ],
+    "review": [],
+    "standalone_ml": [
+      "Amaranthaceae",
+      "Asteraceae",
+      "Cucurbitaceae",
+      "Poaceae",
+      "Rutaceae"
+    ]
+  },
+  {
+    "sample": "28x19x04x02x13x03",
+    "project": "mix_28x19x04x02x13x03",
+    "historical30": true,
+    "baseline_c": [
+      "Amaranthaceae",
+      "Cactaceae",
+      "Caryophyllaceae",
+      "Cucurbitaceae",
+      "Oleaceae",
+      "Poaceae"
+    ],
+    "stable_c": [
+      "Amaranthaceae",
+      "Cactaceae",
+      "Caryophyllaceae",
+      "Cucurbitaceae",
+      "Oleaceae",
+      "Poaceae"
+    ],
+    "core": [
+      "Amaranthaceae",
+      "Cactaceae",
+      "Caryophyllaceae",
+      "Cucurbitaceae",
+      "Oleaceae",
+      "Poaceae"
+    ],
+    "auxiliary": [
+      "Amaranthaceae",
+      "Cactaceae",
+      "Caryophyllaceae",
+      "Cucurbitaceae",
+      "Oleaceae",
+      "Poaceae"
+    ],
+    "merged": [
+      "Amaranthaceae",
+      "Cactaceae",
+      "Caryophyllaceae",
+      "Cucurbitaceae",
+      "Oleaceae",
+      "Poaceae"
+    ],
+    "review": [
+      "Molluginaceae"
+    ],
+    "standalone_ml": [
+      "Amaranthaceae",
+      "Cactaceae",
+      "Caryophyllaceae",
+      "Cucurbitaceae",
+      "Oleaceae",
+      "Poaceae"
+    ]
+  },
+  {
+    "sample": "28x24x25x15x04x01",
+    "project": "mix_28x24x25x15x04x01",
+    "historical30": false,
+    "baseline_c": [
+      "Brassicaceae",
+      "Cabombaceae",
+      "Capparaceae",
+      "Caryophyllaceae",
+      "Poaceae",
+      "Solanaceae"
+    ],
+    "stable_c": [
+      "Brassicaceae",
+      "Cabombaceae",
+      "Capparaceae",
+      "Caryophyllaceae",
+      "Poaceae",
+      "Solanaceae"
+    ],
+    "core": [
+      "Brassicaceae",
+      "Cabombaceae",
+      "Capparaceae",
+      "Poaceae",
+      "Solanaceae"
+    ],
+    "auxiliary": [
+      "Brassicaceae",
+      "Cabombaceae",
+      "Capparaceae",
+      "Caryophyllaceae",
+      "Poaceae",
+      "Solanaceae"
+    ],
+    "merged": [
+      "Brassicaceae",
+      "Cabombaceae",
+      "Capparaceae",
+      "Caryophyllaceae",
+      "Poaceae",
+      "Solanaceae"
+    ],
+    "review": [
+      "Nymphaeaceae",
+      "Phytolaccaceae"
+    ],
+    "standalone_ml": [
+      "Brassicaceae",
+      "Cabombaceae",
+      "Capparaceae",
+      "Nymphaeaceae",
+      "Poaceae",
+      "Solanaceae"
+    ]
+  },
+  {
+    "sample": "30x04x03",
+    "project": "mix_30x04x03",
+    "historical30": false,
+    "baseline_c": [
+      "Cactaceae",
+      "Caryophyllaceae",
+      "Poaceae"
+    ],
+    "stable_c": [
+      "Cactaceae",
+      "Caryophyllaceae",
+      "Poaceae"
+    ],
+    "core": [
+      "Cactaceae",
+      "Caryophyllaceae",
+      "Poaceae"
+    ],
+    "auxiliary": [
+      "Cactaceae",
+      "Caryophyllaceae",
+      "Poaceae"
+    ],
+    "merged": [
+      "Cactaceae",
+      "Caryophyllaceae",
+      "Poaceae"
+    ],
+    "review": [],
+    "standalone_ml": [
+      "Cactaceae",
+      "Caryophyllaceae",
+      "Poaceae"
+    ]
+  },
+  {
+    "sample": "30x04x13x26x19x28",
+    "project": "mix_30x04x13x26x19x28",
+    "historical30": false,
+    "baseline_c": [
+      "Caryophyllaceae",
+      "Cucurbitaceae",
+      "Oleaceae",
+      "Poaceae",
+      "Rutaceae"
+    ],
+    "stable_c": [
+      "Caryophyllaceae",
+      "Cucurbitaceae",
+      "Oleaceae",
+      "Poaceae",
+      "Rutaceae"
+    ],
+    "core": [
+      "Caryophyllaceae",
+      "Cucurbitaceae",
+      "Oleaceae",
+      "Poaceae",
+      "Rutaceae"
+    ],
+    "auxiliary": [
+      "Caryophyllaceae",
+      "Cucurbitaceae",
+      "Oleaceae",
+      "Poaceae",
+      "Rutaceae"
+    ],
+    "merged": [
+      "Caryophyllaceae",
+      "Cucurbitaceae",
+      "Oleaceae",
+      "Poaceae",
+      "Rutaceae"
+    ],
+    "review": [
+      "Rapateaceae"
+    ],
+    "standalone_ml": [
+      "Caryophyllaceae",
+      "Cucurbitaceae",
+      "Oleaceae",
+      "Poaceae",
+      "Rapateaceae",
+      "Rutaceae"
+    ]
+  },
+  {
+    "sample": "30x04x16x01x22x03",
+    "project": "mix_30x04x16x01x22x03",
+    "historical30": false,
+    "baseline_c": [
+      "Cabombaceae",
+      "Cactaceae",
+      "Caryophyllaceae",
+      "Fabaceae",
+      "Malvaceae",
+      "Poaceae"
+    ],
+    "stable_c": [
+      "Cabombaceae",
+      "Cactaceae",
+      "Caryophyllaceae",
+      "Fabaceae",
+      "Malvaceae",
+      "Poaceae"
+    ],
+    "core": [
+      "Cabombaceae",
+      "Cactaceae",
+      "Caryophyllaceae",
+      "Fabaceae",
+      "Malvaceae",
+      "Poaceae"
+    ],
+    "auxiliary": [
+      "Cabombaceae",
+      "Cactaceae",
+      "Caryophyllaceae",
+      "Fabaceae",
+      "Malvaceae",
+      "Poaceae"
+    ],
+    "merged": [
+      "Cabombaceae",
+      "Cactaceae",
+      "Caryophyllaceae",
+      "Fabaceae",
+      "Malvaceae",
+      "Poaceae"
+    ],
+    "review": [
+      "Annonaceae",
+      "Didiereaceae",
+      "Fagaceae",
+      "Magnoliaceae",
+      "Myristicaceae",
+      "Nymphaeaceae",
+      "Phytolaccaceae",
+      "Portulacaceae"
+    ],
+    "standalone_ml": [
+      "Cabombaceae",
+      "Cactaceae",
+      "Caryophyllaceae",
+      "Fabaceae",
+      "Malvaceae",
+      "Nymphaeaceae",
+      "Poaceae"
+    ]
+  },
+  {
+    "sample": "30x04x19x07x03x16",
+    "project": "mix_30x04x19x07x03x16",
+    "historical30": true,
+    "baseline_c": [
+      "Apiaceae",
+      "Araliaceae",
+      "Cactaceae",
+      "Caryophyllaceae",
+      "Cucurbitaceae",
+      "Fabaceae",
+      "Pittosporaceae",
+      "Poaceae"
+    ],
+    "stable_c": [
+      "Apiaceae",
+      "Araliaceae",
+      "Cactaceae",
+      "Caryophyllaceae",
+      "Cucurbitaceae",
+      "Fabaceae",
+      "Pittosporaceae",
+      "Poaceae"
+    ],
+    "core": [
+      "Apiaceae",
+      "Cactaceae",
+      "Caryophyllaceae",
+      "Cucurbitaceae",
+      "Fabaceae",
+      "Poaceae"
+    ],
+    "auxiliary": [
+      "Apiaceae",
+      "Cactaceae",
+      "Caryophyllaceae",
+      "Cucurbitaceae",
+      "Fabaceae",
+      "Poaceae"
+    ],
+    "merged": [
+      "Apiaceae",
+      "Cactaceae",
+      "Caryophyllaceae",
+      "Cucurbitaceae",
+      "Fabaceae",
+      "Poaceae"
+    ],
+    "review": [
+      "Araliaceae",
+      "Pittosporaceae"
+    ],
+    "standalone_ml": [
+      "Apiaceae",
+      "Cactaceae",
+      "Caryophyllaceae",
+      "Cucurbitaceae",
+      "Fabaceae",
+      "Poaceae"
+    ]
+  },
+  {
+    "sample": "30x09x22x28x16x12",
+    "project": "mix_30x09x22x28x16x12",
+    "historical30": false,
+    "baseline_c": [
+      "Asteraceae",
+      "Fabaceae",
+      "Lamiaceae",
+      "Malvaceae",
+      "Poaceae"
+    ],
+    "stable_c": [
+      "Asteraceae",
+      "Fabaceae",
+      "Lamiaceae",
+      "Malvaceae",
+      "Poaceae"
+    ],
+    "core": [
+      "Asteraceae",
+      "Fabaceae",
+      "Lamiaceae",
+      "Malvaceae",
+      "Poaceae"
+    ],
+    "auxiliary": [
+      "Asteraceae",
+      "Fabaceae",
+      "Lamiaceae",
+      "Malvaceae",
+      "Poaceae"
+    ],
+    "merged": [
+      "Asteraceae",
+      "Fabaceae",
+      "Lamiaceae",
+      "Malvaceae",
+      "Poaceae"
+    ],
+    "review": [],
+    "standalone_ml": [
+      "Asteraceae",
+      "Fabaceae",
+      "Lamiaceae",
+      "Malvaceae",
+      "Poaceae"
+    ]
+  },
+  {
+    "sample": "30x10x08x04x25x26",
+    "project": "mix_30x10x08x04x25x26",
+    "historical30": false,
+    "baseline_c": [
+      "Araliaceae",
+      "Asteraceae",
+      "Capparaceae",
+      "Caryophyllaceae",
+      "Pittosporaceae",
+      "Poaceae",
+      "Rutaceae"
+    ],
+    "stable_c": [
+      "Araliaceae",
+      "Asteraceae",
+      "Capparaceae",
+      "Caryophyllaceae",
+      "Poaceae",
+      "Rutaceae"
+    ],
+    "core": [
+      "Araliaceae",
+      "Asteraceae",
+      "Capparaceae",
+      "Caryophyllaceae",
+      "Poaceae",
+      "Rutaceae"
+    ],
+    "auxiliary": [
+      "Araliaceae",
+      "Asteraceae",
+      "Capparaceae",
+      "Caryophyllaceae",
+      "Poaceae",
+      "Rutaceae"
+    ],
+    "merged": [
+      "Araliaceae",
+      "Asteraceae",
+      "Capparaceae",
+      "Caryophyllaceae",
+      "Poaceae",
+      "Rutaceae"
+    ],
+    "review": [
+      "Pittosporaceae"
+    ],
+    "standalone_ml": [
+      "Araliaceae",
+      "Asteraceae",
+      "Capparaceae",
+      "Caryophyllaceae",
+      "Poaceae",
+      "Rutaceae"
+    ]
+  },
+  {
+    "sample": "30x28x08x02x09x25x15x04x12x22",
+    "project": "mix_30x28x08x02x09x25x15x04x12x22",
+    "historical30": false,
+    "baseline_c": [
+      "Amaranthaceae",
+      "Araliaceae",
+      "Asteraceae",
+      "Capparaceae",
+      "Caryophyllaceae",
+      "Lamiaceae",
+      "Malvaceae",
+      "Poaceae",
+      "Solanaceae"
+    ],
+    "stable_c": [
+      "Amaranthaceae",
+      "Araliaceae",
+      "Asteraceae",
+      "Capparaceae",
+      "Caryophyllaceae",
+      "Lamiaceae",
+      "Malvaceae",
+      "Poaceae",
+      "Solanaceae"
+    ],
+    "core": [
+      "Amaranthaceae",
+      "Araliaceae",
+      "Asteraceae",
+      "Capparaceae",
+      "Caryophyllaceae",
+      "Lamiaceae",
+      "Malvaceae",
+      "Poaceae",
+      "Solanaceae"
+    ],
+    "auxiliary": [
+      "Amaranthaceae",
+      "Araliaceae",
+      "Asteraceae",
+      "Capparaceae",
+      "Caryophyllaceae",
+      "Lamiaceae",
+      "Malvaceae",
+      "Poaceae",
+      "Solanaceae"
+    ],
+    "merged": [
+      "Amaranthaceae",
+      "Araliaceae",
+      "Asteraceae",
+      "Capparaceae",
+      "Caryophyllaceae",
+      "Lamiaceae",
+      "Malvaceae",
+      "Poaceae",
+      "Solanaceae"
+    ],
+    "review": [
+      "Apiaceae"
+    ],
+    "standalone_ml": [
+      "Amaranthaceae",
+      "Araliaceae",
+      "Asteraceae",
+      "Capparaceae",
+      "Caryophyllaceae",
+      "Lamiaceae",
+      "Malvaceae",
+      "Poaceae",
+      "Solanaceae"
+    ]
+  }
+]

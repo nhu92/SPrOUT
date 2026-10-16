@@ -1,0 +1,11 @@
+{
+  "truth_parser": "independent stdlib ZIP/XML",
+  "truth_sha256": "421cca29377ab01e57cb6aeded7bf446ba4faf06282120a4ed602e8c67bbb01f",
+  "samples": 100,
+  "exported_lists_checked": 400,
+  "evidence_rules_replayed": 9908,
+  "sample_method_view_counts_checked": 1200,
+  "summary_rows_checked": 48,
+  "fixed_family_universe": 362,
+  "all_checks_pass": true
+}

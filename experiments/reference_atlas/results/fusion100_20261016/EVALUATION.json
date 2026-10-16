@@ -1,0 +1,14 @@
+{
+  "truth_sha256": "421cca29377ab01e57cb6aeded7bf446ba4faf06282120a4ed602e8c67bbb01f",
+  "evaluator_sha256": "d19ee990cc1510efe326b53e46fbaca15a06d0d764b5cf982f6e9998b97e5d75",
+  "policy_sha256": "855b3adab3072a5473050e665d3db79c56e7bf6e86ab8b1e4e1e90db02f82155",
+  "prediction_manifest_sha256": "8ec530e5f0afb6fdc98613277c4a970b588005f46a489fd9ac50fa279874145e",
+  "previous_sample_results_known_during_method_development": true,
+  "independent_validation": false,
+  "artifact_sha256": {
+    "summary.csv": "612de3d0a1bd80bf742fbb54c2b95bab25d21790510bf8a66f5510ea2c1dbb34",
+    "by_sample.csv": "670643e12ae154711a3be1be3db3c3f38931ce47a480dee2245ecc953c210bd1",
+    "error_and_route_details.csv": "919f029d65688bffc7c27fcac2008ca67a78c297a7ddd7a2a725a012ca8958cd",
+    "COUNT_AUDIT.json": "e38c1917eb2ec95905672bf1c3eecae6bbec65e04757647b888f7015b1c9afa5"
+  }
+}
