@@ -233,3 +233,30 @@ species is intentionally unidentifiable from its own training class: it needs
 multiple specimens/accessions and a different, specimen-disjoint evaluation.
 Automatic hierarchical routing and open-set calibration remain research work,
 specified in the design document.
+
+## Iteration on the 100 existing TTU mixtures
+
+`transfer.py` fits a shared match verifier from reference-only leave-species-out
+pseudo-queries on existing family exon trees. This adapts the full-profile idea
+to patristic distances without applying the previous p-distance model to a new
+distance domain. The closest family by full distances proposes a fragment match;
+the learned verifier reads the entire distance-shape residual, correlation,
+terminal offset and competing-family evidence. It is not permitted to rank distant
+families by an extrapolated binary score.
+
+`batch_transfer.py` freezes the 100-sample manifest, model and code, then scores
+immutable existing family trees under identical reused order predictions. It
+rechecks input hashes, produces per-fragment and independent-gene evidence, and
+collects results only after all 100 succeed. No assembly, alignment, reference
+selection or tree inference is repeated. The primary rule requires three distinct
+genes supporting a verified family; there is no sample-wide family count cap.
+Nearest-reference gene voting and verification of the old final candidates are
+predeclared comparisons. Thresholds use species-balanced known-reference versus
+whole-family-absent reference controls, never mixture truth.
+
+`evaluate_transfer.py` runs locally after completion. It needs `openpyxl` to read
+the original STable and outputs literal-table and previously established two-taxon
+harmonization views, along with TP/FP/FN/TN, precision, recall, F1, NPV and MCC.
+The truth workbook and evaluator are not uploaded to the prediction host. This
+is a retrospective iteration on previously evaluated mixtures, not an independent
+new blind validation. The HPC runtime versions are recorded in its protocol.
