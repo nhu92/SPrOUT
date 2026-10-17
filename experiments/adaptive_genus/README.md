@@ -2,7 +2,12 @@
 
 Experimental branch: `experiment/adaptive-genus-search-20261017`. The cohort,
 search policy and scientific choices are recorded in [DESIGN](DESIGN.md),
-[policy.json](policy.json) and [cohort.json](cohort.json).
+[policy.json](policy.json) and [cohort.json](cohort.json). The current experimental
+default is the complete-pool correction in [policy_complete_joint.json](policy_complete_joint.json).
+The original partial-panel policies remain in [policy_partial_v1.json](policy_partial_v1.json)
+and [policy_strict_route.json](policy_strict_route.json) for reproducing the baselines.
+The correction was developed after evaluating those baselines; see the
+[post-evaluation plan](POSTHOC_COMPLETION_PLAN.md).
 
 This replaces alphabetical branch anchors and whole-sister-branch expansion with
 genus-balanced central representatives, target-gene sequence QC, repeated
@@ -12,9 +17,12 @@ retain multiple recoverable placements. Unresolved regions stay explicit.
 
 Each coarse panel has up to two representatives per tree cell. The initial
 budget is 32 cells; one stalled round permits 64 cells. Surviving regions are
-subdivided again. The joint stage starts at at most 64 candidate genera, using
-up to two different species per genus. These are reference-work budgets, not a
-cap on the number of predicted genera or an expected mixture size.
+subdivided again. Routing aims for 64 candidate genera. At its stopping limit,
+the corrected final stage tests the entire retained pool up to 512 genera, using
+up to two different species per genus. Larger pools stay wholly unresolved.
+Testing only a small locally resolved subset produced wrong substitutes for
+untested true genera in the original experiment. These are reference-work
+budgets, not a cap on positive genera or an expected mixture size.
 
 Kew sequences are retrieved lazily, checked against the complete corrected
 backbone for each of the actual target genes, and required to pass at least 60%
@@ -55,7 +63,15 @@ python -m experiments.adaptive_genus.runner prepare --root /path/to/new-run \
 python -m experiments.adaptive_genus.runner run --root /path/to/new-run --index 0
 # Indices 0–9 may run independently. Collect only after all ten complete.
 python -m experiments.adaptive_genus.runner collect --root /path/to/new-run
+# Streaming parallel hash checks can also call the frozen collector:
+python experiments/adaptive_genus/collect_parallel.py --root /path/to/new-run --workers 16
 ```
+
+Install the selected policy as `<run>/code/experiments/adaptive_genus/policy.json`
+before freezing a new HPC payload. `completion.py` can instead reuse an existing
+audited strict search: it freezes the exact source pools and cached-coordinate
+hashes, reuses already complete final tests and completes the partial ones.
+This replay must retain its post-evaluation development flag.
 
 The TTU experiment reuses the completed 50-target-locus exon assemblies and
 family search evidence, not FASTQ assembly. Outputs retain every round's

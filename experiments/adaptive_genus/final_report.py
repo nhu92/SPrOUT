@@ -6,6 +6,7 @@ from statistics import median
 
 from .compare import compare, normalized_code
 from .evaluation import dump, read, read_csv, sha, verify_export, write_csv
+from .nearest_control import evaluate as evaluate_nearest
 
 
 def region_sets(path):
@@ -99,15 +100,32 @@ def final_report(root):
                         'median_combined_search_minutes':median(float(r['seconds'])/60 for r in timing),
                         'target64_reached':sum(int(r['remaining_search_genera'])<=64 for r in timing),
                         'no_unresolved_search_regions':sum(int(r['unresolved_genera'])==0 for r in timing)}
+    control=root/'nearest_control'
+    if (control/'SEAL.json').exists():
+        all_summary.extend(evaluate_nearest(control,paths['complete_joint']))
+        by_sample.extend({'variant':'complete_joint',**r} for r in read_csv(control/'by_sample.csv'))
     write_csv(root/'all_variant_summary.csv',all_summary)
     write_csv(root/'all_variant_by_sample.csv',by_sample)
-    options=[r for r in all_summary if r['variant']=='complete_joint' and r['method'] in ('merged','core','standalone_ml','c_style','balanced_z')]
+    options=[r for r in all_summary if r['variant']=='complete_joint' and r['method'] in ('merged','core','standalone_ml','c_style','balanced_z','nearest_gene3','ml_diagnostic_gene3')]
     best=max(options,key=lambda r:(float(r['F1']),float(r['precision'] or 0),float(r['recall']),r['method']=='merged'))
     predictions=[r for r in read_csv(paths['complete_joint']/'all_method_predictions.csv') if r['method']==best['method']]
+    if best['method'] in ('nearest_gene3','ml_diagnostic_gene3'):
+        evidence={(r['sample'],r['genus']):r for r in read_csv(paths['complete_joint']/'candidate_evidence.csv')}
+        status={r['sample']:r['search_status'] for r in read_csv(paths['complete_joint']/'timings.csv')}
+        predictions=[]
+        raw={(r['sample'],r['genus']):r['nearest_winner_gene_votes'] for r in read_csv(control/'predictions.csv')}
+        for record in read(control/'predictions.json'):
+            for genus in record[best['method']]:
+                e=evidence[record['sample'],genus]
+                predictions.append({'sample':record['sample'],'genus':genus,'family':e['family'],'method':best['method'],
+                                    'ml_gene_votes':e['ml_gene_votes'],'nearest_gene_votes':e['nearest_gene_votes'],
+                                    'nearest_winner_gene_votes':raw.get((record['sample'],genus),''),'search_status':status[record['sample']]})
+    if len(predictions)!=int(best['TP'])+int(best['FP']):
+        raise ValueError('Recommended whole-rule predictions disagree with evaluation counts')
     write_csv(root/'recommended_predictions.csv',predictions,
-              ['sample','genus','family','method','ml_gene_votes','nearest_gene_votes','search_status'])
+              ['sample','genus','family','method','ml_gene_votes','nearest_gene_votes','nearest_winner_gene_votes','search_status'])
     recommendation={'variant':'complete_joint','method':best['method'],'metrics':best,
-                    'selection':'Highest observed micro F1 among five fixed complete classifiers; ties favor precision, recall, then the original merged rule',
+                    'selection':'Highest observed micro F1 among fixed complete classifiers and matched NN3 control; ties favor precision, recall, then the original merged rule',
                     'scope':'Post-evaluation whole-method development selection on these same ten mixtures; not independent validation',
                     'manual_genus_additions_or_removals':False,'sample_genus_events':len(predictions)}
     dump(root/'RECOMMENDATION.json',recommendation)
@@ -118,7 +136,9 @@ def final_report(root):
          'human_development_used_previous_evaluation':True,'true_genus_retention_by_stage':retention,
          'stage_order':['initial','after_routing','joint_pool','QC_references','merged'],
          'search_work':stats,'recommendation_is_posthoc':True})
-    pct=lambda x:f'{float(x):.1%}'
+    pct=lambda x:'NA' if x in ('',None) else f'{float(x):.1%}'
+    distinct_genera={g for r in by_sample if r['variant']=='complete_joint' and r['method']=='merged'
+                    for g in r['expected'].split(';') if g}
     primary=next(r for r in all_summary if r['variant']=='complete_joint' and r['method']=='merged')
     lines=['# Hierarchical genus search: ten in-silico mixtures on TTU','',
            f'Best observed fixed final rule after the complete-pool correction: **{best["method"]}**, '
@@ -158,9 +178,18 @@ def final_report(root):
     lines+=['','The merged rule remains the original primary comparison. Review is a separate follow-up set and '
             'auxiliary is a component path; neither is eligible for the recommendation. The recommended whole '
             'rule is chosen from fixed complete classifiers using observed F1, which adds development selection bias.', '',
+            'The nearest_gene3 control uses exactly the same pre-verifier nearest candidates and three-gene quorum '
+            'as standalone ML. Replaying its accepted fragments must reproduce the sealed ML set. This diagnostic '
+            'was added after the baseline evaluations, before inspecting complete-pool metrics; its prediction '
+            'constructor does not read truth. It separates the verifier effect from sampling and reference coverage.', '',
+            'The ml_diagnostic_gene3 diagnostic additionally requires three genes with a unique nearest genus '
+            'and sibling-relative margin ≥0.1, using the existing C-style diagnostic-gene evidence. Its quorum '
+            'and margin were fixed before complete-pool scores were inspected, after the baseline evaluations. '
+            'It addresses ambiguous conserved fragments and is eligible only as a disclosed development choice.', '',
             '## Data, time and limitations','',
             'The cohort contains four 3-component, three 6-component and three 10-component mixtures, selected '
-            'by sample-ID hashes from the completed 100-mixture dataset. Reused assemblies cover 50 target genes. '
+            f'by sample-ID hashes from the completed 100-mixture dataset. They represent {len(distinct_genera)} distinct source genera '
+            'and 60 sample–genus presence events. Reused assemblies cover 50 target genes. '
             'Search parents come from existing raw Z, merged and review family evidence. Target-locus QC requires '
             'at least 30 accepted genes; up to two species represent each final genus. Unavailable genera stay '
             'explicit and count as misses.', '',
@@ -175,7 +204,8 @@ def final_report(root):
             'These warm-cache observations do not establish speedup against a matched exhaustive genus run. '
             'Queueing, audit and Slurm overhead are separate from inference phases.', '',
             'The final panels can contain the source species; this is a closed-reference experiment. '
-            'The model was fitted without mixture labels, but the cohort and reference library have been used '
+            'Mixture genera were not required to be absent from model fitting. The model was fitted without mixture labels, '
+            'but the cohort and reference library have been used '
             'in previous work. Results do not establish accuracy on new species, new mixtures, absent-reference '
             'genera, negative-only samples, species-level presence or abundance.', '',
             'Truth is the first word of Table S1 scientific names, using source IDs in the fixed mixture IDs. '

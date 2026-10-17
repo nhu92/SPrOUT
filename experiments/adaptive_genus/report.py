@@ -116,7 +116,7 @@ def report(output):
            f'{bounded}/10 searches reached the ≤64-genus search target. '
            f'{refined}/10 searches reached a fully QC-represented final joint panel; '
            f'{10-refined}/10 retained explicit unresolved regions or final reference omissions. '
-           f'Per-mixture elapsed inference was {min(seconds)/60:.1f}–{max(seconds)/60:.1f} minutes '
+           f'{"Combined source-plus-completion inference" if development else "Per-mixture elapsed inference"} was {min(seconds)/60:.1f}–{max(seconds)/60:.1f} minutes '
            f'(median {median(seconds)/60:.1f}); shared reference-only model training took {training["seconds"]/60:.1f} minutes.', '',
            'This is a retrospective method experiment on ten mixtures from the previously analyzed 100. '
            'The 4/3/3 selection across 3-, 6- and 10-component strata was fixed by sample-ID hashes, '
