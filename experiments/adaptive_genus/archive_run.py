@@ -19,7 +19,7 @@ def package(root, job_ids):
     audit=json.loads((root/'AUDIT.json').read_text())
     if not audit['all_10_complete'] or not audit['code_model_inputs_products_verified']:
         raise ValueError('Incomplete audited batch')
-    output=base/'reproducibility.tar.gz'
+    output=base/('reproducibility_'+root.name+'.tar.gz')
     if output.exists():
         raise FileExistsError(output)
     files={}
@@ -52,12 +52,12 @@ def package(root, job_ids):
     result=subprocess.run(['sacct','-P','-j',','.join(map(str,job_ids)),
                            '--format=JobID,JobName,State,Submit,Start,End,Elapsed,TotalCPU,AllocCPUS,MaxRSS,ExitCode'],
                           check=True,text=True,capture_output=True)
-    accounting=base/'SLURM_ACCOUNTING.psv';accounting.write_text(result.stdout)
+    accounting=base/('SLURM_ACCOUNTING_'+root.name+'.psv');accounting.write_text(result.stdout)
     files[accounting.name]=accounting
     manifest={'packaged_utc':datetime.now(timezone.utc).isoformat(),'inference_root':str(root),
               'job_ids':job_ids,'truth_included':False,
               'artifact_sha256':{name:hashlib.sha256(p.read_bytes()).hexdigest() for name,p in sorted(files.items())}}
-    record=base/'REPRODUCIBILITY.json';record.write_text(json.dumps(manifest,indent=2)+'\n')
+    record=base/('REPRODUCIBILITY_'+root.name+'.json');record.write_text(json.dumps(manifest,indent=2)+'\n')
     files[record.name]=record
     with tarfile.open(output,'w:gz') as archive:
         for name,p in sorted(files.items()):
