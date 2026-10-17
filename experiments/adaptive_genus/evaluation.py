@@ -204,7 +204,7 @@ def evaluate(batch, output, workbook, genus_column, species_name=False):
     dump(output/'truth.json', {'view':'table_literal', 'workbook_sha256':sha(workbook), 'sheet':'Table S1',
                              'genus_column':genus_column, 'first_word_of_species_name':species_name,
                              'sources':list(truth.values()), 'independently_verified_used_cells':cells})
-    by_sample, survival, losses, timings, rounds = [], [], [], [], []
+    by_sample, survival, losses, timings, rounds, phases = [], [], [], [], [], []
     for row in selection:
         sample = row['sample'];path = batch/'samples'/row['project']
         expected = {truth[int(i)]['genus'] for i in sample.split('x')}
@@ -245,6 +245,15 @@ def evaluate(batch, output, workbook, genus_column, species_name=False):
                         'merged_genera':len(calls[sample]['merged'])})
         for r in search['rounds']:
             rounds.append({'sample':sample, **r})
+        parts={'fetch_parse':search['fetch_seconds'],'reference_QC':search['qc_seconds'],
+               'reference_projection':search['reference_alignment_seconds'],
+               'query_align_tree':sum(r['tree_seconds'] for r in search['rounds'])+search['final'].get('tree_seconds',0)}
+        other=search['seconds']-sum(parts.values())
+        if other < -.01:
+            raise ValueError('Phase timings exceed total search elapsed time')
+        parts['planning_routing_scoring_other']=max(0,other)
+        phases.extend({'sample':sample,'phase':phase,'seconds':seconds,'fraction_of_search':seconds/search['seconds']}
+                      for phase,seconds in parts.items())
     summary=[]
     for method in METHODS:
         sub=[r for r in by_sample if r['method']==method]
@@ -254,8 +263,16 @@ def evaluate(batch, output, workbook, genus_column, species_name=False):
     primary = next(r for r in summary if r['method']=='merged')
     if sum(r['first_loss']=='recovered' for r in losses)!=primary['TP'] or len(losses)!=primary['TP']+primary['FN']:
         raise ValueError('First-loss diagnosis must reproduce primary genus recall')
+    complexity=[]
+    for components in (3,6,10):
+        for method in METHODS:
+            sub=[r for r in by_sample if r['method']==method and r['components']==components]
+            complexity.append({'components':components,'method':method,'samples':len(sub),
+                               **counts(*(sum(r[k] for r in sub) for k in ('TP','FP','FN'))),
+                               'exact_sets':sum(r['FP']==r['FN']==0 for r in sub)})
     for name, rows in [('summary.csv',summary),('by_sample.csv',by_sample),('truth_survival.csv',survival),
-                       ('first_losses.csv',losses),('timings.csv',timings),('rounds.csv',rounds)]:
+                       ('first_losses.csv',losses),('timings.csv',timings),('rounds.csv',rounds),
+                       ('summary_by_complexity.csv',complexity),('runtime_phases.csv',phases)]:
         write_csv(output/name,rows)
     # Recount independently from plain files and the XML reader's source cells.
     from experiments.reference_atlas.real_truth import xml_sheet

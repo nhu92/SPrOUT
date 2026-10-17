@@ -68,6 +68,13 @@ def compare(root):
         lines.append(f'| {variant} | {r["TP"]} | {r["FP"]} | {r["FN"]} | {pct(r["precision"])} | {pct(r["recall"])} | '
                      f'{float(r["F1"]):.3f} | {r["exact_sets"]}/10 | {s["median_pool"]:g} | {s["median_minutes"]:.1f} | {s["bounded"]}/10 / {s["refined"]}/10 |')
     dump(root/'COMPARISON_METRICS.json',stats)
+    lines+=['','| Policy | Components | Samples | TP | FP | FN | Precision | Recall | F1 |',
+            '| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |']
+    for variant,p in paths.items():
+        for r in read_csv(p/'summary_by_complexity.csv'):
+            if r['method']=='merged':
+                lines.append(f'| {variant} | {r["components"]} | {r["samples"]} | {r["TP"]} | {r["FP"]} | {r["FN"]} | '
+                             f'{pct(r["precision"])} | {pct(r["recall"])} | {float(r["F1"]):.3f} |')
     lines+=['','v1 requires two routing genes (three for ambiguous second routes) and four nearby guard genera per '
             'supported anchor. The strict policy requires five genes for both routes and one guard genus. '
             'Both use 32 initial tree cells, 64 after a stalled round, at most eight rounds and a 64-genus '

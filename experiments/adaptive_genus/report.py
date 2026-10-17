@@ -54,6 +54,30 @@ def figures(output, selection, timings, by_sample, searches):
     for suffix in ('png','svg'):
         fig.savefig(output/('accuracy_runtime.'+suffix))
     plt.close(fig)
+    survival=read_csv(output/'truth_survival.csv')
+    lookup={(r['sample'],r['stage']):r for r in survival}
+    retained=[0]*5;expected=0
+    for row in selection:
+        sample=row['sample']
+        search=next(s for s in searches if s['sample']==sample)
+        last=f'round_{search["rounds"][-1]["round"]:02d}' if search['rounds'] else 'initial'
+        stages=('initial',last,'final_search','final_reference','merged')
+        expected+=int(lookup[sample,'initial']['expected_genera'])
+        for i,stage in enumerate(stages):
+            retained[i]+=int(lookup[sample,stage]['true_retained'])
+    fig,ax=plt.subplots(figsize=(8,4.5),constrained_layout=True)
+    x=np.arange(5)
+    ax.bar(x,retained,color='#228833',label='True genus retained')
+    ax.bar(x,[expected-n for n in retained],bottom=retained,color='#dddddd',label='True genus missing')
+    for i,n in enumerate(retained):
+        ax.text(i,n+.4,str(n),ha='center',va='bottom',fontsize=10)
+    ax.set_xticks(x,['Initial pool','After routing','Joint search','QC references','Merged calls'])
+    ax.set(ylabel='True sample–genus events',title='Where recall is lost (all ten mixtures)',ylim=(0,expected*1.17))
+    ax.legend(loc='upper right',fontsize=8)
+    ax.spines[['top','right']].set_visible(False)
+    for suffix in ('png','svg'):
+        fig.savefig(output/('truth_survival.'+suffix))
+    plt.close(fig)
     # Matplotlib emits trailing spaces in SVG style blocks; preserve clean diffs.
     for path in output.glob('*.svg'):
         path.write_text('\n'.join(line.rstrip() for line in path.read_text(encoding='utf-8').splitlines())+'\n',encoding='utf-8')
@@ -126,6 +150,14 @@ def report(output):
             'Reference-count reduction measures avoided reference work. There is no exhaustive genus run '
             'on these same ten samples, so these results do not establish a measured speedup over the old '
             'pipeline. The previous progressive ten-mixture cohort differs from this cohort.', '',
+            '| Runtime phase | Median seconds per mixture | Sum of sample-phase minutes |',
+            '| --- | ---: | ---: |']
+    phase_rows=read_csv(output/'runtime_phases.csv')
+    for phase in dict.fromkeys(r['phase'] for r in phase_rows):
+        values=[float(r['seconds']) for r in phase_rows if r['phase']==phase]
+        lines.append(f'| {phase} | {median(values):.1f} | {sum(values)/60:.1f} |')
+    lines+=['','Phase sums combine overlapping Slurm tasks and are not cohort wall time or CPU time. '
+            'The residual phase includes tree planning, index loading, routing and final scoring.', '',
             '## Genus predictions','',
             'Primary output: [merged_predictions.csv](merged_predictions.csv). '
             'The [complete method sets](prediction_sets.zip), [candidate evidence](candidate_evidence.csv) '
@@ -135,6 +167,12 @@ def report(output):
     for r in summary:
         lines.append(f'| {r["method"]} | {r["TP"]} | {r["FP"]} | {r["FN"]} | {pct(r["precision"])} | '
                      f'{pct(r["recall"])} | {float(r["F1"]):.3f} | {r["exact_sets"]}/10 |')
+    lines+=['','| Merged, by mixture complexity | Samples | TP | FP | FN | Precision | Recall | F1 |',
+            '| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |']
+    for r in read_csv(output/'summary_by_complexity.csv'):
+        if r['method']=='merged':
+            lines.append(f'| {r["components"]} components | {r["samples"]} | {r["TP"]} | {r["FP"]} | {r["FN"]} | '
+                         f'{pct(r["precision"])} | {pct(r["recall"])} | {float(r["F1"]):.3f} |')
     lines+=['','Review is an unmerged follow-up set, not another primary call set. '
             'C-style uses a new genus-balanced distance contrast and the previous gene-bootstrap confirmation/rescue formulas. '
             'Merged keeps C-style calls with at least two ML-supported genes, or the predeclared stable auxiliary rescue '
@@ -144,7 +182,8 @@ def report(output):
             '| First loss / recovery stage | Sample–genus events |','| --- | ---: |']
     for stage,n in sorted(audit['first_losses'].items()):
         lines.append(f'| {stage} | {n} |')
-    lines+=['','[truth_survival.csv](truth_survival.csv) records every true genus surviving each round; '
+    lines+=['','![Retention of true genera through the pipeline](truth_survival.png)','',
+            '[truth_survival.csv](truth_survival.csv) records every true genus surviving each round; '
             '[first_losses.csv](first_losses.csv) identifies the first exclusion. All ten mixtures contribute to recall, '
             'including absent parents, unavailable references, unresolved searches and final rejections. '
             'The original Table S1 is the primary literal truth. Older family reports documented source-identity '
@@ -162,7 +201,8 @@ def report(output):
             'Accuracy/runtime differences cannot be attributed to the sampler alone. Sparse loci and cross-genus '
             'similarity can defeat routing; unresolved regions are visible instead of forced into representative labels. '
             'Species-level presence and abundance are not evaluated.', '',
-            'Inference implementation: `1fbf38d`; evaluation plan/export implementation: `502e1e1`. '
+            'Initial inference implementation: `1fbf38d`; truth-blinded strict policy: `3f302fb`. '
+            'Later commits add local evaluation gates, report figures and artifact audits. '
             'Branch: `experiment/adaptive-genus-search-20261017`. '
             'The previous pipeline defaults and family results are unchanged. '
             'No mixture-truth-based threshold tuning was performed in this frozen experiment.', '',
