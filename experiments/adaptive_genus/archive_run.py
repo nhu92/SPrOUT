@@ -23,7 +23,7 @@ def package(root, job_ids):
     if output.exists():
         raise FileExistsError(output)
     files={}
-    for name in ('train.py','train_code.tar.gz','TRAIN_CODE_SHA.json','RUN_STATE.json','PROBE.json','EVALUATION_PLAN.md'):
+    for name in ('train.py','train_code.tar.gz','TRAIN_CODE_SHA.json','RUN_STATE.json','PROBE.json','TOOLCHAIN.json','toolchain.py','EVALUATION_PLAN.md'):
         p=base/name
         if p.exists():
             files[name]=p

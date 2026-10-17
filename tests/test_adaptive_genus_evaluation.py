@@ -37,7 +37,7 @@ def test_first_loss_distinguishes_parent_routing_and_unresolved(tmp_path):
 
 
 def test_sealed_export_has_ten_samples_and_detects_tampering(tmp_path):
-    from experiments.adaptive_genus.evaluation import METHODS
+    from experiments.adaptive_genus.evaluation import METHODS, evaluate
     batch=tmp_path/'batch';batch.mkdir()
     put(batch/'AUDIT.json',{'all_10_complete':True,'code_model_inputs_products_verified':True})
     (batch/'PREDICTIONS_COMPLETE').write_text('done')
@@ -60,6 +60,9 @@ def test_sealed_export_has_ten_samples_and_detects_tampering(tmp_path):
     output=tmp_path/'export'
     export(batch,output)
     verify_export(output)
+    put(batch/'PROTOCOL.json',{'synthetic':'different batch'})
+    with pytest.raises(ValueError,match='Sealed batch differs'):
+        evaluate(batch,output,tmp_path/'unavailable.xlsx','I')
     (output/'predictions.json').write_text('[]')
     with pytest.raises(ValueError,match='artifact changed'):
         verify_export(output)

@@ -196,6 +196,9 @@ def evaluate(batch, output, workbook, genus_column, species_name=False):
     batch, output = Path(batch), Path(output)
     selection, calls = complete(batch)
     verify_export(output)
+    for name in ('PROTOCOL.json','selection.json','predictions.json','SEARCHES.json','AUDIT.json'):
+        if sha(batch/name)!=sha(output/name):
+            raise ValueError('Sealed batch differs from evaluation input: '+name)
     # The first workbook-content read occurs only after these completion checks.
     truth, cells = table_truth(workbook, genus_column, species_name)
     dump(output/'truth.json', {'view':'table_literal', 'workbook_sha256':sha(workbook), 'sheet':'Table S1',
@@ -265,6 +268,8 @@ def evaluate(batch, output, workbook, genus_column, species_name=False):
         recount=measures(expected,called)
         if any(result[k]!=recount[k] for k in ('TP','FP','FN')):
             raise ValueError('Independent candidate recount disagrees')
+    if sha(workbook)!=TRUTH_SHA256:
+        raise ValueError('Source workbook changed during read-only evaluation')
     dump(output/'EVALUATION_AUDIT.json',{'samples':10,'primary':'merged','view':'table_literal',
          'all_ten_predictions_sealed_before_truth_read':True,'openpyxl_XML_used_cells_agree':True,
          'plain_method_text_XML_recounts_agree':True,'workbook_sha256':sha(workbook),

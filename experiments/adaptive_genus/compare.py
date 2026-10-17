@@ -53,7 +53,7 @@ def compare(root):
            'Completed both predeclared routing policies on the same ten in-silico mixtures: **20/20 pipelines audited**. '
            'Both batches were sealed before the original Table S1 genus truth was opened. '
            'The stricter policy was specified from truth-blinded search stagnation, with the same model and query data.', '',
-           '| Routing policy; merged classifier | TP | FP | FN | Precision | Recall | F1 | Exact sets | Median retained genera | Median search minutes | Fully refined |',
+           '| Routing policy; merged classifier | TP | FP | FN | Precision | Recall | F1 | Exact sets | Median retained genera | Median search minutes | ≤64 genera / full QC |',
            '| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |']
     stats={}
     for variant,p in paths.items():
@@ -62,10 +62,11 @@ def compare(root):
         stats[variant]={'accuracy':r,'median_pool':median(int(x['remaining_search_genera']) for x in t),
                         'median_minutes':median(float(x['seconds'])/60 for x in t),
                         'median_reduction':median(1-int(x['remaining_search_genera'])/int(x['initial_genera']) for x in t),
+                        'bounded':sum(int(x['remaining_search_genera'])<=64 for x in t),
                         'refined':sum(x['search_status']=='refined' for x in t)}
         s=stats[variant]
         lines.append(f'| {variant} | {r["TP"]} | {r["FP"]} | {r["FN"]} | {pct(r["precision"])} | {pct(r["recall"])} | '
-                     f'{float(r["F1"]):.3f} | {r["exact_sets"]}/10 | {s["median_pool"]:g} | {s["median_minutes"]:.1f} | {s["refined"]}/10 |')
+                     f'{float(r["F1"]):.3f} | {r["exact_sets"]}/10 | {s["median_pool"]:g} | {s["median_minutes"]:.1f} | {s["bounded"]}/10 / {s["refined"]}/10 |')
     dump(root/'COMPARISON_METRICS.json',stats)
     lines+=['','v1 requires two routing genes (three for ambiguous second routes) and four nearby guard genera per '
             'supported anchor. The strict policy requires five genes for both routes and one guard genus. '
@@ -95,6 +96,8 @@ def compare(root):
             'The old progressive ten-mixture cohort is different, so it is not a matched accuracy/runtime control.', '',
             'Reference-pool reduction is measured; speedup versus exhaustive genus inference is not. '
             'The second policy can benefit from earlier downloads into the shared cache. '
+            'Concurrency was a throughput choice rather than a controlled timing variable: '
+            'v1 allowed four tasks, while strict routing increased from two to four to six. '
             'Per-sample search minutes include reference sampling, fetching/QC, reference projection, query alignment, '
             'trees and scoring; they exclude prior assembly, initial/final audits, Slurm setup/cleanup and queueing. '
             'Allocated job durations and CPU accounting are archived separately. '

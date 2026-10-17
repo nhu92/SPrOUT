@@ -65,10 +65,12 @@ def report(output):
     timings=read_csv(output/'timings.csv');rounds=read_csv(output/'rounds.csv')
     selection=read(output/'selection.json')['selected'];searches=read(output/'SEARCHES.json')
     training=read(output/'model/TRAINING.json');audit=read(output/'EVALUATION_AUDIT.json')
+    strict = 'strict-routing' in read(output/'PROTOCOL.json')['policy']['schema']
     primary=next(r for r in summary if r['method']=='merged')
     reductions=[1-float(t['remaining_search_genera'])/float(t['initial_genera']) for t in timings if float(t['initial_genera'])]
     seconds=[float(r['seconds']) for r in timings]
     refined=sum(r['search_status']=='refined' for r in timings)
+    bounded=sum(int(r['remaining_search_genera'])<=64 for r in timings)
     figures(output,selection,timings,by_sample,searches)
     lines=['# Ten in-silico mixtures: adaptive phylogenetic genus search','',
            f'All ten TTU pipelines completed and passed frozen input/model/code/product checks. '
@@ -76,6 +78,7 @@ def report(output):
            f'with {primary["FP"]} false positives and {primary["FN"]} missed events: '
            f'precision **{pct(primary["precision"])}**, recall **{pct(primary["recall"])}**, F1 **{float(primary["F1"]):.3f}**.', '',
            f'The search removed a median {median(reductions):.1%} of the initial recoverable genus pool. '
+           f'{bounded}/10 searches reached the ≤64-genus search target. '
            f'{refined}/10 searches reached a fully QC-represented final joint panel; '
            f'{10-refined}/10 retained explicit unresolved regions or final reference omissions. '
            f'Per-mixture elapsed inference was {min(seconds)/60:.1f}–{max(seconds)/60:.1f} minutes '
@@ -115,7 +118,10 @@ def report(output):
             f'{median(float(r["reduction_fraction"]) for r in rounds):.1%}. '
             'Full per-round panels, counts, evidence, QC and timing are in the sealed batch archive and rounds.csv. '
             'The pilot and training costs are separate from the ten sample times. '
-            'Slurm used eight CPUs per mixture with at most four mixtures concurrently; times exclude queueing and prior assembly. '
+            f'Slurm used eight CPUs per mixture with up to {6 if strict else 4} mixtures of this policy concurrently; '
+            'the strict-policy throttle increased from two to four to six as earlier work finished. '
+            'Reported inference times exclude queueing, prior assembly, initial/final audits and Slurm setup/cleanup. '
+            'Allocated job elapsed times are recorded separately in Slurm accounting. '
             'Fetch/QC/alignment durations overlap worker tasks and are not CPU-time totals.', '',
             'Reference-count reduction measures avoided reference work. There is no exhaustive genus run '
             'on these same ten samples, so these results do not establish a measured speedup over the old '
