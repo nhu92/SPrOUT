@@ -1,0 +1,23 @@
+{
+  "schema": "adaptive-phylogenetic-genus-v1-strict-routing",
+  "initial_cells": 32,
+  "maximum_cells": 64,
+  "anchors_per_cell": 2,
+  "anchor_qc_attempts": 6,
+  "minimum_accepted_target_locus_fraction": 0.6,
+  "route_minimum_genes": 5,
+  "ambiguous_second_minimum_genes": 5,
+  "ambiguous_distance_gap": 0.1,
+  "nearby_guard_genera": 1,
+  "maximum_rounds": 8,
+  "final_joint_genus_budget": 64,
+  "final_species_per_genus": 2,
+  "minimum_valid_genes": 10,
+  "minimum_query_bases": 80,
+  "stalled_retained_fraction": 0.95,
+  "stalled_rounds": 2,
+  "prediction_count_cap": null,
+  "primary_final_rule": "c_style_selected AND (ML genes >= 2 OR (gene rescue AND MC stability lower > .5 AND ML genes >= 1))",
+  "truth_used_for_selection_or_calibration": false,
+  "evaluation": "Same cohort, model and final rule as v1. Stronger routing and smaller guards chosen from truth-blinded search stagnation; compare genus survival and runtime, preserving all ten and literal truth."
+}

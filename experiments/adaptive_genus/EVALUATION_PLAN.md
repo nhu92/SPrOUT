@@ -46,3 +46,21 @@ Seal output files, source archives, model, protocol and audit manifests with
 SHA-256. No tuning or rerunning based on mixture truth belongs to this frozen
 experiment; any subsequent scientific iteration requires a separately labeled
 run and must disclose reuse of these mixtures.
+
+## Truth-blinded routing comparison
+
+Before any of the ten genus truths were opened, the first four v1 searches
+showed diminishing reductions (for example 1,234 → 282 → 194 → 164 → 150 → 145).
+Preserve v1 and run the same ten mixtures in a separate root using
+`policy_strict_route.json`: five primary-routing genes, five ambiguous-second
+genes, and one nearby guard genus per supported anchor. All other search
+budgets, sequences, model, QC, alignment, final fusion and samples stay fixed.
+This tests a small group of routing-policy changes, not their separate effects.
+
+Complete and seal both ten-mixture batches before opening the truth. Keep
+merged as the primary final classifier within each variant and report both
+variants, including all unresolved samples. This comparison is motivated by
+truth-blinded search stagnation, not genus accuracy. Any preference selected
+from these ten results is a retrospective development choice, not independent
+validation. Record cache differences; a later run can benefit from downloads
+made by the first run, so elapsed-time comparisons are warm-cache observations.
