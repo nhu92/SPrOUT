@@ -23,12 +23,14 @@ def package(root, job_ids):
     if output.exists():
         raise FileExistsError(output)
     files={}
-    for name in ('train.py','train_code.tar.gz','TRAIN_CODE_SHA.json','RUN_STATE.json','PROBE.json','TOOLCHAIN.json','toolchain.py','EVALUATION_PLAN.md'):
+    for name in ('train.py','train_code.tar.gz','TRAIN_CODE_SHA.json','RUN_STATE.json','PROBE.json','TOOLCHAIN.json','toolchain.py','EVALUATION_PLAN.md','collect_parallel.py','collect_parallel_v1.sbatch','collect_parallel_strict_route.sbatch'):
         p=base/name
         if p.exists():
             files[name]=p
     for name in ('sources.tar.gz','model/model.joblib','model/TRAINING.json','prepare.sbatch','array.sbatch','collect.sbatch'):
         files['inference/'+name]=root/name
+    if (root/'COLLECTION_IMPLEMENTATION.json').exists():
+        files['inference/COLLECTION_IMPLEMENTATION.json']=root/'COLLECTION_IMPLEMENTATION.json'
     for name in ('PILOT.json','pilot.py'):
         p=base/'pilot_02'/name
         if p.exists():

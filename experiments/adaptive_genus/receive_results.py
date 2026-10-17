@@ -30,6 +30,9 @@ def receive(batch_archive, reproducibility_archive, batch_sha256, reproducibilit
         if sha(repro/name)!=digest:
             raise ValueError('Reproducibility member changed: '+name)
     inference=repro/'inference'
+    if (inference/'COLLECTION_IMPLEMENTATION.json').exists():
+        if sha(repro/'collect_parallel.py')!=read(inference/'COLLECTION_IMPLEMENTATION.json')['wrapper_sha256']:
+            raise ValueError('Operational parallel collector source mismatch')
     if sha(inference/'model/model.joblib')!=protocol['model_sha256'] or sha(inference/'model/TRAINING.json')!=protocol['training_sha256']:
         raise ValueError('Checkpoint/training differs from frozen protocol')
     if (inference/'model/TRAINING.json').read_bytes()!=(batch/'model/TRAINING.json').read_bytes():

@@ -21,6 +21,21 @@ def test_absent_calls_still_count_as_false_negatives():
     assert counts(0, 0, 7)=={'TP':0, 'FP':0, 'FN':7, 'precision':None, 'recall':0, 'F1':0}
 
 
+def test_parallel_streaming_audit_checks_every_file(tmp_path):
+    import hashlib
+    from experiments.adaptive_genus.collect_parallel import sha_stream,verify_parallel
+    hashes={}
+    for i in range(24):
+        data=bytes([i])*(1024*1024+13)
+        path=tmp_path/str(i);path.write_bytes(data)
+        hashes[str(path)]=hashlib.sha256(data).hexdigest()
+        assert sha_stream(path)==hashes[str(path)]
+    verify_parallel(hashes,workers=4)
+    (tmp_path/'23').write_bytes(b'changed')
+    with pytest.raises(ValueError,match='Frozen file changed'):
+        verify_parallel(hashes,workers=4)
+
+
 def test_first_loss_distinguishes_parent_routing_and_unresolved(tmp_path):
     row={'families':['F']}
     (tmp_path/'initial_genera.txt').write_text('A\nB\n')
