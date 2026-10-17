@@ -1,0 +1,34 @@
+{
+  "samples": 10,
+  "components_by_stratum": {
+    "3": 4,
+    "6": 3,
+    "10": 3
+  },
+  "distinct_source_ids": 19,
+  "distinct_expected_genera": 19,
+  "true_sample_genus_events": 60,
+  "source_ids": [
+    1,
+    2,
+    3,
+    4,
+    7,
+    8,
+    10,
+    12,
+    13,
+    15,
+    16,
+    18,
+    19,
+    22,
+    24,
+    25,
+    26,
+    28,
+    30
+  ],
+  "independent_biological_cohort": false,
+  "source_species_explicitly_excluded_from_final_references": false
+}

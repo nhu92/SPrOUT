@@ -1,0 +1,14 @@
+{
+  "remote_archive_sha256": {
+    "batch": "dd834c486a1177e264aca74f58d9aa2e611ef8b0ebd37661a53725b52c9165ec",
+    "reproducibility": "e1e1f8489f42ad100fda9e77744d7de386b2a7fc201a0f500d978d9082eb2a4e"
+  },
+  "samples": 10,
+  "plain_prediction_sets_match_combined_JSON": true,
+  "frozen_code_sources_and_submission_scripts_verified": true,
+  "frozen_model_and_training_verified": true,
+  "original_model_training_code_verified": true,
+  "reproducibility_member_hashes_verified": true,
+  "truth_read": false,
+  "inference_root": "/lustre/scratch/nhu/202609/ttu_adaptive_genus10_20261017/run_v1"
+}

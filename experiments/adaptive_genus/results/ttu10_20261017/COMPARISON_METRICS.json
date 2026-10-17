@@ -1,0 +1,42 @@
+{
+  "v1": {
+    "accuracy": {
+      "variant": "v1",
+      "view": "table_literal",
+      "method": "merged",
+      "samples": "10",
+      "TP": "6",
+      "FP": "41",
+      "FN": "54",
+      "precision": "0.1276595744680851",
+      "recall": "0.1",
+      "F1": "0.11214953271028037",
+      "exact_sets": "0"
+    },
+    "median_pool": 381.0,
+    "median_minutes": 14.791052325282848,
+    "median_reduction": 0.7350506392412287,
+    "bounded": 0,
+    "refined": 0
+  },
+  "strict_route": {
+    "accuracy": {
+      "variant": "strict_route",
+      "view": "table_literal",
+      "method": "merged",
+      "samples": "10",
+      "TP": "20",
+      "FP": "41",
+      "FN": "40",
+      "precision": "0.32786885245901637",
+      "recall": "0.3333333333333333",
+      "F1": "0.3305785123966942",
+      "exact_sets": "0"
+    },
+    "median_pool": 74.5,
+    "median_minutes": 13.65469717985834,
+    "median_reduction": 0.915608906317569,
+    "bounded": 5,
+    "refined": 0
+  }
+}

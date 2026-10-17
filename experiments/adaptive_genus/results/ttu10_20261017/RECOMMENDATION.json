@@ -1,0 +1,21 @@
+{
+  "variant": "complete_joint",
+  "method": "auxiliary",
+  "metrics": {
+    "variant": "complete_joint",
+    "view": "table_literal",
+    "method": "auxiliary",
+    "samples": "10",
+    "TP": "54",
+    "FP": "16",
+    "FN": "6",
+    "precision": "0.7714285714285715",
+    "recall": "0.9",
+    "F1": "0.8307692307692308",
+    "exact_sets": "1"
+  },
+  "selection": "Highest observed micro F1 among all fixed positive-call paths and matched diagnostics; review excluded; ties favor precision, recall, then merged",
+  "scope": "Post-evaluation whole-method development selection on these same ten mixtures; not independent validation",
+  "manual_genus_additions_or_removals": false,
+  "sample_genus_events": 70
+}

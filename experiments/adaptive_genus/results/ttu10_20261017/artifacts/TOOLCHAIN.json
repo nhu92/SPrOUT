@@ -1,0 +1,30 @@
+{
+  "recorded_utc": "2026-10-17T06:46:29.975640+00:00",
+  "timing": "Observed during frozen runs; CLI binaries were not separately hashed in PROTOCOL at launch",
+  "executables": {
+    "mafft": {
+      "path": "/home/nhu/miniconda3/envs/sprout/bin/mafft",
+      "resolved": "/home/nhu/miniconda3/envs/sprout/bin/mafft",
+      "sha256": "cf89c8d17af6a05a1586e4bdfc7db80f6add6baacefa5a8e413c15a03d78765d",
+      "mtime_utc": "2025-09-24T20:11:07+00:00",
+      "version_output": "v7.526 (2024/Apr/26)",
+      "returncode": 0
+    },
+    "trimal": {
+      "path": "/home/nhu/miniconda3/envs/sprout/bin/trimal",
+      "resolved": "/home/nhu/miniconda3/envs/sprout/bin/trimal",
+      "sha256": "bb7d03aecabe3f26b772b490b50b6a6452e6435daf40008c4c07c4cf9f74f559",
+      "mtime_utc": "2024-12-11T22:08:21+00:00",
+      "version_output": "\ntrimAl v1.5.rev0 build[2024-05-27]\n",
+      "returncode": 0
+    },
+    "fasttree": {
+      "path": "/home/nhu/miniconda3/envs/sprout/bin/fasttree",
+      "resolved": "/home/nhu/miniconda3/envs/sprout/bin/fasttree",
+      "sha256": "74c94f2ce34195fed8e149e1cb4b28ccae20218ad2ea0b9aa3afb6e2d1cf1b6d",
+      "mtime_utc": "2025-09-04T00:05:51+00:00",
+      "version_output": "FastTree Version 2.2.0 Double precision\nAlignment: standard input\nAmino acid distances: BLOSUM45 Joins: balanced Support: SH-like 1000\nSearch: Normal +NNI +SPR (2 rounds range 10) +ML-NNI opt-each=1\nTopHits: 1.00*sqrtN close=default refresh=0.80\nML Model: Jones-Taylor-Thorton, CAT approximation with 20 rate categories\nError reading header line",
+      "returncode": 1
+    }
+  }
+}

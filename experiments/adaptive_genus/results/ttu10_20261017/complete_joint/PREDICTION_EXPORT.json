@@ -1,0 +1,24 @@
+{
+  "rank": "genus",
+  "primary": "merged",
+  "samples": 10,
+  "truth_read_by_exporter": false,
+  "human_development_used_previous_evaluation": true,
+  "posthoc_plan_sha256": "20b5eac114a777059dd23eff15d1380e19259aba8d152eadb547aa49dabf4ba7",
+  "sealed_utc": "2026-10-17T08:18:28.806446+00:00",
+  "evaluation_plan_sha256": "4747ef97cb1a19ca846a7f68ef9f28e407b02da3ed008b0faa9b3b7933a0100e",
+  "artifact_sha256": {
+    ".gitattributes": "f06202a408fef9b9ea69bb6b1cb8160dbb0378c5bb67a444d510d231813824c8",
+    "all_method_predictions.csv": "e09af1e34b235405f8077019a8afc8cf1bbda2a8427d8def52cb8f5a9df5a561",
+    "AUDIT.json": "a98799a6e35773dd0113c181fc45d884005ef0dd352e1c15188b7827eace66bd",
+    "candidate_evidence.csv": "118584d111c5ea47ffc5943194f2022a6eaf611f1712084a12782aacfad18ba8",
+    "merged_predictions.csv": "c43b20f26edd58a0349736989fd0e329660f5ce664beb204fae9ce3f1040d937",
+    "prediction_sets.zip": "ea2611ed171bfdffa677b348795dd9faf963a8287bb8c2c865ca61eea5144f37",
+    "predictions.json": "a0c9fb7be179b14612040cd69b66f4606842d08e318aa7d441f70a6b22147436",
+    "PREDICTIONS_COMPLETE": "82dd6b86ea52a4ed3e3533014149033ecbcf2addd1223372904a1997ee082f38",
+    "PROTOCOL.json": "268a0311595bc06cbc01b455c586a0770036eb9e6ab97b7167d43f15747dab93",
+    "search_regions.csv": "648b00202e3d5ae75c5ec86fbabdf699fd8575a650b48e36d75131f35af2b661",
+    "SEARCHES.json": "a59fba80bb1bf414b3b8cb0518c703102113345eb82292d35d0e5964fa24b01e",
+    "selection.json": "f502b3767c27aaea181d90931820873daa9d4f92a0ae0081098f46cb385b375e"
+  }
+}

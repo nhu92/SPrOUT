@@ -1,0 +1,17 @@
+{
+  "all_10_complete": true,
+  "code_model_inputs_products_verified": true,
+  "truth_used": false,
+  "unresolved_samples": [
+    "07x26x30",
+    "18x25x12",
+    "30x04x03",
+    "26x01x24",
+    "30x04x19x07x03x16",
+    "30x04x13x26x19x28",
+    "04x07x08x15x16x01",
+    "04x30x25x16x10x03x28x01x13x08",
+    "25x28x30x07x22x24x12x04x03x18",
+    "07x22x30x08x18x13x03x19x04x02"
+  ]
+}

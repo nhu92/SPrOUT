@@ -1,0 +1,63 @@
+{
+  "same_ten_inputs_and_parents": true,
+  "same_model_and_training": true,
+  "same_QC_alignment_scoring_and_dependencies": true,
+  "same_initial_and_every_routing_pool": true,
+  "every_retained_genus_in_complete_joint_search": true,
+  "same_literal_truth": true,
+  "human_development_used_previous_evaluation": true,
+  "true_genus_retention_by_stage": {
+    "v1": [
+      60,
+      60,
+      6,
+      6,
+      6
+    ],
+    "strict_route": [
+      60,
+      60,
+      20,
+      20,
+      20
+    ],
+    "complete_joint": [
+      60,
+      60,
+      60,
+      54,
+      54
+    ]
+  },
+  "stage_order": [
+    "initial",
+    "after_routing",
+    "joint_pool",
+    "QC_references",
+    "merged"
+  ],
+  "search_work": {
+    "v1": {
+      "median_retained_genera": 381.0,
+      "median_reduction": 0.7350506392412287,
+      "median_combined_search_minutes": 14.791052325282848,
+      "target64_reached": 0,
+      "no_unresolved_search_regions": 0
+    },
+    "strict_route": {
+      "median_retained_genera": 74.5,
+      "median_reduction": 0.915608906317569,
+      "median_combined_search_minutes": 13.65469717985834,
+      "target64_reached": 5,
+      "no_unresolved_search_regions": 5
+    },
+    "complete_joint": {
+      "median_retained_genera": 74.5,
+      "median_reduction": 0.915608906317569,
+      "median_combined_search_minutes": 14.795410742825577,
+      "target64_reached": 5,
+      "no_unresolved_search_regions": 10
+    }
+  },
+  "recommendation_is_posthoc": true
+}

@@ -1,0 +1,8 @@
+{
+  "command": "python -m pytest tests -q",
+  "tests_passed": 48,
+  "warnings": 14,
+  "warning_kind": "Matplotlib/pyparsing deprecation warnings",
+  "tests_log_sha256": "331f9cf75cb346862c3da6277d19ecea87fd5519b8d4aacece73586af5d052ff",
+  "scope": "Local code tests; biological inference used the recorded TTU environment"
+}

@@ -26,7 +26,9 @@ def figures(output, selection, timings, by_sample, searches):
         axes[0].plot(range(len(pool)),pool,'o-',color=colors[i],label=f'S{i+1}')
         axes[1].plot(range(len(pool)),[n/pool[0] if pool[0] else 0 for n in pool], 'o-',color=colors[i])
     axes[0].set(xlabel='Completed routing rounds',ylabel='Remaining search genera',yscale='log',title='A  Search pool size')
-    axes[0].axhline(64,color='0.4',ls='--',lw=1,label='Joint-panel budget')
+    axes[0].axhline(64,color='0.4',ls='--',lw=1,label='Routing target (64)')
+    if read(output/'PROTOCOL.json').get('human_development_used_previous_evaluation'):
+        axes[0].axhline(512,color='#aa3377',ls=':',lw=1,label='Completion limit (512)')
     axes[1].set(xlabel='Completed routing rounds',ylabel='Fraction of initial genera retained',ylim=(-.02,1.03),title='B  Relative reduction')
     axes[1].yaxis.set_major_formatter(matplotlib.ticker.PercentFormatter(1))
     for ax in axes:
@@ -230,7 +232,7 @@ def report(output):
             'Per-method plain text prediction files independently reproduce TP/FP/FN. '
             +('The baseline truth had already been opened when this development correction was designed; new outputs were sealed before their rescoring.'
               if development else 'The truth workbook was opened only after all ten outputs were complete, downloaded and sealed locally.'), '']
-    (output/'REPORT.md').write_text('\n'.join(lines),encoding='utf-8')
+    (output/'REPORT.md').write_text('\n'.join(line.rstrip() for line in lines),encoding='utf-8')
 
 
 if __name__=='__main__':

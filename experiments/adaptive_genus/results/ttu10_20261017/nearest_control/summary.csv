@@ -1,0 +1,3 @@
+﻿variant,view,method,samples,TP,FP,FN,precision,recall,F1,exact_sets
+complete_joint,table_literal,nearest_gene3,10,54,226,6,0.19285714285714287,0.9,0.3176470588235294,0
+complete_joint,table_literal,ml_diagnostic_gene3,10,54,20,6,0.7297297297297297,0.9,0.8059701492537313,0

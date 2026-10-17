@@ -1,0 +1,10 @@
+{
+  "code/experiments/adaptive_genus/scoring.py": "6827cf5b8cc97434737461212afed1b023115020b060db444ffaf709206d0d94",
+  "code/experiments/adaptive_genus/trees.py": "4d8ae09286389b701390cc36ea05f830f1de2d3337f80a92eecd9834d06fdb45",
+  "code/experiments/adaptive_genus/phylogeny.py": "903f2d96e89c9787e8c18081634c236b6befb2dc25c8dbfbbfec48955958a45a",
+  "code/experiments/adaptive_genus/model.py": "f9b7dc95d8493446f0f2a325ce6277dd2fe6d8c7c860d62e0d6fdc6a31270d80",
+  "code/experiments/adaptive_genus/__init__.py": "310f198b3845baa9ec55b893e1d77b8554d0c474a15a9e34299546bd51beee92",
+  "code/experiments/adaptive_genus/references.py": "e46e2b523d5d5e134f6d37fcda63c1557d4bf6a1421f59026387bb13042360fe",
+  "code/experiments/reference_atlas/__init__.py": "ee83d6711ac8bcc3384701cf67d33a81e1639b5db0d42f419bdb086b2b604f10",
+  "code/experiments/reference_atlas/transfer.py": "4268e5787324e1a25acd7b92b6fe5193a493cf5b97e02a8659c85ce036f9a925"
+}

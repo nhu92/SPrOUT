@@ -1,0 +1,104 @@
+{
+  "root": "/lustre/scratch/nhu/202609/ttu_adaptive_genus10_20261017/run_v1",
+  "prepare": 26183690,
+  "array": 26183706,
+  "collect": 26183714,
+  "implementation_commit": "1fbf38d",
+  "branch": "experiment/adaptive-genus-search-20261017",
+  "pending": [
+    "Finish v3 array 26184172 and collector 26184177. Do not stop at submitted jobs.",
+    "Run archive_run.py v3 with all actual v3 job IDs; download compact and reproducibility archives, verify remote hashes using receive_results.py",
+    "Export complete_joint only after all ten audited. Its protocol has human_development_used_previous_evaluation=true and separate POSTHOC plan hash.",
+    "Evaluate original Table S1 using --genus-column B --species-name; same SHA 421cca...; complete_joint source truths already known, disclose in-sample correction",
+    "Copy model TRAINING, DOWNLOAD_AUDIT into complete_joint output, generate report.py and final_report.py; update CODE_TESTS48",
+    "Inspect PNG comparison and true survival; verify SHA manifest and Git index bytes; commit all artifacts and push, verify ls-remote",
+    "Open REPORT.md in Codex, final concise outcome+metrics+posthoc caveat+branch/report/prediction links"
+  ],
+  "v2_strict_route": {
+    "root": "/lustre/scratch/nhu/202609/ttu_adaptive_genus10_20261017/run_v2_strict_route",
+    "prepare": 26183806,
+    "array": 26183807,
+    "collect": 26183808,
+    "comparison_commit": "3f302fb",
+    "truth_used": false,
+    "runtime_throttle_change": {
+      "utc": "2026-10-17T06:32:39.362324+00:00",
+      "command": "scontrol update JobId=26183807 ArrayTaskThrottle=4",
+      "reason": "Increase throughput after first v1 jobs completed; no code, input, policy or per-task resource changes",
+      "initial_concurrent_tasks": 2,
+      "new_concurrent_tasks": 4
+    },
+    "additional_throttle_change": {
+      "utc": "2026-10-17T06:45:27.455280+00:00",
+      "command": "scontrol update JobId=26183807 ArrayTaskThrottle=6",
+      "reason": "Start final two samples after most v1 samples finish; at most 9 combined tasks now",
+      "per_task_cpus": 8,
+      "new_concurrent_strict_tasks": 6
+    }
+  },
+  "last_local_commit": "b16922f",
+  "truth_read": true,
+  "output_plan": "experiments/adaptive_genus/results/ttu10_20261017/{v1,strict_route,complete_joint}",
+  "all_20_inference_pipelines_complete": true,
+  "serial_collect_cancelled": [
+    26183714,
+    26183808
+  ],
+  "parallel_collect_jobs": {
+    "v1": 26184111,
+    "strict_route": 26184112
+  },
+  "collection_change": "Streaming SHA-256 reads parallelized with 16 threads; frozen inference source, model, parameters and all per-sample predictions unchanged",
+  "baseline_evaluation": {
+    "v1": {
+      "TP": 6,
+      "FP": 41,
+      "FN": 54,
+      "F1": 0.1121495327
+    },
+    "strict_route": {
+      "TP": 20,
+      "FP": 41,
+      "FN": 40,
+      "F1": 0.3305785124
+    },
+    "diagnosis": "All 60 true genus events survive all routing rounds; all false negatives caused by partial final-panel fallback, no true-genera QC or routing losses"
+  },
+  "v3_complete_joint": {
+    "root": "/lustre/scratch/nhu/202609/ttu_adaptive_genus10_20261017/run_v3_complete_joint",
+    "prepare": 26184161,
+    "array": 26184172,
+    "collect": 26184177,
+    "scope": "Post-evaluation development correction, NOT blind; unchanged candidate lists/model/classifier, full final pool <=512; 5 original complete final panels reused and 5 newly completed",
+    "pending": [],
+    "status": "10/10 complete, audited, archived, downloaded, sealed and scored"
+  },
+  "nearest_diagnostics": {
+    "raw_nearest_quorum": 3,
+    "ml_diagnostic_rule": "ML >=3 genes AND existing C-style discriminating genes >=3 (margin .1)",
+    "defined_before_complete_pool_scores_inspected": true,
+    "truth_used_by_constructor": false
+  },
+  "final_recommendation": {
+    "variant": "complete_joint",
+    "method": "auxiliary",
+    "metrics": {
+      "variant": "complete_joint",
+      "view": "table_literal",
+      "method": "auxiliary",
+      "samples": "10",
+      "TP": "54",
+      "FP": "16",
+      "FN": "6",
+      "precision": "0.7714285714285715",
+      "recall": "0.9",
+      "F1": "0.8307692307692308",
+      "exact_sets": "1"
+    },
+    "selection": "Highest observed micro F1 among all fixed positive-call paths and matched diagnostics; review excluded; ties favor precision, recall, then merged",
+    "scope": "Post-evaluation whole-method development selection on these same ten mixtures; not independent validation",
+    "manual_genus_additions_or_removals": false,
+    "sample_genus_events": 70
+  },
+  "artifact_scope": "Final inference and analysis record; Git publication is verified separately."
+}

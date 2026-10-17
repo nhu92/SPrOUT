@@ -1,0 +1,9 @@
+{
+  "unblinding_started_utc": "2026-10-17T07:18:24.842753+00:00",
+  "both_batches_sealed_and_verified": true,
+  "export_seal_sha256": {
+    "v1": "127188c2101fea78c0328a8680adb1b87f64de2efbcc979eba56e9c8e7fa7c02",
+    "strict_route": "a435ea837c356f4c07447db7b2cfcec9dd27f52ba15814b44e1ef0a30a490757"
+  },
+  "scope": "Read original Table S1 genus truth only after these seals"
+}

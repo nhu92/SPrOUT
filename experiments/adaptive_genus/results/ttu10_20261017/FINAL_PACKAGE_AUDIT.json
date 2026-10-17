@@ -1,0 +1,16 @@
+{
+  "all_three_prediction_seals_verified": true,
+  "all_six_archive_digests_match_TTU": true,
+  "same_model_checkpoint_verified": true,
+  "matched_control_constructor_sources_and_predictions_verified": true,
+  "recommended_csv_and_zip_match_unchanged_raw_method_lists_all_ten": true,
+  "recommended_literal_counts_recomputed": {
+    "TP": 54,
+    "FP": 16,
+    "FN": 6,
+    "exact_sets": 1
+  },
+  "original_workbook_sha256_unchanged": "421cca29377ab01e57cb6aeded7bf446ba4faf06282120a4ed602e8c67bbb01f",
+  "coverage_diagnosis_source_qc_hashes_verified": true,
+  "recommendation_is_post_evaluation_development": true
+}

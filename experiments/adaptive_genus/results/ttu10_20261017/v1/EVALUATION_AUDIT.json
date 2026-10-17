@@ -1,0 +1,15 @@
+{
+  "samples": 10,
+  "primary": "merged",
+  "view": "table_literal",
+  "all_ten_predictions_sealed_before_truth_read": true,
+  "openpyxl_XML_used_cells_agree": true,
+  "plain_method_text_XML_recounts_agree": true,
+  "workbook_sha256": "421cca29377ab01e57cb6aeded7bf446ba4faf06282120a4ed602e8c67bbb01f",
+  "source_workbook_modified": false,
+  "first_losses": {
+    "unresolved_search_region": 54,
+    "recovered": 6
+  },
+  "evaluated_utc": "2026-10-17T07:18:36.594504+00:00"
+}

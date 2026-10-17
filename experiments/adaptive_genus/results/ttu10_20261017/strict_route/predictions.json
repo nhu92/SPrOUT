@@ -1,0 +1,561 @@
+[
+  {
+    "sample": "07x26x30",
+    "project": "mix_07x26x30",
+    "balanced_z": [
+      "Alepidea",
+      "Citrus",
+      "Clymenia",
+      "Coelachne",
+      "Eriachne",
+      "Heteranthoecia",
+      "Isachne",
+      "Micraira",
+      "Pheidochloa",
+      "Sphaerocaryum"
+    ],
+    "c_style": [
+      "Alepidea",
+      "Citrus",
+      "Clymenia",
+      "Heteranthoecia",
+      "Isachne",
+      "Pheidochloa",
+      "Pleiospermium",
+      "Sphaerocaryum"
+    ],
+    "core": [
+      "Alepidea",
+      "Citrus",
+      "Clymenia",
+      "Heteranthoecia",
+      "Pleiospermium"
+    ],
+    "auxiliary": [
+      "Alepidea",
+      "Citrus",
+      "Clymenia",
+      "Heteranthoecia",
+      "Pleiospermium"
+    ],
+    "merged": [
+      "Alepidea",
+      "Citrus",
+      "Clymenia",
+      "Heteranthoecia",
+      "Pleiospermium"
+    ],
+    "standalone_ml": [
+      "Alepidea",
+      "Atalantia",
+      "Citrus",
+      "Clymenia",
+      "Heteranthoecia",
+      "Pleiospermium"
+    ],
+    "review": [
+      "Atalantia",
+      "Coelachne",
+      "Eriachne",
+      "Isachne",
+      "Micraira",
+      "Pheidochloa",
+      "Sphaerocaryum"
+    ]
+  },
+  {
+    "sample": "18x25x12",
+    "project": "mix_18x25x12",
+    "balanced_z": [
+      "Chelonopsis",
+      "Colquhounia",
+      "Eriophyton",
+      "Gomphostemma",
+      "Lagochilus",
+      "Lamium",
+      "Neocalyptrocalyx",
+      "Paraphlomis"
+    ],
+    "c_style": [
+      "Chelonopsis",
+      "Colquhounia",
+      "Corallocarpus",
+      "Gomphostemma",
+      "Lagochilus",
+      "Lamium",
+      "Neocalyptrocalyx",
+      "Paraphlomis"
+    ],
+    "core": [
+      "Colquhounia",
+      "Corallocarpus",
+      "Gomphostemma",
+      "Neocalyptrocalyx"
+    ],
+    "auxiliary": [
+      "Colquhounia",
+      "Corallocarpus",
+      "Neocalyptrocalyx"
+    ],
+    "merged": [
+      "Colquhounia",
+      "Corallocarpus",
+      "Gomphostemma",
+      "Neocalyptrocalyx"
+    ],
+    "standalone_ml": [
+      "Colquhounia",
+      "Corallocarpus",
+      "Gomphostemma",
+      "Neocalyptrocalyx"
+    ],
+    "review": [
+      "Chelonopsis",
+      "Eriophyton",
+      "Lagochilus",
+      "Lamium",
+      "Paraphlomis"
+    ]
+  },
+  {
+    "sample": "30x04x03",
+    "project": "mix_30x04x03",
+    "balanced_z": [
+      "Ariocarpus",
+      "Chichimecactus",
+      "Ferocactus",
+      "Kroenleinia",
+      "Polycarpaea",
+      "Turbinicarpus"
+    ],
+    "c_style": [
+      "Ariocarpus",
+      "Ferocactus",
+      "Heteranthoecia",
+      "Kroenleinia",
+      "Polycarpaea",
+      "Turbinicarpus"
+    ],
+    "core": [
+      "Ariocarpus",
+      "Ferocactus",
+      "Heteranthoecia",
+      "Kroenleinia",
+      "Polycarpaea",
+      "Turbinicarpus"
+    ],
+    "auxiliary": [
+      "Heteranthoecia",
+      "Kroenleinia",
+      "Polycarpaea",
+      "Turbinicarpus"
+    ],
+    "merged": [
+      "Ariocarpus",
+      "Ferocactus",
+      "Heteranthoecia",
+      "Kroenleinia",
+      "Polycarpaea",
+      "Turbinicarpus"
+    ],
+    "standalone_ml": [
+      "Ferocactus",
+      "Heteranthoecia",
+      "Kroenleinia",
+      "Polycarpaea",
+      "Turbinicarpus"
+    ],
+    "review": [
+      "Chichimecactus"
+    ]
+  },
+  {
+    "sample": "26x01x24",
+    "project": "mix_26x01x24",
+    "balanced_z": [
+      "Citrus",
+      "Clymenia",
+      "Dimorphocarpa",
+      "Dithyrea"
+    ],
+    "c_style": [
+      "Brasenia",
+      "Citrus",
+      "Clymenia",
+      "Dithyrea",
+      "Nuphar",
+      "Pleiospermium"
+    ],
+    "core": [
+      "Brasenia",
+      "Citrus",
+      "Clymenia",
+      "Dithyrea",
+      "Pleiospermium"
+    ],
+    "auxiliary": [
+      "Brasenia",
+      "Citrus",
+      "Clymenia",
+      "Dithyrea",
+      "Pleiospermium"
+    ],
+    "merged": [
+      "Brasenia",
+      "Citrus",
+      "Clymenia",
+      "Dithyrea",
+      "Pleiospermium"
+    ],
+    "standalone_ml": [
+      "Atalantia",
+      "Brasenia",
+      "Citrus",
+      "Clymenia",
+      "Dithyrea",
+      "Pleiospermium"
+    ],
+    "review": [
+      "Atalantia",
+      "Dimorphocarpa",
+      "Nuphar"
+    ]
+  },
+  {
+    "sample": "30x04x19x07x03x16",
+    "project": "mix_30x04x19x07x03x16",
+    "balanced_z": [
+      "Amphimas",
+      "Schefflerodendron"
+    ],
+    "c_style": [
+      "Amphimas",
+      "Aztekium",
+      "Hermas",
+      "Schefflerodendron",
+      "Siraitia"
+    ],
+    "core": [
+      "Aztekium",
+      "Hermas",
+      "Schefflerodendron"
+    ],
+    "auxiliary": [
+      "Amphimas",
+      "Aztekium",
+      "Hermas",
+      "Schefflerodendron"
+    ],
+    "merged": [
+      "Amphimas",
+      "Aztekium",
+      "Hermas",
+      "Schefflerodendron"
+    ],
+    "standalone_ml": [
+      "Aztekium",
+      "Hermas",
+      "Schefflerodendron"
+    ],
+    "review": [
+      "Siraitia"
+    ]
+  },
+  {
+    "sample": "30x04x13x26x19x28",
+    "project": "mix_30x04x13x26x19x28",
+    "balanced_z": [
+      "Merrillia",
+      "Murraya"
+    ],
+    "c_style": [
+      "Eriachne",
+      "Fraxinus",
+      "Kengyilia",
+      "Merrillia",
+      "Micraira",
+      "Murraya",
+      "Olea",
+      "Pheidochloa"
+    ],
+    "core": [
+      "Fraxinus",
+      "Kengyilia",
+      "Murraya",
+      "Olea",
+      "Pheidochloa"
+    ],
+    "auxiliary": [
+      "Fraxinus",
+      "Kengyilia",
+      "Merrillia",
+      "Murraya",
+      "Olea",
+      "Pheidochloa"
+    ],
+    "merged": [
+      "Fraxinus",
+      "Kengyilia",
+      "Merrillia",
+      "Murraya",
+      "Olea",
+      "Pheidochloa"
+    ],
+    "standalone_ml": [
+      "Fraxinus",
+      "Kengyilia",
+      "Murraya",
+      "Olea"
+    ],
+    "review": [
+      "Eriachne",
+      "Micraira"
+    ]
+  },
+  {
+    "sample": "04x07x08x15x16x01",
+    "project": "mix_04x07x08x15x16x01",
+    "balanced_z": [
+      "Alhagi",
+      "Brasenia",
+      "Calophaca",
+      "Caragana",
+      "Chesneya",
+      "Eriolarynx",
+      "Iochroma",
+      "Polycarpaea",
+      "Tetrapanax",
+      "Vassobia",
+      "Xerotia"
+    ],
+    "c_style": [
+      "Alepidea",
+      "Alhagi",
+      "Brasenia",
+      "Calophaca",
+      "Caragana",
+      "Chesneya",
+      "Eriolarynx",
+      "Iochroma",
+      "Nuphar",
+      "Polycarpaea",
+      "Tetrapanax",
+      "Vassobia",
+      "Xerotia"
+    ],
+    "core": [
+      "Alepidea",
+      "Brasenia",
+      "Calophaca",
+      "Chesneya",
+      "Eriolarynx",
+      "Iochroma",
+      "Polycarpaea",
+      "Tetrapanax"
+    ],
+    "auxiliary": [
+      "Alepidea",
+      "Brasenia",
+      "Chesneya",
+      "Eriolarynx",
+      "Iochroma",
+      "Nuphar",
+      "Polycarpaea",
+      "Tetrapanax"
+    ],
+    "merged": [
+      "Alepidea",
+      "Brasenia",
+      "Calophaca",
+      "Chesneya",
+      "Eriolarynx",
+      "Iochroma",
+      "Nuphar",
+      "Polycarpaea",
+      "Tetrapanax"
+    ],
+    "standalone_ml": [
+      "Alepidea",
+      "Brasenia",
+      "Chesneya",
+      "Eriolarynx",
+      "Iochroma",
+      "Polycarpaea",
+      "Tetrapanax"
+    ],
+    "review": [
+      "Alhagi",
+      "Caragana",
+      "Vassobia",
+      "Xerotia"
+    ]
+  },
+  {
+    "sample": "04x30x25x16x10x03x28x01x13x08",
+    "project": "mix_04x30x25x16x10x03x28x01x13x08",
+    "balanced_z": [
+      "Astrotricha",
+      "Harmsiopanax"
+    ],
+    "c_style": [
+      "Astrotricha",
+      "Berardia",
+      "Blossfeldia",
+      "Brasenia",
+      "Harmsiopanax",
+      "Hirtellina",
+      "Parochetus",
+      "Schefflerodendron",
+      "Streptogyna"
+    ],
+    "core": [
+      "Astrotricha",
+      "Berardia",
+      "Blossfeldia",
+      "Brasenia",
+      "Harmsiopanax",
+      "Hirtellina",
+      "Parochetus",
+      "Streptogyna"
+    ],
+    "auxiliary": [
+      "Astrotricha",
+      "Berardia",
+      "Blossfeldia",
+      "Brasenia",
+      "Harmsiopanax",
+      "Hirtellina",
+      "Parochetus",
+      "Schefflerodendron",
+      "Streptogyna"
+    ],
+    "merged": [
+      "Astrotricha",
+      "Berardia",
+      "Blossfeldia",
+      "Brasenia",
+      "Harmsiopanax",
+      "Hirtellina",
+      "Parochetus",
+      "Schefflerodendron",
+      "Streptogyna"
+    ],
+    "standalone_ml": [
+      "Astrotricha",
+      "Blossfeldia",
+      "Brasenia",
+      "Harmsiopanax",
+      "Parochetus",
+      "Streptogyna"
+    ],
+    "review": []
+  },
+  {
+    "sample": "25x28x30x07x22x24x12x04x03x18",
+    "project": "mix_25x28x30x07x22x24x12x04x03x18",
+    "balanced_z": [
+      "Chelonopsis",
+      "Colebrookea",
+      "Colquhounia",
+      "Gomphostemma"
+    ],
+    "c_style": [
+      "Chelonopsis",
+      "Colebrookea",
+      "Colquhounia",
+      "Copiapoa",
+      "Corryocactus",
+      "Gomphostemma",
+      "Hermas",
+      "Klotzschia",
+      "Lygeum",
+      "Malcolmia"
+    ],
+    "core": [
+      "Colquhounia",
+      "Copiapoa",
+      "Corryocactus",
+      "Gomphostemma",
+      "Klotzschia",
+      "Lygeum",
+      "Malcolmia"
+    ],
+    "auxiliary": [
+      "Colquhounia",
+      "Copiapoa",
+      "Corryocactus",
+      "Gomphostemma",
+      "Klotzschia",
+      "Lygeum",
+      "Malcolmia"
+    ],
+    "merged": [
+      "Colquhounia",
+      "Copiapoa",
+      "Corryocactus",
+      "Gomphostemma",
+      "Klotzschia",
+      "Lygeum",
+      "Malcolmia"
+    ],
+    "standalone_ml": [
+      "Colquhounia",
+      "Gomphostemma",
+      "Lygeum",
+      "Malcolmia"
+    ],
+    "review": [
+      "Chelonopsis",
+      "Colebrookea",
+      "Hermas"
+    ]
+  },
+  {
+    "sample": "07x22x30x08x18x13x03x19x04x02",
+    "project": "mix_07x22x30x08x18x13x03x19x04x02",
+    "balanced_z": [
+      "Astrotricha",
+      "Harmsiopanax"
+    ],
+    "c_style": [
+      "Astrotricha",
+      "Calymmanthium",
+      "Copiapoa",
+      "Harmsiopanax",
+      "Pereskia",
+      "Siraitia"
+    ],
+    "core": [
+      "Astrotricha",
+      "Calymmanthium",
+      "Copiapoa",
+      "Harmsiopanax",
+      "Pereskia",
+      "Siraitia"
+    ],
+    "auxiliary": [
+      "Astrotricha",
+      "Calymmanthium",
+      "Copiapoa",
+      "Harmsiopanax",
+      "Pereskia",
+      "Siraitia"
+    ],
+    "merged": [
+      "Astrotricha",
+      "Calymmanthium",
+      "Copiapoa",
+      "Harmsiopanax",
+      "Pereskia",
+      "Siraitia"
+    ],
+    "standalone_ml": [
+      "Astrotricha",
+      "Copiapoa",
+      "Harmsiopanax",
+      "Pereskia",
+      "Siraitia"
+    ],
+    "review": []
+  }
+]

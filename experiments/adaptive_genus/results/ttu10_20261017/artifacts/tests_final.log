@@ -1,0 +1,30 @@
+................................................                         [100%]
+============================== warnings summary ===============================
+tests/test_reference_atlas.py::test_benchmark_model_reload_and_query_inference
+  D:\ChatGPT_folders\2026-10-16\ni\.venv312\Lib\site-packages\matplotlib\_fontconfig_pattern.py:64: PyparsingDeprecationWarning: 'oneOf' deprecated - use 'one_of'
+    prop = Group((name + Suppress("=") + comma_separated(value)) | oneOf(_CONSTANTS))
+
+tests/test_reference_atlas.py::test_benchmark_model_reload_and_query_inference
+tests/test_reference_atlas.py::test_benchmark_model_reload_and_query_inference
+tests/test_reference_atlas.py::test_benchmark_model_reload_and_query_inference
+tests/test_reference_atlas.py::test_benchmark_model_reload_and_query_inference
+tests/test_reference_atlas.py::test_benchmark_model_reload_and_query_inference
+tests/test_reference_atlas.py::test_benchmark_model_reload_and_query_inference
+  D:\ChatGPT_folders\2026-10-16\ni\.venv312\Lib\site-packages\matplotlib\_fontconfig_pattern.py:85: PyparsingDeprecationWarning: 'parseString' deprecated - use 'parse_string'
+    parse = parser.parseString(pattern)
+
+tests/test_reference_atlas.py::test_benchmark_model_reload_and_query_inference
+tests/test_reference_atlas.py::test_benchmark_model_reload_and_query_inference
+tests/test_reference_atlas.py::test_benchmark_model_reload_and_query_inference
+tests/test_reference_atlas.py::test_benchmark_model_reload_and_query_inference
+tests/test_reference_atlas.py::test_benchmark_model_reload_and_query_inference
+tests/test_reference_atlas.py::test_benchmark_model_reload_and_query_inference
+  D:\ChatGPT_folders\2026-10-16\ni\.venv312\Lib\site-packages\matplotlib\_fontconfig_pattern.py:89: PyparsingDeprecationWarning: 'resetCache' deprecated - use 'reset_cache'
+    parser.resetCache()
+
+tests/test_reference_atlas.py::test_benchmark_model_reload_and_query_inference
+  D:\ChatGPT_folders\2026-10-16\ni\.venv312\Lib\site-packages\matplotlib\_mathtext.py:45: PyparsingDeprecationWarning: 'enablePackrat' deprecated - use 'enable_packrat'
+    ParserElement.enablePackrat()
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+48 passed, 14 warnings in 4.45s

@@ -1,0 +1,22 @@
+{
+  "rank": "genus",
+  "primary": "merged",
+  "samples": 10,
+  "truth_read_by_exporter": false,
+  "sealed_utc": "2026-10-17T07:18:02.631957+00:00",
+  "evaluation_plan_sha256": "4747ef97cb1a19ca846a7f68ef9f28e407b02da3ed008b0faa9b3b7933a0100e",
+  "artifact_sha256": {
+    ".gitattributes": "f06202a408fef9b9ea69bb6b1cb8160dbb0378c5bb67a444d510d231813824c8",
+    "all_method_predictions.csv": "22989b8a15ceab6cd24cef72ea47e841129911979934c72932622aff75452659",
+    "AUDIT.json": "75f3b73ad24393d23ea0912107a11e786e049becee78ad474af3adcbb435de6a",
+    "candidate_evidence.csv": "8c5f04a4242e8ea50cddee0a31bc40fd4d7366b8f2cea4eaa04fd4e51e1f4f78",
+    "merged_predictions.csv": "f992d564e97c93aff68ec95eacc2b8c414720a90ebe6d2f0934f3cf08f7accf5",
+    "prediction_sets.zip": "a37ffd073bec55f8d2fdbbb36efa76767c9eb5c49d5ec4b01f9f43358a7b64ae",
+    "predictions.json": "bbe4ca7b57674b3ab49235415a8f93007405e043b182d719de008147baa25703",
+    "PREDICTIONS_COMPLETE": "dcf9ff4c6fe84b2d6972330acc1d7f648b266bd340d63135216dec55cd708eca",
+    "PROTOCOL.json": "fd3b03a3d055f2432c6915d5ada6ddcdb6c032cd60539369652d18a0398c7a9a",
+    "search_regions.csv": "8a2e0580f6c0319eab836708366abb11e166d7f9397fa2326f87bfec2673a6f2",
+    "SEARCHES.json": "e7e983f7bdac3c097faf72d02a5bc00e026b42dca86432b00472a99bf1b1d981",
+    "selection.json": "b95206342b11a20c3e3f9d281546ef471f9f77507126176655cb6bcaeb167ae4"
+  }
+}

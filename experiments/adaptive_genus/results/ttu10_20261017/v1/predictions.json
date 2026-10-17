@@ -1,0 +1,496 @@
+[
+  {
+    "sample": "07x26x30",
+    "project": "mix_07x26x30",
+    "balanced_z": [
+      "Amyris",
+      "Merrillia",
+      "Micromelum",
+      "Murraya"
+    ],
+    "c_style": [
+      "Amyris",
+      "Merrillia",
+      "Micromelum",
+      "Murraya",
+      "Pheidochloa"
+    ],
+    "core": [
+      "Murraya"
+    ],
+    "auxiliary": [
+      "Murraya"
+    ],
+    "merged": [
+      "Murraya"
+    ],
+    "standalone_ml": [
+      "Murraya"
+    ],
+    "review": [
+      "Amyris",
+      "Merrillia",
+      "Micromelum",
+      "Pheidochloa"
+    ]
+  },
+  {
+    "sample": "18x25x12",
+    "project": "mix_18x25x12",
+    "balanced_z": [
+      "Betonica",
+      "Chelonopsis",
+      "Colebrookea",
+      "Colquhounia",
+      "Gomphostemma",
+      "Melittis",
+      "Paraphlomis"
+    ],
+    "c_style": [
+      "Buchholzia",
+      "Capparis",
+      "Chelonopsis",
+      "Colquhounia",
+      "Corallocarpus",
+      "Gomphostemma",
+      "Melittis",
+      "Paraphlomis"
+    ],
+    "core": [
+      "Buchholzia",
+      "Colquhounia",
+      "Corallocarpus",
+      "Gomphostemma",
+      "Paraphlomis"
+    ],
+    "auxiliary": [
+      "Buchholzia",
+      "Colquhounia",
+      "Corallocarpus",
+      "Gomphostemma"
+    ],
+    "merged": [
+      "Buchholzia",
+      "Colquhounia",
+      "Corallocarpus",
+      "Gomphostemma",
+      "Paraphlomis"
+    ],
+    "standalone_ml": [
+      "Colquhounia",
+      "Corallocarpus",
+      "Gomphostemma",
+      "Paraphlomis"
+    ],
+    "review": [
+      "Betonica",
+      "Capparis",
+      "Chelonopsis",
+      "Colebrookea",
+      "Melittis"
+    ]
+  },
+  {
+    "sample": "30x04x03",
+    "project": "mix_30x04x03",
+    "balanced_z": [
+      "Eriachne",
+      "Micraira",
+      "Pheidochloa",
+      "Polycarpaea",
+      "Xerotia"
+    ],
+    "c_style": [
+      "Acharagma",
+      "Aztekium",
+      "Eriachne",
+      "Micraira",
+      "Pheidochloa",
+      "Polycarpaea",
+      "Xerotia"
+    ],
+    "core": [
+      "Aztekium",
+      "Polycarpaea"
+    ],
+    "auxiliary": [
+      "Acharagma",
+      "Aztekium",
+      "Pheidochloa",
+      "Polycarpaea"
+    ],
+    "merged": [
+      "Acharagma",
+      "Aztekium",
+      "Pheidochloa",
+      "Polycarpaea"
+    ],
+    "standalone_ml": [
+      "Polycarpaea"
+    ],
+    "review": [
+      "Eriachne",
+      "Micraira",
+      "Xerotia"
+    ]
+  },
+  {
+    "sample": "26x01x24",
+    "project": "mix_26x01x24",
+    "balanced_z": [
+      "Brasenia",
+      "Citropsis",
+      "Merrillia",
+      "Micromelum",
+      "Murraya",
+      "Naringi",
+      "Nuphar"
+    ],
+    "c_style": [
+      "Brasenia",
+      "Citropsis",
+      "Merrillia",
+      "Micromelum",
+      "Murraya",
+      "Naringi",
+      "Nuphar"
+    ],
+    "core": [
+      "Brasenia",
+      "Citropsis",
+      "Naringi"
+    ],
+    "auxiliary": [
+      "Brasenia",
+      "Citropsis",
+      "Naringi",
+      "Nuphar"
+    ],
+    "merged": [
+      "Brasenia",
+      "Citropsis",
+      "Naringi",
+      "Nuphar"
+    ],
+    "standalone_ml": [
+      "Brasenia",
+      "Citropsis",
+      "Naringi"
+    ],
+    "review": [
+      "Merrillia",
+      "Micromelum",
+      "Murraya"
+    ]
+  },
+  {
+    "sample": "30x04x19x07x03x16",
+    "project": "mix_30x04x19x07x03x16",
+    "balanced_z": [
+      "Copiapoa",
+      "Siraitia"
+    ],
+    "c_style": [
+      "Copiapoa",
+      "Siraitia",
+      "Telephium"
+    ],
+    "core": [
+      "Copiapoa"
+    ],
+    "auxiliary": [
+      "Copiapoa",
+      "Siraitia"
+    ],
+    "merged": [
+      "Copiapoa",
+      "Siraitia"
+    ],
+    "standalone_ml": [
+      "Copiapoa"
+    ],
+    "review": [
+      "Telephium"
+    ]
+  },
+  {
+    "sample": "30x04x13x26x19x28",
+    "project": "mix_30x04x13x26x19x28",
+    "balanced_z": [
+      "Corrigiola",
+      "Momordica",
+      "Phellodendron",
+      "Siraitia",
+      "Telephium"
+    ],
+    "c_style": [
+      "Corrigiola",
+      "Elytrophorus",
+      "Holcus",
+      "Momordica",
+      "Phellodendron",
+      "Siraitia",
+      "Telephium"
+    ],
+    "core": [
+      "Phellodendron"
+    ],
+    "auxiliary": [
+      "Elytrophorus",
+      "Holcus",
+      "Phellodendron",
+      "Siraitia"
+    ],
+    "merged": [
+      "Elytrophorus",
+      "Holcus",
+      "Phellodendron",
+      "Siraitia"
+    ],
+    "standalone_ml": [
+      "Phellodendron"
+    ],
+    "review": [
+      "Corrigiola",
+      "Momordica",
+      "Telephium"
+    ]
+  },
+  {
+    "sample": "04x07x08x15x16x01",
+    "project": "mix_04x07x08x15x16x01",
+    "balanced_z": [
+      "Aldina",
+      "Brasenia",
+      "Daviesia",
+      "Harmsiopanax",
+      "Hypocalyptus",
+      "Schefflerodendron"
+    ],
+    "c_style": [
+      "Aldina",
+      "Astrotricha",
+      "Brasenia",
+      "Daviesia",
+      "Harmsiopanax",
+      "Hermas",
+      "Heteropanax",
+      "Hypocalyptus",
+      "Klotzschia",
+      "Schefflerodendron"
+    ],
+    "core": [
+      "Astrotricha",
+      "Brasenia",
+      "Harmsiopanax",
+      "Heteropanax"
+    ],
+    "auxiliary": [
+      "Astrotricha",
+      "Brasenia",
+      "Harmsiopanax",
+      "Heteropanax",
+      "Klotzschia",
+      "Schefflerodendron"
+    ],
+    "merged": [
+      "Astrotricha",
+      "Brasenia",
+      "Harmsiopanax",
+      "Heteropanax",
+      "Klotzschia",
+      "Schefflerodendron"
+    ],
+    "standalone_ml": [
+      "Astrotricha",
+      "Brasenia",
+      "Harmsiopanax",
+      "Heteropanax"
+    ],
+    "review": [
+      "Aldina",
+      "Daviesia",
+      "Hermas",
+      "Hypocalyptus"
+    ]
+  },
+  {
+    "sample": "04x30x25x16x10x03x28x01x13x08",
+    "project": "mix_04x30x25x16x10x03x28x01x13x08",
+    "balanced_z": [
+      "Blossfeldia",
+      "Brasenia",
+      "Leuenbergeria",
+      "Maihuenia",
+      "Pereskia"
+    ],
+    "c_style": [
+      "Blossfeldia",
+      "Brachypodium",
+      "Brasenia",
+      "Elytrophorus",
+      "Leuenbergeria",
+      "Maihuenia",
+      "Pereskia",
+      "Telephium"
+    ],
+    "core": [
+      "Brasenia"
+    ],
+    "auxiliary": [
+      "Blossfeldia",
+      "Brasenia",
+      "Elytrophorus",
+      "Pereskia"
+    ],
+    "merged": [
+      "Blossfeldia",
+      "Brasenia",
+      "Elytrophorus",
+      "Pereskia"
+    ],
+    "standalone_ml": [
+      "Brasenia"
+    ],
+    "review": [
+      "Brachypodium",
+      "Leuenbergeria",
+      "Maihuenia",
+      "Telephium"
+    ]
+  },
+  {
+    "sample": "25x28x30x07x22x24x12x04x03x18",
+    "project": "mix_25x28x30x07x22x24x12x04x03x18",
+    "balanced_z": [
+      "Aethionema",
+      "Copiapoa",
+      "Leuenbergeria",
+      "Macropodium",
+      "Maihuenia",
+      "Pereskia",
+      "Peronema",
+      "Stevenia",
+      "Tectona"
+    ],
+    "c_style": [
+      "Aethionema",
+      "Copiapoa",
+      "Corrigiola",
+      "Elytrophorus",
+      "Leuenbergeria",
+      "Macropodium",
+      "Maihuenia",
+      "Momordica",
+      "Pereskia",
+      "Peronema",
+      "Siraitia",
+      "Stevenia",
+      "Tectona",
+      "Telephium"
+    ],
+    "core": [
+      "Copiapoa",
+      "Momordica",
+      "Peronema",
+      "Siraitia"
+    ],
+    "auxiliary": [
+      "Copiapoa",
+      "Elytrophorus",
+      "Macropodium",
+      "Momordica",
+      "Pereskia",
+      "Peronema",
+      "Siraitia",
+      "Tectona"
+    ],
+    "merged": [
+      "Copiapoa",
+      "Elytrophorus",
+      "Macropodium",
+      "Momordica",
+      "Pereskia",
+      "Peronema",
+      "Siraitia",
+      "Tectona"
+    ],
+    "standalone_ml": [
+      "Copiapoa"
+    ],
+    "review": [
+      "Aethionema",
+      "Corrigiola",
+      "Leuenbergeria",
+      "Maihuenia",
+      "Stevenia",
+      "Telephium"
+    ]
+  },
+  {
+    "sample": "07x22x30x08x18x13x03x19x04x02",
+    "project": "mix_07x22x30x08x18x13x03x19x04x02",
+    "balanced_z": [
+      "Astrotricha",
+      "Harmsiopanax",
+      "Maihuenia"
+    ],
+    "c_style": [
+      "Astrotricha",
+      "Calymmanthium",
+      "Copiapoa",
+      "Corrigiola",
+      "Elytrophorus",
+      "Harmsiopanax",
+      "Maihuenia",
+      "Momordica",
+      "Ochroma",
+      "Pereskia",
+      "Puelia",
+      "Siraitia",
+      "Telephium"
+    ],
+    "core": [
+      "Astrotricha",
+      "Calymmanthium",
+      "Copiapoa",
+      "Elytrophorus",
+      "Harmsiopanax",
+      "Siraitia"
+    ],
+    "auxiliary": [
+      "Astrotricha",
+      "Calymmanthium",
+      "Copiapoa",
+      "Elytrophorus",
+      "Harmsiopanax",
+      "Momordica",
+      "Ochroma",
+      "Pereskia",
+      "Siraitia"
+    ],
+    "merged": [
+      "Astrotricha",
+      "Calymmanthium",
+      "Copiapoa",
+      "Elytrophorus",
+      "Harmsiopanax",
+      "Momordica",
+      "Ochroma",
+      "Pereskia",
+      "Siraitia"
+    ],
+    "standalone_ml": [
+      "Astrotricha",
+      "Copiapoa",
+      "Elytrophorus",
+      "Harmsiopanax"
+    ],
+    "review": [
+      "Corrigiola",
+      "Maihuenia",
+      "Puelia",
+      "Telephium"
+    ]
+  }
+]

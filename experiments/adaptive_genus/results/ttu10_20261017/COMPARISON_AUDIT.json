@@ -1,0 +1,32 @@
+{
+  "same_ten_query_inputs_and_parent_evidence": true,
+  "same_model_and_training": true,
+  "same_backbone_and_reference_metadata": true,
+  "inference_code_identical_except_policy_and_job_wrappers": true,
+  "same_literal_truth_and_used_cells": true,
+  "policy_differences": {
+    "schema": {
+      "v1": "adaptive-phylogenetic-genus-v1",
+      "strict_route": "adaptive-phylogenetic-genus-v1-strict-routing"
+    },
+    "route_minimum_genes": {
+      "v1": 2,
+      "strict_route": 5
+    },
+    "ambiguous_second_minimum_genes": {
+      "v1": 3,
+      "strict_route": 5
+    },
+    "nearby_guard_genera": {
+      "v1": 4,
+      "strict_route": 1
+    },
+    "evaluation": {
+      "v1": "Table-literal genus truth primary; previously documented source-identity harmonization is separate. Full end-to-end misses retained, including pruned/unplaced/low-QC/absent-parent genera. All ten count even if unresolved.",
+      "strict_route": "Same cohort, model and final rule as v1. Stronger routing and smaller guards chosen from truth-blinded search stagnation; compare genus survival and runtime, preserving all ten and literal truth."
+    }
+  },
+  "v2_chosen_before_truth_from_v1_search_stagnation": true,
+  "cache_order": "v1 launched first; both use shared raw Kew cache",
+  "scope": "Retrospective algorithm development; no independent validation or exhaustive speed baseline"
+}

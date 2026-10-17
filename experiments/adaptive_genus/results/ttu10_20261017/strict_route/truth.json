@@ -1,0 +1,431 @@
+{
+  "view": "table_literal",
+  "workbook_sha256": "421cca29377ab01e57cb6aeded7bf446ba4faf06282120a4ed602e8c67bbb01f",
+  "sheet": "Table S1",
+  "genus_column": "B",
+  "first_word_of_species_name": true,
+  "sources": [
+    {
+      "source_id": 1,
+      "literal_name": "Brasenia schreberi",
+      "genus": "Brasenia",
+      "family": "Nymphaeaceae",
+      "cells": [
+        "A4",
+        "B4",
+        "H4"
+      ]
+    },
+    {
+      "source_id": 2,
+      "literal_name": "Celosia trigyna",
+      "genus": "Celosia",
+      "family": "Amaranthaceae",
+      "cells": [
+        "A5",
+        "B5",
+        "H5"
+      ]
+    },
+    {
+      "source_id": 3,
+      "literal_name": "Turbinicarpus valdezianus",
+      "genus": "Turbinicarpus",
+      "family": "Cactaceae",
+      "cells": [
+        "A6",
+        "B6",
+        "H6"
+      ]
+    },
+    {
+      "source_id": 4,
+      "literal_name": "Polycarpaea repens",
+      "genus": "Polycarpaea",
+      "family": "Caryophyllaceae",
+      "cells": [
+        "A7",
+        "B7",
+        "H7"
+      ]
+    },
+    {
+      "source_id": 5,
+      "literal_name": "Ribes rubrum",
+      "genus": "Ribes",
+      "family": "Grossulariaceae",
+      "cells": [
+        "A8",
+        "B8",
+        "H8"
+      ]
+    },
+    {
+      "source_id": 6,
+      "literal_name": "Darmera peltata",
+      "genus": "Darmera",
+      "family": "Saxifragaceae",
+      "cells": [
+        "A9",
+        "B9",
+        "H9"
+      ]
+    },
+    {
+      "source_id": 7,
+      "literal_name": "Alepidea amatymbica",
+      "genus": "Alepidea",
+      "family": "Apiaceae",
+      "cells": [
+        "A10",
+        "B10",
+        "H10"
+      ]
+    },
+    {
+      "source_id": 8,
+      "literal_name": "Tetrapanax papyrifer",
+      "genus": "Tetrapanax",
+      "family": "Araliaceae",
+      "cells": [
+        "A11",
+        "B11",
+        "H11"
+      ]
+    },
+    {
+      "source_id": 9,
+      "literal_name": "Aphanactis jamesoniana",
+      "genus": "Aphanactis",
+      "family": "Asteraceae",
+      "cells": [
+        "A12",
+        "B12",
+        "H12"
+      ]
+    },
+    {
+      "source_id": 10,
+      "literal_name": "Galactites tomentosus",
+      "genus": "Galactites",
+      "family": "Asteraceae",
+      "cells": [
+        "A13",
+        "B13",
+        "H13"
+      ]
+    },
+    {
+      "source_id": 11,
+      "literal_name": "Tarchonanthus trilobus",
+      "genus": "Tarchonanthus",
+      "family": "Asteraceae",
+      "cells": [
+        "A14",
+        "B14",
+        "H14"
+      ]
+    },
+    {
+      "source_id": 12,
+      "literal_name": "Colquhounia coccinea",
+      "genus": "Colquhounia",
+      "family": "Lamiaceae",
+      "cells": [
+        "A15",
+        "B15",
+        "H15"
+      ]
+    },
+    {
+      "source_id": 13,
+      "literal_name": "Hesperelaea palmeri",
+      "genus": "Hesperelaea",
+      "family": "Oleaceae",
+      "cells": [
+        "A16",
+        "B16",
+        "H16"
+      ]
+    },
+    {
+      "source_id": 14,
+      "literal_name": "Bonamia spectabilis",
+      "genus": "Bonamia",
+      "family": "Convolvulaceae",
+      "cells": [
+        "A17",
+        "B17",
+        "H17"
+      ]
+    },
+    {
+      "source_id": 15,
+      "literal_name": "Eriolarynx australis",
+      "genus": "Eriolarynx",
+      "family": "Solanaceae",
+      "cells": [
+        "A18",
+        "B18",
+        "H18"
+      ]
+    },
+    {
+      "source_id": 16,
+      "literal_name": "Chesneya yunnanensis",
+      "genus": "Chesneya",
+      "family": "Fabaceae",
+      "cells": [
+        "A19",
+        "B19",
+        "H19"
+      ]
+    },
+    {
+      "source_id": 17,
+      "literal_name": "Securidaca diversifolia",
+      "genus": "Securidaca",
+      "family": "Polygalaceae",
+      "cells": [
+        "A20",
+        "B20",
+        "H20"
+      ]
+    },
+    {
+      "source_id": 18,
+      "literal_name": "Corallocarpus welwitschii",
+      "genus": "Corallocarpus",
+      "family": "Cucurbitaceae",
+      "cells": [
+        "A21",
+        "B21",
+        "H21"
+      ]
+    },
+    {
+      "source_id": 19,
+      "literal_name": "Gynostemma pentaphyllum",
+      "genus": "Gynostemma",
+      "family": "Cucurbitaceae",
+      "cells": [
+        "A22",
+        "B22",
+        "H22"
+      ]
+    },
+    {
+      "source_id": 20,
+      "literal_name": "Gironniera subaequalis",
+      "genus": "Gironniera",
+      "family": "Cannabaceae",
+      "cells": [
+        "A23",
+        "B23",
+        "H23"
+      ]
+    },
+    {
+      "source_id": 21,
+      "literal_name": "Pouzolzia rubricaulis",
+      "genus": "Pouzolzia",
+      "family": "Urticaceae",
+      "cells": [
+        "A24",
+        "B24",
+        "H24"
+      ]
+    },
+    {
+      "source_id": 22,
+      "literal_name": "Firmiana simplex",
+      "genus": "Firmiana",
+      "family": "Malvaceae",
+      "cells": [
+        "A25",
+        "B25",
+        "H25"
+      ]
+    },
+    {
+      "source_id": 23,
+      "literal_name": "Englerodaphne subcordata",
+      "genus": "Englerodaphne",
+      "family": "Thymelaeaceae",
+      "cells": [
+        "A26",
+        "B26",
+        "H26"
+      ]
+    },
+    {
+      "source_id": 24,
+      "literal_name": "Dithyrea californica",
+      "genus": "Dithyrea",
+      "family": "Brassicaceae",
+      "cells": [
+        "A27",
+        "B27",
+        "H27"
+      ]
+    },
+    {
+      "source_id": 25,
+      "literal_name": "Neocalyptrocalyx muco",
+      "genus": "Neocalyptrocalyx",
+      "family": "Cleomaceae",
+      "cells": [
+        "A28",
+        "B28",
+        "H28"
+      ]
+    },
+    {
+      "source_id": 26,
+      "literal_name": "Citrus hystrix",
+      "genus": "Citrus",
+      "family": "Rutaceae",
+      "cells": [
+        "A29",
+        "B29",
+        "H29"
+      ]
+    },
+    {
+      "source_id": 27,
+      "literal_name": "Caladium lindenii",
+      "genus": "Caladium",
+      "family": "Araceae",
+      "cells": [
+        "A30",
+        "B30",
+        "H30"
+      ]
+    },
+    {
+      "source_id": 28,
+      "literal_name": "Agropyropsis lolium",
+      "genus": "Agropyropsis",
+      "family": "Poaceae",
+      "cells": [
+        "A31",
+        "B31",
+        "H31"
+      ]
+    },
+    {
+      "source_id": 29,
+      "literal_name": "Dinochloa orenuda",
+      "genus": "Dinochloa",
+      "family": "Poaceae",
+      "cells": [
+        "A32",
+        "B32",
+        "H32"
+      ]
+    },
+    {
+      "source_id": 30,
+      "literal_name": "Heteranthoecia guineensis",
+      "genus": "Heteranthoecia",
+      "family": "Poaceae",
+      "cells": [
+        "A33",
+        "B33",
+        "H33"
+      ]
+    }
+  ],
+  "independently_verified_used_cells": {
+    "A4": 1,
+    "B4": "Brasenia schreberi",
+    "H4": "Nymphaeaceae",
+    "A5": 2,
+    "B5": "Celosia trigyna",
+    "H5": "Amaranthaceae",
+    "A6": 3,
+    "B6": "Turbinicarpus valdezianus",
+    "H6": "Cactaceae",
+    "A7": 4,
+    "B7": "Polycarpaea repens",
+    "H7": "Caryophyllaceae",
+    "A8": 5,
+    "B8": "Ribes rubrum",
+    "H8": "Grossulariaceae",
+    "A9": 6,
+    "B9": "Darmera peltata",
+    "H9": "Saxifragaceae",
+    "A10": 7,
+    "B10": "Alepidea amatymbica",
+    "H10": "Apiaceae",
+    "A11": 8,
+    "B11": "Tetrapanax papyrifer",
+    "H11": "Araliaceae",
+    "A12": 9,
+    "B12": "Aphanactis jamesoniana",
+    "H12": "Asteraceae",
+    "A13": 10,
+    "B13": "Galactites tomentosus",
+    "H13": "Asteraceae",
+    "A14": 11,
+    "B14": "Tarchonanthus trilobus",
+    "H14": "Asteraceae",
+    "A15": 12,
+    "B15": "Colquhounia coccinea",
+    "H15": "Lamiaceae",
+    "A16": 13,
+    "B16": "Hesperelaea palmeri",
+    "H16": "Oleaceae",
+    "A17": 14,
+    "B17": "Bonamia spectabilis",
+    "H17": "Convolvulaceae",
+    "A18": 15,
+    "B18": "Eriolarynx australis",
+    "H18": "Solanaceae",
+    "A19": 16,
+    "B19": "Chesneya yunnanensis",
+    "H19": "Fabaceae",
+    "A20": 17,
+    "B20": "Securidaca diversifolia",
+    "H20": "Polygalaceae",
+    "A21": 18,
+    "B21": "Corallocarpus welwitschii",
+    "H21": "Cucurbitaceae",
+    "A22": 19,
+    "B22": "Gynostemma pentaphyllum",
+    "H22": "Cucurbitaceae",
+    "A23": 20,
+    "B23": "Gironniera subaequalis",
+    "H23": "Cannabaceae",
+    "A24": 21,
+    "B24": "Pouzolzia rubricaulis",
+    "H24": "Urticaceae",
+    "A25": 22,
+    "B25": "Firmiana simplex",
+    "H25": "Malvaceae",
+    "A26": 23,
+    "B26": "Englerodaphne subcordata",
+    "H26": "Thymelaeaceae",
+    "A27": 24,
+    "B27": "Dithyrea californica",
+    "H27": "Brassicaceae",
+    "A28": 25,
+    "B28": "Neocalyptrocalyx muco",
+    "H28": "Cleomaceae",
+    "A29": 26,
+    "B29": "Citrus hystrix",
+    "H29": "Rutaceae",
+    "A30": 27,
+    "B30": "Caladium lindenii",
+    "H30": "Araceae",
+    "A31": 28,
+    "B31": "Agropyropsis lolium",
+    "H31": "Poaceae",
+    "A32": 29,
+    "B32": "Dinochloa orenuda",
+    "H32": "Poaceae",
+    "A33": 30,
+    "B33": "Heteranthoecia guineensis",
+    "H33": "Poaceae"
+  }
+}

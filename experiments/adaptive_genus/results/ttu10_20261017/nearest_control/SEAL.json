@@ -1,0 +1,36 @@
+{
+  "sealed_utc": "2026-10-17T08:18:28.437935+00:00",
+  "constructor_code_sha256": "8fe3b73a08948d04d9ce8ca0d32be2e3db702656e7a5a63f7b823d67d000f29a",
+  "method": "nearest_gene3",
+  "same_pre_verifier_nearest_winners_and_gene_quorum": true,
+  "additional_fixed_rule": "ml_diagnostic_gene3: ML >=3 genes AND >=3 distinct genes with unique nearest genus and sibling-relative margin >=.1",
+  "accepted_fragment_replay_matches_standalone_ML": true,
+  "truth_read_by_constructor": false,
+  "scope": "Post-evaluation diagnostic; whole-method recommendation remains in-sample development",
+  "source_exon_prediction_sha256": {
+    "experiments\\adaptive_genus\\runs\\ttu_20261017\\received_complete_joint\\batch\\samples\\mix_07x26x30\\exon_predictions.csv": "f518c941d6df032b10cefbbf8535b2d7d5ae31de4d6caed88bc39cfa336a18b3",
+    "experiments\\adaptive_genus\\runs\\ttu_20261017\\received_complete_joint\\batch\\samples\\mix_07x26x30\\genus_evidence.csv": "1c37b1e6be9bc87a37f89be3d9b8ace7a03383b6543df9f24af0d9d20e0bd8da",
+    "experiments\\adaptive_genus\\runs\\ttu_20261017\\received_complete_joint\\batch\\samples\\mix_18x25x12\\exon_predictions.csv": "ab48594c6dbdf2ac8989341dc1a8eba1d09f52c61b18a4f80257f7ed5c5cdc93",
+    "experiments\\adaptive_genus\\runs\\ttu_20261017\\received_complete_joint\\batch\\samples\\mix_18x25x12\\genus_evidence.csv": "d0caac3072dcbad4a626c7d52d808ba2ad5200811a39d0f8d45b69167feec10f",
+    "experiments\\adaptive_genus\\runs\\ttu_20261017\\received_complete_joint\\batch\\samples\\mix_30x04x03\\exon_predictions.csv": "35b46ef0cd92283598b8e9de5dfe586eda39eb1b0bd70160b4d017a9531a0fc7",
+    "experiments\\adaptive_genus\\runs\\ttu_20261017\\received_complete_joint\\batch\\samples\\mix_30x04x03\\genus_evidence.csv": "37fa78c4cc8f6437ba320680406f47e3ab0ce0158ea2d83b9664775b8018e120",
+    "experiments\\adaptive_genus\\runs\\ttu_20261017\\received_complete_joint\\batch\\samples\\mix_26x01x24\\exon_predictions.csv": "06a9ccd0440fef129c680d1be6837c25fff23043e42e83e9d620d676a884454e",
+    "experiments\\adaptive_genus\\runs\\ttu_20261017\\received_complete_joint\\batch\\samples\\mix_26x01x24\\genus_evidence.csv": "bfc43d5bb2c16aa602656a00bf69242b5f998e72c6ba0d02aeec7be4bbf43df9",
+    "experiments\\adaptive_genus\\runs\\ttu_20261017\\received_complete_joint\\batch\\samples\\mix_30x04x19x07x03x16\\exon_predictions.csv": "596546d769955645919e22af46496b66034bb8e168fcc750c23ca873f6fb01ea",
+    "experiments\\adaptive_genus\\runs\\ttu_20261017\\received_complete_joint\\batch\\samples\\mix_30x04x19x07x03x16\\genus_evidence.csv": "9fa43e4b17a51219a0449f6e2ebeacc552c1ba1084cfa76e9e5034967ebc4cbb",
+    "experiments\\adaptive_genus\\runs\\ttu_20261017\\received_complete_joint\\batch\\samples\\mix_30x04x13x26x19x28\\exon_predictions.csv": "8ccfb698bcec2a7bb60d38640c531c6c176126b5a5c356e270e88d6a980e27e9",
+    "experiments\\adaptive_genus\\runs\\ttu_20261017\\received_complete_joint\\batch\\samples\\mix_30x04x13x26x19x28\\genus_evidence.csv": "843fc452a614233accac5f73ac4f944c3df1ee690573b3a1428b86d3fa787581",
+    "experiments\\adaptive_genus\\runs\\ttu_20261017\\received_complete_joint\\batch\\samples\\mix_04x07x08x15x16x01\\exon_predictions.csv": "efe70c9bc7662eb5e9e77618412d8554d20a946bc6d1fbb4982a4781ca38400e",
+    "experiments\\adaptive_genus\\runs\\ttu_20261017\\received_complete_joint\\batch\\samples\\mix_04x07x08x15x16x01\\genus_evidence.csv": "0144d8c69cdaab6013f5d2ad4c944401fa7a156ee2b13f1995aaf73bf30581c8",
+    "experiments\\adaptive_genus\\runs\\ttu_20261017\\received_complete_joint\\batch\\samples\\mix_04x30x25x16x10x03x28x01x13x08\\exon_predictions.csv": "4eb887500265122ede31f06ba9010ae40de204347d9b792e86ae614579dd4162",
+    "experiments\\adaptive_genus\\runs\\ttu_20261017\\received_complete_joint\\batch\\samples\\mix_04x30x25x16x10x03x28x01x13x08\\genus_evidence.csv": "ce42d1c39009f4fa6f59570c336f898e5a83f4238f87d6553f4a096d7944deea",
+    "experiments\\adaptive_genus\\runs\\ttu_20261017\\received_complete_joint\\batch\\samples\\mix_25x28x30x07x22x24x12x04x03x18\\exon_predictions.csv": "ce0958f3b32c5f786c4f3d4ed548ea26a91ca16ba6ecd051bfedaeb09924b005",
+    "experiments\\adaptive_genus\\runs\\ttu_20261017\\received_complete_joint\\batch\\samples\\mix_25x28x30x07x22x24x12x04x03x18\\genus_evidence.csv": "8616f358553fa3194c1c27fc0ca898123cea24720b7307c6ff0043e04c7c7068",
+    "experiments\\adaptive_genus\\runs\\ttu_20261017\\received_complete_joint\\batch\\samples\\mix_07x22x30x08x18x13x03x19x04x02\\exon_predictions.csv": "ee172aa8b5f2d385d85a59c01fbd345f68e0bd14f10ef3dd896654f97a17d0df",
+    "experiments\\adaptive_genus\\runs\\ttu_20261017\\received_complete_joint\\batch\\samples\\mix_07x22x30x08x18x13x03x19x04x02\\genus_evidence.csv": "c7e1c2f83c3ff5f7acc8793d1fcbf9c8ea2d901320c161aa14ad0666714f8b47"
+  },
+  "artifact_sha256": {
+    "predictions.csv": "490128d2d7188d4fb1ebbfdbe5427756e45751eaace7338adb0d9087662dbea4",
+    "predictions.json": "e4d996f393eef5e691a808e80d4a2b766bd638365f29c2509cdc445a57cd4cd3"
+  }
+}

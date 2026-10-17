@@ -9,6 +9,20 @@ and [policy_strict_route.json](policy_strict_route.json) for reproducing the bas
 The correction was developed after evaluating those baselines; see the
 [post-evaluation plan](POSTHOC_COMPLETION_PLAN.md).
 
+The [completed ten-mixture TTU report](results/ttu10_20261017/REPORT.md) includes
+all three variants, matched distance-only and ML diagnostics, runtime/QC audits,
+and the [recommended genus calls](results/ttu10_20261017/recommended_predictions.csv).
+The best observed fixed output path was the stable auxiliary C+ML path:
+54 TP, 16 FP, 6 FN (precision 77.1%, recall 90.0%, F1 0.831). Routing reduced
+the initial pool by a median 91.6% without losing any of the 60 expected genus
+occurrences. Five searches reached 64 genera; the largest remaining pool was 447.
+The original merged rule remains reported separately (F1 0.750 after completion).
+The recommendation selects a whole existing output path after evaluation;
+it is a development result on these same samples, not independent validation.
+Only one recommended sample has an exact genus set. All six misses originate
+from the unchanged 30-of-50-locus reference coverage gate. A matched exhaustive
+genus runtime comparison was not performed.
+
 This replaces alphabetical branch anchors and whole-sister-branch expansion with
 genus-balanced central representatives, target-gene sequence QC, repeated
 independent-gene routing and small nearby-genus guards. A representative genus

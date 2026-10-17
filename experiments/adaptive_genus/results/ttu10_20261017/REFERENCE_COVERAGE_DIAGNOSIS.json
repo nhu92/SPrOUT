@@ -1,0 +1,397 @@
+{
+  "scope": "Post-evaluation diagnosis of checked recoveries only; not an exhaustive Kew coverage search. No reference gate or predictions changed.",
+  "fixed_reference_minimum_loci": 30,
+  "target_loci": 50,
+  "source_qc_sha256": {
+    "strict_route/30x04x19x07x03x16/qc.jsonl": "2f3e3c2959fd6b97c315cde5b811f3322d357becd0d7b3923abc44542238c09a",
+    "complete_joint/30x04x19x07x03x16/qc.jsonl": "dabe84afed2f4aba686a4f3d4abb5bbcfb74293d3064e77a5131fd71d002952f",
+    "strict_route/30x04x13x26x19x28/qc.jsonl": "754fbb07e3a1faec97e3c54da4d6a8233249f0237404c5aaa56f18bed3aa8630",
+    "complete_joint/30x04x13x26x19x28/qc.jsonl": "cd6cba8208f0c90e796ea31c854642b34f930aa679e3d8df12db4467ffc50840",
+    "strict_route/04x30x25x16x10x03x28x01x13x08/qc.jsonl": "b7e0c27c55dcd9578c0969a79c60face78d9d3d7ac2a267f1e8e52305a02bd3c",
+    "complete_joint/04x30x25x16x10x03x28x01x13x08/qc.jsonl": "8ffc2f52c243a679e98ba46482ac2de1184396658e690d4f0554237c9a65ff44",
+    "strict_route/25x28x30x07x22x24x12x04x03x18/qc.jsonl": "5dfb8cc6c0a8e86652a2d12116d8894d144510a6591f7ffd47488f4be0ce0fae",
+    "complete_joint/25x28x30x07x22x24x12x04x03x18/qc.jsonl": "73a22efd4e844c5095e9b1ce18123dd4c4bdba2614fcae40e210a7ec499164fc",
+    "strict_route/07x22x30x08x18x13x03x19x04x02/qc.jsonl": "a66ab8f76462ad092b8659a8a490f6391f0793647f2076b6ebdb671e2c6720e0",
+    "complete_joint/07x22x30x08x18x13x03x19x04x02/qc.jsonl": "ea87288819422db01e08f74e76c27a0ae35a52593081287163e161c3933839eb"
+  },
+  "missed_events": [
+    {
+      "sample": "30x04x19x07x03x16",
+      "genus": "Gynostemma",
+      "family": "Cucurbitaceae",
+      "literal_parent_in_search": "True",
+      "genus_in_initial_search": "True",
+      "first_loss": "final_reference_QC_unavailable",
+      "best_checked_accepted_loci": 11,
+      "checked_records_with_accepted_loci": [
+        {
+          "sequence_id": "SRR11573084",
+          "accepted_loci": 11,
+          "gene_ids": [
+            "5064",
+            "5206",
+            "5562",
+            "6048",
+            "6274",
+            "6449",
+            "6738",
+            "6886",
+            "6962",
+            "6969",
+            "7136"
+          ]
+        },
+        {
+          "sequence_id": "GCA_046127195.1",
+          "accepted_loci": 10,
+          "gene_ids": [
+            "5064",
+            "5206",
+            "5562",
+            "6048",
+            "6274",
+            "6449",
+            "6738",
+            "6886",
+            "6969",
+            "7136"
+          ]
+        },
+        {
+          "sequence_id": "SRR11573087",
+          "accepted_loci": 10,
+          "gene_ids": [
+            "5064",
+            "5206",
+            "5318",
+            "5357",
+            "6048",
+            "6298",
+            "6492",
+            "6886",
+            "6969",
+            "7136"
+          ]
+        },
+        {
+          "sequence_id": "SRR2757549",
+          "accepted_loci": 10,
+          "gene_ids": [
+            "5064",
+            "5206",
+            "5562",
+            "6048",
+            "6298",
+            "6492",
+            "6738",
+            "6886",
+            "6969",
+            "7136"
+          ]
+        },
+        {
+          "sequence_id": "SRR11573088",
+          "accepted_loci": 8,
+          "gene_ids": [
+            "5064",
+            "6048",
+            "6298",
+            "6492",
+            "6738",
+            "6886",
+            "6969",
+            "7136"
+          ]
+        }
+      ]
+    },
+    {
+      "sample": "30x04x13x26x19x28",
+      "genus": "Agropyropsis",
+      "family": "Poaceae",
+      "literal_parent_in_search": "True",
+      "genus_in_initial_search": "True",
+      "first_loss": "final_reference_QC_unavailable",
+      "best_checked_accepted_loci": 19,
+      "checked_records_with_accepted_loci": [
+        {
+          "sequence_id": "ERR7621428",
+          "accepted_loci": 19,
+          "gene_ids": [
+            "5206",
+            "5304",
+            "5318",
+            "5357",
+            "5744",
+            "5857",
+            "5942",
+            "5945",
+            "5958",
+            "6274",
+            "6407",
+            "6432",
+            "6492",
+            "6528",
+            "6532",
+            "6641",
+            "6825",
+            "6962",
+            "7367"
+          ]
+        }
+      ]
+    },
+    {
+      "sample": "30x04x13x26x19x28",
+      "genus": "Gynostemma",
+      "family": "Cucurbitaceae",
+      "literal_parent_in_search": "True",
+      "genus_in_initial_search": "True",
+      "first_loss": "final_reference_QC_unavailable",
+      "best_checked_accepted_loci": 11,
+      "checked_records_with_accepted_loci": [
+        {
+          "sequence_id": "SRR11573084",
+          "accepted_loci": 11,
+          "gene_ids": [
+            "5064",
+            "5206",
+            "5562",
+            "6048",
+            "6274",
+            "6449",
+            "6738",
+            "6886",
+            "6962",
+            "6969",
+            "7136"
+          ]
+        },
+        {
+          "sequence_id": "GCA_046127195.1",
+          "accepted_loci": 10,
+          "gene_ids": [
+            "5064",
+            "5206",
+            "5562",
+            "6048",
+            "6274",
+            "6449",
+            "6738",
+            "6886",
+            "6969",
+            "7136"
+          ]
+        },
+        {
+          "sequence_id": "SRR11573087",
+          "accepted_loci": 10,
+          "gene_ids": [
+            "5064",
+            "5206",
+            "5318",
+            "5357",
+            "6048",
+            "6298",
+            "6492",
+            "6886",
+            "6969",
+            "7136"
+          ]
+        },
+        {
+          "sequence_id": "SRR2757549",
+          "accepted_loci": 10,
+          "gene_ids": [
+            "5064",
+            "5206",
+            "5562",
+            "6048",
+            "6298",
+            "6492",
+            "6738",
+            "6886",
+            "6969",
+            "7136"
+          ]
+        },
+        {
+          "sequence_id": "SRR11573088",
+          "accepted_loci": 8,
+          "gene_ids": [
+            "5064",
+            "6048",
+            "6298",
+            "6492",
+            "6738",
+            "6886",
+            "6969",
+            "7136"
+          ]
+        }
+      ]
+    },
+    {
+      "sample": "04x30x25x16x10x03x28x01x13x08",
+      "genus": "Agropyropsis",
+      "family": "Poaceae",
+      "literal_parent_in_search": "True",
+      "genus_in_initial_search": "True",
+      "first_loss": "final_reference_QC_unavailable",
+      "best_checked_accepted_loci": 19,
+      "checked_records_with_accepted_loci": [
+        {
+          "sequence_id": "ERR7621428",
+          "accepted_loci": 19,
+          "gene_ids": [
+            "5206",
+            "5304",
+            "5318",
+            "5357",
+            "5744",
+            "5857",
+            "5942",
+            "5945",
+            "5958",
+            "6274",
+            "6407",
+            "6432",
+            "6492",
+            "6528",
+            "6532",
+            "6641",
+            "6825",
+            "6962",
+            "7367"
+          ]
+        }
+      ]
+    },
+    {
+      "sample": "25x28x30x07x22x24x12x04x03x18",
+      "genus": "Agropyropsis",
+      "family": "Poaceae",
+      "literal_parent_in_search": "True",
+      "genus_in_initial_search": "True",
+      "first_loss": "final_reference_QC_unavailable",
+      "best_checked_accepted_loci": 19,
+      "checked_records_with_accepted_loci": [
+        {
+          "sequence_id": "ERR7621428",
+          "accepted_loci": 19,
+          "gene_ids": [
+            "5206",
+            "5304",
+            "5318",
+            "5357",
+            "5744",
+            "5857",
+            "5942",
+            "5945",
+            "5958",
+            "6274",
+            "6407",
+            "6432",
+            "6492",
+            "6528",
+            "6532",
+            "6641",
+            "6825",
+            "6962",
+            "7367"
+          ]
+        }
+      ]
+    },
+    {
+      "sample": "07x22x30x08x18x13x03x19x04x02",
+      "genus": "Gynostemma",
+      "family": "Cucurbitaceae",
+      "literal_parent_in_search": "True",
+      "genus_in_initial_search": "True",
+      "first_loss": "final_reference_QC_unavailable",
+      "best_checked_accepted_loci": 11,
+      "checked_records_with_accepted_loci": [
+        {
+          "sequence_id": "SRR11573084",
+          "accepted_loci": 11,
+          "gene_ids": [
+            "5064",
+            "5206",
+            "5562",
+            "6048",
+            "6274",
+            "6449",
+            "6738",
+            "6886",
+            "6962",
+            "6969",
+            "7136"
+          ]
+        },
+        {
+          "sequence_id": "GCA_046127195.1",
+          "accepted_loci": 10,
+          "gene_ids": [
+            "5064",
+            "5206",
+            "5562",
+            "6048",
+            "6274",
+            "6449",
+            "6738",
+            "6886",
+            "6969",
+            "7136"
+          ]
+        },
+        {
+          "sequence_id": "SRR11573087",
+          "accepted_loci": 10,
+          "gene_ids": [
+            "5064",
+            "5206",
+            "5318",
+            "5357",
+            "6048",
+            "6298",
+            "6492",
+            "6886",
+            "6969",
+            "7136"
+          ]
+        },
+        {
+          "sequence_id": "SRR2757549",
+          "accepted_loci": 10,
+          "gene_ids": [
+            "5064",
+            "5206",
+            "5562",
+            "6048",
+            "6298",
+            "6492",
+            "6738",
+            "6886",
+            "6969",
+            "7136"
+          ]
+        },
+        {
+          "sequence_id": "SRR11573088",
+          "accepted_loci": 8,
+          "gene_ids": [
+            "5064",
+            "6048",
+            "6298",
+            "6492",
+            "6738",
+            "6886",
+            "6969",
+            "7136"
+          ]
+        }
+      ]
+    }
+  ]
+}

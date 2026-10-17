@@ -3,6 +3,7 @@ import argparse
 from pathlib import Path
 import shutil
 from statistics import median
+from zipfile import ZipFile, ZIP_DEFLATED
 
 from .compare import compare, normalized_code
 from .evaluation import dump, read, read_csv, sha, verify_export, write_csv
@@ -45,7 +46,7 @@ def plot(root,summary):
     for offset,variant,color,label in [(-1,'v1','#999999','Partial v1'),(0,'strict_route','#4477aa','Partial strict'),(1,'complete_joint','#228833','Complete pool')]:
         axes[1].bar(x+offset*width,all_values[variant],width,color=color,label=label)
     axes[1].set_xticks(x,['Initial','Routed','Joint pool','QC refs','Merged'])
-    axes[1].set(ylabel='True sample–genus events',title='B  Where the original stop rule lost recall')
+    axes[1].set(ylim=(0,72),ylabel='True sample–genus events',title='B  Where the original stop rule lost recall')
     axes[1].legend(fontsize=8,ncol=3)
     for ax in axes:
         ax.spines['top'].set_visible(False);ax.spines['right'].set_visible(False)
@@ -106,7 +107,7 @@ def final_report(root):
         by_sample.extend({'variant':'complete_joint',**r} for r in read_csv(control/'by_sample.csv'))
     write_csv(root/'all_variant_summary.csv',all_summary)
     write_csv(root/'all_variant_by_sample.csv',by_sample)
-    options=[r for r in all_summary if r['variant']=='complete_joint' and r['method'] in ('merged','core','standalone_ml','c_style','balanced_z','nearest_gene3','ml_diagnostic_gene3')]
+    options=[r for r in all_summary if r['variant']=='complete_joint' and r['method']!='review']
     best=max(options,key=lambda r:(float(r['F1']),float(r['precision'] or 0),float(r['recall']),r['method']=='merged'))
     predictions=[r for r in read_csv(paths['complete_joint']/'all_method_predictions.csv') if r['method']==best['method']]
     if best['method'] in ('nearest_gene3','ml_diagnostic_gene3'):
@@ -124,8 +125,16 @@ def final_report(root):
         raise ValueError('Recommended whole-rule predictions disagree with evaluation counts')
     write_csv(root/'recommended_predictions.csv',predictions,
               ['sample','genus','family','method','ml_gene_votes','nearest_gene_votes','nearest_winner_gene_votes','search_status'])
+    selected_rows=[r for r in by_sample if r['variant']=='complete_joint' and r['method']==best['method']]
+    if len(selected_rows)!=10:
+        raise ValueError('Recommendation must account for every selected mixture')
+    write_csv(root/'recommended_by_sample.csv',selected_rows)
+    with ZipFile(root/'recommended_sets.zip','w',compression=ZIP_DEFLATED) as archive:
+        for row in rows['complete_joint']:
+            genera=sorted(r['genus'] for r in predictions if r['sample']==row['sample'])
+            archive.writestr(row['sample']+'/genera.txt',''.join(g+'\n' for g in genera))
     recommendation={'variant':'complete_joint','method':best['method'],'metrics':best,
-                    'selection':'Highest observed micro F1 among fixed complete classifiers and matched NN3 control; ties favor precision, recall, then the original merged rule',
+                    'selection':'Highest observed micro F1 among all fixed positive-call paths and matched diagnostics; review excluded; ties favor precision, recall, then merged',
                     'scope':'Post-evaluation whole-method development selection on these same ten mixtures; not independent validation',
                     'manual_genus_additions_or_removals':False,'sample_genus_events':len(predictions)}
     dump(root/'RECOMMENDATION.json',recommendation)
@@ -144,7 +153,7 @@ def final_report(root):
            f'Best observed fixed final rule after the complete-pool correction: **{best["method"]}**, '
            f'precision **{pct(best["precision"])}**, recall **{pct(best["recall"])}**, F1 **{float(best["F1"]):.3f}** '
            f'({best["TP"]} TP, {best["FP"]} FP, {best["FN"]} FN; {best["exact_sets"]}/10 exact genus sets). '
-           '[Download the recommended genus set](recommended_predictions.csv).', '',
+           '[Download the recommended genus set](recommended_predictions.csv) or [one text list per mixture](recommended_sets.zip).', '',
            '**Development scope:** two ten-mixture baselines were frozen, predicted, audited and sealed before genus truth was opened. '
            'Their evaluation exposed a stopping-rule defect. The complete-pool correction and the recommendation above use the same '
            'ten mixtures after that evaluation; they are in-sample development results, not a new blind or independent validation. '
@@ -175,9 +184,14 @@ def final_report(root):
         if r['variant']=='complete_joint':
             lines.append(f'| {r["method"]} | {r["TP"]} | {r["FP"]} | {r["FN"]} | {pct(r["precision"])} | {pct(r["recall"])} | '
                          f'{float(r["F1"]):.3f} | {r["exact_sets"]}/10 |')
-    lines+=['','The merged rule remains the original primary comparison. Review is a separate follow-up set and '
-            'auxiliary is a component path; neither is eligible for the recommendation. The recommended whole '
-            'rule is chosen from fixed complete classifiers using observed F1, which adds development selection bias.', '',
+    lines+=['','The merged rule remains the original primary comparison. Review is a separate follow-up set. '
+            'The recommendation compares every fixed positive-call path, including core and auxiliary component paths, '
+            'and the matched diagnostics. Including auxiliary in this choice was decided after inspecting these results. '
+            'The complete output of one rule is used for every mixture; no genus-specific edits or truth-based '
+            'top-N truncation are applied. This observed-F1 choice adds development selection bias.', '',
+            'The auxiliary path requires a C-style selected call, gene rescue, a Monte Carlo stability lower bound '
+            '>0.5, and at least one ML-supported gene. It is narrower than the original core-or-auxiliary union. '
+            'Its stability score is not a calibrated biological presence probability.', '',
             'The nearest_gene3 control uses exactly the same pre-verifier nearest candidates and three-gene quorum '
             'as standalone ML. Replaying its accepted fragments must reproduce the sealed ML set. This diagnostic '
             'was added after the baseline evaluations, before inspecting complete-pool metrics; its prediction '
@@ -186,6 +200,19 @@ def final_report(root):
             'and sibling-relative margin ≥0.1, using the existing C-style diagnostic-gene evidence. Its quorum '
             'and margin were fixed before complete-pool scores were inspected, after the baseline evaluations. '
             'It addresses ambiguous conserved fragments and is eligible only as a disclosed development choice.', '',
+            'At the same 54 recovered events and three-gene quorum, the matched nearest-distance control produces '
+            '226 false positives, versus 20 with the learned verifier. Adding the three-diagnostic-gene condition '
+            'does not change the standalone ML calls in this cohort. This supports a verifier benefit on these '
+            'frozen panels; it does not isolate the sampler effect from all other pipeline changes.', '',
+            '## Remaining errors','',
+            'All six merged false negatives first fail final-reference coverage, rather than routing or the final '
+            'classifier: Gynostemma occurs in three missed events with a best checked reference of 11 accepted '
+            'target loci, and Agropyropsis in three with 19. Both fall below the fixed 30-locus reference gate. '
+            'The [coverage audit](REFERENCE_COVERAGE_DIAGNOSIS.json) records the source QC hashes and accepted '
+            'locus counts. No coverage threshold was lowered using these known misses.', '',
+            'The recommended set still has 16 false positives and only one of ten mixtures has an exact genus set. '
+            'Treat it as a candidate-screening result. A future generic low-coverage reference tier and any '
+            'stronger false-positive filter should be fixed before testing a fresh held-out mixture cohort.', '',
             '## Data, time and limitations','',
             'The cohort contains four 3-component, three 6-component and three 10-component mixtures, selected '
             f'by sample-ID hashes from the completed 100-mixture dataset. They represent {len(distinct_genera)} distinct source genera '
@@ -218,6 +245,7 @@ def final_report(root):
             '- [Original two-policy comparison](BASELINE_COMPARISON.md)',
             '- [All variant and method scores](all_variant_summary.csv)',
             '- [Recommended whole-rule selection record](RECOMMENDATION.json)',
+            '- [Recommended per-sample accuracy and error lists](recommended_by_sample.csv)',
             '- [Source/model/routing reuse audit](COMPLETION_COMPARISON_AUDIT.json)',
             '- [Shared trained genus model](shared_model/model.joblib)',
             '- [Post-evaluation correction plan](../../POSTHOC_COMPLETION_PLAN.md)','',
