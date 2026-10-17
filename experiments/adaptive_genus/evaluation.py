@@ -77,6 +77,14 @@ def export(batch, output):
     """Seal all results before a truth-reading function can run."""
     batch, output = Path(batch), Path(output)
     selection, calls = complete(batch)
+    protocol=read(batch/'PROTOCOL.json')
+    development=protocol.get('human_development_used_previous_evaluation',False)
+    posthoc_sha=None
+    if development:
+        posthoc_sha=sha(Path(__file__).with_name('POSTHOC_COMPLETION_PLAN.md'))
+        expected=next(value for key,value in protocol['code_sha256'].items() if key.endswith('/POSTHOC_COMPLETION_PLAN.md'))
+        if posthoc_sha!=expected:
+            raise ValueError('Post-evaluation development plan differs from frozen correction')
     if output.exists():
         raise FileExistsError('Use a new prediction export directory')
     output.mkdir(parents=True)
@@ -114,6 +122,7 @@ def export(batch, output):
     write_csv(output/'candidate_evidence.csv', evidence)
     write_csv(output/'search_regions.csv', search_regions)
     record = {'rank':'genus', 'primary':'merged', 'samples':10, 'truth_read_by_exporter':False,
+              'human_development_used_previous_evaluation':development,'posthoc_plan_sha256':posthoc_sha,
               'sealed_utc':datetime.now(timezone.utc).isoformat(),
               'evaluation_plan_sha256':sha(Path(__file__).with_name('EVALUATION_PLAN.md')),
               'artifact_sha256':{p.name:sha(p) for p in sorted(output.iterdir()) if p.is_file()}}
@@ -125,6 +134,8 @@ def verify_export(output):
     record = read(Path(output)/'PREDICTION_EXPORT.json')
     if record['evaluation_plan_sha256'] != sha(Path(__file__).with_name('EVALUATION_PLAN.md')):
         raise ValueError('Evaluation plan changed after sealing')
+    if record.get('posthoc_plan_sha256') and record['posthoc_plan_sha256']!=sha(Path(__file__).with_name('POSTHOC_COMPLETION_PLAN.md')):
+        raise ValueError('Post-evaluation development plan changed after sealing')
     for name, digest in record['artifact_sha256'].items():
         if sha(Path(output)/name) != digest:
             raise ValueError('Sealed prediction artifact changed: '+name)
@@ -196,6 +207,7 @@ def evaluate(batch, output, workbook, genus_column, species_name=False):
     batch, output = Path(batch), Path(output)
     selection, calls = complete(batch)
     verify_export(output)
+    development=read(output/'PREDICTION_EXPORT.json').get('human_development_used_previous_evaluation',False)
     for name in ('PROTOCOL.json','selection.json','predictions.json','SEARCHES.json','AUDIT.json'):
         if sha(batch/name)!=sha(output/name):
             raise ValueError('Sealed batch differs from evaluation input: '+name)
@@ -242,12 +254,15 @@ def evaluate(batch, output, workbook, genus_column, species_name=False):
                                                 'seconds','new_download_bytes','fetch_seconds','qc_seconds','reference_alignment_seconds','checked_recoveries')},
                         'final_reference_genera':search['final'].get('reference_genera',0),
                         'final_reference_species':search['final'].get('reference_species',0),
+                        'source_pipeline_seconds':search.get('source_pipeline_seconds',0),
+                        'incremental_completion_seconds':search.get('incremental_completion_seconds',0),
+                        'completion_final_reused':search.get('completion_final_reused',False),
                         'merged_genera':len(calls[sample]['merged'])})
         for r in search['rounds']:
             rounds.append({'sample':sample, **r})
         parts={'fetch_parse':search['fetch_seconds'],'reference_QC':search['qc_seconds'],
                'reference_projection':search['reference_alignment_seconds'],
-               'query_align_tree':sum(r['tree_seconds'] for r in search['rounds'])+search['final'].get('tree_seconds',0)}
+               'query_align_tree':sum(r['tree_seconds'] for r in search['rounds'])+search['final'].get('tree_seconds',0)+search.get('source_partial_final_tree_seconds',0)}
         other=search['seconds']-sum(parts.values())
         if other < -.01:
             raise ValueError('Phase timings exceed total search elapsed time')
@@ -288,7 +303,9 @@ def evaluate(batch, output, workbook, genus_column, species_name=False):
     if sha(workbook)!=TRUTH_SHA256:
         raise ValueError('Source workbook changed during read-only evaluation')
     dump(output/'EVALUATION_AUDIT.json',{'samples':10,'primary':'merged','view':'table_literal',
-         'all_ten_predictions_sealed_before_truth_read':True,'openpyxl_XML_used_cells_agree':True,
+         'all_ten_predictions_sealed_before_truth_read':not development,
+         'predictions_sealed_before_this_evaluation':True,'human_development_used_previous_evaluation':development,
+         'openpyxl_XML_used_cells_agree':True,
          'plain_method_text_XML_recounts_agree':True,'workbook_sha256':sha(workbook),
          'source_workbook_modified':False,'first_losses':dict(Counter(r['first_loss'] for r in losses)),
          'evaluated_utc':datetime.now(timezone.utc).isoformat()})

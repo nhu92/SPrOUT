@@ -113,6 +113,18 @@ def regroup(cells,index):
     return [Cell(f,tuple(sorted(tips))) for f,tips in sorted(groups.items())]
 
 
+def final_pool_after_routing(remaining,cells,index,policy):
+    """A bounded complete pool is preferable to arbitrary local substitutes."""
+    remaining=set(remaining)
+    budget=policy.get('completion_joint_genus_budget',policy['final_joint_genus_budget'])
+    if len(remaining)<=budget:
+        return remaining,set()
+    if policy.get('no_partial_final_calls',False):
+        return set(),remaining
+    selected={g for cell in cells if len(index.genera(cell))<=2 for g in index.genera(cell)}&remaining
+    return selected,remaining-selected
+
+
 def execute(root,number):
     root=Path(root).resolve()
     protocol=verify_root(root);policy=protocol['policy']
@@ -190,15 +202,7 @@ def execute(root,number):
                 if stalls>=policy['stalled_rounds']:
                     break
             remaining={g for c in active for g in index.genera(c)}
-            unresolved=set()
-            if len(remaining)>policy['final_joint_genus_budget']:
-                # Only fully local neighborhoods are eligible for a partial
-                # joint run. Coarse anchors are never promoted into genus calls.
-                final_set={g for c in cells if len(index.genera(c))<=2
-                           for g in index.genera(c)}&remaining
-                unresolved=remaining-final_set
-            else:
-                final_set=remaining
+            final_set,unresolved=final_pool_after_routing(remaining,cells,index,policy)
             names(run/'unresolved_genera.txt',unresolved)
             names(run/'final_search_genera.txt',final_set)
             status(f'final_joint_panel_{len(final_set)}_genera')
@@ -258,9 +262,12 @@ def collect(root):
         audit=read(run/'AUDIT.json');verify(audit['products_sha256']);verify(audit['recovery_sha256'])
         predictions.append(read(run/'predictions.json'));searches.append(read(run/'SEARCH.json'))
     dump(root/'predictions.json',predictions);dump(root/'SEARCHES.json',searches)
-    dump(root/'AUDIT.json',{'all_10_complete':True,'code_model_inputs_products_verified':True,'truth_used':False,
+    development=protocol.get('human_development_used_previous_evaluation',False)
+    dump(root/'AUDIT.json',{'all_10_complete':True,'code_model_inputs_products_verified':True,'truth_used':development,
+                          'truth_used_by_prediction_pipeline':False,'human_development_used_previous_evaluation':development,
                           'unresolved_samples':[r['sample'] for r in searches if r['search_status']!='refined']})
-    (root/'PREDICTIONS_COMPLETE').write_text('10/10 pipelines finished before truth evaluation\n')
+    message='10/10 post-evaluation development predictions finished; prior truth known to developer\n' if development else '10/10 pipelines finished before truth evaluation\n'
+    (root/'PREDICTIONS_COMPLETE').write_text(message)
     with tarfile.open(root/'compact_results.tar.gz','w:gz') as archive:
         for name in ('PROTOCOL.json','selection.json','predictions.json','SEARCHES.json','AUDIT.json','PREDICTIONS_COMPLETE','model/TRAINING.json'):
             archive.add(root/name,arcname=name)

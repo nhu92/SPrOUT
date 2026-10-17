@@ -44,7 +44,9 @@ def receive(batch_archive, reproducibility_archive, batch_sha256, reproducibilit
         if not remote.startswith(remote_root):
             raise ValueError('Code path outside archived inference root')
         relative=remote[len(remote_root):]
-        actual=sha(inference/relative) if relative.endswith('.sbatch') else members.get(relative)
+        actual=members.get(relative)
+        if actual is None and (inference/relative).is_file():
+            actual=sha(inference/relative)
         if actual!=digest:
             raise ValueError('Frozen runtime payload member mismatch: '+relative)
     training_hashes=read(repro/'TRAIN_CODE_SHA.json')

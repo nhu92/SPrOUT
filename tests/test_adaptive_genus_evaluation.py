@@ -21,6 +21,17 @@ def test_absent_calls_still_count_as_false_negatives():
     assert counts(0, 0, 7)=={'TP':0, 'FP':0, 'FN':7, 'precision':None, 'recall':0, 'F1':0}
 
 
+def test_complete_pool_does_not_drop_supported_genera_at_target_budget():
+    from experiments.adaptive_genus.runner import final_pool_after_routing
+    policy={'final_joint_genus_budget':64,'completion_joint_genus_budget':512,'no_partial_final_calls':True}
+    remaining={f'G{i}' for i in range(447)}
+    tested,unresolved=final_pool_after_routing(remaining,[],None,policy)
+    assert tested==remaining and not unresolved
+    remaining={f'G{i}' for i in range(513)}
+    tested,unresolved=final_pool_after_routing(remaining,[],None,policy)
+    assert not tested and unresolved==remaining
+
+
 def test_parallel_streaming_audit_checks_every_file(tmp_path):
     import hashlib
     from experiments.adaptive_genus.collect_parallel import sha_stream,verify_parallel

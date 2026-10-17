@@ -89,7 +89,18 @@ def report(output):
     timings=read_csv(output/'timings.csv');rounds=read_csv(output/'rounds.csv')
     selection=read(output/'selection.json')['selected'];searches=read(output/'SEARCHES.json')
     training=read(output/'model/TRAINING.json');audit=read(output/'EVALUATION_AUDIT.json')
-    strict = 'strict-routing' in read(output/'PROTOCOL.json')['policy']['schema']
+    protocol=read(output/'PROTOCOL.json');policy=protocol['policy']
+    strict = policy['route_minimum_genes']==5
+    development=protocol.get('human_development_used_previous_evaluation',False)
+    scope_note=('This is the post-evaluation complete-pool correction. The original two batches were sealed and evaluated first; '
+                'their failure diagnosis motivated this stopping-rule change. The same ten mixtures and unchanged final model are reused. '
+                'It is an in-sample development result, not a new blind validation.' if development else
+                'This batch was frozen and sealed before its genus truth was opened. It remains retrospective development on previously analyzed mixtures.')
+    joint_note=('After the normal ≤64 target or eight-round limit, jointly verify the entire retained pool when it contains ≤512 genera. '
+                'Larger pools remain wholly unresolved; no small-cell subset is substituted. Five original full-pool final tests are reused; '
+                'the five formerly partial tests are completed with unchanged cached projections and newly QC-screened references.' if development else
+                'At ≤64 surviving genera, jointly test up to two QC-passing species per genus. Larger unresolved searches can test fully local '
+                'neighborhoods while retaining other genera as unresolved. This partial fallback was subsequently diagnosed as a stopping-rule defect.')
     primary=next(r for r in summary if r['method']=='merged')
     reductions=[1-float(t['remaining_search_genera'])/float(t['initial_genera']) for t in timings if float(t['initial_genera'])]
     seconds=[float(r['seconds']) for r in timings]
@@ -110,7 +121,7 @@ def report(output):
            'This is a retrospective method experiment on ten mixtures from the previously analyzed 100. '
            'The 4/3/3 selection across 3-, 6- and 10-component strata was fixed by sample-ID hashes, '
            'without genus truth or prior success scores. It is not an independent biological validation. '
-           'Mixture component counts never determine the number of predicted genera.', '',
+           'Mixture component counts never determine the number of predicted genera.', '',scope_note,'',
            '## Search behavior','',
            'The existing family search parents are the union of raw Z, frozen merged and review families. '
            'Inside those parents, partition the recoverable Kew tree into 32 neighborhoods, subdivide '
@@ -122,13 +133,11 @@ def report(output):
            'Download only proposed recoveries, replace failed representatives locally, and preserve uncovered '
            'regions as unresolved. Cache QC and projected reference coordinates per sample. '
            'At each round, align the existing query exons to the reduced panel and build fresh full exon trees. '
-           'Two independent genes retain a region; a close second route needs three genes. '
-           'Nearby guards add four genera per supported anchor, within the previous active pool. '
+           f'{policy["route_minimum_genes"]} independent genes retain a region; a close second route needs {policy["ambiguous_second_minimum_genes"]} genes. '
+           f'Nearby guards add {policy["nearby_guard_genera"]} genera per supported anchor, within the previous active pool. '
            'The anchor genus labels its region until the final joint test.', '',
            'Repartition and repeat. A stalled round permits 64 cells; two consecutive ≥95% retention rounds '
-           'or eight total rounds stop the search as unresolved. At ≤64 surviving genera, jointly test up to '
-           'two QC-passing species per genus. Larger unresolved searches can test fully local neighborhoods '
-           'while retaining all other genera explicitly as unresolved. No biological top-N prediction cap is used.', '',
+           'or eight total rounds stop routing. '+joint_note+' No biological top-N prediction cap is used.', '',
            '![Search pool trajectories](search_reduction.png)','',
            '| ID | Mixture | Search genera: initial → retained | Final tested genera / species | Rounds | Minutes | Status | TP / FP / FN |',
            '| --- | --- | ---: | ---: | ---: | ---: | --- | ---: |']
@@ -142,7 +151,7 @@ def report(output):
             f'{median(float(r["reduction_fraction"]) for r in rounds):.1%}. '
             'Full per-round panels, counts, evidence, QC and timing are in the sealed batch archive and rounds.csv. '
             'The pilot and training costs are separate from the ten sample times. '
-            f'Slurm used eight CPUs per mixture with up to {6 if strict else 4} mixtures of this policy concurrently; '
+            f'Slurm used eight CPUs per mixture with up to {3 if development else 6 if strict else 4} mixtures of this phase concurrently; '
             'the strict-policy throttle increased from two to four to six as earlier work finished. '
             'Reported inference times exclude queueing, prior assembly, initial/final audits and Slurm setup/cleanup. '
             'Allocated job elapsed times are recorded separately in Slurm accounting. '
@@ -157,7 +166,9 @@ def report(output):
         values=[float(r['seconds']) for r in phase_rows if r['phase']==phase]
         lines.append(f'| {phase} | {median(values):.1f} | {sum(values)/60:.1f} |')
     lines+=['','Phase sums combine overlapping Slurm tasks and are not cohort wall time or CPU time. '
-            'The residual phase includes tree planning, index loading, routing and final scoring.', '',
+            'The residual phase includes tree planning, index loading, routing and final scoring. '
+            +('For this completion run, totals include the reused source pipeline and its original partial final test, plus new completion work. '
+              'Incremental completion seconds and reused-final flags are in timings.csv; these are warm-cache observations.' if development else ''), '',
             '## Genus predictions','',
             'Primary output: [merged_predictions.csv](merged_predictions.csv). '
             'The [complete method sets](prediction_sets.zip), [candidate evidence](candidate_evidence.csv) '
@@ -196,7 +207,9 @@ def report(output):
             f'Reference-held-out correct known-genus acceptance was {training["test_known_correct_acceptance"]:.1%}; '
             f'genus-absent rejection was {training["test_genus_absent_rejection"]:.1%}. '
             'These are reference fragment checks, not ten-mixture accuracy or biological presence probabilities. '
-            'The reference library came from previously constructed panels and is not an independent library.', '',
+            'The reference library came from previously constructed panels and is not an independent library. '
+            'Source species were not explicitly excluded from the final Kew panels; this is a closed-reference experiment, '
+            'not a test of genus recognition for wholly unrepresented source species.', '',
             'The final query workflow also changes reference-column trimming and alignment projection. '
             'Accuracy/runtime differences cannot be attributed to the sampler alone. Sparse loci and cross-genus '
             'similarity can defeat routing; unresolved regions are visible instead of forced into representative labels. '
@@ -205,7 +218,8 @@ def report(output):
             'Later commits add local evaluation gates, report figures and artifact audits. '
             'Branch: `experiment/adaptive-genus-search-20261017`. '
             'The previous pipeline defaults and family results are unchanged. '
-            'No mixture-truth-based threshold tuning was performed in this frozen experiment.', '',
+            +('Final ML/C-style/vote thresholds are unchanged; the stopping-rule correction was chosen after the baseline evaluation.'
+              if development else 'No mixture-truth-based threshold tuning was performed in this frozen experiment.'), '',
             'The [protocol](PROTOCOL.json), [prediction seal](PREDICTION_EXPORT.json), '
             '[independent evaluation audit](EVALUATION_AUDIT.json), [training record](model/TRAINING.json), '
             'runtime source snapshot, trained model, job records and batch archive preserve the run. '
@@ -214,7 +228,8 @@ def report(output):
             f'Truth source: original 30-source Table S1, SHA-256 `{audit["workbook_sha256"]}`. '
             'Every used source-ID, genus/name and family cell was checked with both openpyxl and ZIP/XML. '
             'Per-method plain text prediction files independently reproduce TP/FP/FN. '
-            'The truth workbook was opened only after all ten outputs were complete, downloaded and sealed locally.', '']
+            +('The baseline truth had already been opened when this development correction was designed; new outputs were sealed before their rescoring.'
+              if development else 'The truth workbook was opened only after all ten outputs were complete, downloaded and sealed locally.'), '']
     (output/'REPORT.md').write_text('\n'.join(lines),encoding='utf-8')
 
 

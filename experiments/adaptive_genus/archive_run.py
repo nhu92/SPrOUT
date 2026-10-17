@@ -31,6 +31,9 @@ def package(root, job_ids):
         files['inference/'+name]=root/name
     if (root/'COLLECTION_IMPLEMENTATION.json').exists():
         files['inference/COLLECTION_IMPLEMENTATION.json']=root/'COLLECTION_IMPLEMENTATION.json'
+    for name in ('coarse_reuse_manifest.json','POSTHOC_COMPLETION_PLAN.md'):
+        if (root/name).exists():
+            files['inference/'+name]=root/name
     for name in ('PILOT.json','pilot.py'):
         p=base/'pilot_02'/name
         if p.exists():
