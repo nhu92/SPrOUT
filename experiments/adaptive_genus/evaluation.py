@@ -173,9 +173,9 @@ def counts(tp, fp, fn):
 
 
 def loss_stage(genus, family, row, path, called):
-    if family not in row['families']:
-        return 'absent_parent_family'
     if genus not in names(path/'initial_genera.txt'):
+        if family not in row['families']:
+            return 'absent_literal_parent_family'
         return 'absent_recoverable_initial_reference'
     for directory in sorted(path.glob('round_*')):
         if genus not in names(directory/'retained_genera.txt'):
@@ -219,6 +219,8 @@ def evaluate(batch, output, workbook, genus_column, species_name=False):
                 raise ValueError('Conflicting literal genus parents')
             family = next(iter(family_set))
             losses.append({'sample':sample, 'genus':genus, 'family':family,
+                           'literal_parent_in_search':family in row['families'],
+                           'genus_in_initial_search':genus in names(path/'initial_genera.txt'),
                            'first_loss':loss_stage(genus, family, row, path, set(calls[sample]['merged']))})
         stages = [('initial', names(path/'initial_genera.txt'))]
         for directory in sorted(path.glob('round_*')):
@@ -246,6 +248,9 @@ def evaluate(batch, output, workbook, genus_column, species_name=False):
         summary.append({'view':'table_literal','method':method,'samples':10,
                         **counts(*(sum(r[k] for r in sub) for k in ('TP','FP','FN'))),
                         'exact_sets':sum(r['FP']==r['FN']==0 for r in sub)})
+    primary = next(r for r in summary if r['method']=='merged')
+    if sum(r['first_loss']=='recovered' for r in losses)!=primary['TP'] or len(losses)!=primary['TP']+primary['FN']:
+        raise ValueError('First-loss diagnosis must reproduce primary genus recall')
     for name, rows in [('summary.csv',summary),('by_sample.csv',by_sample),('truth_survival.csv',survival),
                        ('first_losses.csv',losses),('timings.csv',timings),('rounds.csv',rounds)]:
         write_csv(output/name,rows)

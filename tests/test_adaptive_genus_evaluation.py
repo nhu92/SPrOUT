@@ -27,7 +27,10 @@ def test_first_loss_distinguishes_parent_routing_and_unresolved(tmp_path):
     (tmp_path/'unresolved_genera.txt').write_text('B\n')
     round_path=tmp_path/'round_01';round_path.mkdir()
     (round_path/'retained_genera.txt').write_text('B\n')
-    assert loss_stage('A','missing',row,tmp_path,set())=='absent_parent_family'
+    assert loss_stage('C','missing',row,tmp_path,set())=='absent_literal_parent_family'
+    # A literal parent annotation mismatch cannot erase a genus already present
+    # in the actual search pool under the reference taxonomy.
+    assert loss_stage('A','missing',row,tmp_path,set())=='round_01_routing_exclusion'
     assert loss_stage('C','F',row,tmp_path,set())=='absent_recoverable_initial_reference'
     assert loss_stage('A','F',row,tmp_path,set())=='round_01_routing_exclusion'
     assert loss_stage('B','F',row,tmp_path,set())=='unresolved_search_region'
