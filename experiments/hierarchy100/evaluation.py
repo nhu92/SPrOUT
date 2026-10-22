@@ -57,14 +57,18 @@ def seal(batch,output):
     dump(output/'PREDICTION_SEAL.json',{'samples':100,'sealed_utc':datetime.now(timezone.utc).isoformat(),
          'truth_read_by_exporter':False,'retrospective_development':True,
          'plan_sha256':sha(Path(__file__).with_name('PLAN.md')),
+         'source_batch_sha256':{p.relative_to(batch).as_posix():sha(p) for p in batch.rglob('*') if p.is_file()},
          'artifact_sha256':{p.name:sha(p) for p in output.iterdir() if p.is_file()}})
 
 
-def verify_seal(output):
+def verify_seal(output,batch=None):
     record=read(output/'PREDICTION_SEAL.json')
     if record['plan_sha256']!=sha(Path(__file__).with_name('PLAN.md')):raise ValueError('Changed evaluation plan')
     for name,digest in record['artifact_sha256'].items():
         if sha(output/name)!=digest:raise ValueError('Changed sealed artifact: '+name)
+    if batch is not None:
+        for name,digest in record['source_batch_sha256'].items():
+            if sha(batch/name)!=digest:raise ValueError('Changed raw batch artifact: '+name)
 
 
 def truth(workbook):
@@ -98,7 +102,7 @@ def score(expected,called):
 
 
 def evaluate(batch,output,workbook):
-    batch,output,workbook=map(Path,(batch,output,workbook));rows,calls=complete(batch);verify_seal(output)
+    batch,output,workbook=map(Path,(batch,output,workbook));rows,calls=complete(batch);verify_seal(output,batch)
     for name in ('PROTOCOL.json','selection.json','predictions.json'):
         if sha(batch/name)!=sha(output/name):raise ValueError('Batch differs from sealed export')
     sources,cells=truth(workbook)
@@ -126,8 +130,10 @@ def evaluate(batch,output,workbook):
         search=read(gd/'SEARCH.json')
         for r in search['rounds']:rounds.append({'sample':sample,**r})
     summaries=[]
-    for group,predicate in [('all100',lambda r:True),('genus_development10',lambda r:r['genus_development_ten']),
-                             ('other90',lambda r:not r['genus_development_ten'])]:
+    groups=[('all100',lambda r:True),('genus_development10',lambda r:r['genus_development_ten']),
+            ('other90',lambda r:not r['genus_development_ten'])]
+    groups += [('components'+str(n),lambda r,n=n:r['components']==n) for n in (3,6,10)]
+    for group,predicate in groups:
         for rank,method in dict.fromkeys((r['rank'],r['method']) for r in metrics):
             sub=[r for r in metrics if r['rank']==rank and r['method']==method and predicate(r)]
             summaries.append({'subset':group,'rank':rank,'method':method,'samples':len(sub),

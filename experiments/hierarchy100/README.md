@@ -68,3 +68,22 @@ genus search. Genus SEARCH/ROUND records retain its finer phase/round breakdown.
 Shared preparation/audit, queueing and historical FASTQ assembly are outside
 fresh inference timings. This is a warm-cache benchmark; it does not establish
 a cold-install or matched-exhaustive speedup.
+
+## One-shot local completion
+
+`finish_local.py` can continue this authorized batch after the chat turn ends.
+It waits for the collector's Slurm COMPLETED state, verifies and safely downloads
+the archive, seals all 100 outputs, scores the local truth workbook, renders the
+report and publishes only this run's result package on the experimental branch.
+It does not submit recurring jobs, upload truth, edit thresholds or skip failed
+samples. It stops for attention on scientific failures or changed local evaluator
+sources. SSH interruptions are retried for up to 48 hours. The TTU VPN must remain
+available on the host for transfer; disconnecting the VPN does not stop submitted
+Slurm computation. State is recorded in `runs/ttu_20261022/CONTINUATION.json`.
+Plots are generated automatically; human/agent visual inspection is recorded as
+pending until it is actually performed.
+
+Use the bundled Python runtime for the local XLSX truth reader. Scientific plots
+use the existing `.venv312` environment, which supplies Matplotlib. No runtime
+installation or shared environment modification is performed. A Windows
+background launch uses a hidden window and separate stdout/stderr logs.
