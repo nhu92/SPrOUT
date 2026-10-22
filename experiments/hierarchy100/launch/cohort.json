@@ -1,0 +1,505 @@
+{
+  "source": "Fixed prior 100-mixture cohort; no accuracy-based selection",
+  "selected": [
+    {
+      "sample": "01x02x13",
+      "project": "mix_01x02x13",
+      "genus_development_ten": false
+    },
+    {
+      "sample": "01x04x19",
+      "project": "mix_01x04x19",
+      "genus_development_ten": false
+    },
+    {
+      "sample": "01x07x16x18x25x08",
+      "project": "mix_01x07x16x18x25x08",
+      "genus_development_ten": false
+    },
+    {
+      "sample": "01x18x08x28x26x02",
+      "project": "mix_01x18x08x28x26x02",
+      "genus_development_ten": false
+    },
+    {
+      "sample": "01x19x08x22x25x30x07x26x10x28",
+      "project": "mix_01x19x08x22x25x30x07x26x10x28",
+      "genus_development_ten": false
+    },
+    {
+      "sample": "01x25x24x22x28x19x15x10x07x12",
+      "project": "mix_01x25x24x22x28x19x15x10x07x12",
+      "genus_development_ten": false
+    },
+    {
+      "sample": "01x30x25",
+      "project": "mix_01x30x25",
+      "genus_development_ten": false
+    },
+    {
+      "sample": "02x01x28x15x03x07",
+      "project": "mix_02x01x28x15x03x07",
+      "genus_development_ten": false
+    },
+    {
+      "sample": "02x12x28x10x01x09x30x03x18x13",
+      "project": "mix_02x12x28x10x01x09x30x03x18x13",
+      "genus_development_ten": false
+    },
+    {
+      "sample": "02x13x24x03x12x07x16x18x04x15",
+      "project": "mix_02x13x24x03x12x07x16x18x04x15",
+      "genus_development_ten": false
+    },
+    {
+      "sample": "02x15x24",
+      "project": "mix_02x15x24",
+      "genus_development_ten": false
+    },
+    {
+      "sample": "02x22x19",
+      "project": "mix_02x22x19",
+      "genus_development_ten": false
+    },
+    {
+      "sample": "02x22x25x07x24x03",
+      "project": "mix_02x22x25x07x24x03",
+      "genus_development_ten": false
+    },
+    {
+      "sample": "02x24x15",
+      "project": "mix_02x24x15",
+      "genus_development_ten": false
+    },
+    {
+      "sample": "02x24x25x09x28x16x04x07x12x13",
+      "project": "mix_02x24x25x09x28x16x04x07x12x13",
+      "genus_development_ten": false
+    },
+    {
+      "sample": "03x07x13",
+      "project": "mix_03x07x13",
+      "genus_development_ten": false
+    },
+    {
+      "sample": "03x16x28x24x01x07",
+      "project": "mix_03x16x28x24x01x07",
+      "genus_development_ten": false
+    },
+    {
+      "sample": "04x03x16x25x18x22x02x08x19x07",
+      "project": "mix_04x03x16x25x18x22x02x08x19x07",
+      "genus_development_ten": false
+    },
+    {
+      "sample": "04x07x08x15x16x01",
+      "project": "mix_04x07x08x15x16x01",
+      "genus_development_ten": true
+    },
+    {
+      "sample": "04x15x10",
+      "project": "mix_04x15x10",
+      "genus_development_ten": false
+    },
+    {
+      "sample": "04x19x30x02x13x16",
+      "project": "mix_04x19x30x02x13x16",
+      "genus_development_ten": false
+    },
+    {
+      "sample": "04x28x12x16x03x19",
+      "project": "mix_04x28x12x16x03x19",
+      "genus_development_ten": false
+    },
+    {
+      "sample": "04x28x15x07x16x09x13x10x08x03",
+      "project": "mix_04x28x15x07x16x09x13x10x08x03",
+      "genus_development_ten": false
+    },
+    {
+      "sample": "04x30x25x16x10x03x28x01x13x08",
+      "project": "mix_04x30x25x16x10x03x28x01x13x08",
+      "genus_development_ten": true
+    },
+    {
+      "sample": "07x10x04x16x13x15",
+      "project": "mix_07x10x04x16x13x15",
+      "genus_development_ten": false
+    },
+    {
+      "sample": "07x22x30x08x18x13x03x19x04x02",
+      "project": "mix_07x22x30x08x18x13x03x19x04x02",
+      "genus_development_ten": true
+    },
+    {
+      "sample": "07x26x30",
+      "project": "mix_07x26x30",
+      "genus_development_ten": true
+    },
+    {
+      "sample": "07x28x25x10x04x30",
+      "project": "mix_07x28x25x10x04x30",
+      "genus_development_ten": false
+    },
+    {
+      "sample": "08x07x01",
+      "project": "mix_08x07x01",
+      "genus_development_ten": false
+    },
+    {
+      "sample": "08x07x03",
+      "project": "mix_08x07x03",
+      "genus_development_ten": false
+    },
+    {
+      "sample": "08x16x09x25x03x18",
+      "project": "mix_08x16x09x25x03x18",
+      "genus_development_ten": false
+    },
+    {
+      "sample": "08x16x15x07x03x09",
+      "project": "mix_08x16x15x07x03x09",
+      "genus_development_ten": false
+    },
+    {
+      "sample": "08x30x16x22x15x19",
+      "project": "mix_08x30x16x22x15x19",
+      "genus_development_ten": false
+    },
+    {
+      "sample": "09x15x18x02x25x08x10x12x01x07",
+      "project": "mix_09x15x18x02x25x08x10x12x01x07",
+      "genus_development_ten": false
+    },
+    {
+      "sample": "09x19x12x16x07x25",
+      "project": "mix_09x19x12x16x07x25",
+      "genus_development_ten": false
+    },
+    {
+      "sample": "09x30x01x04x18x13x22x08x19x15",
+      "project": "mix_09x30x01x04x18x13x22x08x19x15",
+      "genus_development_ten": false
+    },
+    {
+      "sample": "10x04x13x19x02x15x01x09x30x24",
+      "project": "mix_10x04x13x19x02x15x01x09x30x24",
+      "genus_development_ten": false
+    },
+    {
+      "sample": "10x09x15x08x25x18",
+      "project": "mix_10x09x15x08x25x18",
+      "genus_development_ten": false
+    },
+    {
+      "sample": "10x19x28x09x15x22",
+      "project": "mix_10x19x28x09x15x22",
+      "genus_development_ten": false
+    },
+    {
+      "sample": "10x22x30x16x13x26",
+      "project": "mix_10x22x30x16x13x26",
+      "genus_development_ten": false
+    },
+    {
+      "sample": "10x24x07x19x02x25",
+      "project": "mix_10x24x07x19x02x25",
+      "genus_development_ten": false
+    },
+    {
+      "sample": "10x26x09x24x13x02",
+      "project": "mix_10x26x09x24x13x02",
+      "genus_development_ten": false
+    },
+    {
+      "sample": "12x01x07x04x03x02x13x18x09x19",
+      "project": "mix_12x01x07x04x03x02x13x18x09x19",
+      "genus_development_ten": false
+    },
+    {
+      "sample": "12x01x15",
+      "project": "mix_12x01x15",
+      "genus_development_ten": false
+    },
+    {
+      "sample": "12x07x10",
+      "project": "mix_12x07x10",
+      "genus_development_ten": false
+    },
+    {
+      "sample": "12x09x19x18x26x25x13x08x04x10",
+      "project": "mix_12x09x19x18x26x25x13x08x04x10",
+      "genus_development_ten": false
+    },
+    {
+      "sample": "12x13x01x18x22x07",
+      "project": "mix_12x13x01x18x22x07",
+      "genus_development_ten": false
+    },
+    {
+      "sample": "12x18x03",
+      "project": "mix_12x18x03",
+      "genus_development_ten": false
+    },
+    {
+      "sample": "12x22x15x26x03x01",
+      "project": "mix_12x22x15x26x03x01",
+      "genus_development_ten": false
+    },
+    {
+      "sample": "12x25x02",
+      "project": "mix_12x25x02",
+      "genus_development_ten": false
+    },
+    {
+      "sample": "12x25x04",
+      "project": "mix_12x25x04",
+      "genus_development_ten": false
+    },
+    {
+      "sample": "12x25x22x02x26x10",
+      "project": "mix_12x25x22x02x26x10",
+      "genus_development_ten": false
+    },
+    {
+      "sample": "13x07x10",
+      "project": "mix_13x07x10",
+      "genus_development_ten": false
+    },
+    {
+      "sample": "13x10x01",
+      "project": "mix_13x10x01",
+      "genus_development_ten": false
+    },
+    {
+      "sample": "13x24x08",
+      "project": "mix_13x24x08",
+      "genus_development_ten": false
+    },
+    {
+      "sample": "13x26x15x09x28x08x10x18x16x24",
+      "project": "mix_13x26x15x09x28x08x10x18x16x24",
+      "genus_development_ten": false
+    },
+    {
+      "sample": "13x28x15",
+      "project": "mix_13x28x15",
+      "genus_development_ten": false
+    },
+    {
+      "sample": "15x08x28",
+      "project": "mix_15x08x28",
+      "genus_development_ten": false
+    },
+    {
+      "sample": "15x10x28",
+      "project": "mix_15x10x28",
+      "genus_development_ten": false
+    },
+    {
+      "sample": "15x13x28",
+      "project": "mix_15x13x28",
+      "genus_development_ten": false
+    },
+    {
+      "sample": "15x22x12",
+      "project": "mix_15x22x12",
+      "genus_development_ten": false
+    },
+    {
+      "sample": "16x13x01",
+      "project": "mix_16x13x01",
+      "genus_development_ten": false
+    },
+    {
+      "sample": "16x25x10x24x12x08x30x09x03x15",
+      "project": "mix_16x25x10x24x12x08x30x09x03x15",
+      "genus_development_ten": false
+    },
+    {
+      "sample": "16x28x08",
+      "project": "mix_16x28x08",
+      "genus_development_ten": false
+    },
+    {
+      "sample": "18x07x13",
+      "project": "mix_18x07x13",
+      "genus_development_ten": false
+    },
+    {
+      "sample": "18x09x28",
+      "project": "mix_18x09x28",
+      "genus_development_ten": false
+    },
+    {
+      "sample": "18x10x22",
+      "project": "mix_18x10x22",
+      "genus_development_ten": false
+    },
+    {
+      "sample": "18x19x28x30x07x12",
+      "project": "mix_18x19x28x30x07x12",
+      "genus_development_ten": false
+    },
+    {
+      "sample": "18x25x12",
+      "project": "mix_18x25x12",
+      "genus_development_ten": true
+    },
+    {
+      "sample": "19x07x08x16x03x10",
+      "project": "mix_19x07x08x16x03x10",
+      "genus_development_ten": false
+    },
+    {
+      "sample": "19x22x10",
+      "project": "mix_19x22x10",
+      "genus_development_ten": false
+    },
+    {
+      "sample": "19x25x04x26x02x01",
+      "project": "mix_19x25x04x26x02x01",
+      "genus_development_ten": false
+    },
+    {
+      "sample": "19x28x04",
+      "project": "mix_19x28x04",
+      "genus_development_ten": false
+    },
+    {
+      "sample": "22x26x04",
+      "project": "mix_22x26x04",
+      "genus_development_ten": false
+    },
+    {
+      "sample": "24x04x28",
+      "project": "mix_24x04x28",
+      "genus_development_ten": false
+    },
+    {
+      "sample": "24x09x15",
+      "project": "mix_24x09x15",
+      "genus_development_ten": false
+    },
+    {
+      "sample": "24x10x28x01x25x13",
+      "project": "mix_24x10x28x01x25x13",
+      "genus_development_ten": false
+    },
+    {
+      "sample": "24x28x01",
+      "project": "mix_24x28x01",
+      "genus_development_ten": false
+    },
+    {
+      "sample": "25x01x19x28x10x24",
+      "project": "mix_25x01x19x28x10x24",
+      "genus_development_ten": false
+    },
+    {
+      "sample": "25x12x28x02x10x13",
+      "project": "mix_25x12x28x02x10x13",
+      "genus_development_ten": false
+    },
+    {
+      "sample": "25x16x10x01x12x09x18x02x13x08",
+      "project": "mix_25x16x10x01x12x09x18x02x13x08",
+      "genus_development_ten": false
+    },
+    {
+      "sample": "25x28x02x15x03x08",
+      "project": "mix_25x28x02x15x03x08",
+      "genus_development_ten": false
+    },
+    {
+      "sample": "25x28x30x07x22x24x12x04x03x18",
+      "project": "mix_25x28x30x07x22x24x12x04x03x18",
+      "genus_development_ten": true
+    },
+    {
+      "sample": "25x30x15x19x03x13",
+      "project": "mix_25x30x15x19x03x13",
+      "genus_development_ten": false
+    },
+    {
+      "sample": "26x01x24",
+      "project": "mix_26x01x24",
+      "genus_development_ten": true
+    },
+    {
+      "sample": "26x03x02x01x04x10",
+      "project": "mix_26x03x02x01x04x10",
+      "genus_development_ten": false
+    },
+    {
+      "sample": "26x19x08",
+      "project": "mix_26x19x08",
+      "genus_development_ten": false
+    },
+    {
+      "sample": "26x22x03x13x10x19x04x16x30x24",
+      "project": "mix_26x22x03x13x10x19x04x16x30x24",
+      "genus_development_ten": false
+    },
+    {
+      "sample": "28x12x25x10x03x15",
+      "project": "mix_28x12x25x10x03x15",
+      "genus_development_ten": false
+    },
+    {
+      "sample": "28x16x30",
+      "project": "mix_28x16x30",
+      "genus_development_ten": false
+    },
+    {
+      "sample": "28x19x02x09x18x26",
+      "project": "mix_28x19x02x09x18x26",
+      "genus_development_ten": false
+    },
+    {
+      "sample": "28x19x04x02x13x03",
+      "project": "mix_28x19x04x02x13x03",
+      "genus_development_ten": false
+    },
+    {
+      "sample": "28x24x25x15x04x01",
+      "project": "mix_28x24x25x15x04x01",
+      "genus_development_ten": false
+    },
+    {
+      "sample": "30x04x03",
+      "project": "mix_30x04x03",
+      "genus_development_ten": true
+    },
+    {
+      "sample": "30x04x13x26x19x28",
+      "project": "mix_30x04x13x26x19x28",
+      "genus_development_ten": true
+    },
+    {
+      "sample": "30x04x16x01x22x03",
+      "project": "mix_30x04x16x01x22x03",
+      "genus_development_ten": false
+    },
+    {
+      "sample": "30x04x19x07x03x16",
+      "project": "mix_30x04x19x07x03x16",
+      "genus_development_ten": true
+    },
+    {
+      "sample": "30x09x22x28x16x12",
+      "project": "mix_30x09x22x28x16x12",
+      "genus_development_ten": false
+    },
+    {
+      "sample": "30x10x08x04x25x26",
+      "project": "mix_30x10x08x04x25x26",
+      "genus_development_ten": false
+    },
+    {
+      "sample": "30x28x08x02x09x25x15x04x12x22",
+      "project": "mix_30x28x08x02x09x25x15x04x12x22",
+      "genus_development_ten": false
+    }
+  ]
+}

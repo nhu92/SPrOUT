@@ -2,3 +2,4 @@ __pycache__/
 *.pyc
 .pytest_cache/
 experiments/reference_atlas/runs/
+experiments/hierarchy100/runs/

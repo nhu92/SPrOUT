@@ -1,0 +1,18 @@
+{
+  "scope": "Submission/provenance only; inference results not yet complete",
+  "jobs": {
+    "prepare": 26230805,
+    "array": 26230808,
+    "collector": 26230810
+  },
+  "root": "/lustre/scratch/nhu/202609/ttu_hierarchy100_20261022",
+  "workflow_array_throttle": null,
+  "payload_sha256": "48debca1c3ac94775c498c58727c8febd282485e4a94237e2b089eed988e20fc",
+  "protocol_sha256": "619f7e271422f4916ca8c06e1b36ad64a793364b7f850e4e27f5d14d9e781f87",
+  "tests_passed": 52,
+  "cohort_size_distribution": {
+    "3": 40,
+    "6": 40,
+    "10": 20
+  }
+}

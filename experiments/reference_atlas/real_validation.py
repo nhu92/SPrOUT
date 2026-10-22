@@ -248,7 +248,7 @@ def execute(root, index):
         raise
 
 
-def execute_stages(root, run, sample):
+def execute_stages(root, run, sample, status_callback=None, tree_workers=4):
     sys.path[:0] = [str(root / "sources"), str(root / "code")]
     from sprout_evidence.features import extract, save_json
     from sprout_evidence.statistics import analyze, Settings
@@ -267,6 +267,8 @@ def execute_stages(root, run, sample):
     def status(value):
         (run / "CURRENT_STAGE").write_text(value + "\n")
         print(sample["sample"], value, flush=True)
+        if status_callback is not None:
+            status_callback(value)
 
     def command(args):
         subprocess.run([sys.executable, *map(str, args)], cwd=stage, check=True)
@@ -289,7 +291,7 @@ def execute_stages(root, run, sample):
     reference_hashes = {str(p): sha(p) for p in (stage / "family_reference/ref").glob("*.fasta")}
     if not (stage / "TREES_COMPLETE").exists():
         status("family_trees")
-        command([root / "sources/02_exon_trees.py", "-t", 4, "-p", project,
+        command([root / "sources/02_exon_trees.py", "-t", tree_workers, "-p", project,
                  "-g", stage / "gene_list.txt", "-e", Path(sample["source_order"]) / "exon",
                  "-r", stage / "family_reference/ref", "--output_phylo", stage / "phylo"])
         validate_trees(stage / "phylo", stage / "valid_phylo", project)
@@ -297,7 +299,7 @@ def execute_stages(root, run, sample):
     tree_hashes = {str(p): sha(p) for p in (stage / "valid_phylo").glob("*.tre")}
     if not (stage / "DISTANCES_COMPLETE").exists():
         status("family_distances")
-        command([root / "sources/03_distance_matrices.py", "-t", 4, "-p", project,
+        command([root / "sources/03_distance_matrices.py", "-t", tree_workers, "-p", project,
                  "-g", stage / "gene_list.txt", "--query-only", "--input_phylo", stage / "valid_phylo",
                  "--output_tree", stage / "family_matrix"])
         command([root / "sources/04_prediction.py", "-i", stage / f"{project}.cumulative_dist.csv",

@@ -1,0 +1,24 @@
+{
+  "schema": "order-family-adaptive-genus-100-v1",
+  "samples": 100,
+  "root": "/lustre/scratch/nhu/202609/ttu_hierarchy100_20261022",
+  "assembly_source": "/lustre/scratch/nhu/202609/ttu_nocap100_z09_20261015",
+  "order_reference": "/lustre/scratch/nhu/202609/ttu_100mixes10_20261013/order_reference",
+  "backbone": "/lustre/scratch/nhu/202609/871ref/backbone_corrected",
+  "cache": "/lustre/scratch/nhu/202609/ttu_nocap100_z09_20261015/reference_cache",
+  "primary": {
+    "order": "distinct_gene2_or_z09_or_top1",
+    "family": "merged",
+    "genus": "auxiliary"
+  },
+  "model_sha256": {
+    "family": "ae8673bd3a42a4220abcd35fed00f60c5e93c7ad69c9ae77cb2ae021ee3247d8",
+    "genus": "9525d3e44a413ae0e8f867865475bac8653efa52217521601b7cfb2c814d1105"
+  },
+  "truth_used_by_pipeline": false,
+  "scope": "Retrospective fresh inference on known 100-mixture cohort; previous genus development ten reported separately",
+  "workflow_array_throttle": null,
+  "allocated_cpus_per_task": 8,
+  "allocated_memory_GB": 32,
+  "checkpoint_training_repeated": false
+}
