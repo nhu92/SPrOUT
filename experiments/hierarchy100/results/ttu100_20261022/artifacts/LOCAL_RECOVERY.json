@@ -1,0 +1,8 @@
+{
+  "reason": "ModuleNotFoundError(\"No module named 'Bio'\")",
+  "fix": "Change the JSON dump import to the stdlib-only evaluation helper; no model, policy, predictions or remote inference source changed",
+  "previous_local_runner_sha256": "3a2642fa2af6b8187e6cdb3f498c658ab405178f145d97a1174d0b75088cfed1",
+  "new_local_runner_sha256": "291b586d415bd3d64c4813bb462d0ae4231de8066f8dc0beffd1535e88714dc6",
+  "verified_archive_sha256": "47add367db7a0326e08a47b6a810b290adaf74c8afc5c3eae59bda392861dbc7",
+  "verified_extracted_files": 22789
+}

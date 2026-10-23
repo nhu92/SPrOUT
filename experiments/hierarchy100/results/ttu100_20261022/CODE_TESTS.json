@@ -1,0 +1,8 @@
+{
+  "tests_passed": 54,
+  "warnings": 14,
+  "warning_kind": "Matplotlib/pyparsing deprecations",
+  "command": "python -m pytest tests -q",
+  "log_sha256": "02dad9367b3c4e216307c7c3ec3151740f5734a27122b90a4af218deee46b577",
+  "no_scientific_packages_required_for_evaluator_import": true
+}

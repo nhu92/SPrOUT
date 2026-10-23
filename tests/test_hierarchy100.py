@@ -1,10 +1,19 @@
 import json
 from pathlib import Path
+import subprocess
+import sys
 
 import pytest
 
 from experiments.hierarchy100.evaluation import complete,genus_loss
 from experiments.hierarchy100.runner import validate_cohort
+
+
+def test_local_evaluator_import_does_not_require_inference_scientific_packages():
+    repo=Path(__file__).resolve().parents[1]
+    result=subprocess.run([sys.executable,'-S','-c','import experiments.hierarchy100.evaluation'],
+                          cwd=repo,capture_output=True,text=True)
+    assert result.returncode==0,result.stderr
 
 
 def cohort():
@@ -72,7 +81,7 @@ def test_all_hundred_unresolved_samples_still_contribute_full_recall_denominator
         for name in ('initial_genera.txt','unresolved_genera.txt'):
             (gd/name).write_text(''.join(r['genus']+'\n' for r in sources.values()))
         for name in ('final_search_genera.txt','auxiliary_genera.txt'):(gd/name).write_text('')
-        put(gd/'SEARCH.json',{'rounds':[],'initial_genera':30,'remaining_search_genera':30,'final':{},
+        put(gd/'SEARCH.json',{'rounds':[],'initial_genera':30,'remaining_search_genera':30,'unresolved_genera':30,'final':{},
              'search_status':'unresolved_partial','seconds':1,'fetch_seconds':0,'qc_seconds':0,'reference_alignment_seconds':0})
     put(batch/'TIMINGS.json',timings)
     put(batch/'predictions.json',calls)

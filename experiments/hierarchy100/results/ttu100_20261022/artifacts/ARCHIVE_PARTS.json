@@ -1,0 +1,20 @@
+{
+  "concatenate_in_order": [
+    {
+      "file": "compact_results.tar.gz.part001",
+      "sha256": "7fab1c93079a061daa12403879e8edf4ff0770c533de5e640e9dbd5a9d89b648",
+      "bytes": 20971520
+    },
+    {
+      "file": "compact_results.tar.gz.part002",
+      "sha256": "59a14e18988cc0d5e70f27f0e2a0823c1751ad329af4f275f11db2c65710fe7f",
+      "bytes": 20971520
+    },
+    {
+      "file": "compact_results.tar.gz.part003",
+      "sha256": "d217c1c06689bc0816e3fa96178c3e47841f29ad7d592519599c7d84d3355a8d",
+      "bytes": 11803521
+    }
+  ],
+  "complete_archive_sha256": "47add367db7a0326e08a47b6a810b290adaf74c8afc5c3eae59bda392861dbc7"
+}

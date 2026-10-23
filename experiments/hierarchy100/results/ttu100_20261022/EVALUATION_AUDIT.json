@@ -1,0 +1,16 @@
+{
+  "all_100_sealed_before_this_evaluation": true,
+  "literal_truth_openpyxl_XML_agree": true,
+  "raw_per_sample_sets_match_combined_predictions": true,
+  "workbook_sha256": "421cca29377ab01e57cb6aeded7bf446ba4faf06282120a4ed602e8c67bbb01f",
+  "genus_first_losses": {
+    "recovered": 403,
+    "final_reference_QC_unavailable": 50,
+    "round_02_routing_exclusion": 3,
+    "unresolved_search_region": 100,
+    "round_01_routing_exclusion": 3,
+    "round_03_routing_exclusion": 1
+  },
+  "previous_genus_development_ten": 10,
+  "independent_biological_validation": false
+}

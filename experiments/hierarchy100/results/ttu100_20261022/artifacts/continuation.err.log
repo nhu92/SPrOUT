@@ -1,0 +1,17 @@
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "D:\ChatGPT_folders\2026-10-16\ni\SPrOUT\experiments\hierarchy100\finish_local.py", line 137, in <module>
+    try:finish(args.run)
+        ^^^^^^^^^^^^^^^^
+  File "D:\ChatGPT_folders\2026-10-16\ni\SPrOUT\experiments\hierarchy100\finish_local.py", line 87, in finish
+    from experiments.hierarchy100.evaluation import seal,evaluate,verify_seal
+  File "D:\ChatGPT_folders\2026-10-16\ni\SPrOUT\experiments\hierarchy100\evaluation.py", line 12, in <module>
+    from experiments.hierarchy100.runner import validate_cohort
+  File "D:\ChatGPT_folders\2026-10-16\ni\SPrOUT\experiments\hierarchy100\runner.py", line 16, in <module>
+    from experiments.adaptive_genus.references import dump
+  File "D:\ChatGPT_folders\2026-10-16\ni\SPrOUT\experiments\adaptive_genus\references.py", line 10, in <module>
+    from .phylogeny import Cell
+  File "D:\ChatGPT_folders\2026-10-16\ni\SPrOUT\experiments\adaptive_genus\phylogeny.py", line 11, in <module>
+    from Bio import Phylo
+ModuleNotFoundError: No module named 'Bio'

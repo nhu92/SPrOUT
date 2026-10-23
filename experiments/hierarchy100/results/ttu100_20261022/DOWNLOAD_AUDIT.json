@@ -1,0 +1,29 @@
+{
+  "remote_and_local_archive_sha256": "47add367db7a0326e08a47b6a810b290adaf74c8afc5c3eae59bda392861dbc7",
+  "local_archive_sha256": "47add367db7a0326e08a47b6a810b290adaf74c8afc5c3eae59bda392861dbc7",
+  "safe_extraction_filter": "data",
+  "verified_extracted_files": 22789,
+  "raw_text_and_independent_XML_primary_recounts": {
+    "order": {
+      "TP": 475,
+      "FP": 559,
+      "FN": 0
+    },
+    "family": {
+      "TP": 471,
+      "FP": 67,
+      "FN": 61
+    },
+    "genus": {
+      "TP": 403,
+      "FP": 140,
+      "FN": 157
+    }
+  },
+  "all_100_original_frozen_inputs_preserved": true,
+  "original_protocol_and_selection_bytes_match_preflight": true,
+  "truth_workbook_uploaded": false,
+  "visual_inspection_by_agent_completed": true,
+  "local_completion_recovered_from_unnecessary_Bio_import": true,
+  "prediction_models_policies_and_remote_inference_unchanged": true
+}

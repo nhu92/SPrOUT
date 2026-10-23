@@ -7,11 +7,22 @@ reference resources and the two existing verifier checkpoints are reused.
 The previous ten genus-development mixtures and other ninety are reported
 separately. Neither subset is a new biological cohort.
 
+All 100 tasks and the collector completed successfully. The [final report](results/ttu100_20261022/REPORT.md)
+records primary family precision/recall/F1 of 87.5%/88.5%/0.880 and genus
+74.2%/72.0%/0.731. Ten searches remain above the 512-genus work limit, accounting
+for 100 missed genus occurrences; reference coverage excludes another 50, and
+routing excludes seven. Those misses stay in all-100 denominators. The original
+ten development genus call sets reproduce exactly; other-ninety genus F1 is 0.717.
+Primary outputs are in [primary_predictions.csv](results/ttu100_20261022/primary_predictions.csv).
+All 54 local tests pass. A local completion-only import dependency failure was
+repaired and preserved in the artifact audit; remote prediction code, models,
+policy and outputs were not changed.
+
 TTU root: `/lustre/scratch/nhu/202609/ttu_hierarchy100_20261022`.
 Preparation job `26230805` completed successfully. Array `26230808` contains
-all indices 0–99, without a workflow concurrency cap. Collector `26230810`
-depends on array completion and blocks the all-100 result seal if a task fails.
-Submission records indicate launched work, not completed validation results.
+all indices 0–99, without a workflow concurrency cap. The array and collector
+`26230810` both completed. The initial submission records and final result
+records are kept separately.
 
 Every sample has independent output directories and executes order → family →
 genus in sequence. Each array task requests eight CPUs, 32 GB and twelve hours.

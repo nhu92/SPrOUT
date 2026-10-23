@@ -1,0 +1,5002 @@
+[
+  {
+    "sample": "01x02x13",
+    "phases": [
+      {
+        "phase": "order_align_tree",
+        "seconds": 178.35864925500937
+      },
+      {
+        "phase": "order_distances",
+        "seconds": 7.383600250992458
+      },
+      {
+        "phase": "order_prediction",
+        "seconds": 3.0298264229786582
+      },
+      {
+        "phase": "family_prefetch",
+        "seconds": 9.187645829981193
+      },
+      {
+        "phase": "family_uncapped_family_reference",
+        "seconds": 1272.9631502419943
+      },
+      {
+        "phase": "family_family_trees",
+        "seconds": 599.244908970024
+      },
+      {
+        "phase": "family_family_distances",
+        "seconds": 20.923394477984402
+      },
+      {
+        "phase": "family_frozen_C_and_stability",
+        "seconds": 3.6830128530273214
+      },
+      {
+        "phase": "family_frozen_ML",
+        "seconds": 4.158970193006098
+      },
+      {
+        "phase": "family_complete",
+        "seconds": 0.020060823007952422
+      },
+      {
+        "phase": "genus_adaptive_search_and_final",
+        "seconds": 288.06662992195925
+      }
+    ],
+    "inference_seconds": 2387.019849239965
+  },
+  {
+    "sample": "01x04x19",
+    "phases": [
+      {
+        "phase": "order_align_tree",
+        "seconds": 156.24759825099682
+      },
+      {
+        "phase": "order_distances",
+        "seconds": 5.287966106003296
+      },
+      {
+        "phase": "order_prediction",
+        "seconds": 2.6981431159983913
+      },
+      {
+        "phase": "family_prefetch",
+        "seconds": 7.347516567999264
+      },
+      {
+        "phase": "family_uncapped_family_reference",
+        "seconds": 524.746420022002
+      },
+      {
+        "phase": "family_family_trees",
+        "seconds": 193.1436757699994
+      },
+      {
+        "phase": "family_family_distances",
+        "seconds": 7.875039422000555
+      },
+      {
+        "phase": "family_frozen_C_and_stability",
+        "seconds": 1.7790695699986827
+      },
+      {
+        "phase": "family_frozen_ML",
+        "seconds": 1.8302091119985562
+      },
+      {
+        "phase": "family_complete",
+        "seconds": 0.021616923000692623
+      },
+      {
+        "phase": "genus_adaptive_search_and_final",
+        "seconds": 207.432540976999
+      }
+    ],
+    "inference_seconds": 1108.4097958369966
+  },
+  {
+    "sample": "01x07x16x18x25x08",
+    "phases": [
+      {
+        "phase": "order_align_tree",
+        "seconds": 195.23763034300646
+      },
+      {
+        "phase": "order_distances",
+        "seconds": 7.267698875977658
+      },
+      {
+        "phase": "order_prediction",
+        "seconds": 1.355195103038568
+      },
+      {
+        "phase": "family_prefetch",
+        "seconds": 7.216921969957184
+      },
+      {
+        "phase": "family_uncapped_family_reference",
+        "seconds": 1705.0847470650333
+      },
+      {
+        "phase": "family_family_trees",
+        "seconds": 1053.478601974959
+      },
+      {
+        "phase": "family_family_distances",
+        "seconds": 38.10565308399964
+      },
+      {
+        "phase": "family_frozen_C_and_stability",
+        "seconds": 6.242262230021879
+      },
+      {
+        "phase": "family_frozen_ML",
+        "seconds": 7.104684667021502
+      },
+      {
+        "phase": "family_complete",
+        "seconds": 0.015148938982747495
+      },
+      {
+        "phase": "genus_adaptive_search_and_final",
+        "seconds": 611.0827893799869
+      }
+    ],
+    "inference_seconds": 3632.191333631985
+  },
+  {
+    "sample": "01x18x08x28x26x02",
+    "phases": [
+      {
+        "phase": "order_align_tree",
+        "seconds": 208.04836638999404
+      },
+      {
+        "phase": "order_distances",
+        "seconds": 8.175565677986015
+      },
+      {
+        "phase": "order_prediction",
+        "seconds": 1.3476879670051858
+      },
+      {
+        "phase": "family_prefetch",
+        "seconds": 7.248376539035235
+      },
+      {
+        "phase": "family_uncapped_family_reference",
+        "seconds": 1573.130843574996
+      },
+      {
+        "phase": "family_family_trees",
+        "seconds": 872.0414224829874
+      },
+      {
+        "phase": "family_family_distances",
+        "seconds": 33.74388780997833
+      },
+      {
+        "phase": "family_frozen_C_and_stability",
+        "seconds": 5.719825590029359
+      },
+      {
+        "phase": "family_frozen_ML",
+        "seconds": 6.722711915965192
+      },
+      {
+        "phase": "family_complete",
+        "seconds": 0.017457687994465232
+      },
+      {
+        "phase": "genus_adaptive_search_and_final",
+        "seconds": 916.6561896570493
+      }
+    ],
+    "inference_seconds": 3632.8523352930206
+  },
+  {
+    "sample": "01x19x08x22x25x30x07x26x10x28",
+    "phases": [
+      {
+        "phase": "order_align_tree",
+        "seconds": 218.0589967080159
+      },
+      {
+        "phase": "order_distances",
+        "seconds": 10.920367812970653
+      },
+      {
+        "phase": "order_prediction",
+        "seconds": 1.3536016250145622
+      },
+      {
+        "phase": "family_prefetch",
+        "seconds": 7.914890073996503
+      },
+      {
+        "phase": "family_uncapped_family_reference",
+        "seconds": 1982.9881373980315
+      },
+      {
+        "phase": "family_family_trees",
+        "seconds": 1251.094875759969
+      },
+      {
+        "phase": "family_family_distances",
+        "seconds": 53.73145496600773
+      },
+      {
+        "phase": "family_frozen_C_and_stability",
+        "seconds": 9.70340075698914
+      },
+      {
+        "phase": "family_frozen_ML",
+        "seconds": 11.746551001037005
+      },
+      {
+        "phase": "family_complete",
+        "seconds": 0.035220294957980514
+      },
+      {
+        "phase": "genus_adaptive_search_and_final",
+        "seconds": 2104.3508929540403
+      }
+    ],
+    "inference_seconds": 5651.89838935103
+  },
+  {
+    "sample": "01x25x24x22x28x19x15x10x07x12",
+    "phases": [
+      {
+        "phase": "order_align_tree",
+        "seconds": 203.90845266595716
+      },
+      {
+        "phase": "order_distances",
+        "seconds": 10.352394064015243
+      },
+      {
+        "phase": "order_prediction",
+        "seconds": 1.3610446159727871
+      },
+      {
+        "phase": "family_prefetch",
+        "seconds": 8.038422666024417
+      },
+      {
+        "phase": "family_uncapped_family_reference",
+        "seconds": 2514.93115980702
+      },
+      {
+        "phase": "family_family_trees",
+        "seconds": 1361.7447158289724
+      },
+      {
+        "phase": "family_family_distances",
+        "seconds": 60.47236531501403
+      },
+      {
+        "phase": "family_frozen_C_and_stability",
+        "seconds": 9.35154780402081
+      },
+      {
+        "phase": "family_frozen_ML",
+        "seconds": 12.16283200995531
+      },
+      {
+        "phase": "family_complete",
+        "seconds": 0.03150104603264481
+      },
+      {
+        "phase": "genus_adaptive_search_and_final",
+        "seconds": 2926.4017217039946
+      }
+    ],
+    "inference_seconds": 7108.756157526979
+  },
+  {
+    "sample": "01x30x25",
+    "phases": [
+      {
+        "phase": "order_align_tree",
+        "seconds": 186.62291735695908
+      },
+      {
+        "phase": "order_distances",
+        "seconds": 4.944274569046684
+      },
+      {
+        "phase": "order_prediction",
+        "seconds": 1.3300455539720133
+      },
+      {
+        "phase": "family_prefetch",
+        "seconds": 5.429821893980261
+      },
+      {
+        "phase": "family_uncapped_family_reference",
+        "seconds": 322.67028563900385
+      },
+      {
+        "phase": "family_family_trees",
+        "seconds": 84.50432267901488
+      },
+      {
+        "phase": "family_family_distances",
+        "seconds": 5.386997768015135
+      },
+      {
+        "phase": "family_frozen_C_and_stability",
+        "seconds": 1.5212508430122398
+      },
+      {
+        "phase": "family_frozen_ML",
+        "seconds": 1.4681358549860306
+      },
+      {
+        "phase": "family_complete",
+        "seconds": 0.05969956598710269
+      },
+      {
+        "phase": "genus_adaptive_search_and_final",
+        "seconds": 215.58714934799355
+      }
+    ],
+    "inference_seconds": 829.5249010719708
+  },
+  {
+    "sample": "02x01x28x15x03x07",
+    "phases": [
+      {
+        "phase": "order_align_tree",
+        "seconds": 146.9252432580106
+      },
+      {
+        "phase": "order_distances",
+        "seconds": 6.212380406970624
+      },
+      {
+        "phase": "order_prediction",
+        "seconds": 1.3715828559943475
+      },
+      {
+        "phase": "family_prefetch",
+        "seconds": 8.327643289987464
+      },
+      {
+        "phase": "family_uncapped_family_reference",
+        "seconds": 858.9516518450109
+      },
+      {
+        "phase": "family_family_trees",
+        "seconds": 323.1530287099886
+      },
+      {
+        "phase": "family_family_distances",
+        "seconds": 14.022372624021955
+      },
+      {
+        "phase": "family_frozen_C_and_stability",
+        "seconds": 3.0268430300056934
+      },
+      {
+        "phase": "family_frozen_ML",
+        "seconds": 3.285190736001823
+      },
+      {
+        "phase": "family_complete",
+        "seconds": 0.02891609602374956
+      },
+      {
+        "phase": "genus_adaptive_search_and_final",
+        "seconds": 636.7420908629429
+      }
+    ],
+    "inference_seconds": 2002.0469437149586
+  },
+  {
+    "sample": "02x12x28x10x01x09x30x03x18x13",
+    "phases": [
+      {
+        "phase": "order_align_tree",
+        "seconds": 189.14798943104688
+      },
+      {
+        "phase": "order_distances",
+        "seconds": 11.639426278998144
+      },
+      {
+        "phase": "order_prediction",
+        "seconds": 1.3822866569971666
+      },
+      {
+        "phase": "family_prefetch",
+        "seconds": 7.709051796991844
+      },
+      {
+        "phase": "family_uncapped_family_reference",
+        "seconds": 1974.833006900968
+      },
+      {
+        "phase": "family_family_trees",
+        "seconds": 1187.6111486610025
+      },
+      {
+        "phase": "family_family_distances",
+        "seconds": 62.28038185299374
+      },
+      {
+        "phase": "family_frozen_C_and_stability",
+        "seconds": 10.68206550902687
+      },
+      {
+        "phase": "family_frozen_ML",
+        "seconds": 12.694292391999625
+      },
+      {
+        "phase": "family_complete",
+        "seconds": 0.01626876601949334
+      },
+      {
+        "phase": "genus_adaptive_search_and_final",
+        "seconds": 1452.138271007978
+      }
+    ],
+    "inference_seconds": 4910.134189254022
+  },
+  {
+    "sample": "02x13x24x03x12x07x16x18x04x15",
+    "phases": [
+      {
+        "phase": "order_align_tree",
+        "seconds": 141.18595181201817
+      },
+      {
+        "phase": "order_distances",
+        "seconds": 9.166100741014816
+      },
+      {
+        "phase": "order_prediction",
+        "seconds": 2.568775867985096
+      },
+      {
+        "phase": "family_prefetch",
+        "seconds": 9.898804035037756
+      },
+      {
+        "phase": "family_uncapped_family_reference",
+        "seconds": 3335.8290456469986
+      },
+      {
+        "phase": "family_family_trees",
+        "seconds": 2023.5312516339472
+      },
+      {
+        "phase": "family_family_distances",
+        "seconds": 93.71342700201785
+      },
+      {
+        "phase": "family_frozen_C_and_stability",
+        "seconds": 11.971122868999373
+      },
+      {
+        "phase": "family_frozen_ML",
+        "seconds": 15.29916877800133
+      },
+      {
+        "phase": "family_complete",
+        "seconds": 0.18328327999915928
+      },
+      {
+        "phase": "genus_adaptive_search_and_final",
+        "seconds": 3268.0455798030016
+      }
+    ],
+    "inference_seconds": 8911.392511469021
+  },
+  {
+    "sample": "02x15x24",
+    "phases": [
+      {
+        "phase": "order_align_tree",
+        "seconds": 200.5775357640232
+      },
+      {
+        "phase": "order_distances",
+        "seconds": 5.503501035971567
+      },
+      {
+        "phase": "order_prediction",
+        "seconds": 1.5158358470071107
+      },
+      {
+        "phase": "family_prefetch",
+        "seconds": 6.38495715596946
+      },
+      {
+        "phase": "family_uncapped_family_reference",
+        "seconds": 636.9813022720045
+      },
+      {
+        "phase": "family_family_trees",
+        "seconds": 306.4426636410062
+      },
+      {
+        "phase": "family_family_distances",
+        "seconds": 11.944702692038845
+      },
+      {
+        "phase": "family_frozen_C_and_stability",
+        "seconds": 2.7820820809574798
+      },
+      {
+        "phase": "family_frozen_ML",
+        "seconds": 3.008519418013748
+      },
+      {
+        "phase": "family_complete",
+        "seconds": 0.01510611199773848
+      },
+      {
+        "phase": "genus_adaptive_search_and_final",
+        "seconds": 480.21898860501824
+      }
+    ],
+    "inference_seconds": 1655.3751946240081
+  },
+  {
+    "sample": "02x22x19",
+    "phases": [
+      {
+        "phase": "order_align_tree",
+        "seconds": 155.90850892296294
+      },
+      {
+        "phase": "order_distances",
+        "seconds": 4.678523097012658
+      },
+      {
+        "phase": "order_prediction",
+        "seconds": 1.3829727590200491
+      },
+      {
+        "phase": "family_prefetch",
+        "seconds": 6.749769237008877
+      },
+      {
+        "phase": "family_uncapped_family_reference",
+        "seconds": 603.3064471000107
+      },
+      {
+        "phase": "family_family_trees",
+        "seconds": 252.55415961297695
+      },
+      {
+        "phase": "family_family_distances",
+        "seconds": 11.230422060005367
+      },
+      {
+        "phase": "family_frozen_C_and_stability",
+        "seconds": 2.2288057599798776
+      },
+      {
+        "phase": "family_frozen_ML",
+        "seconds": 2.2698354070307687
+      },
+      {
+        "phase": "family_complete",
+        "seconds": 0.0343668419518508
+      },
+      {
+        "phase": "genus_adaptive_search_and_final",
+        "seconds": 443.90093930700095
+      }
+    ],
+    "inference_seconds": 1484.244750104961
+  },
+  {
+    "sample": "02x22x25x07x24x03",
+    "phases": [
+      {
+        "phase": "order_align_tree",
+        "seconds": 180.03250441502314
+      },
+      {
+        "phase": "order_distances",
+        "seconds": 6.94711686699884
+      },
+      {
+        "phase": "order_prediction",
+        "seconds": 1.446603414020501
+      },
+      {
+        "phase": "family_prefetch",
+        "seconds": 7.865638387971558
+      },
+      {
+        "phase": "family_uncapped_family_reference",
+        "seconds": 1819.788658896985
+      },
+      {
+        "phase": "family_family_trees",
+        "seconds": 1312.359493336
+      },
+      {
+        "phase": "family_family_distances",
+        "seconds": 39.29282625502674
+      },
+      {
+        "phase": "family_frozen_C_and_stability",
+        "seconds": 7.579026340972632
+      },
+      {
+        "phase": "family_frozen_ML",
+        "seconds": 9.601811907021329
+      },
+      {
+        "phase": "family_complete",
+        "seconds": 0.01929883600678295
+      },
+      {
+        "phase": "genus_adaptive_search_and_final",
+        "seconds": 1198.5110879670247
+      }
+    ],
+    "inference_seconds": 4583.444066623051
+  },
+  {
+    "sample": "02x24x15",
+    "phases": [
+      {
+        "phase": "order_align_tree",
+        "seconds": 198.27242723299423
+      },
+      {
+        "phase": "order_distances",
+        "seconds": 4.868349672004115
+      },
+      {
+        "phase": "order_prediction",
+        "seconds": 1.4060834220144898
+      },
+      {
+        "phase": "family_prefetch",
+        "seconds": 6.203120557998773
+      },
+      {
+        "phase": "family_uncapped_family_reference",
+        "seconds": 726.3135037689935
+      },
+      {
+        "phase": "family_family_trees",
+        "seconds": 307.60218467900995
+      },
+      {
+        "phase": "family_family_distances",
+        "seconds": 13.375054133997764
+      },
+      {
+        "phase": "family_frozen_C_and_stability",
+        "seconds": 2.706152483995538
+      },
+      {
+        "phase": "family_frozen_ML",
+        "seconds": 2.8492171069956385
+      },
+      {
+        "phase": "family_complete",
+        "seconds": 0.05713714996818453
+      },
+      {
+        "phase": "genus_adaptive_search_and_final",
+        "seconds": 469.44851830700645
+      }
+    ],
+    "inference_seconds": 1733.1017485149787
+  },
+  {
+    "sample": "02x24x25x09x28x16x04x07x12x13",
+    "phases": [
+      {
+        "phase": "order_align_tree",
+        "seconds": 201.11398806300713
+      },
+      {
+        "phase": "order_distances",
+        "seconds": 10.70179103303235
+      },
+      {
+        "phase": "order_prediction",
+        "seconds": 1.4110303460038267
+      },
+      {
+        "phase": "family_prefetch",
+        "seconds": 10.494861621002201
+      },
+      {
+        "phase": "family_uncapped_family_reference",
+        "seconds": 5825.87030274095
+      },
+      {
+        "phase": "family_family_trees",
+        "seconds": 3804.5830033410457
+      },
+      {
+        "phase": "family_family_distances",
+        "seconds": 143.66829615400638
+      },
+      {
+        "phase": "family_frozen_C_and_stability",
+        "seconds": 16.71030176396016
+      },
+      {
+        "phase": "family_frozen_ML",
+        "seconds": 25.017418412026018
+      },
+      {
+        "phase": "family_complete",
+        "seconds": 0.017307783011347055
+      },
+      {
+        "phase": "genus_adaptive_search_and_final",
+        "seconds": 1266.1915980609483
+      }
+    ],
+    "inference_seconds": 11305.779899318994
+  },
+  {
+    "sample": "03x07x13",
+    "phases": [
+      {
+        "phase": "order_align_tree",
+        "seconds": 130.6745858960203
+      },
+      {
+        "phase": "order_distances",
+        "seconds": 6.088554925983772
+      },
+      {
+        "phase": "order_prediction",
+        "seconds": 2.911978556017857
+      },
+      {
+        "phase": "family_prefetch",
+        "seconds": 23.125019694969524
+      },
+      {
+        "phase": "family_uncapped_family_reference",
+        "seconds": 3309.14278944704
+      },
+      {
+        "phase": "family_family_trees",
+        "seconds": 1657.1561877519707
+      },
+      {
+        "phase": "family_family_distances",
+        "seconds": 46.3409068150213
+      },
+      {
+        "phase": "family_frozen_C_and_stability",
+        "seconds": 5.650392597017344
+      },
+      {
+        "phase": "family_frozen_ML",
+        "seconds": 7.95253689395031
+      },
+      {
+        "phase": "family_complete",
+        "seconds": 0.01830528402933851
+      },
+      {
+        "phase": "genus_adaptive_search_and_final",
+        "seconds": 360.12342936202185
+      }
+    ],
+    "inference_seconds": 5549.184687224042
+  },
+  {
+    "sample": "03x16x28x24x01x07",
+    "phases": [
+      {
+        "phase": "order_align_tree",
+        "seconds": 231.47839507996105
+      },
+      {
+        "phase": "order_distances",
+        "seconds": 6.4876987200113945
+      },
+      {
+        "phase": "order_prediction",
+        "seconds": 1.458885302010458
+      },
+      {
+        "phase": "family_prefetch",
+        "seconds": 7.581621379009448
+      },
+      {
+        "phase": "family_uncapped_family_reference",
+        "seconds": 1628.464150131971
+      },
+      {
+        "phase": "family_family_trees",
+        "seconds": 989.2175029840437
+      },
+      {
+        "phase": "family_family_distances",
+        "seconds": 24.333378421957605
+      },
+      {
+        "phase": "family_frozen_C_and_stability",
+        "seconds": 4.780502799025271
+      },
+      {
+        "phase": "family_frozen_ML",
+        "seconds": 5.7254284850205295
+      },
+      {
+        "phase": "family_complete",
+        "seconds": 0.02017554099438712
+      },
+      {
+        "phase": "genus_adaptive_search_and_final",
+        "seconds": 1111.1685264339903
+      }
+    ],
+    "inference_seconds": 4010.7162652779953
+  },
+  {
+    "sample": "04x03x16x25x18x22x02x08x19x07",
+    "phases": [
+      {
+        "phase": "order_align_tree",
+        "seconds": 206.86125192703912
+      },
+      {
+        "phase": "order_distances",
+        "seconds": 11.212843408982735
+      },
+      {
+        "phase": "order_prediction",
+        "seconds": 1.4894434519810602
+      },
+      {
+        "phase": "family_prefetch",
+        "seconds": 9.879546337993816
+      },
+      {
+        "phase": "family_uncapped_family_reference",
+        "seconds": 4238.973398656002
+      },
+      {
+        "phase": "family_family_trees",
+        "seconds": 3169.921694913006
+      },
+      {
+        "phase": "family_family_distances",
+        "seconds": 141.84148817998357
+      },
+      {
+        "phase": "family_frozen_C_and_stability",
+        "seconds": 16.12831106799422
+      },
+      {
+        "phase": "family_frozen_ML",
+        "seconds": 22.14431628002785
+      },
+      {
+        "phase": "family_complete",
+        "seconds": 0.03445098799420521
+      },
+      {
+        "phase": "genus_adaptive_search_and_final",
+        "seconds": 1840.9874557389994
+      }
+    ],
+    "inference_seconds": 9659.474200950004
+  },
+  {
+    "sample": "04x07x08x15x16x01",
+    "phases": [
+      {
+        "phase": "order_align_tree",
+        "seconds": 186.64917514199624
+      },
+      {
+        "phase": "order_distances",
+        "seconds": 8.062493834993802
+      },
+      {
+        "phase": "order_prediction",
+        "seconds": 1.4083609549561515
+      },
+      {
+        "phase": "family_prefetch",
+        "seconds": 8.171248602040578
+      },
+      {
+        "phase": "family_uncapped_family_reference",
+        "seconds": 2782.8319339349982
+      },
+      {
+        "phase": "family_family_trees",
+        "seconds": 1563.9380476590013
+      },
+      {
+        "phase": "family_family_distances",
+        "seconds": 54.18893146200571
+      },
+      {
+        "phase": "family_frozen_C_and_stability",
+        "seconds": 8.222687745001167
+      },
+      {
+        "phase": "family_frozen_ML",
+        "seconds": 11.585439767979551
+      },
+      {
+        "phase": "family_complete",
+        "seconds": 0.09868069301592186
+      },
+      {
+        "phase": "genus_adaptive_search_and_final",
+        "seconds": 781.8570074579911
+      }
+    ],
+    "inference_seconds": 5407.01400725398
+  },
+  {
+    "sample": "04x15x10",
+    "phases": [
+      {
+        "phase": "order_align_tree",
+        "seconds": 176.9704357489827
+      },
+      {
+        "phase": "order_distances",
+        "seconds": 4.231862739019562
+      },
+      {
+        "phase": "order_prediction",
+        "seconds": 1.4236420660163276
+      },
+      {
+        "phase": "family_prefetch",
+        "seconds": 6.351516853959765
+      },
+      {
+        "phase": "family_uncapped_family_reference",
+        "seconds": 810.8506696849945
+      },
+      {
+        "phase": "family_family_trees",
+        "seconds": 339.0748819290311
+      },
+      {
+        "phase": "family_family_distances",
+        "seconds": 11.599641955981497
+      },
+      {
+        "phase": "family_frozen_C_and_stability",
+        "seconds": 2.5378467310220003
+      },
+      {
+        "phase": "family_frozen_ML",
+        "seconds": 2.6498331910115667
+      },
+      {
+        "phase": "family_complete",
+        "seconds": 0.013762172951828688
+      },
+      {
+        "phase": "genus_adaptive_search_and_final",
+        "seconds": 539.9478902940173
+      }
+    ],
+    "inference_seconds": 1895.6519833669881
+  },
+  {
+    "sample": "04x19x30x02x13x16",
+    "phases": [
+      {
+        "phase": "order_align_tree",
+        "seconds": 144.91697120998288
+      },
+      {
+        "phase": "order_distances",
+        "seconds": 5.537521263991948
+      },
+      {
+        "phase": "order_prediction",
+        "seconds": 1.3518693440128118
+      },
+      {
+        "phase": "family_prefetch",
+        "seconds": 10.992996745975688
+      },
+      {
+        "phase": "family_uncapped_family_reference",
+        "seconds": 3495.356335374003
+      },
+      {
+        "phase": "family_family_trees",
+        "seconds": 1814.6753055570298
+      },
+      {
+        "phase": "family_family_distances",
+        "seconds": 59.45400410000002
+      },
+      {
+        "phase": "family_frozen_C_and_stability",
+        "seconds": 6.667415075004101
+      },
+      {
+        "phase": "family_frozen_ML",
+        "seconds": 9.31734081194736
+      },
+      {
+        "phase": "family_complete",
+        "seconds": 0.017155547044239938
+      },
+      {
+        "phase": "genus_adaptive_search_and_final",
+        "seconds": 1232.9894624559674
+      }
+    ],
+    "inference_seconds": 6781.276377484959
+  },
+  {
+    "sample": "04x28x12x16x03x19",
+    "phases": [
+      {
+        "phase": "order_align_tree",
+        "seconds": 177.35002828302095
+      },
+      {
+        "phase": "order_distances",
+        "seconds": 5.298892623977736
+      },
+      {
+        "phase": "order_prediction",
+        "seconds": 1.3326830790028907
+      },
+      {
+        "phase": "family_prefetch",
+        "seconds": 8.769784678006545
+      },
+      {
+        "phase": "family_uncapped_family_reference",
+        "seconds": 3225.5568849720294
+      },
+      {
+        "phase": "family_family_trees",
+        "seconds": 2062.2376798879704
+      },
+      {
+        "phase": "family_family_distances",
+        "seconds": 51.73649605701212
+      },
+      {
+        "phase": "family_frozen_C_and_stability",
+        "seconds": 6.4108029549825005
+      },
+      {
+        "phase": "family_frozen_ML",
+        "seconds": 8.843716155039147
+      },
+      {
+        "phase": "family_complete",
+        "seconds": 0.03230207698652521
+      },
+      {
+        "phase": "genus_adaptive_search_and_final",
+        "seconds": 1523.7646284109796
+      }
+    ],
+    "inference_seconds": 7071.333899179008
+  },
+  {
+    "sample": "04x28x15x07x16x09x13x10x08x03",
+    "phases": [
+      {
+        "phase": "order_align_tree",
+        "seconds": 171.117348950007
+      },
+      {
+        "phase": "order_distances",
+        "seconds": 9.355599506001454
+      },
+      {
+        "phase": "order_prediction",
+        "seconds": 1.3469628380262293
+      },
+      {
+        "phase": "family_prefetch",
+        "seconds": 9.807363149011508
+      },
+      {
+        "phase": "family_uncapped_family_reference",
+        "seconds": 5514.1493373659905
+      },
+      {
+        "phase": "family_family_trees",
+        "seconds": 3615.8641327169607
+      },
+      {
+        "phase": "family_family_distances",
+        "seconds": 150.77643242804334
+      },
+      {
+        "phase": "family_frozen_C_and_stability",
+        "seconds": 14.779106362955645
+      },
+      {
+        "phase": "family_frozen_ML",
+        "seconds": 21.118345577036962
+      },
+      {
+        "phase": "family_complete",
+        "seconds": 0.12487176799913868
+      },
+      {
+        "phase": "genus_adaptive_search_and_final",
+        "seconds": 1326.680079481972
+      }
+    ],
+    "inference_seconds": 10835.119580144004
+  },
+  {
+    "sample": "04x30x25x16x10x03x28x01x13x08",
+    "phases": [
+      {
+        "phase": "order_align_tree",
+        "seconds": 163.7216286730254
+      },
+      {
+        "phase": "order_distances",
+        "seconds": 9.634280644007958
+      },
+      {
+        "phase": "order_prediction",
+        "seconds": 1.3541718059568666
+      },
+      {
+        "phase": "family_prefetch",
+        "seconds": 10.321906300028786
+      },
+      {
+        "phase": "family_uncapped_family_reference",
+        "seconds": 6094.891613169981
+      },
+      {
+        "phase": "family_family_trees",
+        "seconds": 3950.1402416920173
+      },
+      {
+        "phase": "family_family_distances",
+        "seconds": 200.3096458549844
+      },
+      {
+        "phase": "family_frozen_C_and_stability",
+        "seconds": 15.764876234985422
+      },
+      {
+        "phase": "family_frozen_ML",
+        "seconds": 24.20561148202978
+      },
+      {
+        "phase": "family_complete",
+        "seconds": 0.033983883971814066
+      },
+      {
+        "phase": "genus_adaptive_search_and_final",
+        "seconds": 2514.2980698340107
+      }
+    ],
+    "inference_seconds": 12984.676029575
+  },
+  {
+    "sample": "07x10x04x16x13x15",
+    "phases": [
+      {
+        "phase": "order_align_tree",
+        "seconds": 149.65239506203216
+      },
+      {
+        "phase": "order_distances",
+        "seconds": 6.154699291975703
+      },
+      {
+        "phase": "order_prediction",
+        "seconds": 1.3602049030014314
+      },
+      {
+        "phase": "family_prefetch",
+        "seconds": 9.320053550007287
+      },
+      {
+        "phase": "family_uncapped_family_reference",
+        "seconds": 4542.779301973002
+      },
+      {
+        "phase": "family_family_trees",
+        "seconds": 2460.9441802839865
+      },
+      {
+        "phase": "family_family_distances",
+        "seconds": 87.2644470219966
+      },
+      {
+        "phase": "family_frozen_C_and_stability",
+        "seconds": 8.926246692019049
+      },
+      {
+        "phase": "family_frozen_ML",
+        "seconds": 12.341157578979619
+      },
+      {
+        "phase": "family_complete",
+        "seconds": 0.03482388099655509
+      },
+      {
+        "phase": "genus_adaptive_search_and_final",
+        "seconds": 1428.7095738050411
+      }
+    ],
+    "inference_seconds": 8707.487084043038
+  },
+  {
+    "sample": "07x22x30x08x18x13x03x19x04x02",
+    "phases": [
+      {
+        "phase": "order_align_tree",
+        "seconds": 148.41361452901037
+      },
+      {
+        "phase": "order_distances",
+        "seconds": 9.10078199300915
+      },
+      {
+        "phase": "order_prediction",
+        "seconds": 1.383971343981102
+      },
+      {
+        "phase": "family_prefetch",
+        "seconds": 10.149981972004753
+      },
+      {
+        "phase": "family_uncapped_family_reference",
+        "seconds": 5394.287327526021
+      },
+      {
+        "phase": "family_family_trees",
+        "seconds": 3155.8589169959887
+      },
+      {
+        "phase": "family_family_distances",
+        "seconds": 148.1849783799844
+      },
+      {
+        "phase": "family_frozen_C_and_stability",
+        "seconds": 14.339107156032696
+      },
+      {
+        "phase": "family_frozen_ML",
+        "seconds": 21.246039318968542
+      },
+      {
+        "phase": "family_complete",
+        "seconds": 0.0627744960365817
+      },
+      {
+        "phase": "genus_adaptive_search_and_final",
+        "seconds": 2278.7232933630003
+      }
+    ],
+    "inference_seconds": 11181.750787074037
+  },
+  {
+    "sample": "07x26x30",
+    "phases": [
+      {
+        "phase": "order_align_tree",
+        "seconds": 225.1779955669772
+      },
+      {
+        "phase": "order_distances",
+        "seconds": 5.125142291013617
+      },
+      {
+        "phase": "order_prediction",
+        "seconds": 1.6666960539878346
+      },
+      {
+        "phase": "family_prefetch",
+        "seconds": 6.576923798013013
+      },
+      {
+        "phase": "family_uncapped_family_reference",
+        "seconds": 398.68023136397824
+      },
+      {
+        "phase": "family_family_trees",
+        "seconds": 138.64906766702188
+      },
+      {
+        "phase": "family_family_distances",
+        "seconds": 6.9160044839954935
+      },
+      {
+        "phase": "family_frozen_C_and_stability",
+        "seconds": 1.52654353401158
+      },
+      {
+        "phase": "family_frozen_ML",
+        "seconds": 1.4335444860043935
+      },
+      {
+        "phase": "family_complete",
+        "seconds": 0.024694968946278095
+      },
+      {
+        "phase": "genus_adaptive_search_and_final",
+        "seconds": 421.5131007460295
+      }
+    ],
+    "inference_seconds": 1207.289944959979
+  },
+  {
+    "sample": "07x28x25x10x04x30",
+    "phases": [
+      {
+        "phase": "order_align_tree",
+        "seconds": 193.5317232180023
+      },
+      {
+        "phase": "order_distances",
+        "seconds": 7.324769856997591
+      },
+      {
+        "phase": "order_prediction",
+        "seconds": 1.488415920000989
+      },
+      {
+        "phase": "family_prefetch",
+        "seconds": 8.14649940199888
+      },
+      {
+        "phase": "family_uncapped_family_reference",
+        "seconds": 1967.441432636002
+      },
+      {
+        "phase": "family_family_trees",
+        "seconds": 1034.5179088730001
+      },
+      {
+        "phase": "family_family_distances",
+        "seconds": 34.55446308399769
+      },
+      {
+        "phase": "family_frozen_C_and_stability",
+        "seconds": 5.824573118999979
+      },
+      {
+        "phase": "family_frozen_ML",
+        "seconds": 7.31831338900156
+      },
+      {
+        "phase": "family_complete",
+        "seconds": 0.01510127900110092
+      },
+      {
+        "phase": "genus_adaptive_search_and_final",
+        "seconds": 1050.321673792998
+      }
+    ],
+    "inference_seconds": 4310.48487457
+  },
+  {
+    "sample": "08x07x01",
+    "phases": [
+      {
+        "phase": "order_align_tree",
+        "seconds": 180.75083759403788
+      },
+      {
+        "phase": "order_distances",
+        "seconds": 5.5286424399819225
+      },
+      {
+        "phase": "order_prediction",
+        "seconds": 1.5553185809985735
+      },
+      {
+        "phase": "family_prefetch",
+        "seconds": 6.317291449988261
+      },
+      {
+        "phase": "family_uncapped_family_reference",
+        "seconds": 89.56428254803177
+      },
+      {
+        "phase": "family_family_trees",
+        "seconds": 13.883732540009078
+      },
+      {
+        "phase": "family_family_distances",
+        "seconds": 3.2994514129823074
+      },
+      {
+        "phase": "family_frozen_C_and_stability",
+        "seconds": 0.8254716029623523
+      },
+      {
+        "phase": "family_frozen_ML",
+        "seconds": 0.680348516034428
+      },
+      {
+        "phase": "family_complete",
+        "seconds": 0.01627198699861765
+      },
+      {
+        "phase": "genus_adaptive_search_and_final",
+        "seconds": 214.4897490820149
+      }
+    ],
+    "inference_seconds": 516.9113977540401
+  },
+  {
+    "sample": "08x07x03",
+    "phases": [
+      {
+        "phase": "order_align_tree",
+        "seconds": 205.75566764600808
+      },
+      {
+        "phase": "order_distances",
+        "seconds": 4.874244547972921
+      },
+      {
+        "phase": "order_prediction",
+        "seconds": 1.3685794310295023
+      },
+      {
+        "phase": "family_prefetch",
+        "seconds": 6.305357255972922
+      },
+      {
+        "phase": "family_uncapped_family_reference",
+        "seconds": 785.6680867190007
+      },
+      {
+        "phase": "family_family_trees",
+        "seconds": 439.8846403619973
+      },
+      {
+        "phase": "family_family_distances",
+        "seconds": 12.554397316998802
+      },
+      {
+        "phase": "family_frozen_C_and_stability",
+        "seconds": 2.598166736017447
+      },
+      {
+        "phase": "family_frozen_ML",
+        "seconds": 2.7846935769775882
+      },
+      {
+        "phase": "family_complete",
+        "seconds": 0.02921950101153925
+      },
+      {
+        "phase": "genus_adaptive_search_and_final",
+        "seconds": 296.00202526699286
+      }
+    ],
+    "inference_seconds": 1757.8250783599797
+  },
+  {
+    "sample": "08x16x09x25x03x18",
+    "phases": [
+      {
+        "phase": "order_align_tree",
+        "seconds": 215.8623491190374
+      },
+      {
+        "phase": "order_distances",
+        "seconds": 7.603077945008408
+      },
+      {
+        "phase": "order_prediction",
+        "seconds": 1.4310683849616908
+      },
+      {
+        "phase": "family_prefetch",
+        "seconds": 8.257172411016654
+      },
+      {
+        "phase": "family_uncapped_family_reference",
+        "seconds": 2224.378672881983
+      },
+      {
+        "phase": "family_family_trees",
+        "seconds": 1530.612086114008
+      },
+      {
+        "phase": "family_family_distances",
+        "seconds": 48.81077731598634
+      },
+      {
+        "phase": "family_frozen_C_and_stability",
+        "seconds": 7.662484388041776
+      },
+      {
+        "phase": "family_frozen_ML",
+        "seconds": 11.216179202951025
+      },
+      {
+        "phase": "family_complete",
+        "seconds": 0.033427511050831527
+      },
+      {
+        "phase": "genus_adaptive_search_and_final",
+        "seconds": 1613.9750012650038
+      }
+    ],
+    "inference_seconds": 5669.842296539049
+  },
+  {
+    "sample": "08x16x15x07x03x09",
+    "phases": [
+      {
+        "phase": "order_align_tree",
+        "seconds": 205.33323101804126
+      },
+      {
+        "phase": "order_distances",
+        "seconds": 7.304173018957954
+      },
+      {
+        "phase": "order_prediction",
+        "seconds": 1.394407093001064
+      },
+      {
+        "phase": "family_prefetch",
+        "seconds": 7.9185817440156825
+      },
+      {
+        "phase": "family_uncapped_family_reference",
+        "seconds": 1834.6798879490234
+      },
+      {
+        "phase": "family_family_trees",
+        "seconds": 963.3078298239852
+      },
+      {
+        "phase": "family_family_distances",
+        "seconds": 32.97017229197081
+      },
+      {
+        "phase": "family_frozen_C_and_stability",
+        "seconds": 5.767910988011863
+      },
+      {
+        "phase": "family_frozen_ML",
+        "seconds": 7.084035472013056
+      },
+      {
+        "phase": "family_complete",
+        "seconds": 0.015748449019156396
+      },
+      {
+        "phase": "genus_adaptive_search_and_final",
+        "seconds": 2205.611981467984
+      }
+    ],
+    "inference_seconds": 5271.387959316024
+  },
+  {
+    "sample": "08x30x16x22x15x19",
+    "phases": [
+      {
+        "phase": "order_align_tree",
+        "seconds": 187.55574897502083
+      },
+      {
+        "phase": "order_distances",
+        "seconds": 6.410606632998679
+      },
+      {
+        "phase": "order_prediction",
+        "seconds": 1.3596902540302835
+      },
+      {
+        "phase": "family_prefetch",
+        "seconds": 7.296581164991949
+      },
+      {
+        "phase": "family_uncapped_family_reference",
+        "seconds": 1867.2069487859844
+      },
+      {
+        "phase": "family_family_trees",
+        "seconds": 916.2410346539691
+      },
+      {
+        "phase": "family_family_distances",
+        "seconds": 36.03938272502273
+      },
+      {
+        "phase": "family_frozen_C_and_stability",
+        "seconds": 5.407602587016299
+      },
+      {
+        "phase": "family_frozen_ML",
+        "seconds": 6.059825523989275
+      },
+      {
+        "phase": "family_complete",
+        "seconds": 0.11032602901104838
+      },
+      {
+        "phase": "genus_adaptive_search_and_final",
+        "seconds": 1139.179880363983
+      }
+    ],
+    "inference_seconds": 4172.867627696018
+  },
+  {
+    "sample": "09x15x18x02x25x08x10x12x01x07",
+    "phases": [
+      {
+        "phase": "order_align_tree",
+        "seconds": 200.90243660798296
+      },
+      {
+        "phase": "order_distances",
+        "seconds": 12.576744771038648
+      },
+      {
+        "phase": "order_prediction",
+        "seconds": 1.3949811639613472
+      },
+      {
+        "phase": "family_prefetch",
+        "seconds": 8.149373912019655
+      },
+      {
+        "phase": "family_uncapped_family_reference",
+        "seconds": 2248.946065365977
+      },
+      {
+        "phase": "family_family_trees",
+        "seconds": 1361.254899348016
+      },
+      {
+        "phase": "family_family_distances",
+        "seconds": 75.2416224090266
+      },
+      {
+        "phase": "family_frozen_C_and_stability",
+        "seconds": 11.37016044696793
+      },
+      {
+        "phase": "family_frozen_ML",
+        "seconds": 14.286831064033322
+      },
+      {
+        "phase": "family_complete",
+        "seconds": 0.10835445096017793
+      },
+      {
+        "phase": "genus_adaptive_search_and_final",
+        "seconds": 2948.2654857230373
+      }
+    ],
+    "inference_seconds": 6882.496955263021
+  },
+  {
+    "sample": "09x19x12x16x07x25",
+    "phases": [
+      {
+        "phase": "order_align_tree",
+        "seconds": 215.46840149804484
+      },
+      {
+        "phase": "order_distances",
+        "seconds": 7.230190670990851
+      },
+      {
+        "phase": "order_prediction",
+        "seconds": 1.4024584209546447
+      },
+      {
+        "phase": "family_prefetch",
+        "seconds": 8.610187775047962
+      },
+      {
+        "phase": "family_uncapped_family_reference",
+        "seconds": 2471.266104735958
+      },
+      {
+        "phase": "family_family_trees",
+        "seconds": 1704.2060300580342
+      },
+      {
+        "phase": "family_family_distances",
+        "seconds": 56.60667348298011
+      },
+      {
+        "phase": "family_frozen_C_and_stability",
+        "seconds": 7.195947314030491
+      },
+      {
+        "phase": "family_frozen_ML",
+        "seconds": 9.694408683979418
+      },
+      {
+        "phase": "family_complete",
+        "seconds": 0.016204577987082303
+      },
+      {
+        "phase": "genus_adaptive_search_and_final",
+        "seconds": 1818.524774709018
+      }
+    ],
+    "inference_seconds": 6300.2213819270255
+  },
+  {
+    "sample": "09x30x01x04x18x13x22x08x19x15",
+    "phases": [
+      {
+        "phase": "order_align_tree",
+        "seconds": 204.21204612398287
+      },
+      {
+        "phase": "order_distances",
+        "seconds": 11.795450893987436
+      },
+      {
+        "phase": "order_prediction",
+        "seconds": 1.3937488220399246
+      },
+      {
+        "phase": "family_prefetch",
+        "seconds": 9.081918985990342
+      },
+      {
+        "phase": "family_uncapped_family_reference",
+        "seconds": 3256.9856621910003
+      },
+      {
+        "phase": "family_family_trees",
+        "seconds": 2134.1941742319614
+      },
+      {
+        "phase": "family_family_distances",
+        "seconds": 102.21030495100422
+      },
+      {
+        "phase": "family_frozen_C_and_stability",
+        "seconds": 14.730726876005065
+      },
+      {
+        "phase": "family_frozen_ML",
+        "seconds": 19.068193310988136
+      },
+      {
+        "phase": "family_complete",
+        "seconds": 0.026995463005732745
+      },
+      {
+        "phase": "genus_adaptive_search_and_final",
+        "seconds": 1077.0861342489952
+      }
+    ],
+    "inference_seconds": 6830.785356098961
+  },
+  {
+    "sample": "10x04x13x19x02x15x01x09x30x24",
+    "phases": [
+      {
+        "phase": "order_align_tree",
+        "seconds": 216.3670154529973
+      },
+      {
+        "phase": "order_distances",
+        "seconds": 11.83121748099802
+      },
+      {
+        "phase": "order_prediction",
+        "seconds": 1.606530556047801
+      },
+      {
+        "phase": "family_prefetch",
+        "seconds": 9.855965388996992
+      },
+      {
+        "phase": "family_uncapped_family_reference",
+        "seconds": 3760.987205368001
+      },
+      {
+        "phase": "family_family_trees",
+        "seconds": 2229.8616843989585
+      },
+      {
+        "phase": "family_family_distances",
+        "seconds": 107.23147581203375
+      },
+      {
+        "phase": "family_frozen_C_and_stability",
+        "seconds": 12.915462895005476
+      },
+      {
+        "phase": "family_frozen_ML",
+        "seconds": 17.460378780961037
+      },
+      {
+        "phase": "family_complete",
+        "seconds": 0.12425497901858762
+      },
+      {
+        "phase": "genus_adaptive_search_and_final",
+        "seconds": 1472.1750110069988
+      }
+    ],
+    "inference_seconds": 7840.416202120017
+  },
+  {
+    "sample": "10x09x15x08x25x18",
+    "phases": [
+      {
+        "phase": "order_align_tree",
+        "seconds": 231.1885737979901
+      },
+      {
+        "phase": "order_distances",
+        "seconds": 9.231298054975923
+      },
+      {
+        "phase": "order_prediction",
+        "seconds": 1.5033011760096997
+      },
+      {
+        "phase": "family_prefetch",
+        "seconds": 7.141549747029785
+      },
+      {
+        "phase": "family_uncapped_family_reference",
+        "seconds": 607.3361504430068
+      },
+      {
+        "phase": "family_family_trees",
+        "seconds": 253.65473482594825
+      },
+      {
+        "phase": "family_family_distances",
+        "seconds": 15.590380718000233
+      },
+      {
+        "phase": "family_frozen_C_and_stability",
+        "seconds": 3.746701762021985
+      },
+      {
+        "phase": "family_frozen_ML",
+        "seconds": 3.7519226690055802
+      },
+      {
+        "phase": "family_complete",
+        "seconds": 0.022785213019233197
+      },
+      {
+        "phase": "genus_adaptive_search_and_final",
+        "seconds": 1458.129851785954
+      }
+    ],
+    "inference_seconds": 2591.2972501929617
+  },
+  {
+    "sample": "10x19x28x09x15x22",
+    "phases": [
+      {
+        "phase": "order_align_tree",
+        "seconds": 199.76765551802237
+      },
+      {
+        "phase": "order_distances",
+        "seconds": 6.984735507983714
+      },
+      {
+        "phase": "order_prediction",
+        "seconds": 1.4873420480289496
+      },
+      {
+        "phase": "family_prefetch",
+        "seconds": 7.3656747519853525
+      },
+      {
+        "phase": "family_uncapped_family_reference",
+        "seconds": 1353.675966535986
+      },
+      {
+        "phase": "family_family_trees",
+        "seconds": 569.8475336880074
+      },
+      {
+        "phase": "family_family_distances",
+        "seconds": 26.84758950799005
+      },
+      {
+        "phase": "family_frozen_C_and_stability",
+        "seconds": 4.725771219993476
+      },
+      {
+        "phase": "family_frozen_ML",
+        "seconds": 4.872614583990071
+      },
+      {
+        "phase": "family_complete",
+        "seconds": 0.09733672701986507
+      },
+      {
+        "phase": "genus_adaptive_search_and_final",
+        "seconds": 2449.8416374470107
+      }
+    ],
+    "inference_seconds": 4625.513857536018
+  },
+  {
+    "sample": "10x22x30x16x13x26",
+    "phases": [
+      {
+        "phase": "order_align_tree",
+        "seconds": 173.88862882502144
+      },
+      {
+        "phase": "order_distances",
+        "seconds": 7.736067546997219
+      },
+      {
+        "phase": "order_prediction",
+        "seconds": 2.596025557955727
+      },
+      {
+        "phase": "family_prefetch",
+        "seconds": 10.335390938038472
+      },
+      {
+        "phase": "family_uncapped_family_reference",
+        "seconds": 3368.2685762419715
+      },
+      {
+        "phase": "family_family_trees",
+        "seconds": 1807.3489632449928
+      },
+      {
+        "phase": "family_family_distances",
+        "seconds": 64.64015159005066
+      },
+      {
+        "phase": "family_frozen_C_and_stability",
+        "seconds": 7.66248070797883
+      },
+      {
+        "phase": "family_frozen_ML",
+        "seconds": 9.816003690008074
+      },
+      {
+        "phase": "family_complete",
+        "seconds": 0.09043706097872928
+      },
+      {
+        "phase": "genus_adaptive_search_and_final",
+        "seconds": 1414.1923499440309
+      }
+    ],
+    "inference_seconds": 6866.575075348024
+  },
+  {
+    "sample": "10x24x07x19x02x25",
+    "phases": [
+      {
+        "phase": "order_align_tree",
+        "seconds": 194.03741577401524
+      },
+      {
+        "phase": "order_distances",
+        "seconds": 6.8623168389895
+      },
+      {
+        "phase": "order_prediction",
+        "seconds": 1.3859431449673139
+      },
+      {
+        "phase": "family_prefetch",
+        "seconds": 8.07134575699456
+      },
+      {
+        "phase": "family_uncapped_family_reference",
+        "seconds": 2669.3631708340254
+      },
+      {
+        "phase": "family_family_trees",
+        "seconds": 1768.7646866129944
+      },
+      {
+        "phase": "family_family_distances",
+        "seconds": 50.391967136005405
+      },
+      {
+        "phase": "family_frozen_C_and_stability",
+        "seconds": 8.338863767974544
+      },
+      {
+        "phase": "family_frozen_ML",
+        "seconds": 11.214934970019385
+      },
+      {
+        "phase": "family_complete",
+        "seconds": 0.022906392987351865
+      },
+      {
+        "phase": "genus_adaptive_search_and_final",
+        "seconds": 1270.4436236440088
+      }
+    ],
+    "inference_seconds": 5988.897174872982
+  },
+  {
+    "sample": "10x26x09x24x13x02",
+    "phases": [
+      {
+        "phase": "order_align_tree",
+        "seconds": 205.93867018597666
+      },
+      {
+        "phase": "order_distances",
+        "seconds": 7.395363136020023
+      },
+      {
+        "phase": "order_prediction",
+        "seconds": 1.3496349029592238
+      },
+      {
+        "phase": "family_prefetch",
+        "seconds": 9.01440172403818
+      },
+      {
+        "phase": "family_uncapped_family_reference",
+        "seconds": 4105.06856955
+      },
+      {
+        "phase": "family_family_trees",
+        "seconds": 3220.167328902986
+      },
+      {
+        "phase": "family_family_distances",
+        "seconds": 94.93853223801125
+      },
+      {
+        "phase": "family_frozen_C_and_stability",
+        "seconds": 10.867404608987272
+      },
+      {
+        "phase": "family_frozen_ML",
+        "seconds": 15.340114650025498
+      },
+      {
+        "phase": "family_complete",
+        "seconds": 0.059729683969635516
+      },
+      {
+        "phase": "genus_adaptive_search_and_final",
+        "seconds": 2146.271447829029
+      }
+    ],
+    "inference_seconds": 9816.411197412002
+  },
+  {
+    "sample": "12x01x07x04x03x02x13x18x09x19",
+    "phases": [
+      {
+        "phase": "order_align_tree",
+        "seconds": 208.83210773702012
+      },
+      {
+        "phase": "order_distances",
+        "seconds": 11.489313916012179
+      },
+      {
+        "phase": "order_prediction",
+        "seconds": 1.411960362980608
+      },
+      {
+        "phase": "family_prefetch",
+        "seconds": 7.88065473001916
+      },
+      {
+        "phase": "family_uncapped_family_reference",
+        "seconds": 2282.426525235991
+      },
+      {
+        "phase": "family_family_trees",
+        "seconds": 1444.3833403550088
+      },
+      {
+        "phase": "family_family_distances",
+        "seconds": 73.50954312697286
+      },
+      {
+        "phase": "family_frozen_C_and_stability",
+        "seconds": 12.639302623982076
+      },
+      {
+        "phase": "family_frozen_ML",
+        "seconds": 15.681143732042983
+      },
+      {
+        "phase": "family_complete",
+        "seconds": 0.020047017955221236
+      },
+      {
+        "phase": "genus_adaptive_search_and_final",
+        "seconds": 2205.3851968279923
+      }
+    ],
+    "inference_seconds": 6263.659135665977
+  },
+  {
+    "sample": "12x01x15",
+    "phases": [
+      {
+        "phase": "order_align_tree",
+        "seconds": 197.7356231979793
+      },
+      {
+        "phase": "order_distances",
+        "seconds": 4.958446174045093
+      },
+      {
+        "phase": "order_prediction",
+        "seconds": 1.3434503529570065
+      },
+      {
+        "phase": "family_prefetch",
+        "seconds": 5.4933861790341325
+      },
+      {
+        "phase": "family_uncapped_family_reference",
+        "seconds": 450.4392845989787
+      },
+      {
+        "phase": "family_family_trees",
+        "seconds": 138.5908461480285
+      },
+      {
+        "phase": "family_family_distances",
+        "seconds": 7.242429010977503
+      },
+      {
+        "phase": "family_frozen_C_and_stability",
+        "seconds": 1.7841205759905279
+      },
+      {
+        "phase": "family_frozen_ML",
+        "seconds": 1.6568424080032855
+      },
+      {
+        "phase": "family_complete",
+        "seconds": 0.029879038978833705
+      },
+      {
+        "phase": "genus_adaptive_search_and_final",
+        "seconds": 281.8708979230141
+      }
+    ],
+    "inference_seconds": 1091.145205607987
+  },
+  {
+    "sample": "12x07x10",
+    "phases": [
+      {
+        "phase": "order_align_tree",
+        "seconds": 203.24767637997866
+      },
+      {
+        "phase": "order_distances",
+        "seconds": 4.122476752032526
+      },
+      {
+        "phase": "order_prediction",
+        "seconds": 1.3451985970023088
+      },
+      {
+        "phase": "family_prefetch",
+        "seconds": 6.555694826995023
+      },
+      {
+        "phase": "family_uncapped_family_reference",
+        "seconds": 1051.7440637109685
+      },
+      {
+        "phase": "family_family_trees",
+        "seconds": 466.25947738898685
+      },
+      {
+        "phase": "family_family_distances",
+        "seconds": 13.074887516035233
+      },
+      {
+        "phase": "family_frozen_C_and_stability",
+        "seconds": 2.8008965170010924
+      },
+      {
+        "phase": "family_frozen_ML",
+        "seconds": 2.7081940229982138
+      },
+      {
+        "phase": "family_complete",
+        "seconds": 0.01770794199546799
+      },
+      {
+        "phase": "genus_adaptive_search_and_final",
+        "seconds": 564.4057983030216
+      }
+    ],
+    "inference_seconds": 2316.2820719570154
+  },
+  {
+    "sample": "12x09x19x18x26x25x13x08x04x10",
+    "phases": [
+      {
+        "phase": "order_align_tree",
+        "seconds": 207.34166407899465
+      },
+      {
+        "phase": "order_distances",
+        "seconds": 12.485189956962131
+      },
+      {
+        "phase": "order_prediction",
+        "seconds": 1.3911772040301003
+      },
+      {
+        "phase": "family_prefetch",
+        "seconds": 8.396053416014183
+      },
+      {
+        "phase": "family_uncapped_family_reference",
+        "seconds": 2984.6439695750014
+      },
+      {
+        "phase": "family_family_trees",
+        "seconds": 1850.2370529539767
+      },
+      {
+        "phase": "family_family_distances",
+        "seconds": 111.26965498598292
+      },
+      {
+        "phase": "family_frozen_C_and_stability",
+        "seconds": 15.50737539504189
+      },
+      {
+        "phase": "family_frozen_ML",
+        "seconds": 19.705027949006762
+      },
+      {
+        "phase": "family_complete",
+        "seconds": 0.0319353099912405
+      },
+      {
+        "phase": "genus_adaptive_search_and_final",
+        "seconds": 2157.5786385379615
+      }
+    ],
+    "inference_seconds": 7368.5877393629635
+  },
+  {
+    "sample": "12x13x01x18x22x07",
+    "phases": [
+      {
+        "phase": "order_align_tree",
+        "seconds": 203.8104005199857
+      },
+      {
+        "phase": "order_distances",
+        "seconds": 6.668824996042531
+      },
+      {
+        "phase": "order_prediction",
+        "seconds": 1.3580470979795791
+      },
+      {
+        "phase": "family_prefetch",
+        "seconds": 6.549807687988505
+      },
+      {
+        "phase": "family_uncapped_family_reference",
+        "seconds": 1228.8224823329947
+      },
+      {
+        "phase": "family_family_trees",
+        "seconds": 649.3057983639883
+      },
+      {
+        "phase": "family_family_distances",
+        "seconds": 20.439054405025672
+      },
+      {
+        "phase": "family_frozen_C_and_stability",
+        "seconds": 4.60115661501186
+      },
+      {
+        "phase": "family_frozen_ML",
+        "seconds": 5.553672184993047
+      },
+      {
+        "phase": "family_complete",
+        "seconds": 0.08822962699923664
+      },
+      {
+        "phase": "genus_adaptive_search_and_final",
+        "seconds": 738.9174938040087
+      }
+    ],
+    "inference_seconds": 2866.114967635018
+  },
+  {
+    "sample": "12x18x03",
+    "phases": [
+      {
+        "phase": "order_align_tree",
+        "seconds": 220.26070656604134
+      },
+      {
+        "phase": "order_distances",
+        "seconds": 4.282801369961817
+      },
+      {
+        "phase": "order_prediction",
+        "seconds": 1.3603620390058495
+      },
+      {
+        "phase": "family_prefetch",
+        "seconds": 6.9939678339869715
+      },
+      {
+        "phase": "family_uncapped_family_reference",
+        "seconds": 1326.184776479029
+      },
+      {
+        "phase": "family_family_trees",
+        "seconds": 865.9744194559753
+      },
+      {
+        "phase": "family_family_distances",
+        "seconds": 19.322650358022656
+      },
+      {
+        "phase": "family_frozen_C_and_stability",
+        "seconds": 3.566618249984458
+      },
+      {
+        "phase": "family_frozen_ML",
+        "seconds": 4.484143192006741
+      },
+      {
+        "phase": "family_complete",
+        "seconds": 0.019448121020104736
+      },
+      {
+        "phase": "genus_adaptive_search_and_final",
+        "seconds": 488.3546626569587
+      }
+    ],
+    "inference_seconds": 2940.804556321993
+  },
+  {
+    "sample": "12x22x15x26x03x01",
+    "phases": [
+      {
+        "phase": "order_align_tree",
+        "seconds": 169.94195519696223
+      },
+      {
+        "phase": "order_distances",
+        "seconds": 5.94553804199677
+      },
+      {
+        "phase": "order_prediction",
+        "seconds": 1.327260437014047
+      },
+      {
+        "phase": "family_prefetch",
+        "seconds": 6.786688730993774
+      },
+      {
+        "phase": "family_uncapped_family_reference",
+        "seconds": 1615.3578657709877
+      },
+      {
+        "phase": "family_family_trees",
+        "seconds": 835.0424337990116
+      },
+      {
+        "phase": "family_family_distances",
+        "seconds": 23.725590549001936
+      },
+      {
+        "phase": "family_frozen_C_and_stability",
+        "seconds": 4.450341226009186
+      },
+      {
+        "phase": "family_frozen_ML",
+        "seconds": 5.40444585197838
+      },
+      {
+        "phase": "family_complete",
+        "seconds": 0.01614275004249066
+      },
+      {
+        "phase": "genus_adaptive_search_and_final",
+        "seconds": 743.433270287991
+      }
+    ],
+    "inference_seconds": 3411.431532641989
+  },
+  {
+    "sample": "12x25x02",
+    "phases": [
+      {
+        "phase": "order_align_tree",
+        "seconds": 182.7547387930099
+      },
+      {
+        "phase": "order_distances",
+        "seconds": 5.006236715009436
+      },
+      {
+        "phase": "order_prediction",
+        "seconds": 1.3129942339728586
+      },
+      {
+        "phase": "family_prefetch",
+        "seconds": 6.369399781047832
+      },
+      {
+        "phase": "family_uncapped_family_reference",
+        "seconds": 1187.4896653229953
+      },
+      {
+        "phase": "family_family_trees",
+        "seconds": 641.7827132609673
+      },
+      {
+        "phase": "family_family_distances",
+        "seconds": 18.813272711005993
+      },
+      {
+        "phase": "family_frozen_C_and_stability",
+        "seconds": 3.7203142060316168
+      },
+      {
+        "phase": "family_frozen_ML",
+        "seconds": 4.007518861966673
+      },
+      {
+        "phase": "family_complete",
+        "seconds": 0.01540826098062098
+      },
+      {
+        "phase": "genus_adaptive_search_and_final",
+        "seconds": 348.7987875880208
+      }
+    ],
+    "inference_seconds": 2400.0710497350083
+  },
+  {
+    "sample": "12x25x04",
+    "phases": [
+      {
+        "phase": "order_align_tree",
+        "seconds": 185.15662412601523
+      },
+      {
+        "phase": "order_distances",
+        "seconds": 4.642096859985031
+      },
+      {
+        "phase": "order_prediction",
+        "seconds": 1.3054231430287473
+      },
+      {
+        "phase": "family_prefetch",
+        "seconds": 6.589573061966803
+      },
+      {
+        "phase": "family_uncapped_family_reference",
+        "seconds": 1292.3609559310135
+      },
+      {
+        "phase": "family_family_trees",
+        "seconds": 723.1236301939934
+      },
+      {
+        "phase": "family_family_distances",
+        "seconds": 19.395440127991606
+      },
+      {
+        "phase": "family_frozen_C_and_stability",
+        "seconds": 3.6237527650082484
+      },
+      {
+        "phase": "family_frozen_ML",
+        "seconds": 4.441555567027535
+      },
+      {
+        "phase": "family_complete",
+        "seconds": 0.014988161972723901
+      },
+      {
+        "phase": "genus_adaptive_search_and_final",
+        "seconds": 283.06952285702573
+      }
+    ],
+    "inference_seconds": 2523.7235627950286
+  },
+  {
+    "sample": "12x25x22x02x26x10",
+    "phases": [
+      {
+        "phase": "order_align_tree",
+        "seconds": 166.52158194797812
+      },
+      {
+        "phase": "order_distances",
+        "seconds": 7.428082911996171
+      },
+      {
+        "phase": "order_prediction",
+        "seconds": 1.3466201640549116
+      },
+      {
+        "phase": "family_prefetch",
+        "seconds": 7.929734830977395
+      },
+      {
+        "phase": "family_uncapped_family_reference",
+        "seconds": 2458.2163262640242
+      },
+      {
+        "phase": "family_family_trees",
+        "seconds": 1315.0554755189805
+      },
+      {
+        "phase": "family_family_distances",
+        "seconds": 59.644592499011196
+      },
+      {
+        "phase": "family_frozen_C_and_stability",
+        "seconds": 7.900395907985512
+      },
+      {
+        "phase": "family_frozen_ML",
+        "seconds": 10.22790595900733
+      },
+      {
+        "phase": "family_complete",
+        "seconds": 0.2231091299909167
+      },
+      {
+        "phase": "genus_adaptive_search_and_final",
+        "seconds": 1295.9101410509902
+      }
+    ],
+    "inference_seconds": 5330.4039661849965
+  },
+  {
+    "sample": "13x07x10",
+    "phases": [
+      {
+        "phase": "order_align_tree",
+        "seconds": 161.17429043201264
+      },
+      {
+        "phase": "order_distances",
+        "seconds": 5.216727297985926
+      },
+      {
+        "phase": "order_prediction",
+        "seconds": 2.537490939022973
+      },
+      {
+        "phase": "family_prefetch",
+        "seconds": 8.077087105019018
+      },
+      {
+        "phase": "family_uncapped_family_reference",
+        "seconds": 1639.1104312829557
+      },
+      {
+        "phase": "family_family_trees",
+        "seconds": 644.798374067992
+      },
+      {
+        "phase": "family_family_distances",
+        "seconds": 19.21512280002935
+      },
+      {
+        "phase": "family_frozen_C_and_stability",
+        "seconds": 3.2214444970013574
+      },
+      {
+        "phase": "family_frozen_ML",
+        "seconds": 3.7392229000106454
+      },
+      {
+        "phase": "family_complete",
+        "seconds": 0.016043912968598306
+      },
+      {
+        "phase": "genus_adaptive_search_and_final",
+        "seconds": 455.4060593220056
+      }
+    ],
+    "inference_seconds": 2942.5122945570038
+  },
+  {
+    "sample": "13x10x01",
+    "phases": [
+      {
+        "phase": "order_align_tree",
+        "seconds": 168.61374661396258
+      },
+      {
+        "phase": "order_distances",
+        "seconds": 4.9425857210299
+      },
+      {
+        "phase": "order_prediction",
+        "seconds": 1.3334115939796902
+      },
+      {
+        "phase": "family_prefetch",
+        "seconds": 6.913042058004066
+      },
+      {
+        "phase": "family_uncapped_family_reference",
+        "seconds": 1334.3025464100065
+      },
+      {
+        "phase": "family_family_trees",
+        "seconds": 476.9262696959777
+      },
+      {
+        "phase": "family_family_distances",
+        "seconds": 14.425372809986584
+      },
+      {
+        "phase": "family_frozen_C_and_stability",
+        "seconds": 2.877894646022469
+      },
+      {
+        "phase": "family_frozen_ML",
+        "seconds": 3.071273959008977
+      },
+      {
+        "phase": "family_complete",
+        "seconds": 0.01323165197391063
+      },
+      {
+        "phase": "genus_adaptive_search_and_final",
+        "seconds": 391.4125409660046
+      }
+    ],
+    "inference_seconds": 2404.831916125957
+  },
+  {
+    "sample": "13x24x08",
+    "phases": [
+      {
+        "phase": "order_align_tree",
+        "seconds": 187.98342600901378
+      },
+      {
+        "phase": "order_distances",
+        "seconds": 5.7806300789816305
+      },
+      {
+        "phase": "order_prediction",
+        "seconds": 1.357741512998473
+      },
+      {
+        "phase": "family_prefetch",
+        "seconds": 6.8209338070009835
+      },
+      {
+        "phase": "family_uncapped_family_reference",
+        "seconds": 1436.5945663510356
+      },
+      {
+        "phase": "family_family_trees",
+        "seconds": 764.4717606449849
+      },
+      {
+        "phase": "family_family_distances",
+        "seconds": 28.179062834009528
+      },
+      {
+        "phase": "family_frozen_C_and_stability",
+        "seconds": 4.229535166989081
+      },
+      {
+        "phase": "family_frozen_ML",
+        "seconds": 4.865162772999611
+      },
+      {
+        "phase": "family_complete",
+        "seconds": 0.017672468966338784
+      },
+      {
+        "phase": "genus_adaptive_search_and_final",
+        "seconds": 500.5392594340374
+      }
+    ],
+    "inference_seconds": 2940.8397510810173
+  },
+  {
+    "sample": "13x26x15x09x28x08x10x18x16x24",
+    "phases": [
+      {
+        "phase": "order_align_tree",
+        "seconds": 206.62103713699616
+      },
+      {
+        "phase": "order_distances",
+        "seconds": 10.813814182009082
+      },
+      {
+        "phase": "order_prediction",
+        "seconds": 1.4140695959795266
+      },
+      {
+        "phase": "family_prefetch",
+        "seconds": 9.664055360015482
+      },
+      {
+        "phase": "family_uncapped_family_reference",
+        "seconds": 4642.924419525982
+      },
+      {
+        "phase": "family_family_trees",
+        "seconds": 3275.2576408919995
+      },
+      {
+        "phase": "family_family_distances",
+        "seconds": 140.62699192602304
+      },
+      {
+        "phase": "family_frozen_C_and_stability",
+        "seconds": 16.20222668600036
+      },
+      {
+        "phase": "family_frozen_ML",
+        "seconds": 21.593417754978873
+      },
+      {
+        "phase": "family_complete",
+        "seconds": 0.1544968600210268
+      },
+      {
+        "phase": "genus_adaptive_search_and_final",
+        "seconds": 1126.9267505549942
+      }
+    ],
+    "inference_seconds": 9452.198920474999
+  },
+  {
+    "sample": "13x28x15",
+    "phases": [
+      {
+        "phase": "order_align_tree",
+        "seconds": 152.87840181202046
+      },
+      {
+        "phase": "order_distances",
+        "seconds": 3.9391715899982955
+      },
+      {
+        "phase": "order_prediction",
+        "seconds": 2.953535958979046
+      },
+      {
+        "phase": "family_prefetch",
+        "seconds": 8.821162003005156
+      },
+      {
+        "phase": "family_uncapped_family_reference",
+        "seconds": 2219.4318368120003
+      },
+      {
+        "phase": "family_family_trees",
+        "seconds": 922.678367104003
+      },
+      {
+        "phase": "family_family_distances",
+        "seconds": 24.877007161005167
+      },
+      {
+        "phase": "family_frozen_C_and_stability",
+        "seconds": 3.548012524988735
+      },
+      {
+        "phase": "family_frozen_ML",
+        "seconds": 4.503484073997242
+      },
+      {
+        "phase": "family_complete",
+        "seconds": 0.020017604023450986
+      },
+      {
+        "phase": "genus_adaptive_search_and_final",
+        "seconds": 514.3890533789818
+      }
+    ],
+    "inference_seconds": 3858.0400500230026
+  },
+  {
+    "sample": "15x08x28",
+    "phases": [
+      {
+        "phase": "order_align_tree",
+        "seconds": 202.14781180399586
+      },
+      {
+        "phase": "order_distances",
+        "seconds": 4.219195800018497
+      },
+      {
+        "phase": "order_prediction",
+        "seconds": 1.3537708029907662
+      },
+      {
+        "phase": "family_prefetch",
+        "seconds": 5.640893918985967
+      },
+      {
+        "phase": "family_uncapped_family_reference",
+        "seconds": 509.9681841590209
+      },
+      {
+        "phase": "family_family_trees",
+        "seconds": 153.2921441269864
+      },
+      {
+        "phase": "family_family_distances",
+        "seconds": 6.3521123560203705
+      },
+      {
+        "phase": "family_frozen_C_and_stability",
+        "seconds": 1.594705534982495
+      },
+      {
+        "phase": "family_frozen_ML",
+        "seconds": 1.6007197579892818
+      },
+      {
+        "phase": "family_complete",
+        "seconds": 0.03134498401777819
+      },
+      {
+        "phase": "genus_adaptive_search_and_final",
+        "seconds": 536.9528616580064
+      }
+    ],
+    "inference_seconds": 1423.1537449030147
+  },
+  {
+    "sample": "15x10x28",
+    "phases": [
+      {
+        "phase": "order_align_tree",
+        "seconds": 196.86440540500917
+      },
+      {
+        "phase": "order_distances",
+        "seconds": 3.169669574999716
+      },
+      {
+        "phase": "order_prediction",
+        "seconds": 1.3655151260027196
+      },
+      {
+        "phase": "family_prefetch",
+        "seconds": 5.916391051985556
+      },
+      {
+        "phase": "family_uncapped_family_reference",
+        "seconds": 526.8886929180007
+      },
+      {
+        "phase": "family_family_trees",
+        "seconds": 146.42912326101214
+      },
+      {
+        "phase": "family_family_distances",
+        "seconds": 5.2380617299932055
+      },
+      {
+        "phase": "family_frozen_C_and_stability",
+        "seconds": 1.2034917440032586
+      },
+      {
+        "phase": "family_frozen_ML",
+        "seconds": 1.1301691950066015
+      },
+      {
+        "phase": "family_complete",
+        "seconds": 0.016693654004484415
+      },
+      {
+        "phase": "genus_adaptive_search_and_final",
+        "seconds": 637.8105393409787
+      }
+    ],
+    "inference_seconds": 1526.0327530009963
+  },
+  {
+    "sample": "15x13x28",
+    "phases": [
+      {
+        "phase": "order_align_tree",
+        "seconds": 152.3950151070021
+      },
+      {
+        "phase": "order_distances",
+        "seconds": 4.432315065001603
+      },
+      {
+        "phase": "order_prediction",
+        "seconds": 2.9437866829975974
+      },
+      {
+        "phase": "family_prefetch",
+        "seconds": 8.820874741009902
+      },
+      {
+        "phase": "family_uncapped_family_reference",
+        "seconds": 2206.3940292379993
+      },
+      {
+        "phase": "family_family_trees",
+        "seconds": 946.9172213450074
+      },
+      {
+        "phase": "family_family_distances",
+        "seconds": 23.5930709829845
+      },
+      {
+        "phase": "family_frozen_C_and_stability",
+        "seconds": 3.5657939999946393
+      },
+      {
+        "phase": "family_frozen_ML",
+        "seconds": 4.584024127019802
+      },
+      {
+        "phase": "family_complete",
+        "seconds": 0.034003426000708714
+      },
+      {
+        "phase": "genus_adaptive_search_and_final",
+        "seconds": 504.35967864099075
+      }
+    ],
+    "inference_seconds": 3858.0398133560084
+  },
+  {
+    "sample": "15x22x12",
+    "phases": [
+      {
+        "phase": "order_align_tree",
+        "seconds": 171.82658147902112
+      },
+      {
+        "phase": "order_distances",
+        "seconds": 4.052641017973656
+      },
+      {
+        "phase": "order_prediction",
+        "seconds": 1.302643736009486
+      },
+      {
+        "phase": "family_prefetch",
+        "seconds": 5.744027642998844
+      },
+      {
+        "phase": "family_uncapped_family_reference",
+        "seconds": 551.9750302699977
+      },
+      {
+        "phase": "family_family_trees",
+        "seconds": 170.4558117040142
+      },
+      {
+        "phase": "family_family_distances",
+        "seconds": 7.349618325999472
+      },
+      {
+        "phase": "family_frozen_C_and_stability",
+        "seconds": 1.8535485419852193
+      },
+      {
+        "phase": "family_frozen_ML",
+        "seconds": 1.7207813050190452
+      },
+      {
+        "phase": "family_complete",
+        "seconds": 0.016359601984731853
+      },
+      {
+        "phase": "genus_adaptive_search_and_final",
+        "seconds": 429.6201768470055
+      }
+    ],
+    "inference_seconds": 1345.917220472009
+  },
+  {
+    "sample": "16x13x01",
+    "phases": [
+      {
+        "phase": "order_align_tree",
+        "seconds": 184.9855608479993
+      },
+      {
+        "phase": "order_distances",
+        "seconds": 5.055628798989346
+      },
+      {
+        "phase": "order_prediction",
+        "seconds": 1.3277238260197919
+      },
+      {
+        "phase": "family_prefetch",
+        "seconds": 8.234730661992216
+      },
+      {
+        "phase": "family_uncapped_family_reference",
+        "seconds": 2719.8641394640144
+      },
+      {
+        "phase": "family_family_trees",
+        "seconds": 1335.1256562319759
+      },
+      {
+        "phase": "family_family_distances",
+        "seconds": 35.070105994003825
+      },
+      {
+        "phase": "family_frozen_C_and_stability",
+        "seconds": 4.620996309007751
+      },
+      {
+        "phase": "family_frozen_ML",
+        "seconds": 7.242360117990756
+      },
+      {
+        "phase": "family_complete",
+        "seconds": 0.04304038701229729
+      },
+      {
+        "phase": "genus_adaptive_search_and_final",
+        "seconds": 638.1524869340064
+      }
+    ],
+    "inference_seconds": 4939.722429573012
+  },
+  {
+    "sample": "16x25x10x24x12x08x30x09x03x15",
+    "phases": [
+      {
+        "phase": "order_align_tree",
+        "seconds": 248.84363522697822
+      },
+      {
+        "phase": "order_distances",
+        "seconds": 11.82766171701951
+      },
+      {
+        "phase": "order_prediction",
+        "seconds": 1.4497678809857462
+      },
+      {
+        "phase": "family_prefetch",
+        "seconds": 10.185041110991733
+      },
+      {
+        "phase": "family_uncapped_family_reference",
+        "seconds": 5313.404090130003
+      },
+      {
+        "phase": "family_family_trees",
+        "seconds": 4904.310497576022
+      },
+      {
+        "phase": "family_family_distances",
+        "seconds": 187.2937836739875
+      },
+      {
+        "phase": "family_frozen_C_and_stability",
+        "seconds": 19.117381383985048
+      },
+      {
+        "phase": "family_frozen_ML",
+        "seconds": 26.422924842016073
+      },
+      {
+        "phase": "family_complete",
+        "seconds": 0.27705842300201766
+      },
+      {
+        "phase": "genus_adaptive_search_and_final",
+        "seconds": 1497.5949520219874
+      }
+    ],
+    "inference_seconds": 12220.726793986978
+  },
+  {
+    "sample": "16x28x08",
+    "phases": [
+      {
+        "phase": "order_align_tree",
+        "seconds": 202.14680508401943
+      },
+      {
+        "phase": "order_distances",
+        "seconds": 3.7018859589879867
+      },
+      {
+        "phase": "order_prediction",
+        "seconds": 1.342335383000318
+      },
+      {
+        "phase": "family_prefetch",
+        "seconds": 6.266805127001135
+      },
+      {
+        "phase": "family_uncapped_family_reference",
+        "seconds": 893.7244712680113
+      },
+      {
+        "phase": "family_family_trees",
+        "seconds": 352.11081908698543
+      },
+      {
+        "phase": "family_family_distances",
+        "seconds": 9.714904488006141
+      },
+      {
+        "phase": "family_frozen_C_and_stability",
+        "seconds": 2.030557708989363
+      },
+      {
+        "phase": "family_frozen_ML",
+        "seconds": 1.979574908997165
+      },
+      {
+        "phase": "family_complete",
+        "seconds": 0.016509338020114228
+      },
+      {
+        "phase": "genus_adaptive_search_and_final",
+        "seconds": 541.414736606006
+      }
+    ],
+    "inference_seconds": 2014.4494049580244
+  },
+  {
+    "sample": "18x07x13",
+    "phases": [
+      {
+        "phase": "order_align_tree",
+        "seconds": 190.30421609498444
+      },
+      {
+        "phase": "order_distances",
+        "seconds": 4.6967067120131105
+      },
+      {
+        "phase": "order_prediction",
+        "seconds": 1.3250847540039103
+      },
+      {
+        "phase": "family_prefetch",
+        "seconds": 6.185156515974086
+      },
+      {
+        "phase": "family_uncapped_family_reference",
+        "seconds": 944.0520171430253
+      },
+      {
+        "phase": "family_family_trees",
+        "seconds": 401.92854515998624
+      },
+      {
+        "phase": "family_family_distances",
+        "seconds": 13.440884609008208
+      },
+      {
+        "phase": "family_frozen_C_and_stability",
+        "seconds": 2.8509785429923795
+      },
+      {
+        "phase": "family_frozen_ML",
+        "seconds": 2.715597886010073
+      },
+      {
+        "phase": "family_complete",
+        "seconds": 0.01578013299149461
+      },
+      {
+        "phase": "genus_adaptive_search_and_final",
+        "seconds": 258.31005901499884
+      }
+    ],
+    "inference_seconds": 1825.825026565988
+  },
+  {
+    "sample": "18x09x28",
+    "phases": [
+      {
+        "phase": "order_align_tree",
+        "seconds": 207.94136693398468
+      },
+      {
+        "phase": "order_distances",
+        "seconds": 4.087451981002232
+      },
+      {
+        "phase": "order_prediction",
+        "seconds": 1.3609954130079132
+      },
+      {
+        "phase": "family_prefetch",
+        "seconds": 5.967674693994923
+      },
+      {
+        "phase": "family_uncapped_family_reference",
+        "seconds": 477.31194049399346
+      },
+      {
+        "phase": "family_family_trees",
+        "seconds": 161.49327973200707
+      },
+      {
+        "phase": "family_family_distances",
+        "seconds": 7.1847427710017655
+      },
+      {
+        "phase": "family_frozen_C_and_stability",
+        "seconds": 1.6784278569975868
+      },
+      {
+        "phase": "family_frozen_ML",
+        "seconds": 1.658642977999989
+      },
+      {
+        "phase": "family_complete",
+        "seconds": 0.02605097900959663
+      },
+      {
+        "phase": "genus_adaptive_search_and_final",
+        "seconds": 885.3013236690022
+      }
+    ],
+    "inference_seconds": 1754.0118975020014
+  },
+  {
+    "sample": "18x10x22",
+    "phases": [
+      {
+        "phase": "order_align_tree",
+        "seconds": 195.1296754789946
+      },
+      {
+        "phase": "order_distances",
+        "seconds": 4.693453319021501
+      },
+      {
+        "phase": "order_prediction",
+        "seconds": 1.3698500309837982
+      },
+      {
+        "phase": "family_prefetch",
+        "seconds": 6.0777455549978185
+      },
+      {
+        "phase": "family_uncapped_family_reference",
+        "seconds": 594.5191655050148
+      },
+      {
+        "phase": "family_family_trees",
+        "seconds": 257.019716462004
+      },
+      {
+        "phase": "family_family_distances",
+        "seconds": 8.845532902982086
+      },
+      {
+        "phase": "family_frozen_C_and_stability",
+        "seconds": 2.2234607780119404
+      },
+      {
+        "phase": "family_frozen_ML",
+        "seconds": 2.0777329309785273
+      },
+      {
+        "phase": "family_complete",
+        "seconds": 0.017988542007515207
+      },
+      {
+        "phase": "genus_adaptive_search_and_final",
+        "seconds": 571.389219766017
+      }
+    ],
+    "inference_seconds": 1643.3635412710137
+  },
+  {
+    "sample": "18x19x28x30x07x12",
+    "phases": [
+      {
+        "phase": "order_align_tree",
+        "seconds": 201.94073113999912
+      },
+      {
+        "phase": "order_distances",
+        "seconds": 5.8540760920150205
+      },
+      {
+        "phase": "order_prediction",
+        "seconds": 1.3475354209949728
+      },
+      {
+        "phase": "family_prefetch",
+        "seconds": 6.39585348800756
+      },
+      {
+        "phase": "family_uncapped_family_reference",
+        "seconds": 1171.0195485590084
+      },
+      {
+        "phase": "family_family_trees",
+        "seconds": 488.9608053099946
+      },
+      {
+        "phase": "family_family_distances",
+        "seconds": 16.890765338001074
+      },
+      {
+        "phase": "family_frozen_C_and_stability",
+        "seconds": 3.551003845001105
+      },
+      {
+        "phase": "family_frozen_ML",
+        "seconds": 3.471144376002485
+      },
+      {
+        "phase": "family_complete",
+        "seconds": 0.013245048001408577
+      },
+      {
+        "phase": "genus_adaptive_search_and_final",
+        "seconds": 657.1373560089851
+      }
+    ],
+    "inference_seconds": 2556.582064626011
+  },
+  {
+    "sample": "18x25x12",
+    "phases": [
+      {
+        "phase": "order_align_tree",
+        "seconds": 225.99038559300243
+      },
+      {
+        "phase": "order_distances",
+        "seconds": 5.452424661983969
+      },
+      {
+        "phase": "order_prediction",
+        "seconds": 1.3900477540155407
+      },
+      {
+        "phase": "family_prefetch",
+        "seconds": 6.159638318000361
+      },
+      {
+        "phase": "family_uncapped_family_reference",
+        "seconds": 720.4638200989866
+      },
+      {
+        "phase": "family_family_trees",
+        "seconds": 313.8234273499984
+      },
+      {
+        "phase": "family_family_distances",
+        "seconds": 11.083872271992732
+      },
+      {
+        "phase": "family_frozen_C_and_stability",
+        "seconds": 2.7576574440172408
+      },
+      {
+        "phase": "family_frozen_ML",
+        "seconds": 2.626923422998516
+      },
+      {
+        "phase": "family_complete",
+        "seconds": 0.014005899982294068
+      },
+      {
+        "phase": "genus_adaptive_search_and_final",
+        "seconds": 300.80308002000675
+      }
+    ],
+    "inference_seconds": 1590.5652828349848
+  },
+  {
+    "sample": "19x07x08x16x03x10",
+    "phases": [
+      {
+        "phase": "order_align_tree",
+        "seconds": 202.07561652100412
+      },
+      {
+        "phase": "order_distances",
+        "seconds": 5.988370406994363
+      },
+      {
+        "phase": "order_prediction",
+        "seconds": 1.3575657379988115
+      },
+      {
+        "phase": "family_prefetch",
+        "seconds": 8.172915767005179
+      },
+      {
+        "phase": "family_uncapped_family_reference",
+        "seconds": 2554.1185247770045
+      },
+      {
+        "phase": "family_family_trees",
+        "seconds": 1599.064548202994
+      },
+      {
+        "phase": "family_family_distances",
+        "seconds": 46.36230501299724
+      },
+      {
+        "phase": "family_frozen_C_and_stability",
+        "seconds": 6.414760448999004
+      },
+      {
+        "phase": "family_frozen_ML",
+        "seconds": 9.127212755993241
+      },
+      {
+        "phase": "family_complete",
+        "seconds": 0.015377302013803273
+      },
+      {
+        "phase": "genus_adaptive_search_and_final",
+        "seconds": 1119.2151257569785
+      }
+    ],
+    "inference_seconds": 5551.912322689983
+  },
+  {
+    "sample": "19x22x10",
+    "phases": [
+      {
+        "phase": "order_align_tree",
+        "seconds": 189.74576789903222
+      },
+      {
+        "phase": "order_distances",
+        "seconds": 4.611470963980537
+      },
+      {
+        "phase": "order_prediction",
+        "seconds": 1.357195315998979
+      },
+      {
+        "phase": "family_prefetch",
+        "seconds": 6.422869338013697
+      },
+      {
+        "phase": "family_uncapped_family_reference",
+        "seconds": 585.1853945699986
+      },
+      {
+        "phase": "family_family_trees",
+        "seconds": 194.26030600600643
+      },
+      {
+        "phase": "family_family_distances",
+        "seconds": 8.460733924002852
+      },
+      {
+        "phase": "family_frozen_C_and_stability",
+        "seconds": 2.11731250397861
+      },
+      {
+        "phase": "family_frozen_ML",
+        "seconds": 2.0565069940057583
+      },
+      {
+        "phase": "family_complete",
+        "seconds": 0.024100099981296808
+      },
+      {
+        "phase": "genus_adaptive_search_and_final",
+        "seconds": 651.7554467979935
+      }
+    ],
+    "inference_seconds": 1645.9971044129925
+  },
+  {
+    "sample": "19x25x04x26x02x01",
+    "phases": [
+      {
+        "phase": "order_align_tree",
+        "seconds": 220.08151282800827
+      },
+      {
+        "phase": "order_distances",
+        "seconds": 7.9966145340004005
+      },
+      {
+        "phase": "order_prediction",
+        "seconds": 1.3836493699927814
+      },
+      {
+        "phase": "family_prefetch",
+        "seconds": 6.846344958990812
+      },
+      {
+        "phase": "family_uncapped_family_reference",
+        "seconds": 1408.745626109012
+      },
+      {
+        "phase": "family_family_trees",
+        "seconds": 764.6578479729942
+      },
+      {
+        "phase": "family_family_distances",
+        "seconds": 30.3065212360234
+      },
+      {
+        "phase": "family_frozen_C_and_stability",
+        "seconds": 6.300321832008194
+      },
+      {
+        "phase": "family_frozen_ML",
+        "seconds": 7.6888959190109745
+      },
+      {
+        "phase": "family_complete",
+        "seconds": 0.16612998599885032
+      },
+      {
+        "phase": "genus_adaptive_search_and_final",
+        "seconds": 609.3277937529492
+      }
+    ],
+    "inference_seconds": 3063.501258498989
+  },
+  {
+    "sample": "19x28x04",
+    "phases": [
+      {
+        "phase": "order_align_tree",
+        "seconds": 180.33567267801845
+      },
+      {
+        "phase": "order_distances",
+        "seconds": 4.168742940004449
+      },
+      {
+        "phase": "order_prediction",
+        "seconds": 1.478665799018927
+      },
+      {
+        "phase": "family_prefetch",
+        "seconds": 7.036068215966225
+      },
+      {
+        "phase": "family_uncapped_family_reference",
+        "seconds": 1256.3889908500132
+      },
+      {
+        "phase": "family_family_trees",
+        "seconds": 471.2706868639798
+      },
+      {
+        "phase": "family_family_distances",
+        "seconds": 13.393034161999822
+      },
+      {
+        "phase": "family_frozen_C_and_stability",
+        "seconds": 2.465477879042737
+      },
+      {
+        "phase": "family_frozen_ML",
+        "seconds": 2.647270226967521
+      },
+      {
+        "phase": "family_complete",
+        "seconds": 0.016490454028826207
+      },
+      {
+        "phase": "genus_adaptive_search_and_final",
+        "seconds": 375.8733061059611
+      }
+    ],
+    "inference_seconds": 2315.074406175001
+  },
+  {
+    "sample": "22x26x04",
+    "phases": [
+      {
+        "phase": "order_align_tree",
+        "seconds": 212.34300973603968
+      },
+      {
+        "phase": "order_distances",
+        "seconds": 4.760734812996816
+      },
+      {
+        "phase": "order_prediction",
+        "seconds": 1.3692930569523014
+      },
+      {
+        "phase": "family_prefetch",
+        "seconds": 6.316129813028965
+      },
+      {
+        "phase": "family_uncapped_family_reference",
+        "seconds": 890.2891023349948
+      },
+      {
+        "phase": "family_family_trees",
+        "seconds": 488.9443423959892
+      },
+      {
+        "phase": "family_family_distances",
+        "seconds": 14.554909375030547
+      },
+      {
+        "phase": "family_frozen_C_and_stability",
+        "seconds": 3.1468487629899755
+      },
+      {
+        "phase": "family_frozen_ML",
+        "seconds": 3.259818491002079
+      },
+      {
+        "phase": "family_complete",
+        "seconds": 0.025573246995918453
+      },
+      {
+        "phase": "genus_adaptive_search_and_final",
+        "seconds": 347.02499876898946
+      }
+    ],
+    "inference_seconds": 1972.0347607950098
+  },
+  {
+    "sample": "24x04x28",
+    "phases": [
+      {
+        "phase": "order_align_tree",
+        "seconds": 232.63554562901845
+      },
+      {
+        "phase": "order_distances",
+        "seconds": 4.3962680859840475
+      },
+      {
+        "phase": "order_prediction",
+        "seconds": 1.3516841240343638
+      },
+      {
+        "phase": "family_prefetch",
+        "seconds": 6.1034660639707
+      },
+      {
+        "phase": "family_uncapped_family_reference",
+        "seconds": 944.7604716510396
+      },
+      {
+        "phase": "family_family_trees",
+        "seconds": 523.212081265985
+      },
+      {
+        "phase": "family_family_distances",
+        "seconds": 13.616954531986266
+      },
+      {
+        "phase": "family_frozen_C_and_stability",
+        "seconds": 2.822168243001215
+      },
+      {
+        "phase": "family_frozen_ML",
+        "seconds": 3.22812550800154
+      },
+      {
+        "phase": "family_complete",
+        "seconds": 0.016332799976225942
+      },
+      {
+        "phase": "genus_adaptive_search_and_final",
+        "seconds": 607.9298871430219
+      }
+    ],
+    "inference_seconds": 2340.0729850460193
+  },
+  {
+    "sample": "24x09x15",
+    "phases": [
+      {
+        "phase": "order_align_tree",
+        "seconds": 244.13346097397152
+      },
+      {
+        "phase": "order_distances",
+        "seconds": 5.170173576043453
+      },
+      {
+        "phase": "order_prediction",
+        "seconds": 1.3714940689969808
+      },
+      {
+        "phase": "family_prefetch",
+        "seconds": 6.25242930999957
+      },
+      {
+        "phase": "family_uncapped_family_reference",
+        "seconds": 496.1358621259569
+      },
+      {
+        "phase": "family_family_trees",
+        "seconds": 179.26132273802068
+      },
+      {
+        "phase": "family_family_distances",
+        "seconds": 8.490291038993746
+      },
+      {
+        "phase": "family_frozen_C_and_stability",
+        "seconds": 2.235024629975669
+      },
+      {
+        "phase": "family_frozen_ML",
+        "seconds": 2.144842242007144
+      },
+      {
+        "phase": "family_complete",
+        "seconds": 0.014386898023076355
+      },
+      {
+        "phase": "genus_adaptive_search_and_final",
+        "seconds": 1002.6776165280025
+      }
+    ],
+    "inference_seconds": 1947.8869041299913
+  },
+  {
+    "sample": "24x10x28x01x25x13",
+    "phases": [
+      {
+        "phase": "order_align_tree",
+        "seconds": 219.73005986498902
+      },
+      {
+        "phase": "order_distances",
+        "seconds": 7.240645001002122
+      },
+      {
+        "phase": "order_prediction",
+        "seconds": 1.3887455220101401
+      },
+      {
+        "phase": "family_prefetch",
+        "seconds": 8.45473843900254
+      },
+      {
+        "phase": "family_uncapped_family_reference",
+        "seconds": 3163.736655400018
+      },
+      {
+        "phase": "family_family_trees",
+        "seconds": 2134.8208298360114
+      },
+      {
+        "phase": "family_family_distances",
+        "seconds": 65.97954649798339
+      },
+      {
+        "phase": "family_frozen_C_and_stability",
+        "seconds": 8.670078695984557
+      },
+      {
+        "phase": "family_frozen_ML",
+        "seconds": 12.22009799600346
+      },
+      {
+        "phase": "family_complete",
+        "seconds": 0.17283122200751677
+      },
+      {
+        "phase": "genus_adaptive_search_and_final",
+        "seconds": 1030.4954663279932
+      }
+    ],
+    "inference_seconds": 6652.909694803006
+  },
+  {
+    "sample": "24x28x01",
+    "phases": [
+      {
+        "phase": "order_align_tree",
+        "seconds": 255.20028881600592
+      },
+      {
+        "phase": "order_distances",
+        "seconds": 5.547754664963577
+      },
+      {
+        "phase": "order_prediction",
+        "seconds": 1.451553363003768
+      },
+      {
+        "phase": "family_prefetch",
+        "seconds": 6.358767048979644
+      },
+      {
+        "phase": "family_uncapped_family_reference",
+        "seconds": 660.2346353250323
+      },
+      {
+        "phase": "family_family_trees",
+        "seconds": 249.35817146097543
+      },
+      {
+        "phase": "family_family_distances",
+        "seconds": 8.11301818001084
+      },
+      {
+        "phase": "family_frozen_C_and_stability",
+        "seconds": 2.139139952021651
+      },
+      {
+        "phase": "family_frozen_ML",
+        "seconds": 2.388285883003846
+      },
+      {
+        "phase": "family_complete",
+        "seconds": 0.02950579096795991
+      },
+      {
+        "phase": "genus_adaptive_search_and_final",
+        "seconds": 596.7984514500131
+      }
+    ],
+    "inference_seconds": 1787.619571934978
+  },
+  {
+    "sample": "25x01x19x28x10x24",
+    "phases": [
+      {
+        "phase": "order_align_tree",
+        "seconds": 212.77087991597364
+      },
+      {
+        "phase": "order_distances",
+        "seconds": 7.549312280025333
+      },
+      {
+        "phase": "order_prediction",
+        "seconds": 1.3741145959938876
+      },
+      {
+        "phase": "family_prefetch",
+        "seconds": 6.3679218359757215
+      },
+      {
+        "phase": "family_uncapped_family_reference",
+        "seconds": 772.2359306160361
+      },
+      {
+        "phase": "family_family_trees",
+        "seconds": 340.2647392509971
+      },
+      {
+        "phase": "family_family_distances",
+        "seconds": 13.958924859005492
+      },
+      {
+        "phase": "family_frozen_C_and_stability",
+        "seconds": 3.774199351959396
+      },
+      {
+        "phase": "family_frozen_ML",
+        "seconds": 3.980714823002927
+      },
+      {
+        "phase": "family_complete",
+        "seconds": 0.0378498180070892
+      },
+      {
+        "phase": "genus_adaptive_search_and_final",
+        "seconds": 937.8286284269998
+      }
+    ],
+    "inference_seconds": 2300.1432157739764
+  },
+  {
+    "sample": "25x12x28x02x10x13",
+    "phases": [
+      {
+        "phase": "order_align_tree",
+        "seconds": 189.44226929196157
+      },
+      {
+        "phase": "order_distances",
+        "seconds": 7.5137366450508125
+      },
+      {
+        "phase": "order_prediction",
+        "seconds": 1.3620752839487977
+      },
+      {
+        "phase": "family_prefetch",
+        "seconds": 9.034534914011601
+      },
+      {
+        "phase": "family_uncapped_family_reference",
+        "seconds": 4215.3635657110135
+      },
+      {
+        "phase": "family_family_trees",
+        "seconds": 3123.37053607899
+      },
+      {
+        "phase": "family_family_distances",
+        "seconds": 98.6513854030054
+      },
+      {
+        "phase": "family_frozen_C_and_stability",
+        "seconds": 11.586926391988527
+      },
+      {
+        "phase": "family_frozen_ML",
+        "seconds": 14.965599774033763
+      },
+      {
+        "phase": "family_complete",
+        "seconds": 0.13998113299021497
+      },
+      {
+        "phase": "genus_adaptive_search_and_final",
+        "seconds": 1509.1866760129924
+      }
+    ],
+    "inference_seconds": 9180.617286639987
+  },
+  {
+    "sample": "25x16x10x01x12x09x18x02x13x08",
+    "phases": [
+      {
+        "phase": "order_align_tree",
+        "seconds": 197.07445465301862
+      },
+      {
+        "phase": "order_distances",
+        "seconds": 11.64406586799305
+      },
+      {
+        "phase": "order_prediction",
+        "seconds": 1.4020380260189995
+      },
+      {
+        "phase": "family_prefetch",
+        "seconds": 9.369775925995782
+      },
+      {
+        "phase": "family_uncapped_family_reference",
+        "seconds": 4470.189609868976
+      },
+      {
+        "phase": "family_family_trees",
+        "seconds": 3361.6713795459946
+      },
+      {
+        "phase": "family_family_distances",
+        "seconds": 150.14679624099517
+      },
+      {
+        "phase": "family_frozen_C_and_stability",
+        "seconds": 16.914592599030584
+      },
+      {
+        "phase": "family_frozen_ML",
+        "seconds": 23.347024499962572
+      },
+      {
+        "phase": "family_complete",
+        "seconds": 0.08405872504226863
+      },
+      {
+        "phase": "genus_adaptive_search_and_final",
+        "seconds": 1310.1567929249723
+      }
+    ],
+    "inference_seconds": 9552.000588878
+  },
+  {
+    "sample": "25x28x02x15x03x08",
+    "phases": [
+      {
+        "phase": "order_align_tree",
+        "seconds": 150.21510039101122
+      },
+      {
+        "phase": "order_distances",
+        "seconds": 6.854019200021867
+      },
+      {
+        "phase": "order_prediction",
+        "seconds": 2.7289852739777416
+      },
+      {
+        "phase": "family_prefetch",
+        "seconds": 8.250482361996546
+      },
+      {
+        "phase": "family_uncapped_family_reference",
+        "seconds": 1544.7530404230347
+      },
+      {
+        "phase": "family_family_trees",
+        "seconds": 560.1198878119467
+      },
+      {
+        "phase": "family_family_distances",
+        "seconds": 24.35615696903551
+      },
+      {
+        "phase": "family_frozen_C_and_stability",
+        "seconds": 4.555046391964424
+      },
+      {
+        "phase": "family_frozen_ML",
+        "seconds": 5.124188421003055
+      },
+      {
+        "phase": "family_complete",
+        "seconds": 0.016900550050195307
+      },
+      {
+        "phase": "genus_adaptive_search_and_final",
+        "seconds": 1174.5194247719483
+      }
+    ],
+    "inference_seconds": 3481.49323256599
+  },
+  {
+    "sample": "25x28x30x07x22x24x12x04x03x18",
+    "phases": [
+      {
+        "phase": "order_align_tree",
+        "seconds": 160.08265087101609
+      },
+      {
+        "phase": "order_distances",
+        "seconds": 9.269146548991557
+      },
+      {
+        "phase": "order_prediction",
+        "seconds": 1.3583928020088933
+      },
+      {
+        "phase": "family_prefetch",
+        "seconds": 7.831062430981547
+      },
+      {
+        "phase": "family_uncapped_family_reference",
+        "seconds": 2594.1181423650123
+      },
+      {
+        "phase": "family_family_trees",
+        "seconds": 1339.9096621689969
+      },
+      {
+        "phase": "family_family_distances",
+        "seconds": 68.09153112501372
+      },
+      {
+        "phase": "family_frozen_C_and_stability",
+        "seconds": 9.523552743950859
+      },
+      {
+        "phase": "family_frozen_ML",
+        "seconds": 12.492444743053056
+      },
+      {
+        "phase": "family_complete",
+        "seconds": 0.02096812496893108
+      },
+      {
+        "phase": "genus_adaptive_search_and_final",
+        "seconds": 2434.5914382369956
+      }
+    ],
+    "inference_seconds": 6637.288992160989
+  },
+  {
+    "sample": "25x30x15x19x03x13",
+    "phases": [
+      {
+        "phase": "order_align_tree",
+        "seconds": 157.76780385605525
+      },
+      {
+        "phase": "order_distances",
+        "seconds": 7.073521591955796
+      },
+      {
+        "phase": "order_prediction",
+        "seconds": 1.3633106860215776
+      },
+      {
+        "phase": "family_prefetch",
+        "seconds": 8.843966643966269
+      },
+      {
+        "phase": "family_uncapped_family_reference",
+        "seconds": 3657.105537962052
+      },
+      {
+        "phase": "family_family_trees",
+        "seconds": 2068.573156405997
+      },
+      {
+        "phase": "family_family_distances",
+        "seconds": 70.02347074798308
+      },
+      {
+        "phase": "family_frozen_C_and_stability",
+        "seconds": 9.302691643009894
+      },
+      {
+        "phase": "family_frozen_ML",
+        "seconds": 13.103774644958321
+      },
+      {
+        "phase": "family_complete",
+        "seconds": 0.029491050052456558
+      },
+      {
+        "phase": "genus_adaptive_search_and_final",
+        "seconds": 880.3389411289827
+      }
+    ],
+    "inference_seconds": 6873.525666361034
+  },
+  {
+    "sample": "26x01x24",
+    "phases": [
+      {
+        "phase": "order_align_tree",
+        "seconds": 220.80251968395896
+      },
+      {
+        "phase": "order_distances",
+        "seconds": 6.082653987046797
+      },
+      {
+        "phase": "order_prediction",
+        "seconds": 1.3430633709649555
+      },
+      {
+        "phase": "family_prefetch",
+        "seconds": 5.273701811034698
+      },
+      {
+        "phase": "family_uncapped_family_reference",
+        "seconds": 254.92325232195435
+      },
+      {
+        "phase": "family_family_trees",
+        "seconds": 92.28481665201252
+      },
+      {
+        "phase": "family_family_distances",
+        "seconds": 5.634203026012983
+      },
+      {
+        "phase": "family_frozen_C_and_stability",
+        "seconds": 1.744299484998919
+      },
+      {
+        "phase": "family_frozen_ML",
+        "seconds": 1.6527164069702849
+      },
+      {
+        "phase": "family_complete",
+        "seconds": 0.031571462051942945
+      },
+      {
+        "phase": "genus_adaptive_search_and_final",
+        "seconds": 310.36793762195157
+      }
+    ],
+    "inference_seconds": 900.140735828958
+  },
+  {
+    "sample": "26x03x02x01x04x10",
+    "phases": [
+      {
+        "phase": "order_align_tree",
+        "seconds": 175.86649692199717
+      },
+      {
+        "phase": "order_distances",
+        "seconds": 9.091233115992509
+      },
+      {
+        "phase": "order_prediction",
+        "seconds": 2.8801895729993703
+      },
+      {
+        "phase": "family_prefetch",
+        "seconds": 8.375634402007563
+      },
+      {
+        "phase": "family_uncapped_family_reference",
+        "seconds": 1404.0759491999925
+      },
+      {
+        "phase": "family_family_trees",
+        "seconds": 802.11811614201
+      },
+      {
+        "phase": "family_family_distances",
+        "seconds": 32.4035298289964
+      },
+      {
+        "phase": "family_frozen_C_and_stability",
+        "seconds": 6.119788961994345
+      },
+      {
+        "phase": "family_frozen_ML",
+        "seconds": 7.491558633002569
+      },
+      {
+        "phase": "family_complete",
+        "seconds": 0.04421108700626064
+      },
+      {
+        "phase": "genus_adaptive_search_and_final",
+        "seconds": 898.4368595239939
+      }
+    ],
+    "inference_seconds": 3346.9035673899925
+  },
+  {
+    "sample": "26x19x08",
+    "phases": [
+      {
+        "phase": "order_align_tree",
+        "seconds": 311.32612506800797
+      },
+      {
+        "phase": "order_distances",
+        "seconds": 8.62787347700214
+      },
+      {
+        "phase": "order_prediction",
+        "seconds": 3.461245874990709
+      },
+      {
+        "phase": "family_prefetch",
+        "seconds": 9.242900862009265
+      },
+      {
+        "phase": "family_uncapped_family_reference",
+        "seconds": 674.7877851309895
+      },
+      {
+        "phase": "family_family_trees",
+        "seconds": 275.6764060530113
+      },
+      {
+        "phase": "family_family_distances",
+        "seconds": 13.802021043986315
+      },
+      {
+        "phase": "family_frozen_C_and_stability",
+        "seconds": 2.502517365006497
+      },
+      {
+        "phase": "family_frozen_ML",
+        "seconds": 2.2492139370006043
+      },
+      {
+        "phase": "family_complete",
+        "seconds": 0.036793147010030225
+      },
+      {
+        "phase": "genus_adaptive_search_and_final",
+        "seconds": 485.81575774398516
+      }
+    ],
+    "inference_seconds": 1787.5286397029995
+  },
+  {
+    "sample": "26x22x03x13x10x19x04x16x30x24",
+    "phases": [
+      {
+        "phase": "order_align_tree",
+        "seconds": 182.17571889598912
+      },
+      {
+        "phase": "order_distances",
+        "seconds": 10.566857566009276
+      },
+      {
+        "phase": "order_prediction",
+        "seconds": 1.435765613001422
+      },
+      {
+        "phase": "family_prefetch",
+        "seconds": 12.014030659993296
+      },
+      {
+        "phase": "family_uncapped_family_reference",
+        "seconds": 7175.864683701002
+      },
+      {
+        "phase": "family_family_trees",
+        "seconds": 6648.946499215992
+      },
+      {
+        "phase": "family_family_distances",
+        "seconds": 260.37961255101254
+      },
+      {
+        "phase": "family_frozen_C_and_stability",
+        "seconds": 22.386429134989157
+      },
+      {
+        "phase": "family_frozen_ML",
+        "seconds": 33.845622128021205
+      },
+      {
+        "phase": "family_complete",
+        "seconds": 0.33059581799898297
+      },
+      {
+        "phase": "genus_adaptive_search_and_final",
+        "seconds": 1536.812130942999
+      }
+    ],
+    "inference_seconds": 15884.757946227008
+  },
+  {
+    "sample": "28x12x25x10x03x15",
+    "phases": [
+      {
+        "phase": "order_align_tree",
+        "seconds": 230.6354779190151
+      },
+      {
+        "phase": "order_distances",
+        "seconds": 9.103378016967326
+      },
+      {
+        "phase": "order_prediction",
+        "seconds": 2.767201445007231
+      },
+      {
+        "phase": "family_prefetch",
+        "seconds": 11.068641483027022
+      },
+      {
+        "phase": "family_uncapped_family_reference",
+        "seconds": 3580.083883287967
+      },
+      {
+        "phase": "family_family_trees",
+        "seconds": 2542.1355872279964
+      },
+      {
+        "phase": "family_family_distances",
+        "seconds": 79.30292119900696
+      },
+      {
+        "phase": "family_frozen_C_and_stability",
+        "seconds": 8.856136717018671
+      },
+      {
+        "phase": "family_frozen_ML",
+        "seconds": 12.602356581017375
+      },
+      {
+        "phase": "family_complete",
+        "seconds": 0.034425035992171615
+      },
+      {
+        "phase": "genus_adaptive_search_and_final",
+        "seconds": 1791.665935772995
+      }
+    ],
+    "inference_seconds": 8268.25594468601
+  },
+  {
+    "sample": "28x16x30",
+    "phases": [
+      {
+        "phase": "order_align_tree",
+        "seconds": 187.76285309396917
+      },
+      {
+        "phase": "order_distances",
+        "seconds": 3.3156630160519853
+      },
+      {
+        "phase": "order_prediction",
+        "seconds": 1.511855308956001
+      },
+      {
+        "phase": "family_prefetch",
+        "seconds": 7.286220200010575
+      },
+      {
+        "phase": "family_uncapped_family_reference",
+        "seconds": 639.045043946011
+      },
+      {
+        "phase": "family_family_trees",
+        "seconds": 207.37559925799724
+      },
+      {
+        "phase": "family_family_distances",
+        "seconds": 6.427061179012526
+      },
+      {
+        "phase": "family_frozen_C_and_stability",
+        "seconds": 1.3904746979824267
+      },
+      {
+        "phase": "family_frozen_ML",
+        "seconds": 1.3111937129870057
+      },
+      {
+        "phase": "family_complete",
+        "seconds": 0.013153364008758217
+      },
+      {
+        "phase": "genus_adaptive_search_and_final",
+        "seconds": 361.94182437303243
+      }
+    ],
+    "inference_seconds": 1417.380942150019
+  },
+  {
+    "sample": "28x19x02x09x18x26",
+    "phases": [
+      {
+        "phase": "order_align_tree",
+        "seconds": 225.46362052997574
+      },
+      {
+        "phase": "order_distances",
+        "seconds": 9.025562260008883
+      },
+      {
+        "phase": "order_prediction",
+        "seconds": 2.6319282759795897
+      },
+      {
+        "phase": "family_prefetch",
+        "seconds": 10.125816392013803
+      },
+      {
+        "phase": "family_uncapped_family_reference",
+        "seconds": 2806.20720372902
+      },
+      {
+        "phase": "family_family_trees",
+        "seconds": 2455.672247740964
+      },
+      {
+        "phase": "family_family_distances",
+        "seconds": 74.29757155803964
+      },
+      {
+        "phase": "family_frozen_C_and_stability",
+        "seconds": 9.602896442986093
+      },
+      {
+        "phase": "family_frozen_ML",
+        "seconds": 12.623912406968884
+      },
+      {
+        "phase": "family_complete",
+        "seconds": 0.04007624101359397
+      },
+      {
+        "phase": "genus_adaptive_search_and_final",
+        "seconds": 2065.437012928014
+      }
+    ],
+    "inference_seconds": 7671.127848504984
+  },
+  {
+    "sample": "28x19x04x02x13x03",
+    "phases": [
+      {
+        "phase": "order_align_tree",
+        "seconds": 134.12828710995382
+      },
+      {
+        "phase": "order_distances",
+        "seconds": 6.285017081012484
+      },
+      {
+        "phase": "order_prediction",
+        "seconds": 1.3705860890331678
+      },
+      {
+        "phase": "family_prefetch",
+        "seconds": 8.97294567496283
+      },
+      {
+        "phase": "family_uncapped_family_reference",
+        "seconds": 3236.5131143250037
+      },
+      {
+        "phase": "family_family_trees",
+        "seconds": 1678.7543080819887
+      },
+      {
+        "phase": "family_family_distances",
+        "seconds": 59.71819583303295
+      },
+      {
+        "phase": "family_frozen_C_and_stability",
+        "seconds": 7.218386358988937
+      },
+      {
+        "phase": "family_frozen_ML",
+        "seconds": 9.834345180017408
+      },
+      {
+        "phase": "family_complete",
+        "seconds": 0.06844923895550892
+      },
+      {
+        "phase": "genus_adaptive_search_and_final",
+        "seconds": 1552.950644192053
+      }
+    ],
+    "inference_seconds": 6695.8142791650025
+  },
+  {
+    "sample": "28x24x25x15x04x01",
+    "phases": [
+      {
+        "phase": "order_align_tree",
+        "seconds": 231.81266780599253
+      },
+      {
+        "phase": "order_distances",
+        "seconds": 7.982085842988454
+      },
+      {
+        "phase": "order_prediction",
+        "seconds": 1.8400677500176243
+      },
+      {
+        "phase": "family_prefetch",
+        "seconds": 9.172324765997473
+      },
+      {
+        "phase": "family_uncapped_family_reference",
+        "seconds": 1187.659859241976
+      },
+      {
+        "phase": "family_family_trees",
+        "seconds": 679.6350111620268
+      },
+      {
+        "phase": "family_family_distances",
+        "seconds": 28.98794685100438
+      },
+      {
+        "phase": "family_frozen_C_and_stability",
+        "seconds": 4.526789481984451
+      },
+      {
+        "phase": "family_frozen_ML",
+        "seconds": 5.4580750779714435
+      },
+      {
+        "phase": "family_complete",
+        "seconds": 0.07328618102474138
+      },
+      {
+        "phase": "genus_adaptive_search_and_final",
+        "seconds": 907.3180995479925
+      }
+    ],
+    "inference_seconds": 3064.4662137089763
+  },
+  {
+    "sample": "30x04x03",
+    "phases": [
+      {
+        "phase": "order_align_tree",
+        "seconds": 148.4376252630027
+      },
+      {
+        "phase": "order_distances",
+        "seconds": 4.911664354000095
+      },
+      {
+        "phase": "order_prediction",
+        "seconds": 2.6777825440003653
+      },
+      {
+        "phase": "family_prefetch",
+        "seconds": 7.487288639000326
+      },
+      {
+        "phase": "family_uncapped_family_reference",
+        "seconds": 710.6351627469994
+      },
+      {
+        "phase": "family_family_trees",
+        "seconds": 237.63466227900062
+      },
+      {
+        "phase": "family_family_distances",
+        "seconds": 11.222761946999526
+      },
+      {
+        "phase": "family_frozen_C_and_stability",
+        "seconds": 1.9734468779970484
+      },
+      {
+        "phase": "family_frozen_ML",
+        "seconds": 2.0053837170016777
+      },
+      {
+        "phase": "family_complete",
+        "seconds": 0.03927937000116799
+      },
+      {
+        "phase": "genus_adaptive_search_and_final",
+        "seconds": 373.20048431599935
+      }
+    ],
+    "inference_seconds": 1500.2255420540023
+  },
+  {
+    "sample": "30x04x13x26x19x28",
+    "phases": [
+      {
+        "phase": "order_align_tree",
+        "seconds": 186.51597333099926
+      },
+      {
+        "phase": "order_distances",
+        "seconds": 8.375202295021154
+      },
+      {
+        "phase": "order_prediction",
+        "seconds": 2.824410828005057
+      },
+      {
+        "phase": "family_prefetch",
+        "seconds": 11.120128438982647
+      },
+      {
+        "phase": "family_uncapped_family_reference",
+        "seconds": 3976.1079659050447
+      },
+      {
+        "phase": "family_family_trees",
+        "seconds": 2907.910006980994
+      },
+      {
+        "phase": "family_family_distances",
+        "seconds": 94.13570632098708
+      },
+      {
+        "phase": "family_frozen_C_and_stability",
+        "seconds": 9.509053314977791
+      },
+      {
+        "phase": "family_frozen_ML",
+        "seconds": 14.282882433035411
+      },
+      {
+        "phase": "family_complete",
+        "seconds": 0.04729853296885267
+      },
+      {
+        "phase": "genus_adaptive_search_and_final",
+        "seconds": 896.7971952370135
+      }
+    ],
+    "inference_seconds": 8107.625823618029
+  },
+  {
+    "sample": "30x04x16x01x22x03",
+    "phases": [
+      {
+        "phase": "order_align_tree",
+        "seconds": 182.826094885997
+      },
+      {
+        "phase": "order_distances",
+        "seconds": 7.013812825025525
+      },
+      {
+        "phase": "order_prediction",
+        "seconds": 1.4677690399694256
+      },
+      {
+        "phase": "family_prefetch",
+        "seconds": 8.602432898012921
+      },
+      {
+        "phase": "family_uncapped_family_reference",
+        "seconds": 2096.3143236599863
+      },
+      {
+        "phase": "family_family_trees",
+        "seconds": 1146.1939507460338
+      },
+      {
+        "phase": "family_family_distances",
+        "seconds": 34.46556528197834
+      },
+      {
+        "phase": "family_frozen_C_and_stability",
+        "seconds": 6.372825106023811
+      },
+      {
+        "phase": "family_frozen_ML",
+        "seconds": 8.133007525990251
+      },
+      {
+        "phase": "family_complete",
+        "seconds": 0.023150129010900855
+      },
+      {
+        "phase": "genus_adaptive_search_and_final",
+        "seconds": 1035.7132337570074
+      }
+    ],
+    "inference_seconds": 4527.126165855036
+  },
+  {
+    "sample": "30x04x19x07x03x16",
+    "phases": [
+      {
+        "phase": "order_align_tree",
+        "seconds": 184.79339786001947
+      },
+      {
+        "phase": "order_distances",
+        "seconds": 5.782333594979718
+      },
+      {
+        "phase": "order_prediction",
+        "seconds": 1.405736010055989
+      },
+      {
+        "phase": "family_prefetch",
+        "seconds": 8.212685431994032
+      },
+      {
+        "phase": "family_uncapped_family_reference",
+        "seconds": 2494.51396285597
+      },
+      {
+        "phase": "family_family_trees",
+        "seconds": 1366.0233214710024
+      },
+      {
+        "phase": "family_family_distances",
+        "seconds": 38.29583975899732
+      },
+      {
+        "phase": "family_frozen_C_and_stability",
+        "seconds": 5.74233020900283
+      },
+      {
+        "phase": "family_frozen_ML",
+        "seconds": 7.991587945027277
+      },
+      {
+        "phase": "family_complete",
+        "seconds": 0.041458553983829916
+      },
+      {
+        "phase": "genus_adaptive_search_and_final",
+        "seconds": 1195.9838859710144
+      }
+    ],
+    "inference_seconds": 5308.786539662047
+  },
+  {
+    "sample": "30x09x22x28x16x12",
+    "phases": [
+      {
+        "phase": "order_align_tree",
+        "seconds": 217.58139638300054
+      },
+      {
+        "phase": "order_distances",
+        "seconds": 7.394790224963799
+      },
+      {
+        "phase": "order_prediction",
+        "seconds": 1.434317787992768
+      },
+      {
+        "phase": "family_prefetch",
+        "seconds": 8.722490388026927
+      },
+      {
+        "phase": "family_uncapped_family_reference",
+        "seconds": 2325.4022732140147
+      },
+      {
+        "phase": "family_family_trees",
+        "seconds": 1425.1562556930003
+      },
+      {
+        "phase": "family_family_distances",
+        "seconds": 45.363154388964176
+      },
+      {
+        "phase": "family_frozen_C_and_stability",
+        "seconds": 6.320416734030005
+      },
+      {
+        "phase": "family_frozen_ML",
+        "seconds": 8.010907822987065
+      },
+      {
+        "phase": "family_complete",
+        "seconds": 0.04860887402901426
+      },
+      {
+        "phase": "genus_adaptive_search_and_final",
+        "seconds": 2843.48759913299
+      }
+    ],
+    "inference_seconds": 6888.922210643999
+  },
+  {
+    "sample": "30x10x08x04x25x26",
+    "phases": [
+      {
+        "phase": "order_align_tree",
+        "seconds": 213.33870380802546
+      },
+      {
+        "phase": "order_distances",
+        "seconds": 8.48439222201705
+      },
+      {
+        "phase": "order_prediction",
+        "seconds": 1.4251933119958267
+      },
+      {
+        "phase": "family_prefetch",
+        "seconds": 7.985987772990484
+      },
+      {
+        "phase": "family_uncapped_family_reference",
+        "seconds": 1837.908707368013
+      },
+      {
+        "phase": "family_family_trees",
+        "seconds": 1096.869275014964
+      },
+      {
+        "phase": "family_family_distances",
+        "seconds": 40.322684348037
+      },
+      {
+        "phase": "family_frozen_C_and_stability",
+        "seconds": 7.02064010995673
+      },
+      {
+        "phase": "family_frozen_ML",
+        "seconds": 8.8674713470391
+      },
+      {
+        "phase": "family_complete",
+        "seconds": 0.0327909339684993
+      },
+      {
+        "phase": "genus_adaptive_search_and_final",
+        "seconds": 1109.84959871904
+      }
+    ],
+    "inference_seconds": 4332.105444956047
+  },
+  {
+    "sample": "30x28x08x02x09x25x15x04x12x22",
+    "phases": [
+      {
+        "phase": "order_align_tree",
+        "seconds": 183.15594575897558
+      },
+      {
+        "phase": "order_distances",
+        "seconds": 12.257801224011928
+      },
+      {
+        "phase": "order_prediction",
+        "seconds": 1.5500247149902862
+      },
+      {
+        "phase": "family_prefetch",
+        "seconds": 11.083946257014759
+      },
+      {
+        "phase": "family_uncapped_family_reference",
+        "seconds": 4134.874129292992
+      },
+      {
+        "phase": "family_family_trees",
+        "seconds": 2733.5887731419934
+      },
+      {
+        "phase": "family_family_distances",
+        "seconds": 147.21000877200277
+      },
+      {
+        "phase": "family_frozen_C_and_stability",
+        "seconds": 15.815360662003513
+      },
+      {
+        "phase": "family_frozen_ML",
+        "seconds": 21.708286872017197
+      },
+      {
+        "phase": "family_complete",
+        "seconds": 0.19008236099034548
+      },
+      {
+        "phase": "genus_adaptive_search_and_final",
+        "seconds": 1294.9498024079949
+      }
+    ],
+    "inference_seconds": 8556.384161464986
+  }
+]

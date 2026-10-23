@@ -1,0 +1,7 @@
+{
+  "previous_development_sample_count": 10,
+  "all_ten_primary_genus_call_sets_reproduce_exactly": true,
+  "old_export_seal_sha256": "1c924419b49d0d216df0cbeeb9141dcc974ffd808b230b8bbb94894361e51a70",
+  "old_predictions_csv_sha256": "e09af1e34b235405f8077019a8afc8cf1bbda2a8427d8def52cb8f5a9df5a561",
+  "new_predictions_csv_sha256": "e79027e5bfedf4f838cc69121e976de26b0bb9237e5c1c303e16d4c51a35742f"
+}

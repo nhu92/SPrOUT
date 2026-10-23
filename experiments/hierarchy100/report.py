@@ -73,6 +73,16 @@ def report(batch,output):
                      'The normal routing target is 64 genera and the final complete-pool limit is 512; larger pools abstain.')
     lines+=['','| First genus loss / recovery | Occurrences |','|---|---:|']
     for stage,count in read(output/'EVALUATION_AUDIT.json')['genus_first_losses'].items():lines.append(f'| {stage} | {count} |')
+    unresolved=[r for r in rows if searches[r['sample']]['unresolved_genera']>0]
+    lines+=['',f'{len(unresolved)}/100 searches finish with an unresolved final pool. '
+         'The fully QC-represented count above requires a reference for every candidate genus; '
+         'a missing reference for an irrelevant candidate also marks a panel as partial. '
+         'This status is separate from successful computational completion.', '',
+         '| Genus auxiliary by mixture size | Samples | TP | FP | FN | Precision | Recall | F1 |',
+         '|---|---:|---:|---:|---:|---:|---:|---:|']
+    for r in summary:
+        if r['rank']=='genus' and r['method']=='auxiliary' and r['subset'].startswith('components'):
+            lines.append(f'| {r["subset"]} | {r["samples"]} | {r["TP"]} | {r["FP"]} | {r["FN"]} | {pct(r["precision"])} | {pct(r["recall"])} | {float(r["F1"]):.3f} |')
     lines+=['','Per-sample truth and all error lists are in [by_sample.csv](by_sample.csv). '
          'Every fixed alternate method and mixture-size stratum is in [summary.csv](summary.csv). '
          'Primary outputs are in [primary_predictions.csv](primary_predictions.csv). '
@@ -102,7 +112,7 @@ def report(batch,output):
          'Branch: `experiment/order-to-genus100-20261022`. See [PLAN.md](PLAN.md), '
          '[PROTOCOL.json](PROTOCOL.json), [PREDICTION_SEAL.json](PREDICTION_SEAL.json) and '
          '[EVALUATION_AUDIT.json](EVALUATION_AUDIT.json).','']
-    (output/'REPORT.md').write_text('\n'.join(s.rstrip() for s in lines)+'\n',encoding='utf-8')
+    (output/'REPORT.md').write_text('\n'.join(s.rstrip() for s in lines).rstrip()+'\n',encoding='utf-8')
 
 
 if __name__=='__main__':
