@@ -1,0 +1,2 @@
+PLAN.md -text
+launch/*.sbatch text eol=lf
